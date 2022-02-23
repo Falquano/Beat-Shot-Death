@@ -23,6 +23,8 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private float TempoDuration;
     public float Tempo => TimerTempo / TempoDuration;
 
+    [SerializeField] private int OverHeated = 0;
+
 
     public void LookAt(CallbackContext callBack)
     {
@@ -35,8 +37,6 @@ public class ShootPlayer : MonoBehaviour
     public void OnFire(CallbackContext callBack)
     {
         
-
-        //si lorsque la fonction est appelée, le bouton est appuyé donc Fire = 1
         if (callBack.performed)
         {
             print(Tempo);
@@ -60,20 +60,33 @@ public class ShootPlayer : MonoBehaviour
                 //On vérif si le tir est dans le cadran du tir ok
                 if (Tempo >= ObjectiveShoot - MarginOk && Tempo <= ObjectiveShoot + MarginOk)
                 {
-                    print("ok");
+                    
                     //si le tir est dans le cadran tir parfait
                     if (Tempo >= ObjectiveShoot - MarginPerfect && Tempo <= ObjectiveShoot + MarginPerfect)
                     {
                         //alors on prend le script de l'ennemy touché et on lui retire 30 pts
                         myEnnemyScript.DamageEnnemy(30);
+                        
+
+                        //La surchauffe augmente de 10
+                        OverHeated += 10;
+                        OverHeated = Mathf.Clamp(OverHeated, 0, 100);
+                        print(OverHeated);
                     }
                     else
                     {
                         //Si il n'est pas dans tir parfait mais juste dans le tir ok, on prend le script de l'ennemy et on lui retire 10 pts
                         myEnnemyScript.DamageEnnemy(10);
+                        //La surchauffe descend de 10
+                        OverHeated -= 10;
+                        OverHeated = Mathf.Clamp(OverHeated, 0, 100);
+                        print(OverHeated);
                     }
-                    
-                    
+                    //La surchauffe descend de 30 car le tir est raté.
+                    OverHeated -= 30;
+                    OverHeated = Mathf.Clamp(OverHeated, 0, 100);
+                    print(OverHeated);
+
                 }
             }
             
@@ -97,7 +110,22 @@ public class ShootPlayer : MonoBehaviour
 
         TimerTempo = (TimerTempo + Time.deltaTime) % TempoDuration;
        
+        //faire un calcul en fonction de la surchauffe et de la taille du tir pour que que se soit recalculer à chaque fois
 
+  
 
+        
+
+    }
+
+    public void Overheated(CallbackContext callBack)
+    {
+        //lorsque l'on clic sur R la surchauffe descend de 10 (celle-ci est clamper de 0 à 100)
+        if (callBack.performed)
+        {
+            OverHeated -= 10;
+            OverHeated = Mathf.Clamp(OverHeated, 0, 100);
+            print(OverHeated);
+        }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnnemyBehavior : MonoBehaviour
 {
-    [SerializeField] private int EnnemyLife = 100;
+    [SerializeField] private int EnnemyLife = 1000;
     
 
     // Start is called before the first frame update
@@ -22,8 +22,7 @@ public class EnnemyBehavior : MonoBehaviour
     public void DamageEnnemy(int HitLife)
     {
         EnnemyLife -= HitLife;
-        print(EnnemyLife);
-
+        
         if(EnnemyLife <= 0)
         {
             Destroy(this.gameObject);
