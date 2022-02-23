@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class PlayerAnimator : AnimationInvoker
+public class PlayerLegsAnimator : AnimationInvoker
 {
     private PlayerMove player;
     private Animator animator;
