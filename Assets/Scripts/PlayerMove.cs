@@ -15,11 +15,11 @@ public class PlayerMove : MonoBehaviour
         Move = callBack.ReadValue<Vector2>();
     }
 
-
-
     private void Update()
     {
         myRB = GetComponent<Rigidbody2D>();
         myRB.velocity = Move * Speed;
     }
+
+    public float CurrentSpeed => myRB.velocity.magnitude;
 }
