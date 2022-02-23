@@ -25,6 +25,9 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private float TempoDuration;
     public float Tempo => TimerTempo / TempoDuration;
 
+    // j'ai du rajouter ça, c'est la distance max des pistolets
+    [SerializeField] private float range = 100f;
+
     // Une liste d'empties depuis lesquels le joueur tire
     [SerializeField] private Transform[] Barrels;
     // Une variable qui va de pistolet en pistolet pour alterner lequel tire
@@ -56,7 +59,7 @@ public class ShootPlayer : MonoBehaviour
         Vector2 DirectionShoot = Camera.main.ScreenToWorldPoint(MousePosition) - transform.position;
 
         //on créer un raycast du player dans la direction de la souris de distance max sur un mask sans le player lui-même
-        RaycastHit2D RayShoot = Physics2D.Raycast(transform.position, DirectionShoot.normalized, float.MaxValue, TheMask);
+        RaycastHit2D RayShoot = Physics2D.Raycast(transform.position, DirectionShoot.normalized, range, TheMask);
 
         //Debug
         Debug.DrawLine(transform.position, RayShoot.point, Color.red, 0.2f);
@@ -67,11 +70,11 @@ public class ShootPlayer : MonoBehaviour
             //si le tir est dans le cadran tir parfait
             if (Tempo >= ObjectiveShoot - MarginPerfect && Tempo <= ObjectiveShoot + MarginPerfect)
             {
-                PerfectShot(RayShoot);
+                PerfectShot(RayShoot, DirectionShoot.normalized);
             }
             else
             {
-                OkayShot(RayShoot);
+                OkayShot(RayShoot, DirectionShoot.normalized);
             }
         }
         else
@@ -82,7 +85,7 @@ public class ShootPlayer : MonoBehaviour
         barrelIndex = (barrelIndex + 1) % Barrels.Length;
     }
 
-    private void PerfectShot(RaycastHit2D RayShoot)
+    private void PerfectShot(RaycastHit2D RayShoot, Vector2 direction)
     {
         //On vérifie si il collide avec un élément et si cet élément possède le tag ennemy
         if (RayShoot.collider != null && RayShoot.transform.tag == "Ennemy")
@@ -97,14 +100,14 @@ public class ShootPlayer : MonoBehaviour
         ShotInfo info = new ShotInfo()
         {
             StartPos = Barrels[barrelIndex].position,
-            EndPos = RayShoot.point,
+            EndPos = RaycastHitPoint(RayShoot, direction),
             Quality = ShotQuality.Perfect,
-            ShotObject = RayShoot.transform.gameObject
+            ShotObject = RayShoot.transform == null ? null : RayShoot.transform.gameObject
         };
         OnShotEvent.Invoke(info);
     }
 
-    private void OkayShot(RaycastHit2D RayShoot)
+    private void OkayShot(RaycastHit2D RayShoot, Vector2 direction)
     {
         //On vérifie si il collide avec un élément et si cet élément possède le tag ennemy
         if (RayShoot.collider != null && RayShoot.transform.tag == "Ennemy")
@@ -119,7 +122,7 @@ public class ShootPlayer : MonoBehaviour
         ShotInfo info = new ShotInfo()
         {
             StartPos = Barrels[barrelIndex].position,
-            EndPos = RayShoot.point,
+            EndPos = RaycastHitPoint(RayShoot, direction),
             Quality = ShotQuality.Okay,
             // test ? valeur si vrai : valeur si faux
             // c'est pas giga élégant mais parfois c'est juste pratique
@@ -133,11 +136,19 @@ public class ShootPlayer : MonoBehaviour
         ShotInfo info = new ShotInfo()
         {
             StartPos = Barrels[barrelIndex].position,
-            EndPos = Vector2.zero,
-            Quality = ShotQuality.Okay,
+            EndPos = Barrels[barrelIndex].position,
+            Quality = ShotQuality.Failed,
             ShotObject = null
         };
         OnShotEvent.Invoke(info);
+    }
+
+    public Vector2 RaycastHitPoint(RaycastHit2D hit, Vector3 direction)
+    {
+        if (hit.collider != null)
+            return hit.point;
+
+        return transform.position + direction * range;
     }
 
     // Update is called once per frame
