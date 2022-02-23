@@ -7,7 +7,9 @@ using static UnityEngine.InputSystem.InputAction;
 public class ShootPlayer : MonoBehaviour
 {
     // Ce que ça veut dire c'est que on peut accéder à MousePosition de n'importe où mais on ne peut la modifier que dans cette classe.
-    public Vector2 MousePosition { get; private set; }
+    public Vector2 MouseScreenPosition { get; private set; }
+    public Vector2 MouseWorldPosition => Camera.main.ScreenToWorldPoint(MouseScreenPosition);
+
     [SerializeField] Camera cam;
 
     [SerializeField] private GameObject Bullet;
@@ -39,7 +41,7 @@ public class ShootPlayer : MonoBehaviour
     public void LookAt(CallbackContext callBack)
     {
         //récupération de la position de la souris par rapport à l'écran
-        MousePosition = callBack.ReadValue<Vector2>();
+        MouseScreenPosition = callBack.ReadValue<Vector2>();
         
 
     }
@@ -56,7 +58,7 @@ public class ShootPlayer : MonoBehaviour
     public void Shoot()
     {
         //on calcul la direction entre le player et la souris 
-        Vector2 DirectionShoot = Camera.main.ScreenToWorldPoint(MousePosition) - transform.position;
+        Vector2 DirectionShoot = Camera.main.ScreenToWorldPoint(MouseScreenPosition) - transform.position;
 
         //on créer un raycast du player dans la direction de la souris de distance max sur un mask sans le player lui-même
         RaycastHit2D RayShoot = Physics2D.Raycast(transform.position, DirectionShoot.normalized, range, TheMask);
@@ -155,7 +157,7 @@ public class ShootPlayer : MonoBehaviour
     void Update()
     {
         //calcul à chaque frame de la position de la souris à son dernier déplacement dans le monde.
-        Vector3 screenToWorldPosition = Camera.main.ScreenToWorldPoint(MousePosition);
+        Vector3 screenToWorldPosition = Camera.main.ScreenToWorldPoint(MouseScreenPosition);
 
         float AngleRad = Mathf.Atan2(screenToWorldPosition.y - transform.position.y, screenToWorldPosition.x - transform.position.x);
         // Get Angle in Degrees

@@ -20,7 +20,7 @@ public class Cursor : MonoBehaviour
 
     private void Update()
     {
-        transform.position = player.MousePosition;
+        transform.position = player.MouseScreenPosition;
         // On met la variable "tempo" du material à jour
         material.SetFloat("tempo", player.Tempo);
     }
