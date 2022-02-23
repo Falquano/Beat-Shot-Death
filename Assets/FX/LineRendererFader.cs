@@ -6,8 +6,17 @@ using UnityEngine;
 public class LineRendererFader : MonoBehaviour
 {
     private LineRenderer line;
+    /// <summary>
+    /// Longueur de l'effet. Après ce temps l'objet sera invisible puis détruit.
+    /// </summary>
     [SerializeField] private float effectLength = 1f;
+    /// <summary>
+    /// Courbe qui représente l'évolution de l'alpha de la ligne dans le temps
+    /// </summary>
     [SerializeField] private AnimationCurve blendCurve;
+    /// <summary>
+    /// Couleur de la ligne
+    /// </summary>
     [SerializeField] private Color color;
     private float timer;
 
