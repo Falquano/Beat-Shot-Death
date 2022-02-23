@@ -1,5 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &841055879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 841055881}
+  - component: {fileID: 841055880}
+  m_Layer: 6
+  m_Name: Shot Sounds Emitter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &841055881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841055879}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.83, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9047568458364018869}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &841055880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841055879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -229825436
+      Data2: 1272141621
+      Data3: 1983931013
+      Data4: 814347499
+    Path: event:/Player/Shot
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1934790593474340551
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +104,7 @@ GameObject:
   - component: {fileID: 4505584945322074104}
   - component: {fileID: 6972428706138620612}
   m_Layer: 0
-  m_Name: standing
+  m_Name: Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,6 +138,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35be97a3925895c4e95521b5463b894e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnAnimation:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7462270552646460797}
+        m_TargetAssemblyTypeName: PlayerFXEmitter, Assembly-CSharp
+        m_MethodName: OnFootstep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!212 &4505584945322074104
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -387,6 +463,7 @@ GameObject:
   - component: {fileID: 7462270552646460797}
   - component: {fileID: 9047568458364019018}
   - component: {fileID: 9047568458364019017}
+  - component: {fileID: 785891961}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -407,6 +484,7 @@ Transform:
   m_Children:
   - {fileID: 3510150568580214641}
   - {fileID: 9047568459307142815}
+  - {fileID: 841055881}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -596,6 +674,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ZapLinePrefab: {fileID: 1940587716762264604, guid: 49579de9caa6db04394ad81a9c7044fd, type: 3}
+  GunshotSound:
+    Guid:
+      Data1: -229825436
+      Data2: 1272141621
+      Data3: 1983931013
+      Data4: 814347499
+    Path: event:/Player/Shot
+  FootstepSoundEmitter: {fileID: 785891961}
 --- !u!50 &9047568458364019018
 Rigidbody2D:
   serializedVersion: 4
@@ -633,6 +719,36 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &785891961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047568458364018868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1129316896
+      Data2: 1334514744
+      Data3: 738189469
+      Data4: -1986262331
+    Path: event:/Player/Footstep
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &9047568459307142814
 GameObject:
   m_ObjectHideFlags: 0
