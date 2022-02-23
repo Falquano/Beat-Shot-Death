@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1934790593474340551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6066573306926851924}
+  m_Layer: 0
+  m_Name: Gun Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6066573306926851924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934790593474340551}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.227, y: 1.017, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3510150568580214641}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2433459382994006712
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,7 +59,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0.7069027, w: 0.70731086}
   m_LocalPosition: {x: 0.107, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4556530571230113019}
+  - {fileID: 6066573306926851924}
   m_Father: {fileID: 9047568458364018869}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -89.967}
@@ -115,6 +147,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &4298432577232951212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4556530571230113019}
+  m_Layer: 0
+  m_Name: Gun Left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4556530571230113019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298432577232951212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.274, y: 0.996, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3510150568580214641}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7582482033606924097
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +280,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -322,6 +384,7 @@ GameObject:
   - component: {fileID: 9047568458364019016}
   - component: {fileID: 9047568458364019019}
   - component: {fileID: 438154467995756240}
+  - component: {fileID: 7462270552646460797}
   - component: {fileID: 9047568458364019018}
   - component: {fileID: 9047568458364019017}
   m_Layer: 6
@@ -493,14 +556,45 @@ MonoBehaviour:
   cam: {fileID: 0}
   Bullet: {fileID: 3638173496681213825, guid: 36eb9fb2bdd47c347947a9ac7405bb4c, type: 3}
   myBulletSpawnPoint: {fileID: 7582482033606924097}
-  SpeedBullet: 0
+  SpeedBullet: 18
   TheMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 183
   ObjectiveShoot: 0.5
   MarginPerfect: 0.1
   MarginOk: 0.3
   TempoDuration: 1
+  Barrels:
+  - {fileID: 4556530571230113019}
+  - {fileID: 6066573306926851924}
+  OnShotEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7462270552646460797}
+        m_TargetAssemblyTypeName: PlayerFXEmitter, Assembly-CSharp
+        m_MethodName: OnShoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7462270552646460797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047568458364018868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad9b80e3658f0f4ba695078ece3dbb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ZapLinePrefab: {fileID: 1940587716762264604, guid: 49579de9caa6db04394ad81a9c7044fd, type: 3}
 --- !u!50 &9047568458364019018
 Rigidbody2D:
   serializedVersion: 4
@@ -521,7 +615,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &9047568458364019017
 CircleCollider2D:
   m_ObjectHideFlags: 0

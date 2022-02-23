@@ -31,12 +31,7 @@ public class ShootPlayer : MonoBehaviour
     private int barrelIndex;
 
     // Un event qui s'active quand on tire et envoie les données du tir. Le fonctionnement des events a été bien expliqué par @Céleste dans le channel de prog je crois
-    [SerializeField] public UnityEvent<ShotInfo> OnShotEvent;
-
-    private void Start()
-    {
-        OnShotEvent = new UnityEvent<ShotInfo>();
-    }
+    [SerializeField] public UnityEvent<ShotInfo> OnShotEvent = new UnityEvent<ShotInfo>();
 
     public void LookAt(CallbackContext callBack)
     {
@@ -79,6 +74,10 @@ public class ShootPlayer : MonoBehaviour
                 OkayShot(RayShoot);
             }
         }
+        else
+        {
+            FailedShot();
+        }
 
         barrelIndex = (barrelIndex + 1) % Barrels.Length;
     }
@@ -116,13 +115,15 @@ public class ShootPlayer : MonoBehaviour
             //Si il n'est pas dans tir parfait mais juste dans le tir ok, on prend le script de l'ennemy et on lui retire 10 pts
             myEnnemyScript.DamageEnnemy(10);
         }
-        
+
         ShotInfo info = new ShotInfo()
         {
             StartPos = Barrels[barrelIndex].position,
             EndPos = RayShoot.point,
             Quality = ShotQuality.Okay,
-            ShotObject = RayShoot.transform.gameObject
+            // test ? valeur si vrai : valeur si faux
+            // c'est pas giga élégant mais parfois c'est juste pratique
+            ShotObject = RayShoot.transform == null ? null : RayShoot.transform.gameObject
         };
         OnShotEvent.Invoke(info);
     }

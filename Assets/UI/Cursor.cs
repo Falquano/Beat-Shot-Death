@@ -22,4 +22,9 @@ public class Cursor : MonoBehaviour
         transform.position = player.MousePosition;
         material.SetFloat("tempo", player.Tempo);
     }
+
+    private void OnDestroy()
+    {
+        material.SetFloat("tempo", 0);
+    }
 }
