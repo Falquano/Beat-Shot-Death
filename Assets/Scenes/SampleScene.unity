@@ -1863,9 +1863,21 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 3510150568580214641, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.5
+    - target: {fileID: 3754107176007086593, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: blockedCheckRadius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754107176007086593, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: blockedCheckOffset.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754107176007086593, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: blockedCheckOffset.y
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754107176007086593, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: blockedCheckMask.m_Bits
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9047568458364018868, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: m_Name
