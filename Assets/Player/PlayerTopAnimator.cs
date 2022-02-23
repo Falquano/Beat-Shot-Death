@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerTopAnimator : MonoBehaviour
 {
     private Animator animator;
-    [SerializeField] private Vector2 blockedCheckOffset;
+    [SerializeField] private float blockedCheckOffset;
     [SerializeField] private float blockedCheckRadius;
     [SerializeField] private LayerMask blockedCheckMask;
 
@@ -18,13 +18,13 @@ public class PlayerTopAnimator : MonoBehaviour
     private void Update()
     {
         // On est bloqué si il y a un collider dans la zone juste en face du joueur
-        bool blocked = Physics2D.OverlapCircle(transform.position + (Vector3)blockedCheckOffset, blockedCheckRadius, blockedCheckMask);
+        bool blocked = Physics2D.OverlapCircle(transform.position + transform.up * blockedCheckOffset, blockedCheckRadius, blockedCheckMask);
         animator.SetBool("Blocked", blocked);
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position + (Vector3) blockedCheckOffset, blockedCheckRadius);
+        Gizmos.DrawWireSphere(transform.position + transform.up * blockedCheckOffset, blockedCheckRadius);
     }
 
     public void OnShot(ShotInfo shotInfo)

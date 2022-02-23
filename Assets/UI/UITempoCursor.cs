@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Cursor : MonoBehaviour
+public class UITempoCursor : MonoBehaviour
 {
     [SerializeField] private ShootPlayer player;
     private Material material;
@@ -16,6 +16,7 @@ public class Cursor : MonoBehaviour
     private void Start()
     {
         material = GetComponent<Image>().material;
+        Cursor.visible = false;
     }
 
     private void Update()

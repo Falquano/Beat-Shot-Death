@@ -1864,8 +1864,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420031}
     - target: {fileID: 3754107176007086593, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: blockedCheckOffset
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754107176007086593, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: blockedCheckRadius
-      value: 0.4
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 3754107176007086593, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: blockedCheckOffset.x
