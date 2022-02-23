@@ -10,6 +10,11 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] private float Speed;
 
+    private void Start()
+    {
+        myRB = GetComponent<Rigidbody2D>();
+    }
+
     public void OnMoveInput( CallbackContext callBack)
     {
         Move = callBack.ReadValue<Vector2>();
@@ -17,7 +22,6 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        myRB = GetComponent<Rigidbody2D>();
         myRB.velocity = Move * Speed;
     }
 
