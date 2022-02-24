@@ -780,6 +780,8 @@ GameObject:
   m_Component:
   - component: {fileID: 636008005}
   - component: {fileID: 636008004}
+  - component: {fileID: 636008006}
+  - component: {fileID: 636008007}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: MainCamera
@@ -837,6 +839,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &636008006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636008003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de94e6459c84f0d419fecb9a3d1eea07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShakeFalloff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.06122443
+      outSlope: -0.06122443
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.20416667
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2.4473689
+      outSlope: -2.4473689
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.07916665
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &636008007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636008003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3774bdca412a8c648b99d8062a1c97df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frequency: 0.75
+  time: 0.2
+  failedAmplitude: 0
+  okayAmplitude: 2
+  perfectAmplitude: 4
 --- !u!1 &708667667
 GameObject:
   m_ObjectHideFlags: 3
@@ -848,6 +903,7 @@ GameObject:
   - component: {fileID: 708667668}
   - component: {fileID: 708667670}
   - component: {fileID: 708667669}
+  - component: {fileID: 708667671}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -924,6 +980,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &708667671
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708667667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 1
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &927900717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,6 +1936,34 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: OnShotEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: OnShotEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: OnShotEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 636008007}
+    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: OnShotEvent.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: OnShotEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: OnEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: OnShotEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: CamShakeOnShoot, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: OnShotEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3754107176007086593, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: blockedCheckOffset
       value: 0.72
