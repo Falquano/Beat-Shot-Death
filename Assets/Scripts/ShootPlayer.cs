@@ -42,6 +42,8 @@ public class ShootPlayer : MonoBehaviour
 
     [SerializeField] private AnimationCurve MarginPerfectEvolution;
 
+    [SerializeField] private UIBarFiller comboBar;
+
     public void LookAt(CallbackContext callBack)
     {
         //récupération de la position de la souris par rapport à l'écran
@@ -89,6 +91,8 @@ public class ShootPlayer : MonoBehaviour
         }
 
         barrelIndex = (barrelIndex + 1) % Barrels.Length;
+
+        UpdateComboBar();
     }
 
     private void PerfectShot(RaycastHit2D RayShoot, Vector2 direction)
@@ -101,13 +105,10 @@ public class ShootPlayer : MonoBehaviour
 
             //alors on prend le script de l'ennemy touché et on lui retire 30 pts
             myEnnemyScript.DamageEnnemy(10 + OverHeated / 5);
-
-
-            //La surchauffe augmente de 10
-            OverHeated += 10;
-            OverHeated = Mathf.Clamp(OverHeated, 0, 100);
-            print(OverHeated);
         }
+
+        //La surchauffe augmente de 10
+        OverHeated = Mathf.Clamp(OverHeated + 10, 0, 100);
 
         ShotInfo info = new ShotInfo()
         {
@@ -129,11 +130,10 @@ public class ShootPlayer : MonoBehaviour
 
             //Si il n'est pas dans tir parfait mais juste dans le tir ok, on prend le script de l'ennemy et on lui retire 10 pts
             myEnnemyScript.DamageEnnemy(10);
-            //La surchauffe descend de 10
-            OverHeated -= 10;
-            OverHeated = Mathf.Clamp(OverHeated, 0, 100);
-            print(OverHeated);
         }
+
+        //La surchauffe descend de 10
+        OverHeated = Mathf.Clamp(OverHeated - 10, 0, 100);
 
         ShotInfo info = new ShotInfo()
         {
@@ -150,9 +150,7 @@ public class ShootPlayer : MonoBehaviour
     private void FailedShot()
     {
         //La surchauffe descend de 30 car le tir est raté.
-        OverHeated -= 30;
-        OverHeated = Mathf.Clamp(OverHeated, 0, 100);
-        print(OverHeated);
+        OverHeated = Mathf.Clamp(OverHeated - 30, 0, 100);
 
         ShotInfo info = new ShotInfo()
         {
@@ -162,6 +160,11 @@ public class ShootPlayer : MonoBehaviour
             ShotObject = null
         };
         OnShotEvent.Invoke(info);
+    }
+
+    public void UpdateComboBar()
+    {
+        comboBar.Progress = (float) OverHeated / 100f;
     }
 
     public Vector2 RaycastHitPoint(RaycastHit2D hit, Vector3 direction)
