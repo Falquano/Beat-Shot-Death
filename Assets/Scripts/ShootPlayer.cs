@@ -38,6 +38,10 @@ public class ShootPlayer : MonoBehaviour
     // Un event qui s'active quand on tire et envoie les données du tir. Le fonctionnement des events a été bien expliqué par @Céleste dans le channel de prog je crois
     [SerializeField] public UnityEvent<ShotInfo> OnShotEvent = new UnityEvent<ShotInfo>();
 
+    [SerializeField] private int OverHeated = 0;
+
+    [SerializeField] private AnimationCurve MarginPerfectEvolution;
+
     public void LookAt(CallbackContext callBack)
     {
         //récupération de la position de la souris par rapport à l'écran
@@ -96,7 +100,13 @@ public class ShootPlayer : MonoBehaviour
             EnnemyBehavior myEnnemyScript = RayShoot.transform.GetComponent<EnnemyBehavior>();
 
             //alors on prend le script de l'ennemy touché et on lui retire 30 pts
-            myEnnemyScript.DamageEnnemy(30);
+            myEnnemyScript.DamageEnnemy(10 + OverHeated / 5);
+
+
+            //La surchauffe augmente de 10
+            OverHeated += 10;
+            OverHeated = Mathf.Clamp(OverHeated, 0, 100);
+            print(OverHeated);
         }
 
         ShotInfo info = new ShotInfo()
@@ -119,6 +129,10 @@ public class ShootPlayer : MonoBehaviour
 
             //Si il n'est pas dans tir parfait mais juste dans le tir ok, on prend le script de l'ennemy et on lui retire 10 pts
             myEnnemyScript.DamageEnnemy(10);
+            //La surchauffe descend de 10
+            OverHeated -= 10;
+            OverHeated = Mathf.Clamp(OverHeated, 0, 100);
+            print(OverHeated);
         }
 
         ShotInfo info = new ShotInfo()
@@ -135,6 +149,11 @@ public class ShootPlayer : MonoBehaviour
 
     private void FailedShot()
     {
+        //La surchauffe descend de 30 car le tir est raté.
+        OverHeated -= 30;
+        OverHeated = Mathf.Clamp(OverHeated, 0, 100);
+        print(OverHeated);
+
         ShotInfo info = new ShotInfo()
         {
             StartPos = Barrels[barrelIndex].position,
@@ -167,9 +186,21 @@ public class ShootPlayer : MonoBehaviour
 
 
         TimerTempo = (TimerTempo + Time.deltaTime) % TempoDuration;
-       
 
+        //faire un calcul en fonction de la surchauffe et de la taille du tir pour que que se soit recalculer à chaque fois
 
+        float ChangeValuePerfect = MarginPerfectEvolution.Evaluate(OverHeated / 100f);
+    }
+
+    public void Overheated(CallbackContext callBack)
+    {
+        //lorsque l'on clic sur R la surchauffe descend de 10 (celle-ci est clamper de 0 à 100)
+        if (callBack.performed)
+        {
+            OverHeated -= 10;
+            OverHeated = Mathf.Clamp(OverHeated, 0, 100);
+            print(OverHeated);
+        }
     }
 }
 
