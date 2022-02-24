@@ -25,6 +25,8 @@ public class ShootPlayer : MonoBehaviour
 
     [SerializeField] private int OverHeated = 0;
 
+    [SerializeField] private AnimationCurve MarginPerfectEvolution;
+
 
     public void LookAt(CallbackContext callBack)
     {
@@ -65,7 +67,7 @@ public class ShootPlayer : MonoBehaviour
                     if (Tempo >= ObjectiveShoot - MarginPerfect && Tempo <= ObjectiveShoot + MarginPerfect)
                     {
                         //alors on prend le script de l'ennemy touché et on lui retire 30 pts
-                        myEnnemyScript.DamageEnnemy(30);
+                        myEnnemyScript.DamageEnnemy(10 + OverHeated / 5);
                         
 
                         //La surchauffe augmente de 10
@@ -109,12 +111,15 @@ public class ShootPlayer : MonoBehaviour
 
 
         TimerTempo = (TimerTempo + Time.deltaTime) % TempoDuration;
-       
+
         //faire un calcul en fonction de la surchauffe et de la taille du tir pour que que se soit recalculer à chaque fois
 
-  
+        float ChangeValuePerfect = MarginPerfectEvolution.Evaluate(OverHeated / 100f);
 
-        
+
+
+
+
 
     }
 
