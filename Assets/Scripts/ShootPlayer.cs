@@ -5,7 +5,8 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class ShootPlayer : MonoBehaviour
 {
-    private Vector2 mousePosition;
+    // Ce que ça veut dire c'est que on peut accéder à MousePosition de n'importe où mais on ne peut la modifier que dans cette classe.
+    public Vector2 MousePosition { get; private set; }
     [SerializeField] Camera cam;
 
     [SerializeField] private GameObject Bullet;
@@ -31,7 +32,7 @@ public class ShootPlayer : MonoBehaviour
     public void LookAt(CallbackContext callBack)
     {
         //récupération de la position de la souris par rapport à l'écran
-        mousePosition = callBack.ReadValue<Vector2>();
+        MousePosition = callBack.ReadValue<Vector2>();
         
 
     }
@@ -43,7 +44,7 @@ public class ShootPlayer : MonoBehaviour
         {
             print(Tempo);
             //on calcul la direction entre le player et la souris 
-            Vector2 DirectionShoot = Camera.main.ScreenToWorldPoint(mousePosition) - transform.position;
+            Vector2 DirectionShoot = Camera.main.ScreenToWorldPoint(MousePosition) - transform.position;
 
             //on créer un raycast du player dans la direction de la souris de distance max sur un mask sans le player lui-même
             RaycastHit2D RayShoot = Physics2D.Raycast(transform.position, DirectionShoot.normalized, float.MaxValue, TheMask);
@@ -84,11 +85,15 @@ public class ShootPlayer : MonoBehaviour
                         OverHeated = Mathf.Clamp(OverHeated, 0, 100);
                         print(OverHeated);
                     }
+                    
+
+                }
+                else
+                {
                     //La surchauffe descend de 30 car le tir est raté.
                     OverHeated -= 30;
                     OverHeated = Mathf.Clamp(OverHeated, 0, 100);
                     print(OverHeated);
-
                 }
             }
             
@@ -101,7 +106,7 @@ public class ShootPlayer : MonoBehaviour
     void Update()
     {
         //calcul à chaque frame de la position de la souris à son dernier déplacement dans le monde.
-        Vector3 screenToWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        Vector3 screenToWorldPosition = Camera.main.ScreenToWorldPoint(MousePosition);
 
         float AngleRad = Mathf.Atan2(screenToWorldPosition.y - transform.position.y, screenToWorldPosition.x - transform.position.x);
         // Get Angle in Degrees

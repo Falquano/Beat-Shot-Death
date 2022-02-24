@@ -19,7 +19,7 @@ public class EnnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject bulletEnnemy = Instantiate(BulletGO, SpawnPoint.transform.position, SpawnPoint.transform.rotation, SpawnPoint.transform);
+        //GameObject bulletEnnemy = Instantiate(BulletGO, SpawnPoint.transform.position, SpawnPoint.transform.rotation, SpawnPoint.transform);
     }
 
     public void DamageEnnemy(int HitLife)
