@@ -338,6 +338,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ef115cb0dd8844e95be61a94dec3e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockedCheckOffset: 0.72
+  blockedCheckRadius: 0.34
+  blockedCheckMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &4298432577232951212
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,6 +584,7 @@ GameObject:
   - component: {fileID: 9047568458364019018}
   - component: {fileID: 9047568458364019017}
   - component: {fileID: 785891961}
+  - component: {fileID: 3316368271203545240}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -717,6 +723,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 616b3163-2591-41b3-9ab6-f668eeb9fbf6
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7a890da8-74f7-4de5-8583-8aa52152f057
+    m_ActionName: Player/Surchauffe[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -754,10 +764,6 @@ MonoBehaviour:
   TheMask:
     serializedVersion: 2
     m_Bits: 183
-  ObjectiveShoot: 0.5
-  MarginPerfect: 0.1
-  MarginOk: 0.3
-  TempoDuration: 1
   range: 100
   Barrels:
   - {fileID: 4556530571230113019}
@@ -789,6 +795,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CamShakeOnShoot, Assembly-CSharp
+        m_MethodName: OnEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OverHeated: 0
+  comboBar: {fileID: 0}
+  tempoManager: {fileID: 0}
 --- !u!114 &7462270552646460797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,6 +898,25 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &3316368271203545240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047568458364018868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23a8dda09d8aab41861a79d362ba830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 0
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9047568459307142814
 GameObject:
   m_ObjectHideFlags: 0

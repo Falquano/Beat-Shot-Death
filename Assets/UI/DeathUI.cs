@@ -8,7 +8,7 @@ public class DeathUI : MonoBehaviour
     [SerializeField] private GameObject deathScreen;
     [SerializeField] private GameObject cursor;
 
-    protected void OnDeath()
+    public void OnDeath()
     {
         Destroy(cursor);
         Cursor.visible = true;

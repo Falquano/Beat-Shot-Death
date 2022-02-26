@@ -14,10 +14,14 @@ public class PlayerHealth : MonoBehaviour
     private int health;
     public int Health => health;
 
-
+    private void Start()
+    {
+        health = MaxHealth;
+    }
     public void DealDamage(int amount)
     {
         health -= amount;
+        print(health);
 
         onTakeDamage.Invoke();
 
