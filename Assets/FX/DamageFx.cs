@@ -29,13 +29,11 @@ public class DamageFx : MonoBehaviour
         // Ensuite on lance l'effet de vignette
         timer = 0f;
         enabled = true;
-        Debug.Log("Enabled");
     }
 
     private void Update()
     {
         timer += Time.deltaTime;
-        Debug.Log("Zip");
 
         if (timer >= vignetteDuration)
         {

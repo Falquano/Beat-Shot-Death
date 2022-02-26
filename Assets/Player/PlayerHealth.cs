@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
     public void DealDamage(int amount)
     {
         health -= amount;
-        print(health);
+        //print(health);
 
         onTakeDamage.Invoke(amount);
 

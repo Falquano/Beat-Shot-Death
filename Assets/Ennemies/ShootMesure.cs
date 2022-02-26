@@ -27,6 +27,9 @@ public class ShootMesure : Mesure
 
     private void Shoot()
     {
+        if (behavior.Player == null)
+            return;
+
         // Ici il faut ajouter le tir ennemi
         // Fait le au raycast, pas au projectile
         //on calcul la direction entre l'ennemi et le player
@@ -38,7 +41,7 @@ public class ShootMesure : Mesure
 
         if(RayShootEnnemy.collider != null)
         {
-            print("check");
+            //print("check");
             ZapLine(barrel.position, RayShootEnnemy.point);
 
             if(RayShootEnnemy.collider.tag == "Player")

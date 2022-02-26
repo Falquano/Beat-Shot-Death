@@ -17,6 +17,9 @@ public class AimMesure : Mesure
 
     private void Update()
     {
+        if (behavior.Player == null)
+            return;
+
         // Ici ajouter le code de déplacement. Il faut juste rester tourné vers le joueur et s'approcher de lui
         Transform PlayerTransform = behavior.Player.GetComponent<Transform>();
 
