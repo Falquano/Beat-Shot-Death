@@ -95,8 +95,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.3726415, g: 1, b: 0.9405855, a: 1}
-      key1: {r: 0.3726415, g: 1, b: 0.9405855, a: 1}
+      key0: {r: 0.42631185, g: 1, b: 0, a: 1}
+      key1: {r: 0, g: 1, b: 0.5125196, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -143,28 +143,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectLength: 0.3
-  blendCurve:
+  blendOverTime:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1.0000014
-      inSlope: 0.016368907
-      outSlope: 0.016368907
+      value: 0
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.23913364
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: -0.0000076293945
-      inSlope: -2.414582
-      outSlope: -2.414582
+      value: 1
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.06693405
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  color: {r: 0.37254903, g: 1, b: 0.9411765, a: 1}
+  widthOverTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.1000061
+      inSlope: 0.127337
+      outSlope: 0.127337
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.0730497
+    - serializedVersion: 3
+      time: 0.98999995
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  startColor: {r: 74.2902, g: 248.97255, b: 201.78824, a: 1}
+  endColor: {r: 0.22352941, g: 0.7490196, b: 0.60784316, a: 0.007843138}

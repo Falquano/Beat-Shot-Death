@@ -13,11 +13,16 @@ public class LineRendererFader : MonoBehaviour
     /// <summary>
     /// Courbe qui représente l'évolution de l'alpha de la ligne dans le temps
     /// </summary>
-    [SerializeField] private AnimationCurve blendCurve;
+    [SerializeField] private AnimationCurve blendOverTime;
+    [SerializeField] private AnimationCurve widthOverTime;
     /// <summary>
     /// Couleur de la ligne
     /// </summary>
-    [SerializeField] private Color color;
+    [ColorUsageAttribute(true, true)]
+    [SerializeField] private Color startColor;
+    [ColorUsageAttribute(true, true)]
+    [SerializeField] private Color endColor;
+
     private float timer;
 
     private float Advancement => timer / effectLength;
@@ -31,13 +36,16 @@ public class LineRendererFader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float value = blendCurve.Evaluate(Advancement);
+        float value = blendOverTime.Evaluate(Advancement);
 
-        Color currentColor = color;
-        currentColor.a = value;
+        Color currentColor = Color.Lerp(startColor, endColor, value);
+        
+        line.material.SetColor("_EmissionColor", currentColor);
 
-        line.startColor = currentColor;
-        line.endColor = currentColor;
+        float newWidth = widthOverTime.Evaluate(Advancement);
+        //line.widthMultiplier = newWidth;
+        line.startWidth = newWidth;
+        line.endWidth = newWidth;
 
         timer += Time.deltaTime;
 
