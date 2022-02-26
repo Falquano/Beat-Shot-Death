@@ -19,14 +19,6 @@ public class ShootPlayer : MonoBehaviour
 
     [SerializeField] LayerMask TheMask;
 
-    //variable pour le tir en tempo
-    [SerializeField] private float ObjectiveShoot = 0.5f;
-    [SerializeField] private float MarginPerfect = 0.1f;
-    [SerializeField] private float MarginOk = 0.3f;
-    private float TimerTempo;
-    [SerializeField] private float TempoDuration;
-    public float Tempo => TimerTempo / TempoDuration;
-
     // j'ai du rajouter ça, c'est la distance max des pistolets
     [SerializeField] private float range = 100f;
 
@@ -40,16 +32,15 @@ public class ShootPlayer : MonoBehaviour
 
     [SerializeField] private int OverHeated = 0;
 
-    [SerializeField] private AnimationCurve MarginPerfectEvolution;
 
     [SerializeField] private UIBarFiller comboBar;
+
+    [SerializeField] private TempoManager tempoManager;
 
     public void LookAt(CallbackContext callBack)
     {
         //récupération de la position de la souris par rapport à l'écran
         MouseScreenPosition = callBack.ReadValue<Vector2>();
-        
-
     }
 
     public void OnFire(CallbackContext callBack)
@@ -73,21 +64,18 @@ public class ShootPlayer : MonoBehaviour
         Debug.DrawLine(transform.position, RayShoot.point, Color.red, 0.2f);
 
         //On vérif si le tir est dans le cadran du tir ok
-        if (Tempo >= ObjectiveShoot - MarginOk && Tempo <= ObjectiveShoot + MarginOk)
+        
+        switch (tempoManager.ShotQualityNow())
         {
-            //si le tir est dans le cadran tir parfait
-            if (Tempo >= ObjectiveShoot - MarginPerfect && Tempo <= ObjectiveShoot + MarginPerfect)
-            {
-                PerfectShot(RayShoot, DirectionShoot.normalized);
-            }
-            else
-            {
+            case ShotQuality.Failed:
+                FailedShot();
+                break;
+            case ShotQuality.Okay:
                 OkayShot(RayShoot, DirectionShoot.normalized);
-            }
-        }
-        else
-        {
-            FailedShot();
+                break;
+            case ShotQuality.Perfect:
+                PerfectShot(RayShoot, DirectionShoot.normalized);
+                break;
         }
 
         barrelIndex = (barrelIndex + 1) % Barrels.Length;
@@ -187,12 +175,7 @@ public class ShootPlayer : MonoBehaviour
         // Rotate Object
         this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
 
-
-        TimerTempo = (TimerTempo + Time.deltaTime) % TempoDuration;
-
-        //faire un calcul en fonction de la surchauffe et de la taille du tir pour que que se soit recalculer à chaque fois
-
-        float ChangeValuePerfect = MarginPerfectEvolution.Evaluate(OverHeated / 100f);
+        tempoManager.Combo = OverHeated;
     }
 
     public void Overheated(CallbackContext callBack)

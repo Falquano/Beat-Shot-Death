@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UITempoCursor : MonoBehaviour
 {
     [SerializeField] private ShootPlayer player;
+    [SerializeField] private TempoManager tempo;
     private Material material;
 
     // Avec ces 3 fields on peut facilement prendre et assigner des valeurs aux variable importantes du material
@@ -23,7 +24,7 @@ public class UITempoCursor : MonoBehaviour
     {
         transform.position = player.MouseScreenPosition;
         // On met la variable "tempo" du material à jour
-        material.SetFloat("tempo", player.Tempo);
+        material.SetFloat("tempo", tempo.Tempo);
     }
 
     // J'ai fait ça pour être propre mais c'est pas giga important
