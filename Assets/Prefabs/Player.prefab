@@ -85,7 +85,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934790593474340551}
   m_LocalRotation: {x: -0, y: -0, z: 0.00028863546, w: 1}
-  m_LocalPosition: {x: 0.1769999, y: 1.2469999, z: 0}
+  m_LocalPosition: {x: 0.131, y: 1.382, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6379562730490035938}
@@ -367,7 +367,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4298432577232951212}
   m_LocalRotation: {x: -0, y: -0, z: 0.00028863546, w: 1}
-  m_LocalPosition: {x: -0.4410002, y: 1.2010002, z: 0}
+  m_LocalPosition: {x: -0.476, y: 1.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6379562730490035938}
@@ -758,9 +758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  Bullet: {fileID: 3638173496681213825, guid: 36eb9fb2bdd47c347947a9ac7405bb4c, type: 3}
   myBulletSpawnPoint: {fileID: 7582482033606924097}
-  SpeedBullet: 18
   TheMask:
     serializedVersion: 2
     m_Bits: 183
@@ -807,8 +805,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OverHeated: 0
-  comboBar: {fileID: 0}
+  combo: 0
+  maxCombo: 100
+  onComboChange:
+    m_PersistentCalls:
+      m_Calls: []
   tempoManager: {fileID: 0}
 --- !u!114 &7462270552646460797
 MonoBehaviour:
