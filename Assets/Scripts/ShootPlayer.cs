@@ -12,10 +12,7 @@ public class ShootPlayer : MonoBehaviour
 
     [SerializeField] Camera cam;
 
-    [SerializeField] private GameObject Bullet;
     [SerializeField] private GameObject myBulletSpawnPoint;
-
-    [SerializeField] private float SpeedBullet;
 
     [SerializeField] LayerMask TheMask;
 
@@ -30,10 +27,12 @@ public class ShootPlayer : MonoBehaviour
     // Un event qui s'active quand on tire et envoie les données du tir. Le fonctionnement des events a été bien expliqué par @Céleste dans le channel de prog je crois
     [SerializeField] public UnityEvent<ShotInfo> OnShotEvent = new UnityEvent<ShotInfo>();
 
-    [SerializeField] private int OverHeated = 0;
-
-
-    [SerializeField] private UIBarFiller comboBar;
+    [SerializeField] private int combo = 0;
+    [SerializeField] private int maxCombo = 100;
+    /// <summary>
+    /// Évènement invoqué lorsque la valeur de combo change. Envoie la nouvelle valeur suivie de maxCombo.
+    /// </summary>
+    [SerializeField] public UnityEvent<int, int> onComboChange = new UnityEvent<int, int>();
 
     [SerializeField] private TempoManager tempoManager;
 
@@ -79,8 +78,6 @@ public class ShootPlayer : MonoBehaviour
         }
 
         barrelIndex = (barrelIndex + 1) % Barrels.Length;
-
-        UpdateComboBar();
     }
 
     private void PerfectShot(RaycastHit2D RayShoot, Vector2 direction)
@@ -92,11 +89,12 @@ public class ShootPlayer : MonoBehaviour
             EnnemyBehavior myEnnemyScript = RayShoot.transform.GetComponent<EnnemyBehavior>();
 
             //alors on prend le script de l'ennemy touché et on lui retire 30 pts
-            myEnnemyScript.DamageEnnemy(10 + OverHeated / 5);
+            myEnnemyScript.DamageEnnemy(10 + combo / 5);
         }
 
         //La surchauffe augmente de 10
-        OverHeated = Mathf.Clamp(OverHeated + 10, 0, 100);
+        combo = Mathf.Clamp(combo + 10, 0, maxCombo);
+        onComboChange.Invoke(combo, maxCombo);
 
         ShotInfo info = new ShotInfo()
         {
@@ -121,7 +119,8 @@ public class ShootPlayer : MonoBehaviour
         }
 
         //La surchauffe descend de 10
-        OverHeated = Mathf.Clamp(OverHeated - 10, 0, 100);
+        combo = Mathf.Clamp(combo - 10, 0, maxCombo);
+        onComboChange.Invoke(combo, maxCombo);
 
         ShotInfo info = new ShotInfo()
         {
@@ -138,7 +137,8 @@ public class ShootPlayer : MonoBehaviour
     private void FailedShot()
     {
         //La surchauffe descend de 30 car le tir est raté.
-        OverHeated = Mathf.Clamp(OverHeated - 30, 0, 100);
+        combo = Mathf.Clamp(combo - 30, 0, maxCombo);
+        onComboChange.Invoke(combo, maxCombo);
 
         ShotInfo info = new ShotInfo()
         {
@@ -148,11 +148,6 @@ public class ShootPlayer : MonoBehaviour
             ShotObject = null
         };
         OnShotEvent.Invoke(info);
-    }
-
-    public void UpdateComboBar()
-    {
-        comboBar.Progress = (float) OverHeated / 100f;
     }
 
     public Vector2 RaycastHitPoint(RaycastHit2D hit, Vector3 direction)
@@ -175,7 +170,7 @@ public class ShootPlayer : MonoBehaviour
         // Rotate Object
         this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
 
-        tempoManager.Combo = OverHeated;
+        tempoManager.Combo = combo;
     }
 
     public void Overheated(CallbackContext callBack)
@@ -183,9 +178,10 @@ public class ShootPlayer : MonoBehaviour
         //lorsque l'on clic sur R la surchauffe descend de 10 (celle-ci est clamper de 0 à 100)
         if (callBack.performed)
         {
-            OverHeated -= 10;
-            OverHeated = Mathf.Clamp(OverHeated, 0, 100);
-            print(OverHeated);
+            combo -= 10;
+            combo = Mathf.Clamp(combo, 0, maxCombo);
+            onComboChange.Invoke(combo, maxCombo);
+            print(combo);
         }
     }
 }

@@ -22,13 +22,18 @@ public class UIBarFiller : MonoBehaviour
         rect = GetComponent<RectTransform>();
     }
 
-    private void SetProgress(float value)
+    public void SetProgress(float value)
     {
         interpolationOrigin = progress;
         progress = value;
         UpdateBar();
         timer = 0f;
         enabled = true;
+    }
+
+    public void SetProgress(int value, int max)
+    {
+        SetProgress((float)value / (float)max);
     }
 
     private void UpdateBar()
