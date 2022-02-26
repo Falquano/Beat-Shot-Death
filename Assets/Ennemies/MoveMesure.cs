@@ -39,17 +39,17 @@ public class MoveMesure : Mesure
 
         if (DistanceWithPlayer < Distance + ValueMargin && DistanceWithPlayer > Distance - ValueMargin)
         {
-            print("R");
+            //print("R1");
         }
         else if (DistanceWithPlayer < Distance - ValueMargin)
         {
             behavior.Rigidbody.velocity = -DirectionPlayer.normalized * speed;
-            print("reculer");
+            //print("reculer");
         }
         else if (DistanceWithPlayer > Distance + ValueMargin)
         {
             behavior.Rigidbody.velocity = DirectionPlayer.normalized * speed;
-            print("avancer");
+            //print("avancer");
         }
     }
 }

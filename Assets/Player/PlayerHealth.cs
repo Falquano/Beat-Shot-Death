@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int MaxHealth;
     //[SerializeField] private int MaxShield;
 
-    [SerializeField] public UnityEvent onTakeDamage;
+    [SerializeField] public UnityEvent<int> onTakeDamage;
     [SerializeField] public UnityEvent onDie;
 
     private int health;
@@ -23,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
         health -= amount;
         print(health);
 
-        onTakeDamage.Invoke();
+        onTakeDamage.Invoke(amount);
 
         if (health <= 0)
         {
