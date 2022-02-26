@@ -4,22 +4,44 @@ using UnityEngine;
 
 public class EnnemyBehavior : MonoBehaviour
 {
-    [SerializeField] private int EnnemyLife = 1000;
+    private TempoManager tempo;
+    [SerializeField] private int EnnemyLife = 100;
 
-    [SerializeField] private GameObject BulletGO;
-    [SerializeField] private GameObject SpawnPoint;
+    [SerializeField] private Mesure[] mesures;
+    private int currentMesure;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        tempo = FindObjectOfType<TempoManager>();
+        tempo.onMesureStart.AddListener(OnNewMesure);
+        currentMesure = 0;
+
+        for (int i = 1; i < mesures.Length; i++)
+        {
+            InitMesure(i);
+            SetBehaviorEnabled(i, false);
+        }
+        InitMesure(0);
+        SetBehaviorEnabled(0, true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnNewMesure(int newMesure)
     {
-        //GameObject bulletEnnemy = Instantiate(BulletGO, SpawnPoint.transform.position, SpawnPoint.transform.rotation, SpawnPoint.transform);
+        SetBehaviorEnabled(currentMesure, false);
+        SetBehaviorEnabled(newMesure, true);
+        currentMesure = newMesure;
+    }
+
+    private void SetBehaviorEnabled(int index, bool enabled)
+    {
+        if (mesures[index] != null)
+            mesures[index].enabled = enabled;
+    }
+
+    private void InitMesure(int index)
+    {
+        if (mesures[index] != null)
+            mesures[index].Init();
     }
 
     public void DamageEnnemy(int HitLife)
@@ -30,6 +52,5 @@ public class EnnemyBehavior : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
     }
 }

@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1982093569}
-  tempo: {fileID: 0}
+  tempo: {fileID: 1592097980}
 --- !u!1 &184324136
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,6 +998,47 @@ MonoBehaviour:
   m_AmplitudeGain: 0
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!1 &782055326 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7226625388907849313, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+  m_PrefabInstance: {fileID: 7226625389654787545}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &782055327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782055326}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95274270c9ca2a64182e92ca912c4a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &782055328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782055326}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f26b190710f684e8c6b1f3faaa0962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &782055329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782055326}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c6fa906b42a1543ae9fa3ac11c4652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &818708342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +1860,12 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   mesurePerRound: 4
+  onMesureStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onTimeToShoot:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1902691704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,26 +2214,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1630426938978788770, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
-      propertyPath: m_Height
-      value: 0.82
+    - target: {fileID: 6439272819357905743, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: mesures.Array.size
+      value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1630426938978788770, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
-      propertyPath: m_Radius
-      value: 0.54
+    - target: {fileID: 6439272819357905743, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: behavior.Array.size
+      value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1630426938978788770, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1630426938978788770, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
-      propertyPath: avoidancePriority
-      value: 43
-      objectReference: {fileID: 0}
-    - target: {fileID: 3545197617776795924, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 6439272819357905743, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: mesures.Array.data[0]
+      value: 
+      objectReference: {fileID: 782055328}
+    - target: {fileID: 6439272819357905743, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: mesures.Array.data[1]
+      value: 
+      objectReference: {fileID: 782055329}
+    - target: {fileID: 6439272819357905743, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: mesures.Array.data[3]
+      value: 
+      objectReference: {fileID: 782055327}
+    - target: {fileID: 6439272819357905743, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: behavior.Array.data[0]
+      value: 
+      objectReference: {fileID: 782055328}
+    - target: {fileID: 6439272819357905743, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: behavior.Array.data[1]
+      value: 
+      objectReference: {fileID: 782055329}
+    - target: {fileID: 6439272819357905743, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: behavior.Array.data[3]
+      value: 
+      objectReference: {fileID: 782055327}
     - target: {fileID: 7226625388907849312, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
       propertyPath: m_RootOrder
       value: 6

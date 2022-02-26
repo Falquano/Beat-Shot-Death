@@ -19,7 +19,8 @@ public class TempoManager : MonoBehaviour
 
     [SerializeField] private int mesurePerRound = 4;
     public int Mesure { get; private set; }
-    [SerializeField] private UnityEvent<int> OnMesureStart = new UnityEvent<int>();
+    [SerializeField] public UnityEvent<int> onMesureStart = new UnityEvent<int>();
+    [SerializeField] public UnityEvent onTimeToShoot = new UnityEvent();
 
     // Update is called once per frame
     void Update()
@@ -28,6 +29,10 @@ public class TempoManager : MonoBehaviour
         if (TimerTempo >= TempoDuration)
         {
             NouvelleMesure();
+        }
+        if (TimerTempo - Time.deltaTime < ObjectiveShoot && TimerTempo >= ObjectiveShoot)
+        {
+            TimeToShoot();
         }
 
         TimerTempo %= TempoDuration;
@@ -40,8 +45,14 @@ public class TempoManager : MonoBehaviour
 
     private void NouvelleMesure()
     {
+        //Debug.Log("---\tMesure");
         Mesure = (Mesure + 1) % mesurePerRound;
-        OnMesureStart.Invoke(Mesure);
+        onMesureStart.Invoke(Mesure);
+    }
+
+    private void TimeToShoot()
+    {
+        onTimeToShoot.Invoke();
     }
 
     public ShotQuality ShotQualityNow()
