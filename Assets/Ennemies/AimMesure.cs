@@ -7,6 +7,12 @@ public class AimMesure : Mesure
     private void OnEnable()
     {
         //Debug.Log("Ennemy is now aiming");
+        animator.SetBool("Aiming", true);
+    }
+
+    private void OnDisable()
+    {
+        //animator.SetBool("Aiming", false);
     }
 
     private void Update()

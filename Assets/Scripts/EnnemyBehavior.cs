@@ -13,13 +13,17 @@ public class EnnemyBehavior : MonoBehaviour
 
     [SerializeField] public GameObject Player;
 
-    public Rigidbody2D RigidBodyEnnemy;
+    private Rigidbody2D rigidBodyEnnemy;
+    public Rigidbody2D Rigidbody => rigidBodyEnnemy;
+
+    private Animator animator;
 
     private void Start()
     {
         tempo = FindObjectOfType<TempoManager>();
         tempo.onMesureStart.AddListener(OnNewMesure);
         currentMesure = 0;
+        animator = GetComponentInChildren<Animator>();
 
         for (int i = 1; i < mesures.Length; i++)
         {
@@ -30,11 +34,14 @@ public class EnnemyBehavior : MonoBehaviour
         SetBehaviorEnabled(0, true);
 
 
-        RigidBodyEnnemy = GetComponent<Rigidbody2D>();
+        rigidBodyEnnemy = GetComponent<Rigidbody2D>();
     }
 
     public void OnNewMesure(int newMesure)
     {
+        if (!enabled)
+            return;
+
         SetBehaviorEnabled(currentMesure, false);
         SetBehaviorEnabled(newMesure, true);
         currentMesure = newMesure;
@@ -55,10 +62,25 @@ public class EnnemyBehavior : MonoBehaviour
     public void DamageEnnemy(int HitLife)
     {
         EnnemyLife -= HitLife;
-        
+        animator.SetTrigger("Hurt");
+
         if(EnnemyLife <= 0)
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            enabled = false;
+            SetBehaviorEnabled(currentMesure, false);
+            animator.SetBool("Alive", false);
+
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        foreach (Mesure mesure in mesures)
+            Destroy(mesure);
+        Destroy(Rigidbody);
+        Destroy(GetComponent<Collider2D>());
+        Destroy(this);
     }
 }

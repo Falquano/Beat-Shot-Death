@@ -1,0 +1,501 @@
+fileFormatVersion: 2
+guid: a731c4ee59666c9479f3fecf1be5c104
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8920419727586902300
+    second: Walk1
+  - first:
+      213: 8479228535635351594
+    second: Walk2
+  - first:
+      213: -8004535036855275241
+    second: Walk3
+  - first:
+      213: -6104751422325269053
+    second: Walk4
+  - first:
+      213: -121106873689423226
+    second: Ennemy Spritesheet_23
+  - first:
+      213: 5837366716300319379
+    second: Aim
+  - first:
+      213: 592515011734012025
+    second: Ennemy Spritesheet_31
+  - first:
+      213: -4155283392775289949
+    second: Ennemy Spritesheet_37
+  - first:
+      213: -8460001987271311806
+    second: Ennemy Spritesheet_48
+  - first:
+      213: 5191852224047263678
+    second: Ennemy Spritesheet_50
+  - first:
+      213: -54277573683760182
+    second: Ennemy Spritesheet_51
+  - first:
+      213: 3860003570154007466
+    second: Ennemy Spritesheet_53
+  - first:
+      213: -1971613717831102136
+    second: Ennemy Spritesheet_55
+  - first:
+      213: 2120208913978688536
+    second: Ennemy Spritesheet_56
+  - first:
+      213: -4453103695475872019
+    second: Ennemy Spritesheet_58
+  - first:
+      213: 8834959546553508931
+    second: Ennemy Spritesheet_59
+  - first:
+      213: -5811555157852861138
+    second: Rest
+  - first:
+      213: 4973518636983656780
+    second: Ded1
+  - first:
+      213: 2257300899371695595
+    second: Ded2
+  - first:
+      213: -4107914464434678739
+    second: Ded3
+  - first:
+      213: -4897922157820501755
+    second: Hurt1
+  - first:
+      213: 1595518175174238230
+    second: Hurt2
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Walk1
+      rect:
+        serializedVersion: 2
+        x: 5943
+        y: 4703
+        width: 305
+        height: 385
+      alignment: 9
+      pivot: {x: 0.4584961, y: 0.26498199}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eebbc9258d443480800000000000000
+      internalID: -8920419727586902300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk2
+      rect:
+        serializedVersion: 2
+        x: 6376
+        y: 4622
+        width: 300
+        height: 462
+      alignment: 9
+      pivot: {x: 0.48750976, y: 0.37838098}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2896e3ad654ca570800000000000000
+      internalID: 8479228535635351594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk3
+      rect:
+        serializedVersion: 2
+        x: 6819
+        y: 4703
+        width: 305
+        height: 385
+      alignment: 9
+      pivot: {x: 0.47406185, y: 0.26574042}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 711b2183bcd2ae090800000000000000
+      internalID: -8004535036855275241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk4
+      rect:
+        serializedVersion: 2
+        x: 7235
+        y: 4644
+        width: 313
+        height: 451
+      alignment: 9
+      pivot: {x: 0.4797792, y: 0.35615623}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cddd3efce0974ba0800000000000000
+      internalID: -6104751422325269053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ennemy Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 7695
+        y: 4703
+        width: 305
+        height: 385
+      alignment: 9
+      pivot: {x: 0.47406027, y: 0.26162997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68242e5a0fdb15ef0800000000000000
+      internalID: -121106873689423226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Aim
+      rect:
+        serializedVersion: 2
+        x: 6411
+        y: 4117
+        width: 238
+        height: 424
+      alignment: 9
+      pivot: {x: 0.45750928, y: 0.26624918}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39ad4ccc91e720150800000000000000
+      internalID: 5837366716300319379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ennemy Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 2125
+        y: 3853
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9700e7e8349093800800000000000000
+      internalID: 592515011734012025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ennemy Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 2937
+        y: 3096
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a38c8815c77556c0800000000000000
+      internalID: -4155283392775289949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ennemy Spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 4182
+        y: 1625
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 344a441e5e41c9a70800000000000000
+      internalID: 8834959546553508931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rest
+      rect:
+        serializedVersion: 2
+        x: 5853
+        y: 5345
+        width: 375
+        height: 293
+      alignment: 9
+      pivot: {x: 0.5828659, y: 0.23871288}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d4797ff55395fa0800000000000000
+      internalID: -5811555157852861138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ded1
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 1540
+        width: 474
+        height: 412
+      alignment: 9
+      pivot: {x: 0.512316, y: 0.12686987}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c41223979dc750540800000000000000
+      internalID: 4973518636983656780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ded2
+      rect:
+        serializedVersion: 2
+        x: 1838
+        y: 1489
+        width: 440
+        height: 479
+      alignment: 9
+      pivot: {x: 0.46461904, y: 0.26031175}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bed3832553b835f10800000000000000
+      internalID: 2257300899371695595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ded3
+      rect:
+        serializedVersion: 2
+        x: 2542
+        y: 1488
+        width: 353
+        height: 660
+      alignment: 9
+      pivot: {x: 0.43936113, y: 0.26412797}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d249eab2f81cdf6c0800000000000000
+      internalID: -4107914464434678739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hurt1
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 1830
+        width: 301
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 501289d6fb5170cb0800000000000000
+      internalID: -4897922157820501755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hurt2
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 1782
+        width: 321
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610a0ffa35b642610800000000000000
+      internalID: 1595518175174238230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

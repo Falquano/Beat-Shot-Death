@@ -8,6 +8,18 @@ public class MoveMesure : Mesure
     [SerializeField] private float speed;
     [SerializeField] private float ValueMargin;
 
+    private void OnEnable()
+    {
+        animator.SetBool("Moving", true);
+        animator.SetBool("Aiming", false);
+    }
+
+    private void OnDisable()
+    {
+        animator.SetBool("Moving", false);
+        behavior.Rigidbody.velocity = Vector2.zero;
+    }
+
     private void Update()
     {
         // Ici ajouter le code de déplacement. Il faut juste rester tourné vers le joueur et s'approcher de lui
@@ -31,21 +43,13 @@ public class MoveMesure : Mesure
         }
         else if (DistanceWithPlayer < Distance - ValueMargin)
         {
-            behavior.RigidBodyEnnemy.velocity = -DirectionPlayer.normalized * speed;
+            behavior.Rigidbody.velocity = -DirectionPlayer.normalized * speed;
             print("reculer");
         }
         else if (DistanceWithPlayer > Distance + ValueMargin)
         {
-            behavior.RigidBodyEnnemy.velocity = DirectionPlayer.normalized * speed;
+            behavior.Rigidbody.velocity = DirectionPlayer.normalized * speed;
             print("avancer");
         }
-        
-        
-
-    }
-
-    private void OnDisable()
-    {
-        behavior.RigidBodyEnnemy.velocity = Vector2.zero;
     }
 }

@@ -16,13 +16,13 @@ public class ShootMesure : Mesure
     {
         //Debug.Log("Ennemy is now shooting");
         tempo.onTimeToShoot.AddListener(Shoot);
-
+        animator.SetBool("Aiming", true);
     }
 
     private void OnDisable()
     {
         tempo.onTimeToShoot.RemoveListener(Shoot);
-
+        animator.SetBool("Aiming", false);
     }
 
     private void Shoot()
