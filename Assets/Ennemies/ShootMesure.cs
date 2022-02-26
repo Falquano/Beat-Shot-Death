@@ -7,26 +7,46 @@ public class ShootMesure : Mesure
     [SerializeField] private GameObject zapLinePrefab;
     [SerializeField] private Transform barrel;
 
+    [SerializeField] LayerMask EnnemyMask;
+    // j'ai du rajouter ça, c'est la distance max des pistolets
+    [SerializeField] private float range = 100f;
+
     private void OnEnable()
     {
         //Debug.Log("Ennemy is now shooting");
         tempo.onTimeToShoot.AddListener(Shoot);
+
     }
 
     private void OnDisable()
     {
         tempo.onTimeToShoot.RemoveListener(Shoot);
+
     }
 
     private void Shoot()
     {
         // Ici il faut ajouter le tir ennemi
         // Fait le au raycast, pas au projectile
+        //on calcul la direction entre l'ennemi et le player
+        Vector2 ShootToPlayer = behavior.Player.transform.position  - transform.position;
 
+        //on créer un raycast du player dans la direction de la souris de distance max sur un mask sans le player lui-même
+        RaycastHit2D RayShootEnnemy = Physics2D.Raycast(transform.position + transform.right * 1.2f, ShootToPlayer, range, EnnemyMask);
+        //Allez chercher le radius au lieu d'aller chercher une valeur lagique comme ça, faut le faire mais c chiant
 
+        if(RayShootEnnemy.collider != null)
+        {
+            print("check");
+            ZapLine(barrel.position, RayShootEnnemy.point);
+        }
+        else
+        {
+            //à faire plus tard
+        }
 
         // Lorsque c'est bon, remplace Vector3.zero avec le point de contact du tir
-        ZapLine(barrel.position, Vector3.zero);
+        
     }
 
     private void ZapLine(Vector3 start, Vector3 end)

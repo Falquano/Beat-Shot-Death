@@ -998,47 +998,6 @@ MonoBehaviour:
   m_AmplitudeGain: 0
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
---- !u!1 &782055326 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7226625388907849313, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
-  m_PrefabInstance: {fileID: 7226625389654787545}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &782055327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782055326}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95274270c9ca2a64182e92ca912c4a9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &782055328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782055326}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f26b190710f684e8c6b1f3faaa0962, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &782055329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782055326}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17c6fa906b42a1543ae9fa3ac11c4652, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &818708342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,6 +1160,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &907374185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9047568458364018868, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+  m_PrefabInstance: {fileID: 9047568459272337482}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &927900717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,7 +1974,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
   m_PrefabInstance: {fileID: 9047568459272337482}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 907374185}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9623e9471790ae44cbff63d08c21bca4, type: 3}
@@ -2214,38 +2178,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6439272819357905743, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
-      propertyPath: mesures.Array.size
-      value: 4
+    - target: {fileID: 782055327, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: EnnemyMask.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6439272819357905743, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
-      propertyPath: behavior.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439272819357905743, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
-      propertyPath: mesures.Array.data[0]
+      propertyPath: Player
       value: 
-      objectReference: {fileID: 782055328}
-    - target: {fileID: 6439272819357905743, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
-      propertyPath: mesures.Array.data[1]
-      value: 
-      objectReference: {fileID: 782055329}
-    - target: {fileID: 6439272819357905743, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
-      propertyPath: mesures.Array.data[3]
-      value: 
-      objectReference: {fileID: 782055327}
-    - target: {fileID: 6439272819357905743, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
-      propertyPath: behavior.Array.data[0]
-      value: 
-      objectReference: {fileID: 782055328}
-    - target: {fileID: 6439272819357905743, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
-      propertyPath: behavior.Array.data[1]
-      value: 
-      objectReference: {fileID: 782055329}
-    - target: {fileID: 6439272819357905743, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
-      propertyPath: behavior.Array.data[3]
-      value: 
-      objectReference: {fileID: 782055327}
+      objectReference: {fileID: 907374185}
     - target: {fileID: 7226625388907849312, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
       propertyPath: m_RootOrder
       value: 6

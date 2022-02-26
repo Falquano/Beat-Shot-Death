@@ -124,6 +124,10 @@ GameObject:
   - component: {fileID: 7226625388907849312}
   - component: {fileID: 3545197617776795924}
   - component: {fileID: 6439272819357905743}
+  - component: {fileID: 782055327}
+  - component: {fileID: 782055328}
+  - component: {fileID: 782055329}
+  - component: {fileID: 782055333}
   m_Layer: 0
   m_Name: Ennemy1
   m_TagString: Ennemy
@@ -177,8 +181,75 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnnemyLife: 100
-  BulletGO: {fileID: 0}
-  SpawnPoint: {fileID: 0}
+  mesures:
+  - {fileID: 782055328}
+  - {fileID: 782055329}
+  - {fileID: 0}
+  - {fileID: 782055327}
+  Player: {fileID: 0}
+  RigidBodyEnnemy: {fileID: 0}
+--- !u!114 &782055327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226625388907849313}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95274270c9ca2a64182e92ca912c4a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zapLinePrefab: {fileID: 1940587716762264604, guid: d3cf0f204fdf9104c802cff67a43cddd, type: 3}
+  barrel: {fileID: 7226625388270670265}
+--- !u!114 &782055328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226625388907849313}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f26b190710f684e8c6b1f3faaa0962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Distance: 5
+  speed: 5
+  ValueMargin: 0.5
+--- !u!114 &782055329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226625388907849313}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c6fa906b42a1543ae9fa3ac11c4652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &782055333
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226625388907849313}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &7226625389220939690
 GameObject:
   m_ObjectHideFlags: 0

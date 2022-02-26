@@ -10,6 +10,10 @@ public class EnnemyBehavior : MonoBehaviour
     [SerializeField] private Mesure[] mesures;
     private int currentMesure;
 
+    [SerializeField] public GameObject Player;
+
+    public Rigidbody2D RigidBodyEnnemy;
+
     private void Start()
     {
         tempo = FindObjectOfType<TempoManager>();
@@ -23,6 +27,9 @@ public class EnnemyBehavior : MonoBehaviour
         }
         InitMesure(0);
         SetBehaviorEnabled(0, true);
+
+
+        RigidBodyEnnemy = GetComponent<Rigidbody2D>();
     }
 
     public void OnNewMesure(int newMesure)
