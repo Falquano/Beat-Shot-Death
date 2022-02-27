@@ -34,7 +34,7 @@ public class TempoManager : MonoBehaviour
         {
             NouvelleMesure();
         }
-        if (TimerTempo - Time.deltaTime < objectiveShoot && TimerTempo >= objectiveShoot)
+        if ((TimerTempo - Time.deltaTime) / TempoDuration < objectiveShoot && TimerTempo / TempoDuration >= objectiveShoot)
         {
             TimeToShoot();
         }
@@ -58,6 +58,11 @@ public class TempoManager : MonoBehaviour
     private void TimeToShoot()
     {
         onTimeToShoot.Invoke();
+    }
+
+    public void DebugMeThisBatman()
+    {
+        Debug.Log($"oh shit i'm so fucking dumb");
     }
 
     public ShotQuality ShotQualityNow()
