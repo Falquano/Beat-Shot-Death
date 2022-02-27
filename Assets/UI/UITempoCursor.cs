@@ -35,11 +35,13 @@ public class UITempoCursor : MonoBehaviour
     private void OnDestroy()
     {
         material.SetFloat("tempo", 0);
+        enabled = false;
     }
 
     private void OnDisable()
     {
         material.SetFloat("tempo", 0);
+        enabled = false;
     }
 
     public void NewCombo(int combo, int max)

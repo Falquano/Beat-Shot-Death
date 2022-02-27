@@ -48,6 +48,7 @@ public class ShootPlayer : MonoBehaviour
         //si lorsque la fonction est appelée, le bouton est appuyé donc Fire = 1
         if (callBack.performed)
         {
+            Debug.Log("yep");
             Shoot();
         }
     }
