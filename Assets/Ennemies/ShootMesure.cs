@@ -5,14 +5,18 @@ using UnityEngine.Events;
 
 public class ShootMesure : Mesure
 {
+    [Header("Tir")]
+    [SerializeField] private int damage = 30;
+    // j'ai du rajouter ça, c'est la distance max des pistolets
+    [SerializeField] private float range = 100f;
+    [SerializeField] LayerMask EnnemyMask;
+    [SerializeField] public UnityEvent onShoot;
+
+    [Header("FX")]
     [SerializeField] private GameObject zapLinePrefab;
     [SerializeField] private Transform barrel;
 
-    [SerializeField] LayerMask EnnemyMask;
-    // j'ai du rajouter ça, c'est la distance max des pistolets
-    [SerializeField] private float range = 100f;
 
-    [SerializeField] public UnityEvent onShoot;
 
     private void OnEnable()
     {
@@ -46,11 +50,10 @@ public class ShootMesure : Mesure
             //print("check");
             ZapLine(barrel.position, RayShootEnnemy.point);
 
-            if(RayShootEnnemy.collider.tag == "Player")
+            HealthSystem targetHealth = RayShootEnnemy.collider.GetComponent<HealthSystem>();
+            if (targetHealth != null)
             {
-                HealthSystem ScriptPlayerHealth = RayShootEnnemy.collider.GetComponent<HealthSystem>();
-                ScriptPlayerHealth.DealDamage(50);
-                
+                targetHealth.DealDamage(damage);
             }
         }
         else
