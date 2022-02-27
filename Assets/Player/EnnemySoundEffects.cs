@@ -28,6 +28,7 @@ public class EnnemySoundEffects : MonoBehaviour
 
     public void HurtSoundEffect(int damage, int newLife)
     {
+        Debug.Log($"d:{damage}, l:{newLife}");
         if (newLife > 0)
             HurtSoundEmitter.Play();
     }
