@@ -60,11 +60,6 @@ public class TempoManager : MonoBehaviour
         onTimeToShoot.Invoke();
     }
 
-    public void DebugMeThisBatman()
-    {
-        Debug.Log($"oh shit i'm so fucking dumb");
-    }
-
     public ShotQuality ShotQualityNow()
     {
         if (Tempo >= objectiveShoot - marginOk && Tempo <= objectiveShoot + marginOk)
