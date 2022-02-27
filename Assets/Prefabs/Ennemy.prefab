@@ -302,8 +302,8 @@ MonoBehaviour:
   mesures:
   - {fileID: 782055328}
   - {fileID: 782055329}
-  - {fileID: 0}
   - {fileID: 782055327}
+  - {fileID: 0}
 --- !u!114 &782055327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,12 +316,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95274270c9ca2a64182e92ca912c4a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zapLinePrefab: {fileID: 1940587716762264604, guid: d3cf0f204fdf9104c802cff67a43cddd, type: 3}
-  barrel: {fileID: 7226625388270670265}
+  damage: 30
+  range: 100
   EnnemyMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  range: 100
   onShoot:
     m_PersistentCalls:
       m_Calls:
@@ -337,6 +336,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  zapLinePrefab: {fileID: 1940587716762264604, guid: d3cf0f204fdf9104c802cff67a43cddd, type: 3}
+  barrel: {fileID: 7226625388270670265}
 --- !u!114 &782055328
 MonoBehaviour:
   m_ObjectHideFlags: 0
