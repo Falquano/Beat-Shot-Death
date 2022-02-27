@@ -10,8 +10,6 @@ public class ShootPlayer : MonoBehaviour
     public Vector2 MouseScreenPosition { get; private set; }
     public Vector2 MouseWorldPosition => Camera.main.ScreenToWorldPoint(MouseScreenPosition);
 
-    [SerializeField] Camera cam;
-
     [SerializeField] private GameObject myBulletSpawnPoint;
 
     [SerializeField] LayerMask TheMask;
@@ -40,6 +38,9 @@ public class ShootPlayer : MonoBehaviour
     {
         //récupération de la position de la souris par rapport à l'écran
         MouseScreenPosition = callBack.ReadValue<Vector2>();
+        MouseScreenPosition = new Vector2(
+            Mathf.Clamp(MouseScreenPosition.x, 0, Camera.main.pixelWidth), 
+            Mathf.Clamp(MouseScreenPosition.y, 0, Camera.main.pixelHeight));
     }
 
     public void OnFire(CallbackContext callBack)

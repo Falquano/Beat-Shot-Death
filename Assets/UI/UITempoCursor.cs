@@ -37,6 +37,11 @@ public class UITempoCursor : MonoBehaviour
         material.SetFloat("tempo", 0);
     }
 
+    private void OnDisable()
+    {
+        material.SetFloat("tempo", 0);
+    }
+
     public void NewCombo(int combo, int max)
     {
         //faire un calcul en fonction de la surchauffe et de la taille du tir pour que que se soit recalculer à chaque fois
