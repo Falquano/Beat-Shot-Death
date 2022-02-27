@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class EnnemyBehavior : MonoBehaviour
 {
     private TempoManager tempo;
-    [SerializeField] private int EnnemyLife = 100;
 
     [SerializeField] private Mesure[] mesures;
     private int currentMesure;
@@ -61,24 +60,17 @@ public class EnnemyBehavior : MonoBehaviour
             mesures[index].Init();
     }
 
-    public void DamageEnnemy(int HitLife)
+    public void OnDamage(int hitLife, int newLife)
     {
-        EnnemyLife -= HitLife;
         animator.SetTrigger("Hurt");
-
-        if(EnnemyLife <= 0)
-        {
-            //Destroy(this.gameObject);
-            enabled = false;
-            SetBehaviorEnabled(currentMesure, false);
-            animator.SetBool("Alive", false);
-
-            Die();
-        }
     }
 
-    private void Die()
+    public void Die()
     {
+        //Destroy(this.gameObject);
+        enabled = false;
+        SetBehaviorEnabled(currentMesure, false);
+        animator.SetBool("Alive", false);
         foreach (Mesure mesure in mesures)
             Destroy(mesure);
         Destroy(Rigidbody);

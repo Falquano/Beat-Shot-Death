@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ShootMesure : Mesure
 {
@@ -11,6 +12,7 @@ public class ShootMesure : Mesure
     // j'ai du rajouter ça, c'est la distance max des pistolets
     [SerializeField] private float range = 100f;
 
+    [SerializeField] public UnityEvent onShoot;
 
     private void OnEnable()
     {
@@ -46,7 +48,7 @@ public class ShootMesure : Mesure
 
             if(RayShootEnnemy.collider.tag == "Player")
             {
-                PlayerHealth ScriptPlayerHealth = RayShootEnnemy.collider.GetComponent<PlayerHealth>();
+                HealthSystem ScriptPlayerHealth = RayShootEnnemy.collider.GetComponent<HealthSystem>();
                 ScriptPlayerHealth.DealDamage(50);
                 
             }
@@ -57,7 +59,8 @@ public class ShootMesure : Mesure
         }
 
         // Lorsque c'est bon, remplace Vector3.zero avec le point de contact du tir
-        
+
+        onShoot.Invoke();        
     }
 
     private void ZapLine(Vector3 start, Vector3 end)

@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerHealth : MonoBehaviour
+public class HealthSystem : MonoBehaviour
 {
-    [SerializeField] private int MaxHealth;
+    [SerializeField] private int MaxHealth = 100;
     //[SerializeField] private int MaxShield;
 
-    [SerializeField] public UnityEvent<int> onTakeDamage;
+    /// <summary>
+    /// Event envoyant lors de la prise de dégat, les dégats, puis les nouveaux PVs
+    /// </summary>
+    [SerializeField] public UnityEvent<int, int> onTakeDamage;
     [SerializeField] public UnityEvent onDie;
 
     private int health;
@@ -23,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
         health -= amount;
         //print(health);
 
-        onTakeDamage.Invoke(amount);
+        onTakeDamage.Invoke(amount, health);
 
         if (health <= 0)
         {

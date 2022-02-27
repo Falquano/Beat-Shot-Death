@@ -88,10 +88,10 @@ public class ShootPlayer : MonoBehaviour
         if (RayShoot.collider != null && RayShoot.transform.tag == "Ennemy")
         {
             //On récupère le script behavior de l'ennemy touché
-            EnnemyBehavior myEnnemyScript = RayShoot.transform.GetComponent<EnnemyBehavior>();
+            HealthSystem targetHealth = RayShoot.transform.GetComponent<HealthSystem>();
 
             //alors on prend le script de l'ennemy touché et on lui retire 30 pts
-            myEnnemyScript.DamageEnnemy(10 + combo / 5);
+            targetHealth.DealDamage(10 + combo / 5);
         }
 
         //La surchauffe augmente de 10
@@ -114,10 +114,10 @@ public class ShootPlayer : MonoBehaviour
         if (RayShoot.collider != null && RayShoot.transform.tag == "Ennemy")
         {
             //On récupère le script behavior de l'ennemy touché
-            EnnemyBehavior myEnnemyScript = RayShoot.transform.GetComponent<EnnemyBehavior>();
+            HealthSystem targetHealth = RayShoot.transform.GetComponent<HealthSystem>();
 
             //Si il n'est pas dans tir parfait mais juste dans le tir ok, on prend le script de l'ennemy et on lui retire 10 pts
-            myEnnemyScript.DamageEnnemy(10);
+            targetHealth.DealDamage(10);
         }
 
         //La surchauffe descend de 10

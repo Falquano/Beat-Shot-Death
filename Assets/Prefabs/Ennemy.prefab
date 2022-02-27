@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5442428290805893991}
   - component: {fileID: 3709804414066859108}
   - component: {fileID: 5264566334566401981}
+  - component: {fileID: 217211143444854754}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -103,6 +104,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &217211143444854754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588662011729138380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b11951a83b0f1f4ebb6e7f9ba17f241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onFootstep:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8685713312603719414}
+        m_TargetAssemblyTypeName: EnnemySoundEffects, Assembly-CSharp
+        m_MethodName: OnFootstep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7226625388270670214
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,11 +171,17 @@ GameObject:
   m_Component:
   - component: {fileID: 7226625388907849312}
   - component: {fileID: 3545197617776795924}
+  - component: {fileID: 5617201305974029344}
   - component: {fileID: 6439272819357905743}
   - component: {fileID: 782055327}
   - component: {fileID: 782055328}
   - component: {fileID: 782055329}
+  - component: {fileID: 8685713312603719414}
   - component: {fileID: 782055333}
+  - component: {fileID: 7151372858870772860}
+  - component: {fileID: 879879971086733656}
+  - component: {fileID: 4285446244051387595}
+  - component: {fileID: 1061571807517462011}
   m_Layer: 0
   m_Name: Ennemy
   m_TagString: Ennemy
@@ -186,6 +220,73 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.1, y: 1.63}
   m_Direction: 0
+--- !u!114 &5617201305974029344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226625388907849313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44aa2e8a9278297488724feb9276051a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6439272819357905743}
+        m_TargetAssemblyTypeName: EnnemyBehavior, Assembly-CSharp
+        m_MethodName: OnDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8685713312603719414}
+        m_TargetAssemblyTypeName: EnnemySoundEffects, Assembly-CSharp
+        m_MethodName: HurtSoundEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6439272819357905743}
+        m_TargetAssemblyTypeName: EnnemyBehavior, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8685713312603719414}
+        m_TargetAssemblyTypeName: EnnemySoundEffects, Assembly-CSharp
+        m_MethodName: DieSoundEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6439272819357905743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92a2551c0f534ed45a7be18b894af274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnnemyLife: 100
   mesures:
   - {fileID: 782055328}
   - {fileID: 782055329}
@@ -222,6 +322,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   range: 100
+  onShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8685713312603719414}
+        m_TargetAssemblyTypeName: EnnemySoundEffects, Assembly-CSharp
+        m_MethodName: OnShoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &782055328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +364,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c6fa906b42a1543ae9fa3ac11c4652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8685713312603719414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226625388907849313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d973c96c7fb164d8ca93abf51f2c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GunshotSoundEmitter: {fileID: 879879971086733656}
+  FootstepSoundEmitter: {fileID: 7151372858870772860}
+  HurtSoundEmitter: {fileID: 4285446244051387595}
+  DieSoundEmitter: {fileID: 1061571807517462011}
 --- !u!50 &782055333
 Rigidbody2D:
   serializedVersion: 4
@@ -270,3 +401,123 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7151372858870772860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226625388907849313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2033636481
+      Data2: 1179387057
+      Data3: 112079243
+      Data4: -1119235899
+    Path: event:/Baddies/Footstep
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 50
+--- !u!114 &879879971086733656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226625388907849313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1675834452
+      Data2: 1221896098
+      Data3: 436367770
+      Data4: 105539817
+    Path: event:/Baddies/Shot
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &4285446244051387595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226625388907849313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 302498221
+      Data2: 1216546743
+      Data3: 1879789717
+      Data4: 871689504
+    Path: event:/Baddies/Hurt
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1061571807517462011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226625388907849313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1692860094
+      Data2: 1216365523
+      Data3: 1365420478
+      Data4: -1888661847
+    Path: event:/Baddies/Die
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
