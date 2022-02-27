@@ -102,7 +102,8 @@ public class ShootPlayer : MonoBehaviour
             StartPos = Barrels[barrelIndex].position,
             EndPos = RaycastHitPoint(RayShoot, direction),
             Quality = ShotQuality.Perfect,
-            ShotObject = RayShoot.transform == null ? null : RayShoot.transform.gameObject
+            ShotObject = RayShoot.transform == null ? null : RayShoot.transform.gameObject,
+            EndNormal = RayShoot.normal
         };
         OnShotEvent.Invoke(info);
     }
@@ -130,7 +131,8 @@ public class ShootPlayer : MonoBehaviour
             Quality = ShotQuality.Okay,
             // test ? valeur si vrai : valeur si faux
             // c'est pas giga élégant mais parfois c'est juste pratique
-            ShotObject = RayShoot.transform == null ? null : RayShoot.transform.gameObject
+            ShotObject = RayShoot.transform == null ? null : RayShoot.transform.gameObject,
+            EndNormal = RayShoot.normal
         };
         OnShotEvent.Invoke(info);
     }
@@ -146,7 +148,8 @@ public class ShootPlayer : MonoBehaviour
             StartPos = Barrels[barrelIndex].position,
             EndPos = Barrels[barrelIndex].position,
             Quality = ShotQuality.Failed,
-            ShotObject = null
+            ShotObject = null,
+            EndNormal = Vector2.zero
         };
         OnShotEvent.Invoke(info);
     }
@@ -194,6 +197,7 @@ public struct ShotInfo
     public Vector2 EndPos { get; set; }
     public ShotQuality Quality { get; set; }
     public GameObject ShotObject { get; set; }
+    public Vector2 EndNormal { get; set; }
 }
 
 // Une liste de qualités de tirs pour facilement avoir l'info
