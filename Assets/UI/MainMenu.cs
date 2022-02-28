@@ -24,16 +24,23 @@ public class MainMenu : MonoBehaviour
         foreach (Song song in songs)
 		{
             songList.Add($"{song.name} by {song.Artist}");
-		}
+        }
+        songList.Add($"Rien (il y a un métronome)");
 
         songDropdown.AddOptions(songList);
-        SelectedSong = songs[0];
+        SelectedSong = songs[songs.Length - 1];
     }
 
     public void OnValueChange(int index)
 	{
-        SelectedSong = songs[index];
-        Debug.Log($"Selected song : {SelectedSong.Name}");
+        if (index >= songs.Length)
+		{
+            SelectedSong = null; 
+		}
+        else
+		{
+            SelectedSong = songs[index];
+		}
 	}
 
     public void LoadGame()
