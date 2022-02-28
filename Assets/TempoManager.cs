@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,11 @@ public class TempoManager : MonoBehaviour
     public float MarginOk => marginOk;
 
     private float TimerTempo;
+    [Tooltip("Utilisé uniquement si il n'y a pas de musique !")]
     [SerializeField] private float TempoDuration;
+    [Tooltip("Musique du niveau")]
+    [SerializeField] private Song song;
+    [SerializeField] private StudioEventEmitter songEmitter;
     public float Tempo => TimerTempo / TempoDuration;
     [SerializeField] public AnimationCurve MarginPerfectEvolution;
 
@@ -26,8 +31,20 @@ public class TempoManager : MonoBehaviour
     [SerializeField] public UnityEvent<int> onMesureStart = new UnityEvent<int>();
     [SerializeField] public UnityEvent onTimeToShoot = new UnityEvent();
 
-    // Update is called once per frame
-    void Update()
+	private void Start()
+	{
+        if (song != null)
+		{
+            TempoDuration = song.TempoLength;
+            songEmitter.EventReference = song.SongReference;
+            songEmitter.Play();
+		}
+
+        TimerTempo = ObjectiveShoot * TempoDuration;
+	}
+
+	// Update is called once per frame
+	void Update()
     {
         TimerTempo += Time.deltaTime;
         if (TimerTempo >= TempoDuration)

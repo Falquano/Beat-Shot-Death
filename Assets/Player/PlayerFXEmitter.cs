@@ -14,6 +14,7 @@ public class PlayerFXEmitter : MonoBehaviour
     [SerializeField] private EventReference GunshotSound;
     [SerializeField] private StudioEventEmitter FootstepSoundEmitter;
     [SerializeField] private GameObject ImpactParticlesPrefab;
+
     public void OnShoot(ShotInfo shotInfo)
     {
         if (shotInfo.Quality != ShotQuality.Failed)
