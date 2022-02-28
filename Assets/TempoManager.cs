@@ -33,6 +33,11 @@ public class TempoManager : MonoBehaviour
 
 	private void Start()
 	{
+        if (MainMenu.SelectedSong != null)
+		{
+			song = MainMenu.SelectedSong;
+		}
+        
         if (song != null)
 		{
             TempoDuration = song.TempoLength;
