@@ -6,9 +6,10 @@ using UnityEngine;
 public class Song : ScriptableObject
 {
 	public int BPM = 120;
-	public string Name;
+	public string Title;
 	public string Artist;
 	public EventReference SongReference;
+	public float Offset;
 
 	public float TempoLength => GetTempoLength(BPM);
 

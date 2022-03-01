@@ -45,7 +45,8 @@ public class TempoManager : MonoBehaviour
             songEmitter.Play();
 		}
 
-        TimerTempo = ObjectiveShoot * TempoDuration;
+        //TimerTempo = ObjectiveShoot * TempoDuration;
+        TimerTempo = song.Offset;
 	}
 
 	// Update is called once per frame
