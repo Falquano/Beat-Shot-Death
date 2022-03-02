@@ -35,13 +35,14 @@ public class UITempoCursor : MonoBehaviour
     private void OnDestroy()
     {
         material.SetFloat("tempo", 0);
-        enabled = false;
+        Cursor.visible = true;
     }
 
     private void OnDisable()
     {
         material.SetFloat("tempo", 0);
         enabled = false;
+        Cursor.visible = true;
     }
 
     public void NewCombo(int combo, int max)

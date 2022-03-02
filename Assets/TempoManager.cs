@@ -49,8 +49,13 @@ public class TempoManager : MonoBehaviour
         //TimerTempo = ObjectiveShoot * TempoDuration;
 	}
 
-	// Update is called once per frame
-	void Update()
+    private void OnDestroy()
+    {
+        songEmitter.Stop();
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         TimerTempo += Time.deltaTime;
         if (TimerTempo >= TempoDuration)

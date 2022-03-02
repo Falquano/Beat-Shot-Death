@@ -64,10 +64,7 @@ public class ShootPlayer : MonoBehaviour
     //Système d'interrupteur pour activeret désactiver le tir
     public void SetShoot(bool ShootParameter)
     {
-        ShootParameter = !ShootParameter;
-        print("ShootParameter = " + ShootParameter);
         CheckShootisOk = ShootParameter;
-        print(CheckShootisOk);
     }
 
     public void Shoot()
