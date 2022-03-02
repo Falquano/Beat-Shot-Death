@@ -50,7 +50,7 @@ public class TempoManager : MonoBehaviour
     }
     public void NewCombo(int combo, int max)
     {
-        //faire un calcul en fonction de la surchauffe et de la taille du tir pour que que se soit recalculer à chaque fois
+        //faire un calcul en fonction de la surchauffe et de la taille du tir pour que se soit recalculer à chaque fois
         float margin = MarginPerfectEvolution.Evaluate((float)combo / (float)max);
         marginPerfect = margin;
     }
