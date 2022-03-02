@@ -34,6 +34,7 @@ public class CameraShaker : MonoBehaviour
         {
             amplitude = 0f;
             enabled = false;
+            noise.m_AmplitudeGain = 0f;
             return;
         }
 
