@@ -34,6 +34,10 @@ public class ShootPlayer : MonoBehaviour
 
     [SerializeField] private TempoManager tempoManager;
 
+
+    //je ne suis pas sur de cette variable
+    [SerializeField] private bool CheckShootisOk ;
+
     public void LookAt(CallbackContext callBack)
     {
         //récupération de la position de la souris par rapport à l'écran
@@ -46,10 +50,24 @@ public class ShootPlayer : MonoBehaviour
     public void OnFire(CallbackContext callBack)
     {
         //si lorsque la fonction est appelée, le bouton est appuyé donc Fire = 1
-        if (callBack.performed)
+        if (callBack.performed )
         {
-            Shoot();
+            
+            if(CheckShootisOk == true)
+            {
+                Shoot();
+                
+            }
         }
+    }
+
+    //Système d'interrupteur pour activeret désactiver le tir
+    public void SetShoot(bool ShootParameter)
+    {
+        ShootParameter = !ShootParameter;
+        print("ShootParameter = " + ShootParameter);
+        CheckShootisOk = ShootParameter;
+        print(CheckShootisOk);
     }
 
     public void Shoot()
