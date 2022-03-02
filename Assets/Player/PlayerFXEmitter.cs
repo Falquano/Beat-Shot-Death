@@ -9,17 +9,20 @@ using UnityEngine;
 /// </summary>
 public class PlayerFXEmitter : MonoBehaviour
 {
-    [SerializeField] private GameObject ZapLinePrefab;
+    [SerializeField] private GameObject PerfectShotLinePrefab;
+    [SerializeField] private GameObject OkayShotLinePrefab;
     //[SerializeField] private StudioEventEmitter GunshotSoundEmitter;
     [SerializeField] private EventReference GunshotSound;
     [SerializeField] private StudioEventEmitter FootstepSoundEmitter;
     [SerializeField] private GameObject ImpactParticlesPrefab;
+    [SerializeField] private float okayShotImpactSize = .333f;
+
     public void OnShoot(ShotInfo shotInfo)
     {
         if (shotInfo.Quality != ShotQuality.Failed)
         {
             ZapLine(shotInfo);
-            Impact(shotInfo.EndPos, shotInfo.EndNormal);
+            Impact(shotInfo.EndPos, shotInfo.EndNormal, shotInfo.Quality);
         }
 
 
@@ -28,14 +31,23 @@ public class PlayerFXEmitter : MonoBehaviour
 
     private void ZapLine(ShotInfo shotInfo)
     {
-        LineRenderer line = Instantiate(ZapLinePrefab, Vector3.zero, Quaternion.identity).GetComponent<LineRenderer>();
+        LineRenderer line;
+        if (shotInfo.Quality == ShotQuality.Perfect)
+            line = Instantiate(PerfectShotLinePrefab, Vector3.zero, Quaternion.identity).GetComponent<LineRenderer>();
+        else
+            line = Instantiate(OkayShotLinePrefab, Vector3.zero, Quaternion.identity).GetComponent<LineRenderer>();
+
         line.SetPosition(0, shotInfo.StartPos);
         line.SetPosition(1, shotInfo.EndPos);
     }
 
-    private void Impact(Vector2 position, Vector2 normal)
+    private void Impact(Vector2 position, Vector2 normal, ShotQuality quality)
     {
         Transform particle = Instantiate(ImpactParticlesPrefab, position, Quaternion.identity).transform;
+        Vector3 size = Vector3.one;
+        if (quality == ShotQuality.Okay)
+            size = Vector3.one * okayShotImpactSize;
+        particle.localScale = size;
         particle.up = normal;
     }
 
