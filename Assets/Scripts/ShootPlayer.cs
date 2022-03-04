@@ -39,6 +39,34 @@ public class ShootPlayer : MonoBehaviour
     //je ne suis pas sur de cette variable
     [SerializeField] private bool CheckShootisOk ;
 
+    // Update is called once per frame
+    void Update()
+    {
+        //calcul à chaque frame de la position de la souris à son dernier déplacement dans le monde.
+        Ray pointerRay = Camera.main.ScreenPointToRay(MouseScreenPosition);
+        if (Physics.Raycast(pointerRay, out RaycastHit hitInfo, float.MaxValue, pointerLayerMask))
+        {
+            Vector3 direction = hitInfo.point - transform.position;
+            direction.y = 0;
+            transform.right = direction.normalized;
+            Debug.DrawRay(transform.position, transform.right * 4, Color.white);
+        } else
+		{
+            Vector3 direction = ExpandToGround(pointerRay.origin, pointerRay.direction, transform.position.y) - transform.position;
+            direction.y = 0;
+            transform.right = direction.normalized;
+            Debug.DrawRay(transform.position, transform.right * 4, Color.white);
+        }
+
+        tempoManager.Combo = combo;
+    }
+
+    public static Vector3 ExpandToGround(Vector3 origin, Vector3 direction, float height)
+	{
+        float mod = direction.y / direction.magnitude * (height - origin.y);
+        return origin + direction * mod;
+	}
+
     public void LookAt(CallbackContext callBack)
     {
         //récupération de la position de la souris par rapport à l'écran
@@ -180,34 +208,6 @@ public class ShootPlayer : MonoBehaviour
             return hit.point;
 
         return transform.position + direction * range;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //calcul à chaque frame de la position de la souris à son dernier déplacement dans le monde.
-        //Vector3 screenToWorldPosition = Camera.main.ScreenToWorldPoint(MouseScreenPosition);
-        Ray pointerRay = Camera.main.ScreenPointToRay(MouseScreenPosition);
-        if (Physics.Raycast(pointerRay, out RaycastHit hitInfo, float.MaxValue, pointerLayerMask))
-		{
-            //Vector3 point = new Vector3(hitInfo.point.x, transform.position.y, hitInfo.point.y);
-            //transform.LookAt(point);
-            /*float angle = Mathf.Atan2(point.z, point.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(-angle, Vector3.up);*/
-            Vector3 direction = hitInfo.point - transform.position;
-            direction.y = 0;
-            transform.right = direction.normalized;
-            Debug.DrawRay(transform.position, transform.right * 4, Color.white);
-        }
-
-
-        /*float AngleRad = Mathf.Atan2(screenToWorldPosition.y - transform.position.z, screenToWorldPosition.x - transform.position.x);
-        // Get Angle in Degrees
-        float AngleDeg = (180 / Mathf.PI) * AngleRad;
-        // Rotate Object
-        this.transform.rotation = Quaternion.Euler(0, AngleDeg, 0);*/
-
-        tempoManager.Combo = combo;
     }
 
     public void Overheated(CallbackContext callBack)
