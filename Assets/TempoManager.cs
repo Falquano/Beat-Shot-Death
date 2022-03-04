@@ -76,6 +76,7 @@ public class TempoManager : MonoBehaviour
         Mesure = (Mesure + 1) % mesurePerRound;
         onMesureStart.Invoke(Mesure);
     }
+
     public void NewCombo(int combo, int max)
     {
         //faire un calcul en fonction de la surchauffe et de la taille du tir pour que se soit recalculer à chaque fois

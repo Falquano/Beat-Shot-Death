@@ -13,6 +13,7 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private GameObject myBulletSpawnPoint;
 
     [SerializeField] LayerMask TheMask;
+    [SerializeField] private LayerMask pointerLayerMask;
 
     // j'ai du rajouter ça, c'est la distance max des pistolets
     [SerializeField] private float range = 100f;
@@ -70,33 +71,37 @@ public class ShootPlayer : MonoBehaviour
     public void Shoot()
     {
         //on calcul la direction entre le player et la souris 
-        Vector2 DirectionShoot = Camera.main.ScreenToWorldPoint(MouseScreenPosition) - transform.position;
+        //Vector2 DirectionShoot = Camera.main.ScreenToWorldPoint(MouseScreenPosition) - transform.position;
+        Vector3 DirectionShoot = transform.right;
 
+        Ray ray = new Ray(transform.position, DirectionShoot.normalized);
         //on créer un raycast du player dans la direction de la souris de distance max sur un mask sans le player lui-même
-        RaycastHit2D RayShoot = Physics2D.Raycast(transform.position, DirectionShoot.normalized, range, TheMask);
+        if (Physics.Raycast(ray, out RaycastHit RayShoot , range, TheMask))
+		{
+            //Debug
+            Debug.DrawLine(transform.position, RayShoot.point, Color.red, 0.2f);
 
-        //Debug
-        Debug.DrawLine(transform.position, RayShoot.point, Color.red, 0.2f);
-
-        //On vérif si le tir est dans le cadran du tir ok
+            //On vérif si le tir est dans le cadran du tir ok
         
-        switch (tempoManager.ShotQualityNow())
-        {
-            case ShotQuality.Failed:
-                FailedShot();
-                break;
-            case ShotQuality.Okay:
-                OkayShot(RayShoot, DirectionShoot.normalized);
-                break;
-            case ShotQuality.Perfect:
-                PerfectShot(RayShoot, DirectionShoot.normalized);
-                break;
-        }
+            switch (tempoManager.ShotQualityNow())
+            {
+                case ShotQuality.Failed:
+                    FailedShot();
+                    break;
+                case ShotQuality.Okay:
+                    OkayShot(RayShoot, DirectionShoot.normalized);
+                    break;
+                case ShotQuality.Perfect:
+                    PerfectShot(RayShoot, DirectionShoot.normalized);
+                    break;
+            }
+		}
+
 
         barrelIndex = (barrelIndex + 1) % Barrels.Length;
     }
 
-    private void PerfectShot(RaycastHit2D RayShoot, Vector2 direction)
+    private void PerfectShot(RaycastHit RayShoot, Vector2 direction)
     {
         //On vérifie si il collide avec un élément et si cet élément possède le tag ennemy
         if (RayShoot.collider != null && RayShoot.transform.tag == "Ennemy")
@@ -123,7 +128,7 @@ public class ShootPlayer : MonoBehaviour
         OnShotEvent.Invoke(info);
     }
 
-    private void OkayShot(RaycastHit2D RayShoot, Vector2 direction)
+    private void OkayShot(RaycastHit RayShoot, Vector2 direction)
     {
         //On vérifie si il collide avec un élément et si cet élément possède le tag ennemy
         if (RayShoot.collider != null && RayShoot.transform.tag == "Ennemy")
@@ -169,7 +174,7 @@ public class ShootPlayer : MonoBehaviour
         OnShotEvent.Invoke(info);
     }
 
-    public Vector2 RaycastHitPoint(RaycastHit2D hit, Vector3 direction)
+    public Vector3 RaycastHitPoint(RaycastHit hit, Vector3 direction)
     {
         if (hit.collider != null)
             return hit.point;
@@ -181,13 +186,26 @@ public class ShootPlayer : MonoBehaviour
     void Update()
     {
         //calcul à chaque frame de la position de la souris à son dernier déplacement dans le monde.
-        Vector3 screenToWorldPosition = Camera.main.ScreenToWorldPoint(MouseScreenPosition);
+        //Vector3 screenToWorldPosition = Camera.main.ScreenToWorldPoint(MouseScreenPosition);
+        Ray pointerRay = Camera.main.ScreenPointToRay(MouseScreenPosition);
+        if (Physics.Raycast(pointerRay, out RaycastHit hitInfo, float.MaxValue, pointerLayerMask))
+		{
+            //Vector3 point = new Vector3(hitInfo.point.x, transform.position.y, hitInfo.point.y);
+            //transform.LookAt(point);
+            /*float angle = Mathf.Atan2(point.z, point.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(-angle, Vector3.up);*/
+            Vector3 direction = hitInfo.point - transform.position;
+            direction.y = 0;
+            transform.right = direction.normalized;
+            Debug.DrawRay(transform.position, transform.right * 4, Color.white);
+        }
 
-        float AngleRad = Mathf.Atan2(screenToWorldPosition.y - transform.position.y, screenToWorldPosition.x - transform.position.x);
+
+        /*float AngleRad = Mathf.Atan2(screenToWorldPosition.y - transform.position.z, screenToWorldPosition.x - transform.position.x);
         // Get Angle in Degrees
         float AngleDeg = (180 / Mathf.PI) * AngleRad;
         // Rotate Object
-        this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+        this.transform.rotation = Quaternion.Euler(0, AngleDeg, 0);*/
 
         tempoManager.Combo = combo;
     }
@@ -208,11 +226,11 @@ public class ShootPlayer : MonoBehaviour
 // Un type qui contient toutes les infos sur un tir. Comme ça on peut l'envoyer aux systèmes de particules et tout ça
 public struct ShotInfo
 {
-    public Vector2 StartPos { get; set; }
-    public Vector2 EndPos { get; set; }
+    public Vector3 StartPos { get; set; }
+    public Vector3 EndPos { get; set; }
     public ShotQuality Quality { get; set; }
     public GameObject ShotObject { get; set; }
-    public Vector2 EndNormal { get; set; }
+    public Vector3 EndNormal { get; set; }
 }
 
 // Une liste de qualités de tirs pour facilement avoir l'info

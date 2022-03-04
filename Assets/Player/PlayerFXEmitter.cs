@@ -19,6 +19,8 @@ public class PlayerFXEmitter : MonoBehaviour
 
     public void OnShoot(ShotInfo shotInfo)
     {
+        Debug.Log(shotInfo.EndPos);
+
         if (shotInfo.Quality != ShotQuality.Failed)
         {
             ZapLine(shotInfo);
@@ -41,7 +43,7 @@ public class PlayerFXEmitter : MonoBehaviour
         line.SetPosition(1, shotInfo.EndPos);
     }
 
-    private void Impact(Vector2 position, Vector2 normal, ShotQuality quality)
+    private void Impact(Vector3 position, Vector3 normal, ShotQuality quality)
     {
         Transform particle = Instantiate(ImpactParticlesPrefab, position, Quaternion.identity).transform;
         Vector3 size = Vector3.one;

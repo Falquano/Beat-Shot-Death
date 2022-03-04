@@ -13,8 +13,8 @@ public class EnnemyBehavior : MonoBehaviour
     private GameObject player;
     public GameObject Player => player;
 
-    private Rigidbody2D rigidBodyEnnemy;
-    public Rigidbody2D Rigidbody => rigidBodyEnnemy;
+    private Rigidbody rigidBodyEnnemy;
+    public Rigidbody Rigidbody => rigidBodyEnnemy;
 
     private Animator animator;
 
@@ -36,7 +36,7 @@ public class EnnemyBehavior : MonoBehaviour
         SetBehaviorEnabled(0, true);
 
 
-        rigidBodyEnnemy = GetComponent<Rigidbody2D>();
+        rigidBodyEnnemy = GetComponent<Rigidbody>();
     }
 
     public void OnNewMesure(int newMesure)

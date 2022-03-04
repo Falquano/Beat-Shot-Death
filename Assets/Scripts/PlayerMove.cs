@@ -6,13 +6,13 @@ using static UnityEngine.InputSystem.InputAction;
 public class PlayerMove : MonoBehaviour
 {
     private Vector2 Move;
-    private Rigidbody2D myRB;
+    private Rigidbody myRB;
 
     [SerializeField] private float Speed;
 
     private void Start()
     {
-        myRB = GetComponent<Rigidbody2D>();
+        myRB = GetComponent<Rigidbody>();
     }
 
     public void OnMoveInput( CallbackContext callBack)
@@ -22,7 +22,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        myRB.velocity = Move * Speed;
+        myRB.velocity = new Vector3(Move.x, 0, Move.y) * Speed;
     }
 
     public float CurrentSpeed => myRB.velocity.magnitude;

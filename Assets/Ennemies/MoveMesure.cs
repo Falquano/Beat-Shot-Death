@@ -17,7 +17,7 @@ public class MoveMesure : Mesure
     private void OnDisable()
     {
         animator.SetBool("Moving", false);
-        behavior.Rigidbody.velocity = Vector2.zero;
+        behavior.Rigidbody.velocity = Vector3.zero;
     }
 
     private void Update()
@@ -26,19 +26,20 @@ public class MoveMesure : Mesure
             return;
         
         // Ici ajouter le code de déplacement. Il faut juste rester tourné vers le joueur et s'approcher de lui
-        Transform PlayerTransform = behavior.Player.GetComponent<Transform>();
+        Transform playerTransform = behavior.Player.GetComponent<Transform>();
 
 
-        float AngleRad = Mathf.Atan2(PlayerTransform.position.y - transform.position.y, PlayerTransform.position.x - transform.position.x);
+        /*float AngleRad = Mathf.Atan2(PlayerTransform.position.z - transform.position.z, PlayerTransform.position.x - transform.position.x);
         // Get Angle in Degrees
         float AngleDeg = (180 / Mathf.PI) * AngleRad;
         // Rotate Object
-        this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+        this.transform.rotation = Quaternion.Euler(0, AngleDeg, 0);*/
+        Vector3 direction = playerTransform.position - transform.position;
+        direction.y = 0;
+        transform.right = direction.normalized;
 
-        //calcul de la direction entre l'ennemi et le player
-        Vector2 DirectionPlayer = PlayerTransform.position - transform.position;
         //calcul de la distance entre l'ennemi et le player
-        float DistanceWithPlayer = Vector2.Distance(transform.position, PlayerTransform.position);
+        float DistanceWithPlayer = Vector3.Distance(transform.position, playerTransform.position);
 
         if (DistanceWithPlayer < Distance + ValueMargin && DistanceWithPlayer > Distance - ValueMargin)
         {
@@ -46,12 +47,12 @@ public class MoveMesure : Mesure
         }
         else if (DistanceWithPlayer < Distance - ValueMargin)
         {
-            behavior.Rigidbody.velocity = -DirectionPlayer.normalized * speed;
+            behavior.Rigidbody.velocity = -direction.normalized * speed;
             //print("reculer");
         }
         else if (DistanceWithPlayer > Distance + ValueMargin)
         {
-            behavior.Rigidbody.velocity = DirectionPlayer.normalized * speed;
+            behavior.Rigidbody.velocity = direction.normalized * speed;
             //print("avancer");
         }
     }
