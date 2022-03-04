@@ -14,8 +14,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Dropdown songDropdown;
     [SerializeField] private Song[] songs;
 
-    [SerializeField] private string gameScenePath;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -42,10 +40,5 @@ public class MainMenu : MonoBehaviour
 		{
             SelectedSong = songs[index];
 		}
-	}
-
-    public void LoadGame()
-	{
-        SceneManager.LoadScene(gameScenePath);
 	}
 }

@@ -585,6 +585,7 @@ GameObject:
   - component: {fileID: 9047568458364019017}
   - component: {fileID: 785891961}
   - component: {fileID: 1113547859}
+  - component: {fileID: 1952105521}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -727,6 +728,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 7a890da8-74f7-4de5-8583-8aa52152f057
     m_ActionName: Player/Surchauffe[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1952105521}
+        m_TargetAssemblyTypeName: LevelChanger, Assembly-CSharp
+        m_MethodName: GotoLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 893ddd05-34b4-4193-a926-41016194ac07
+    m_ActionName: Player/Return To Menu[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -804,6 +821,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 438154467995756240}
+        m_TargetAssemblyTypeName: ShootPlayer, Assembly-CSharp
+        m_MethodName: SetShoot
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   combo: 0
   maxCombo: 100
   onComboChange:
@@ -846,6 +875,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   tempoManager: {fileID: 0}
+  CheckShootisOk: 0
 --- !u!114 &7462270552646460797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -992,6 +1022,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1952105521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047568458364018868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37360b01c9143ac4d95e307dd07ad51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad: Menu
 --- !u!1 &9047568459307142814
 GameObject:
   m_ObjectHideFlags: 0

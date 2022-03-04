@@ -49,8 +49,13 @@ public class TempoManager : MonoBehaviour
         //TimerTempo = ObjectiveShoot * TempoDuration;
 	}
 
-	// Update is called once per frame
-	void Update()
+    private void OnDestroy()
+    {
+        songEmitter.Stop();
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         TimerTempo += Time.deltaTime;
         if (TimerTempo >= TempoDuration)
@@ -74,7 +79,7 @@ public class TempoManager : MonoBehaviour
 
     public void NewCombo(int combo, int max)
     {
-        //faire un calcul en fonction de la surchauffe et de la taille du tir pour que que se soit recalculer à chaque fois
+        //faire un calcul en fonction de la surchauffe et de la taille du tir pour que se soit recalculer à chaque fois
         float margin = MarginPerfectEvolution.Evaluate((float)combo / (float)max);
         marginPerfect = margin;
     }
