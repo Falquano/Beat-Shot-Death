@@ -13,6 +13,7 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private GameObject myBulletSpawnPoint;
 
     [SerializeField] LayerMask TheMask;
+    [SerializeField] private LayerMask pointerLayerMask;
 
     // j'ai du rajouter ça, c'est la distance max des pistolets
     [SerializeField] private float range = 100f;
@@ -55,7 +56,8 @@ public class ShootPlayer : MonoBehaviour
     public void Shoot()
     {
         //on calcul la direction entre le player et la souris 
-        Vector2 DirectionShoot = Camera.main.ScreenToWorldPoint(MouseScreenPosition) - transform.position;
+        //Vector2 DirectionShoot = Camera.main.ScreenToWorldPoint(MouseScreenPosition) - transform.position;
+        Vector2 DirectionShoot = transform.right;
 
         //on créer un raycast du player dans la direction de la souris de distance max sur un mask sans le player lui-même
         RaycastHit2D RayShoot = Physics2D.Raycast(transform.position, DirectionShoot.normalized, range, TheMask);
@@ -166,13 +168,27 @@ public class ShootPlayer : MonoBehaviour
     void Update()
     {
         //calcul à chaque frame de la position de la souris à son dernier déplacement dans le monde.
-        Vector3 screenToWorldPosition = Camera.main.ScreenToWorldPoint(MouseScreenPosition);
+        //Vector3 screenToWorldPosition = Camera.main.ScreenToWorldPoint(MouseScreenPosition);
+        Ray pointerRay = Camera.main.ScreenPointToRay(MouseScreenPosition);
+        if (Physics.Raycast(pointerRay, out RaycastHit hitInfo, float.MaxValue, pointerLayerMask))
+		{
+            //Vector3 point = new Vector3(hitInfo.point.x, transform.position.y, hitInfo.point.y);
+            //transform.LookAt(point);
+            Debug.DrawLine(pointerRay.origin, hitInfo.point, Color.blue, .1f);
+            /*float angle = Mathf.Atan2(point.z, point.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(-angle, Vector3.up);*/
+            Vector3 direction = hitInfo.point - transform.position;
+            direction.y = 0;
+            transform.right = direction.normalized;
+        }
 
-        float AngleRad = Mathf.Atan2(screenToWorldPosition.y - transform.position.y, screenToWorldPosition.x - transform.position.x);
+        Debug.DrawRay(transform.position, transform.right, Color.white);
+
+        /*float AngleRad = Mathf.Atan2(screenToWorldPosition.y - transform.position.z, screenToWorldPosition.x - transform.position.x);
         // Get Angle in Degrees
         float AngleDeg = (180 / Mathf.PI) * AngleRad;
         // Rotate Object
-        this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+        this.transform.rotation = Quaternion.Euler(0, AngleDeg, 0);*/
 
         tempoManager.Combo = combo;
     }
