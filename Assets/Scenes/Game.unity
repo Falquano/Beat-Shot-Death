@@ -1695,9 +1695,49 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4551605476818002621, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
-      propertyPath: m_Constraints
-      value: 116
+    - target: {fileID: 782055327, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: impactParticlesPrefab
+      value: 
+      objectReference: {fileID: 7081961916757537454, guid: f0bfca444f22a92458ec88145b5918c9, type: 3}
+    - target: {fileID: 782055327, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 782055327, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 782055327, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1409361019}
+    - target: {fileID: 782055327, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 782055327, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ShotFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 782055327, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ShootMesure, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 782055327, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226625388270670265, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226625388270670265, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226625388270670265, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.026
       objectReference: {fileID: 0}
     - target: {fileID: 7226625388907849312, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
       propertyPath: m_RootOrder
@@ -1749,6 +1789,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+--- !u!114 &1409361019 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 782055327, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+  m_PrefabInstance: {fileID: 1310682076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95274270c9ca2a64182e92ca912c4a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1565438077
 GameObject:
   m_ObjectHideFlags: 0
