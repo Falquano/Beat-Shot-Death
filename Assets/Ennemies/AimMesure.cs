@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AimMesure : Mesure
 {
+    public float rotationSpeed;
+
     private void OnEnable()
     {
         //Debug.Log("Ennemy is now aiming");
@@ -30,7 +32,12 @@ public class AimMesure : Mesure
         // Rotate Object
         this.transform.rotation = Quaternion.Euler(0, AngleDeg, 0);*/
         Vector3 direction = playerTransform.position - transform.position;
-        direction.y = 0;
-        transform.right = direction.normalized;
+
+
+        //transform.LookAt(playerTransform);
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        //direction.y = 0;
+        //transform.right = direction.normalized;
     }
 }

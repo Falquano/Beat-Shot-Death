@@ -42,7 +42,7 @@ public class ShootMesure : Mesure
         //on calcul la direction entre l'ennemi et le player
         Vector3 ShootToPlayer = behavior.Player.transform.position  - transform.position;
 
-        Ray ray = new Ray(transform.position + transform.right * rayOffset, transform.right);
+        Ray ray = new Ray(transform.position + transform.forward * rayOffset, transform.forward);
 
         ShotInfo shotInfo = new ShotInfo()
         {
@@ -63,7 +63,7 @@ public class ShootMesure : Mesure
                 targetHealth.DealDamage(damage);
             }
 
-            shotInfo.EndPos = hitInfo.point;
+            shotInfo.EndPos = hitInfo.point; 
             shotInfo.EndNormal = hitInfo.normal;
             shotInfo.ShotObject = hitInfo.collider.gameObject;
 		}
