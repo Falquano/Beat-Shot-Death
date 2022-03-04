@@ -39,7 +39,7 @@ public class ShootMesure : Mesure
         // Ici il faut ajouter le tir ennemi
         // Fait le au raycast, pas au projectile
         //on calcul la direction entre l'ennemi et le player
-        Vector2 ShootToPlayer = behavior.Player.transform.position  - transform.position;
+        Vector3 ShootToPlayer = behavior.Player.transform.position  - transform.position;
 
         //on créer un raycast du player dans la direction de la souris de distance max sur un mask sans le player lui-même
         RaycastHit2D RayShootEnnemy = Physics2D.Raycast(transform.position + transform.right * 1.2f, transform.right, range, EnnemyMask);
