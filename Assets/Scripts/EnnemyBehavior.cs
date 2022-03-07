@@ -10,6 +10,9 @@ public class EnnemyBehavior : MonoBehaviour
     [SerializeField] private Mesure[] mesures;
     private int currentMesure;
 
+    [SerializeField] private bool active;
+    public bool Active { get => active; set => active = value; }
+
     private GameObject player;
     public GameObject Player => player;
 
@@ -27,25 +30,31 @@ public class EnnemyBehavior : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         animator.SetFloat("Seed", Random.Range(0f, 1f));
 
-        for (int i = 1; i < mesures.Length; i++)
+        for (int i = 0; i < mesures.Length; i++)
         {
             InitMesure(i);
             SetBehaviorEnabled(i, false);
         }
-        InitMesure(0);
-        SetBehaviorEnabled(0, true);
-
 
         rigidBodyEnnemy = GetComponent<Rigidbody>();
     }
+
+    public void ActivateAtNextMesure()
+	{
+        active = true;
+	}
 
     public void OnNewMesure(int newMesure)
     {
         if (!enabled)
             return;
 
-        SetBehaviorEnabled(currentMesure, false);
-        SetBehaviorEnabled(newMesure, true);
+        if (active)
+		{
+            SetBehaviorEnabled(currentMesure, false);
+            SetBehaviorEnabled(newMesure, true);
+		}
+
         currentMesure = newMesure;
     }
 
