@@ -289,6 +289,7 @@ MonoBehaviour:
   - {fileID: 782055329}
   - {fileID: 782055327}
   - {fileID: 0}
+  active: 0
 --- !u!114 &782055327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,7 +552,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
-  m_Height: 1.24
-  m_BaseOffset: 1.2
+  m_Height: 1.04
+  m_BaseOffset: 0.82
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
