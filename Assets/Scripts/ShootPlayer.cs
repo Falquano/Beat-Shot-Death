@@ -25,6 +25,7 @@ public class ShootPlayer : MonoBehaviour
 
     // Un event qui s'active quand on tire et envoie les données du tir. Le fonctionnement des events a été bien expliqué par @Céleste dans le channel de prog je crois
     [SerializeField] public UnityEvent<ShotInfo> OnShotEvent = new UnityEvent<ShotInfo>();
+    [SerializeField] public UnityEvent OnDecreasingCombo = new UnityEvent();
 
     [SerializeField] private int combo = 0;
     [SerializeField] private int maxCombo = 100;
@@ -45,6 +46,7 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private int varComboPerfectShoot;
     [SerializeField] private int varComboOkayShoot;
     [SerializeField] private int varComboFailedShoot;
+    [SerializeField] private int varComboDecrease;
 
 
 
@@ -108,11 +110,20 @@ public class ShootPlayer : MonoBehaviour
              //La surchauffe descend de 10
              combo = Mathf.Clamp(combo - varComboNoShoot, 0, maxCombo);
              onComboChange.Invoke(combo, maxCombo);
-             print("combo descend");
             
         }
 
         SetShoot(true);
+    }
+
+
+    public void DecreaseCombo()
+    {
+        //La surchauffe augmente de 10
+        combo = Mathf.Clamp(combo - varComboDecrease, 0, maxCombo);
+        onComboChange.Invoke(combo, maxCombo);
+        OnDecreasingCombo.Invoke();
+
     }
 
     //Système d'interrupteur pour activeret désactiver le tir
