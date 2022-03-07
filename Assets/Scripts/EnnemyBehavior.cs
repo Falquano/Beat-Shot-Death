@@ -42,6 +42,7 @@ public class EnnemyBehavior : MonoBehaviour
     public void ActivateAtNextMesure()
 	{
         active = true;
+        activeEnnemies++;
 	}
 
     public void OnNewMesure(int newMesure)
@@ -77,6 +78,8 @@ public class EnnemyBehavior : MonoBehaviour
 
     public void Die()
     {
+        active = false;
+        activeEnnemies--;
         //Destroy(this.gameObject);
         enabled = false;
         SetBehaviorEnabled(currentMesure, false);
@@ -87,4 +90,6 @@ public class EnnemyBehavior : MonoBehaviour
         Destroy(GetComponent<Collider2D>());
         Destroy(this);
     }
+
+    private static uint activeEnnemies = 0;
 }

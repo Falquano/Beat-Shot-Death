@@ -526,6 +526,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1462242837}
+  - {fileID: 1091946706}
+  - {fileID: 1736941093}
+  - {fileID: 1626799837}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -754,6 +757,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!4 &245831672 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9047568458364018869, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+  m_PrefabInstance: {fileID: 9047568459272337482}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &246957856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,8 +1165,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333047514}
   m_LocalRotation: {x: -0, y: -0.7070961, z: -0, w: 0.70711756}
-  m_LocalPosition: {x: 49.998634, y: 0.00000047683716, z: 15.000674}
-  m_LocalScale: {x: 1.0476, y: 1, z: 4}
+  m_LocalPosition: {x: 49.998634, y: 0.00000047683716, z: 15.500673}
+  m_LocalScale: {x: 1.147541, y: 1, z: 4}
   m_Children: []
   m_Father: {fileID: 732535824}
   m_RootOrder: 13
@@ -1672,7 +1680,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 60
+  field of view: 90
   orthographic: 0
   orthographic size: 8
   m_Depth: -1
@@ -1698,7 +1706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 22.390003, z: 0.0000005233287}
+  m_LocalPosition: {x: -9.55, y: 16.390005, z: 3.6800015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1921,9 +1929,9 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 1096770414}
+  m_Follow: {fileID: 245831672}
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 90
     OrthographicSize: 8
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1945,7 +1953,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636008003}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 22.390003, z: 0.0000005233287}
+  m_LocalPosition: {x: -9.55, y: 16.390005, z: 3.6800015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 708667668}
@@ -2219,7 +2227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 18, z: 0}
+  m_TrackedObjectOffset: {x: 0, y: 10, z: 0}
   m_LookaheadTime: 0.1
   m_LookaheadSmoothing: 5
   m_LookaheadIgnoreY: 0
@@ -2587,8 +2595,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810686165}
   m_LocalRotation: {x: 0.7071068, y: -0.000024579462, z: 0.000024579462, w: 0.7071068}
-  m_LocalPosition: {x: 69.99864, y: 2.5000007, z: 15.000517}
-  m_LocalScale: {x: 1, y: 10.999801, z: 5}
+  m_LocalPosition: {x: 69.99864, y: 2.5000007, z: 15.500516}
+  m_LocalScale: {x: 1, y: 11.999682, z: 5}
   m_Children: []
   m_Father: {fileID: 732535824}
   m_RootOrder: 22
@@ -3103,6 +3111,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075166493}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1091946705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1091946706}
+  - component: {fileID: 1091946708}
+  - component: {fileID: 1091946707}
+  m_Layer: 0
+  m_Name: Salle d'attente
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1091946706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091946705}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 37.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 177429261}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1091946707
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091946705}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 5, z: 20}
+  m_Center: {x: 0, y: 3.5, z: 0}
+--- !u!114 &1091946708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091946705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf45c8c9f4a99ec44aa2180b896c0360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Salle d'attente
+  ennemies: []
+  onPlayerEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1096770412
 GameObject:
   m_ObjectHideFlags: 0
@@ -3538,8 +3608,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414314781}
   m_LocalRotation: {x: 0.7071068, y: -0.000024579462, z: 0.000024579462, w: 0.7071068}
-  m_LocalPosition: {x: 29.998646, y: 2.5000007, z: 15.000517}
-  m_LocalScale: {x: 1, y: 10.999801, z: 5}
+  m_LocalPosition: {x: 29.998646, y: 2.5000007, z: 15.500516}
+  m_LocalScale: {x: 1, y: 11.999682, z: 5}
   m_Children: []
   m_Father: {fileID: 732535824}
   m_RootOrder: 21
@@ -3708,6 +3778,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4551605476818002621, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7226625388907849312, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3780,7 +3854,7 @@ GameObject:
   - component: {fileID: 1462242837}
   - component: {fileID: 1462242839}
   - component: {fileID: 1462242838}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lobby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3812,7 +3886,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 5, z: 21}
+  m_Size: {x: 20, y: 5, z: 20}
   m_Center: {x: 0, y: 3.5, z: 0}
 --- !u!114 &1462242839
 MonoBehaviour:
@@ -3826,7 +3900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf45c8c9f4a99ec44aa2180b896c0360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Lobby
+  Name: Salle d'attente
   ennemies:
   - {fileID: 1703055542}
   - {fileID: 530487227}
@@ -3862,7 +3936,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1494102254}
   m_LocalRotation: {x: 0.500025, y: 0.4999751, z: -0.4999751, w: 0.500025}
-  m_LocalPosition: {x: 50, y: 2.5000005, z: 20}
+  m_LocalPosition: {x: 50, y: 2.5000005, z: 21}
   m_LocalScale: {x: 1, y: 41.0004, z: 5}
   m_Children: []
   m_Father: {fileID: 732535824}
@@ -4221,6 +4295,68 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!1 &1626799836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1626799837}
+  - component: {fileID: 1626799839}
+  - component: {fileID: 1626799838}
+  m_Layer: 0
+  m_Name: Corridor Nord
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1626799837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626799836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 47.5, y: 0, z: 15.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 177429261}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1626799838
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626799836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 40, y: 5, z: 11}
+  m_Center: {x: 0, y: 3.5, z: 0}
+--- !u!114 &1626799839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626799836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf45c8c9f4a99ec44aa2180b896c0360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Corridor Nord
+  ennemies: []
+  onPlayerEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1662155834
 GameObject:
   m_ObjectHideFlags: 0
@@ -4576,6 +4712,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705116958}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1736941092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1736941093}
+  - component: {fileID: 1736941095}
+  - component: {fileID: 1736941094}
+  m_Layer: 0
+  m_Name: Corridor Sud
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1736941093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736941092}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 47.5, y: 0, z: -15.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 177429261}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1736941094
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736941092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 40, y: 5, z: 11}
+  m_Center: {x: 0, y: 3.5, z: 0}
+--- !u!114 &1736941095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736941092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf45c8c9f4a99ec44aa2180b896c0360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Corridor Sud
+  ennemies: []
+  onPlayerEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1902691704
 GameObject:
   m_ObjectHideFlags: 0
