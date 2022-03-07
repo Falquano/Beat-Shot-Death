@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MoveMesure : Mesure
 {
@@ -8,52 +9,72 @@ public class MoveMesure : Mesure
     [SerializeField] private float speed;
     [SerializeField] private float ValueMargin;
 
+    private float Multiplicateur;
+
+    private NavMeshAgent meshAgent;
+    private Transform playerTransform;
+
+    public float rotationSpeed;
+
+    private void Start()
+    {
+        //déclaration des variables utiles
+        meshAgent = GetComponent<NavMeshAgent>();
+        playerTransform = behavior.Player.GetComponent<Transform>();
+
+        
+    }
+
+    private void Movement()
+    {
+        //calcul de la distance entre l'ennemi et le player en float
+        float DistanceWithPlayer = Vector3.Distance(transform.position, playerTransform.position);
+
+        //calcul de la direction et donc du vecteur dans la direction du player
+        Vector3 VectorToPlayer = playerTransform.position - transform.position;
+        //distance jusqu'au pts que l'on veux
+        Multiplicateur = DistanceWithPlayer - Distance;
+
+        //il prend le vector qui va de l'ennemi à son target et ajoute la position de l'ennemi afin d'avoir la position de la target dans l'espace
+        meshAgent.destination = (VectorToPlayer.normalized * Multiplicateur) + transform.position;
+
+    }
     private void OnEnable()
     {
         animator.SetBool("Moving", true);
         animator.SetBool("Aiming", false);
+        meshAgent.enabled = true;
+
+        //appel de la fonction qui calcul le chemin de l'ennemi en premier lieu
+        Movement();
     }
 
     private void OnDisable()
     {
         animator.SetBool("Moving", false);
         behavior.Rigidbody.velocity = Vector3.zero;
+        meshAgent.ResetPath();
+        meshAgent.velocity = Vector3.zero;
+        meshAgent.enabled = false;
+
     }
 
     private void Update()
     {
         if (behavior.Player == null)
             return;
-        
-        // Ici ajouter le code de déplacement. Il faut juste rester tourné vers le joueur et s'approcher de lui
-        Transform playerTransform = behavior.Player.GetComponent<Transform>();
 
 
-        /*float AngleRad = Mathf.Atan2(PlayerTransform.position.z - transform.position.z, PlayerTransform.position.x - transform.position.x);
-        // Get Angle in Degrees
-        float AngleDeg = (180 / Mathf.PI) * AngleRad;
-        // Rotate Object
-        this.transform.rotation = Quaternion.Euler(0, AngleDeg, 0);*/
-        Vector3 direction = playerTransform.position - transform.position;
+        /*Vector3 direction = playerTransform.position - transform.position;
         direction.y = 0;
-        transform.right = direction.normalized;
+        transform.right = direction.normalized;*/
 
-        //calcul de la distance entre l'ennemi et le player
-        float DistanceWithPlayer = Vector3.Distance(transform.position, playerTransform.position);
+        Vector3 direction = playerTransform.position - transform.position;
 
-        if (DistanceWithPlayer < Distance + ValueMargin && DistanceWithPlayer > Distance - ValueMargin)
-        {
-            //print("R1");
-        }
-        else if (DistanceWithPlayer < Distance - ValueMargin)
-        {
-            behavior.Rigidbody.velocity = -direction.normalized * speed;
-            //print("reculer");
-        }
-        else if (DistanceWithPlayer > Distance + ValueMargin)
-        {
-            behavior.Rigidbody.velocity = direction.normalized * speed;
-            //print("avancer");
-        }
+
+        
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
     }
 }

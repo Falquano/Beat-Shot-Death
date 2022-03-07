@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4588662011729138380}
-  m_LocalRotation: {x: -0.49995846, y: -0.4997889, z: -0.5000415, w: 0.5002111}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: -0.1800003, y: 0.23215842, z: 0.68225145}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
@@ -182,6 +182,8 @@ GameObject:
   - component: {fileID: 1061571807517462011}
   - component: {fileID: 4551605476818002621}
   - component: {fileID: 4188236590259041588}
+  - component: {fileID: 855879532266495755}
+  - component: {fileID: 1465532477}
   m_Layer: 0
   m_Name: Ennemy
   m_TagString: Ennemy
@@ -352,6 +354,7 @@ MonoBehaviour:
   Distance: 5
   speed: 5
   ValueMargin: 0.5
+  rotationSpeed: 360
 --- !u!114 &782055329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,6 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c6fa906b42a1543ae9fa3ac11c4652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 360
 --- !u!114 &8685713312603719414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,3 +534,44 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: -0.050377846, y: 0.13548267, z: 0.70056236}
+--- !u!195 &855879532266495755
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226625388907849313}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 60
+  avoidancePriority: 50
+  m_AngularSpeed: 0
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 0
+  m_AutoRepath: 1
+  m_Height: 1.24
+  m_BaseOffset: 1.2
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!1183024399 &1465532477
+LookAtConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226625388907849313}
+  m_Enabled: 0
+  m_Weight: 1
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 0, z: 0}
+  m_Roll: 0
+  m_WorldUpObject: {fileID: 0}
+  m_UseUpObject: 0
+  m_IsContraintActive: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 0}
+    weight: 1
