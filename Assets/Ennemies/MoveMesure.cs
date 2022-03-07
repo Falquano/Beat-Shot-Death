@@ -21,8 +21,6 @@ public class MoveMesure : Mesure
         //déclaration des variables utiles
         meshAgent = GetComponent<NavMeshAgent>();
         playerTransform = behavior.Player.GetComponent<Transform>();
-
-        
     }
 
     private void Movement()
@@ -56,7 +54,6 @@ public class MoveMesure : Mesure
         meshAgent.ResetPath();
         meshAgent.velocity = Vector3.zero;
         meshAgent.enabled = false;
-
     }
 
     private void Update()
@@ -75,6 +72,5 @@ public class MoveMesure : Mesure
         
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
     }
 }

@@ -10,7 +10,6 @@ public class LevelChanger : MonoBehaviour
 
     public void GotoLevel(CallbackContext context)
     {
-        Debug.Log("Salut");
         if (context.performed)
             SceneManager.LoadScene(levelToLoad);
     }

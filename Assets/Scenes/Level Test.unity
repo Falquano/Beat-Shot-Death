@@ -248,11 +248,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!4 &245831672 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9047568458364018869, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
-  m_PrefabInstance: {fileID: 9047568459272337482}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &276623223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2170,10 +2165,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1465532477, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
-      propertyPath: m_Sources.Array.data[0].sourceTransform
-      value: 
-      objectReference: {fileID: 245831672}
     - target: {fileID: 7226625388907849312, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
       propertyPath: m_RootOrder
       value: 1

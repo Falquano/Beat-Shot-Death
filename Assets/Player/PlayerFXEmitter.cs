@@ -19,8 +19,6 @@ public class PlayerFXEmitter : MonoBehaviour
 
     public void OnShoot(ShotInfo shotInfo)
     {
-        Debug.Log(shotInfo.EndPos);
-
         if (shotInfo.Quality != ShotQuality.Failed)
         {
             ZapLine(shotInfo);
