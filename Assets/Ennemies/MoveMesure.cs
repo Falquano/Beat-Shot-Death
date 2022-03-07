@@ -41,6 +41,13 @@ public class MoveMesure : Mesure
     {
         animator.SetBool("Moving", true);
         animator.SetBool("Aiming", false);
+
+        if (playerTransform == null)
+            playerTransform = behavior.Player.transform;
+
+        if (meshAgent == null)
+            meshAgent = GetComponent<NavMeshAgent>();
+
         meshAgent.enabled = true;
 
         //appel de la fonction qui calcul le chemin de l'ennemi en premier lieu
