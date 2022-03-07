@@ -39,6 +39,15 @@ public class ShootPlayer : MonoBehaviour
     //je ne suis pas sur de cette variable
     [SerializeField] public bool CheckShootisOk ;
 
+
+    //variable de combo que l'on veux retirer
+    [SerializeField] private int varComboNoShoot;
+    [SerializeField] private int varComboPerfectShoot;
+    [SerializeField] private int varComboOkayShoot;
+    [SerializeField] private int varComboFailedShoot;
+
+
+
     // Update is called once per frame
     void Update()
     {
@@ -97,7 +106,7 @@ public class ShootPlayer : MonoBehaviour
         {
 
              //La surchauffe descend de 10
-             combo = Mathf.Clamp(combo - 5, 0, maxCombo);
+             combo = Mathf.Clamp(combo - varComboNoShoot, 0, maxCombo);
              onComboChange.Invoke(combo, maxCombo);
              print("combo descend");
             
@@ -159,7 +168,7 @@ public class ShootPlayer : MonoBehaviour
         }
 
         //La surchauffe augmente de 10
-        combo = Mathf.Clamp(combo + 10, 0, maxCombo);
+        combo = Mathf.Clamp(combo + varComboPerfectShoot, 0, maxCombo);
         onComboChange.Invoke(combo, maxCombo);
 
         ShotInfo info = new ShotInfo()
@@ -186,7 +195,7 @@ public class ShootPlayer : MonoBehaviour
         }
 
         //La surchauffe descend de 10
-        combo = Mathf.Clamp(combo - 10, 0, maxCombo);
+        combo = Mathf.Clamp(combo - varComboOkayShoot, 0, maxCombo);
         onComboChange.Invoke(combo, maxCombo);
 
         ShotInfo info = new ShotInfo()
@@ -205,7 +214,7 @@ public class ShootPlayer : MonoBehaviour
     private void FailedShot()
     {
         //La surchauffe descend de 30 car le tir est raté.
-        combo = Mathf.Clamp(combo - 30, 0, maxCombo);
+        combo = Mathf.Clamp(combo - varComboFailedShoot, 0, maxCombo);
         onComboChange.Invoke(combo, maxCombo);
 
         ShotInfo info = new ShotInfo()
