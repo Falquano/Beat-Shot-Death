@@ -25,6 +25,7 @@ public class ShootPlayer : MonoBehaviour
 
     // Un event qui s'active quand on tire et envoie les données du tir. Le fonctionnement des events a été bien expliqué par @Céleste dans le channel de prog je crois
     [SerializeField] public UnityEvent<ShotInfo> OnShotEvent = new UnityEvent<ShotInfo>();
+    [SerializeField] public UnityEvent OnDecreasingCombo = new UnityEvent();
 
     [SerializeField] private int combo = 0;
     [SerializeField] private int maxCombo = 100;
@@ -37,7 +38,17 @@ public class ShootPlayer : MonoBehaviour
 
 
     //je ne suis pas sur de cette variable
-    [SerializeField] private bool CheckShootisOk ;
+    [SerializeField] public bool CheckShootisOk ;
+
+
+    //variable de combo que l'on veux retirer
+    [SerializeField] private int varComboNoShoot;
+    [SerializeField] private int varComboPerfectShoot;
+    [SerializeField] private int varComboOkayShoot;
+    [SerializeField] private int varComboFailedShoot;
+    [SerializeField] private int varComboDecrease;
+
+
 
     // Update is called once per frame
     void Update()
@@ -90,9 +101,35 @@ public class ShootPlayer : MonoBehaviour
         }
     }
 
+    public void CheckPreviousShoot()
+    {
+        //si checkshootisok est true au début de la mesure c'est qu'on a pas tiré
+        if (CheckShootisOk == true)
+        {
+
+             //La surchauffe descend de 10
+             combo = Mathf.Clamp(combo - varComboNoShoot, 0, maxCombo);
+             onComboChange.Invoke(combo, maxCombo);
+            
+        }
+
+        SetShoot(true);
+    }
+
+
+    public void DecreaseCombo()
+    {
+        //La surchauffe augmente de 10
+        combo = Mathf.Clamp(combo - varComboDecrease, 0, maxCombo);
+        onComboChange.Invoke(combo, maxCombo);
+        OnDecreasingCombo.Invoke();
+
+    }
+
     //Système d'interrupteur pour activeret désactiver le tir
     public void SetShoot(bool ShootParameter)
     {
+
         CheckShootisOk = ShootParameter;
     }
 
@@ -142,7 +179,7 @@ public class ShootPlayer : MonoBehaviour
         }
 
         //La surchauffe augmente de 10
-        combo = Mathf.Clamp(combo + 10, 0, maxCombo);
+        combo = Mathf.Clamp(combo + varComboPerfectShoot, 0, maxCombo);
         onComboChange.Invoke(combo, maxCombo);
 
         ShotInfo info = new ShotInfo()
@@ -169,7 +206,7 @@ public class ShootPlayer : MonoBehaviour
         }
 
         //La surchauffe descend de 10
-        combo = Mathf.Clamp(combo - 10, 0, maxCombo);
+        combo = Mathf.Clamp(combo - varComboOkayShoot, 0, maxCombo);
         onComboChange.Invoke(combo, maxCombo);
 
         ShotInfo info = new ShotInfo()
@@ -188,7 +225,7 @@ public class ShootPlayer : MonoBehaviour
     private void FailedShot()
     {
         //La surchauffe descend de 30 car le tir est raté.
-        combo = Mathf.Clamp(combo - 30, 0, maxCombo);
+        combo = Mathf.Clamp(combo - varComboFailedShoot, 0, maxCombo);
         onComboChange.Invoke(combo, maxCombo);
 
         ShotInfo info = new ShotInfo()

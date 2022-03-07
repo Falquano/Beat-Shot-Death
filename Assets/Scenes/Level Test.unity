@@ -1845,8 +1845,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1982093569}
         m_TargetAssemblyTypeName: ShootPlayer, Assembly-CSharp
-        m_MethodName: SetShoot
-        m_Mode: 6
+        m_MethodName: CheckPreviousShoot
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2538,6 +2538,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1592097980}
     - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: varComboNoShoot
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: varComboDecrease
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: varComboOkayShoot
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: varComboFailedShoot
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: varComboPerfectShoot
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: pointerLayerMask.m_Bits
       value: 1
       objectReference: {fileID: 0}
@@ -2636,6 +2656,34 @@ PrefabInstance:
     - target: {fileID: 9047568458364018869, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1982093569}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DecreaseCombo
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ShootPlayer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9047568458364019017, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
