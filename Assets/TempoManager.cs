@@ -31,6 +31,9 @@ public class TempoManager : MonoBehaviour
     [SerializeField] public UnityEvent<int> onMesureStart = new UnityEvent<int>();
     [SerializeField] public UnityEvent onTimeToShoot = new UnityEvent();
 
+
+    
+
 	private void Start()
 	{
         if (MainMenu.SelectedSong != null)

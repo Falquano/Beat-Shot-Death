@@ -37,7 +37,7 @@ public class ShootPlayer : MonoBehaviour
 
 
     //je ne suis pas sur de cette variable
-    [SerializeField] private bool CheckShootisOk ;
+    [SerializeField] public bool CheckShootisOk ;
 
     // Update is called once per frame
     void Update()
@@ -90,9 +90,26 @@ public class ShootPlayer : MonoBehaviour
         }
     }
 
+    public void CheckPreviousShoot()
+    {
+        //si checkshootisok est true au début de la mesure c'est qu'on a pas tiré
+        if (CheckShootisOk == true)
+        {
+
+             //La surchauffe descend de 10
+             combo = Mathf.Clamp(combo - 5, 0, maxCombo);
+             onComboChange.Invoke(combo, maxCombo);
+             print("combo descend");
+            
+        }
+
+        SetShoot(true);
+    }
+
     //Système d'interrupteur pour activeret désactiver le tir
     public void SetShoot(bool ShootParameter)
     {
+
         CheckShootisOk = ShootParameter;
     }
 
