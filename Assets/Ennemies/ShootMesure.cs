@@ -37,8 +37,7 @@ public class ShootMesure : Mesure
         if (behavior.Player == null)
             return;
 
-        // Ici il faut ajouter le tir ennemi
-        // Fait le au raycast, pas au projectile
+        
         //on calcul la direction entre l'ennemi et le player
         Vector3 ShootToPlayer = behavior.Player.transform.position  - transform.position;
 
