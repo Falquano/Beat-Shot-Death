@@ -29,11 +29,14 @@ public class UIBarFiller : MonoBehaviour
         UpdateBar();
         timer = 0f;
         enabled = true;
+        Debug.Log("ZAP");
     }
 
     public void SetProgress(int value, int max)
     {
-        SetProgress((float)value / (float)max);
+        float newProgress = (float)value / (float)max;
+        if (newProgress != progress)
+            SetProgress(newProgress);
     }
 
     private void UpdateBar()
