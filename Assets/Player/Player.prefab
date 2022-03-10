@@ -584,8 +584,9 @@ GameObject:
   - component: {fileID: 785891961}
   - component: {fileID: 1113547859}
   - component: {fileID: 1952105521}
-  - component: {fileID: 245831671}
   - component: {fileID: 245831670}
+  - component: {fileID: 245831671}
+  - component: {fileID: 5015411707427916528}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -777,10 +778,10 @@ MonoBehaviour:
   myBulletSpawnPoint: {fileID: 7582482033606924097}
   TheMask:
     serializedVersion: 2
-    m_Bits: 183
+    m_Bits: 55
   pointerLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   range: 100
   Barrels:
   - {fileID: 4556530571230113019}
@@ -836,6 +837,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDecreasingCombo:
+    m_PersistentCalls:
+      m_Calls: []
   combo: 0
   maxCombo: 100
   onComboChange:
@@ -879,10 +883,11 @@ MonoBehaviour:
         m_CallState: 2
   tempoManager: {fileID: 0}
   CheckShootisOk: 0
-  varComboNoShoot: 5
-  varComboPerfectShoot: 10
-  varComboOkayShoot: 5
-  varComboFailedShoot: 20
+  comboMalusNoShot: 10
+  comboBonusPerfectShot: 10
+  comboBonusOkayShot: -2
+  comboMalusFailedShot: -20
+  comboMalusCooldown: 10
 --- !u!114 &7462270552646460797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -949,7 +954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aa2e8a9278297488724feb9276051a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  MaxHealth: 10000000
   onTakeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -1005,6 +1010,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad: Menu
+--- !u!136 &245831670
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047568458364018868}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.74
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: -0.06, y: 0, z: 0.34}
 --- !u!54 &245831671
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1021,7 +1040,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!136 &245831670
+--- !u!136 &5015411707427916528
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
