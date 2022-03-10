@@ -233,9 +233,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8685713312603719414}
-        m_TargetAssemblyTypeName: EnnemySoundEffects, Assembly-CSharp
-        m_MethodName: HurtSoundEffect
+      - m_Target: {fileID: 4285446244051387595}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -533,7 +533,7 @@ CapsuleCollider:
   m_Radius: 0.6640892
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: -0.050377846, y: 0.13548267, z: 0.70056236}
+  m_Center: {x: -0.11, y: 0.13548267, z: -0.17}
 --- !u!195 &855879532266495755
 NavMeshAgent:
   m_ObjectHideFlags: 0
