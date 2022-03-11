@@ -92,11 +92,9 @@ public class ShootPlayer : MonoBehaviour
         //si lorsque la fonction est appelée, le bouton est appuyé donc Fire = 1
         if (callBack.performed )
         {
-            
             if(CheckShootisOk == true)
             {
                 Shoot();
-                
             }
         }
     }
@@ -133,8 +131,9 @@ public class ShootPlayer : MonoBehaviour
 
     public void Shoot()
     {
-        //On récup la direction du player qui s'actualise en fonction du déplacement de la souris
-        Vector3 DirectionShoot = transform.right;
+        //on calcul la direction entre le player et la souris 
+        //Vector2 DirectionShoot = Camera.main.ScreenToWorldPoint(MouseScreenPosition) - transform.position;
+        Vector3 DirectionShoot = transform.forward;
 
         Ray ray = new Ray(transform.position, DirectionShoot.normalized);
         //on créer un raycast du player dans la direction de la souris de distance max sur un mask sans le player lui-même
