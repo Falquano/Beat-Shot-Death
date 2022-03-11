@@ -69,10 +69,6 @@ public class MoveMesure : Mesure
             return;
 
 
-        /*Vector3 direction = playerTransform.position - transform.position;
-        direction.y = 0;
-        transform.right = direction.normalized;*/
-
         Vector3 direction = playerTransform.position - transform.position;
 
 

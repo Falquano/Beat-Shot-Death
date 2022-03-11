@@ -24,7 +24,7 @@ public class HealthSystem : MonoBehaviour
     public void DealDamage(int amount)
     {
         health -= amount;
-        //print(health);
+        
 
         onTakeDamage.Invoke(amount, health);
 

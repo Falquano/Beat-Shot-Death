@@ -21,7 +21,7 @@ public class ShootMesure : Mesure
 
     private void OnEnable()
     {
-        //Debug.Log("Ennemy is now shooting");
+        
         tempo.onTimeToShoot.AddListener(Shoot);
         animator.SetBool("Aiming", true);
     }
@@ -37,11 +37,11 @@ public class ShootMesure : Mesure
         if (behavior.Player == null)
             return;
 
-        // Ici il faut ajouter le tir ennemi
-        // Fait le au raycast, pas au projectile
+        
         //on calcul la direction entre l'ennemi et le player
         Vector3 ShootToPlayer = behavior.Player.transform.position  - transform.position;
 
+        //On tire un raycast de l'ennemi (+ une distance pour pas qu'il se tire dessus) dans le sens de sa direction
         Ray ray = new Ray(transform.position + transform.forward * rayOffset, transform.forward);
 
         ShotInfo shotInfo = new ShotInfo()
@@ -53,8 +53,8 @@ public class ShootMesure : Mesure
             EndPos = barrel.position
         };
 
-        //on créer un raycast du player dans la direction de la souris de distance max sur un mask sans le player lui-même
-        //RaycastHit RayShootEnnemy = Physics.Raycast(transform.position + transform.right * 1.2f, transform.right, range, EnnemyMask);
+        
+        
         if (Physics.Raycast(ray, out RaycastHit hitInfo, range, EnnemyMask))
 		{
             HealthSystem targetHealth = hitInfo.collider.GetComponent<HealthSystem>();
