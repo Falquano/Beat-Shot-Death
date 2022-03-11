@@ -8,7 +8,7 @@ public class ShootPlayer : MonoBehaviour
 {
     // Ce que ça veut dire c'est que on peut accéder à MousePosition de n'importe où mais on ne peut la modifier que dans cette classe.
     public Vector2 MouseScreenPosition { get; private set; }
-    public Vector2 MouseWorldPosition => Camera.main.ScreenToWorldPoint(MouseScreenPosition);
+    public Vector3 MouseWorldPosition;
 
     [SerializeField] private GameObject myBulletSpawnPoint;
 
@@ -55,13 +55,15 @@ public class ShootPlayer : MonoBehaviour
         Ray pointerRay = Camera.main.ScreenPointToRay(MouseScreenPosition);
         if (Physics.Raycast(pointerRay, out RaycastHit hitInfo, float.MaxValue, pointerLayerMask))
         {
-            Vector3 direction = hitInfo.point - transform.position;
+            MouseWorldPosition = hitInfo.point;
+            Vector3 direction = MouseWorldPosition - transform.position;
             direction.y = 0;
             transform.right = direction.normalized;
             Debug.DrawRay(transform.position, transform.right * 4, Color.white);
         } else
 		{
-            Vector3 direction = ExpandToGround(pointerRay.origin, pointerRay.direction, transform.position.y) - transform.position;
+            MouseWorldPosition = ExpandToGround(pointerRay.origin, pointerRay.direction, transform.position.y);
+            Vector3 direction = MouseWorldPosition - transform.position;
             direction.y = 0;
             transform.right = direction.normalized;
             Debug.DrawRay(transform.position, transform.right * 4, Color.white);
