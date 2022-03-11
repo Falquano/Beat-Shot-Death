@@ -58,14 +58,14 @@ public class ShootPlayer : MonoBehaviour
             MouseWorldPosition = hitInfo.point;
             Vector3 direction = MouseWorldPosition - transform.position;
             direction.y = 0;
-            transform.right = direction.normalized;
+            transform.forward = direction.normalized;
             Debug.DrawRay(transform.position, transform.right * 4, Color.white);
         } else
 		{
             MouseWorldPosition = ExpandToGround(pointerRay.origin, pointerRay.direction, transform.position.y);
             Vector3 direction = MouseWorldPosition - transform.position;
             direction.y = 0;
-            transform.right = direction.normalized;
+            transform.forward = direction.normalized;
             Debug.DrawRay(transform.position, transform.right * 4, Color.white);
         }
 
