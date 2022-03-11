@@ -23,8 +23,10 @@ public class CameraTarget : MonoBehaviour
     private void Update()
     {
         // Je place la cible entre le joueur et le curseur, avec un biais réglable
-        //transform.position = (player.transform.position * (1f - bias) + new Vector3(player.MouseWorldPosition.x, 0, player.MouseWorldPosition.y) * bias);
-        transform.position = Vector3.SmoothDamp(transform.position, player.transform.position, ref currentVelocity, smoothTime);
+        Vector3 newPos = (player.transform.position * (1f - bias) + player.MouseWorldPosition * bias);
+        newPos.y = player.transform.position.y;
+        transform.position = newPos;
+        //transform.position = Vector3.SmoothDamp(transform.position, player.transform.position, ref currentVelocity, smoothTime);
     }
 
     private void OnDrawGizmos()
