@@ -22,22 +22,15 @@ public class AimMesure : Mesure
         if (behavior.Player == null)
             return;
 
-        // Ici ajouter le code de déplacement. Il faut juste rester tourné vers le joueur et s'approcher de lui
+        //Récupération du transform du player
         Transform playerTransform = behavior.Player.GetComponent<Transform>();
 
-
-        /*float AngleRad = Mathf.Atan2(PlayerTransform.position.z - transform.position.z, PlayerTransform.position.x - transform.position.x);
-        // Get Angle in Degrees
-        float AngleDeg = (180 / Mathf.PI) * AngleRad;
-        // Rotate Object
-        this.transform.rotation = Quaternion.Euler(0, AngleDeg, 0);*/
+        //Calcul du vector entre l'ennemi et le player
         Vector3 direction = playerTransform.position - transform.position;
 
-
-        //transform.LookAt(playerTransform);
+        //L'ennemi regarde le player
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        //direction.y = 0;
-        //transform.right = direction.normalized;
+        
     }
 }

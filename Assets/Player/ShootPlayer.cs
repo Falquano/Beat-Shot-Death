@@ -133,8 +133,7 @@ public class ShootPlayer : MonoBehaviour
 
     public void Shoot()
     {
-        //on calcul la direction entre le player et la souris 
-        //Vector2 DirectionShoot = Camera.main.ScreenToWorldPoint(MouseScreenPosition) - transform.position;
+        //On récup la direction du player qui s'actualise en fonction du déplacement de la souris
         Vector3 DirectionShoot = transform.right;
 
         Ray ray = new Ray(transform.position, DirectionShoot.normalized);
