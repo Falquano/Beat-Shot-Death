@@ -775,6 +775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9623e9471790ae44cbff63d08c21bca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MouseWorldPosition: {x: 0, y: 0, z: 0}
   myBulletSpawnPoint: {fileID: 7582482033606924097}
   TheMask:
     serializedVersion: 2
@@ -885,8 +886,8 @@ MonoBehaviour:
   CheckShootisOk: 0
   comboMalusNoShot: 10
   comboBonusPerfectShot: 10
-  comboBonusOkayShot: -2
-  comboMalusFailedShot: -20
+  comboBonusOkayShot: 2
+  comboMalusFailedShot: 20
   comboMalusCooldown: 10
 --- !u!114 &7462270552646460797
 MonoBehaviour:
