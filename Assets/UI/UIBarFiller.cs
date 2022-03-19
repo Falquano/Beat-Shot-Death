@@ -29,7 +29,7 @@ public class UIBarFiller : MonoBehaviour
         UpdateBar();
         timer = 0f;
         enabled = true;
-        Debug.Log("ZAP");
+        
     }
 
     public void SetProgress(int value, int max)

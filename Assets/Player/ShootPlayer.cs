@@ -38,7 +38,7 @@ public class ShootPlayer : MonoBehaviour
 
 
     //je ne suis pas sur de cette variable
-    [SerializeField] public bool CheckShootisOk ;
+    [SerializeField] public bool CheckShootisOk = true ;
 
 
     //variable de combo que l'on veux retirer
@@ -46,7 +46,7 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private int comboBonusPerfectShot;
     [SerializeField] private int comboBonusOkayShot;
     [SerializeField] private int comboMalusFailedShot;
-    [SerializeField] private int comboMalusCooldown;
+    [SerializeField] private int comboDecrease;
 
     // Update is called once per frame
     void Update()
@@ -101,33 +101,30 @@ public class ShootPlayer : MonoBehaviour
 
     public void CheckPreviousShoot()
     {
+        
         //si checkshootisok est true au début de la mesure c'est qu'on a pas tiré
         if (CheckShootisOk == true)
         {
-             //La surchauffe descend de 10
-             combo = Mathf.Clamp(combo - comboMalusNoShot, 0, maxCombo);
+             //La surchauffe descend de 10 si le joueur n'a pas tirer le tempo précédent
+             combo = Mathf.Clamp(combo + comboMalusNoShot, 0, maxCombo);
              onComboChange.Invoke(combo, maxCombo);   
         }
 
-        SetShoot(true);
+        //On passe la var de check de tir à true pour que le joueur puisse tirer dans cette nouvelle mesure
+        CheckShootisOk = true;
     }
 
 
     public void DecreaseCombo()
     {
-        //La surchauffe augmente de 10
-        combo = Mathf.Clamp(combo - comboMalusCooldown, 0, maxCombo);
+        //Le combo descend si on appuye sur R
+        combo = Mathf.Clamp(combo + comboDecrease, 0, maxCombo);
         onComboChange.Invoke(combo, maxCombo);
         OnDecreasingCombo.Invoke();
 
     }
 
-    //Système d'interrupteur pour activeret désactiver le tir
-    public void SetShoot(bool ShootParameter)
-    {
-
-        CheckShootisOk = ShootParameter;
-    }
+   
 
     public void Shoot()
     {
@@ -187,6 +184,8 @@ public class ShootPlayer : MonoBehaviour
             EndNormal = RayShoot.normal
         };
         OnShotEvent.Invoke(info);
+        CheckShootisOk = false;
+        print("check = " + CheckShootisOk);
     }
 
     private void OkayShot(RaycastHit RayShoot, Vector2 direction)
@@ -202,7 +201,7 @@ public class ShootPlayer : MonoBehaviour
         }
 
         //La surchauffe descend de 10
-        combo = Mathf.Clamp(combo - comboBonusOkayShot, 0, maxCombo);
+        combo = Mathf.Clamp(combo + comboBonusOkayShot, 0, maxCombo);
         onComboChange.Invoke(combo, maxCombo);
 
         ShotInfo info = new ShotInfo()
@@ -216,12 +215,13 @@ public class ShootPlayer : MonoBehaviour
             EndNormal = RayShoot.normal
         };
         OnShotEvent.Invoke(info);
+        CheckShootisOk = false;
     }
 
     private void FailedShot()
     {
         //La surchauffe descend de 30 car le tir est raté.
-        combo = Mathf.Clamp(combo - comboMalusFailedShot, 0, maxCombo);
+        combo = Mathf.Clamp(combo + comboMalusFailedShot, 0, maxCombo);
         onComboChange.Invoke(combo, maxCombo);
 
         ShotInfo info = new ShotInfo()
@@ -233,6 +233,7 @@ public class ShootPlayer : MonoBehaviour
             EndNormal = Vector2.zero
         };
         OnShotEvent.Invoke(info);
+        CheckShootisOk = false;
     }
 
     public Vector3 RaycastHitPoint(RaycastHit hit, Vector3 direction)
@@ -251,7 +252,7 @@ public class ShootPlayer : MonoBehaviour
             combo -= 10;
             combo = Mathf.Clamp(combo, 0, maxCombo);
             onComboChange.Invoke(combo, maxCombo);
-            print(combo);
+            
         }
     }
 }
