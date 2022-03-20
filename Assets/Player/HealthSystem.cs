@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField] private int MaxHealth = 100;
+
     //[SerializeField] private int MaxShield;
 
     /// <summary>
@@ -14,12 +15,16 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] public UnityEvent<int, int> onTakeDamage;
     [SerializeField] public UnityEvent onDie;
 
+    //Animator de l'objet qui est soit un ennemy soit le player
+    Animator thisAnimator;
+
     private int health;
     public int Health => health;
 
     private void Start()
     {
         health = MaxHealth;
+        thisAnimator = GetComponent<Animator>();
     }
     public void DealDamage(int amount)
     {
@@ -27,10 +32,14 @@ public class HealthSystem : MonoBehaviour
         
 
         onTakeDamage.Invoke(amount, health);
+        print("touched");
+
+        thisAnimator.SetTrigger("TouchedTrigger");
 
         if (health <= 0)
         {
             Die();
+            thisAnimator.SetTrigger("DeathTrigger");
         }
     }
 

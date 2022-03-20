@@ -48,6 +48,14 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private int comboMalusFailedShot;
     [SerializeField] private int comboDecrease;
 
+    //Animator du player
+    Animator thisAnimator;
+
+    private void Start()
+    {
+        thisAnimator = GetComponent<Animator>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -95,13 +103,20 @@ public class ShootPlayer : MonoBehaviour
             if(CheckShootisOk == true)
             {
                 Shoot();
+                //Trigger du shoot de l'anim
+                thisAnimator.SetTrigger("ShootTrigger");
             }
         }
     }
 
     public void CheckPreviousShoot()
     {
-        
+        //Cette fonction est appelé à chaque début de temps
+        //Réinitialisation des trigger d'anim puisqu'on ne peut tirer qu'une fois par temps
+        thisAnimator.ResetTrigger("TouchedTrigger");
+        thisAnimator.ResetTrigger("ShootTrigger");
+        //thisAnimator.ResetTrigger("DeathTrigger");
+
         //si checkshootisok est true au début de la mesure c'est qu'on a pas tiré
         if (CheckShootisOk == true)
         {
