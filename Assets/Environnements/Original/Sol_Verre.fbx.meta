@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 70f629b420b23854fab0ef10961dd332
+guid: ac79724c652cf204fbc5a035d1e641c5
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Verre.001
+    second: {fileID: 2100000, guid: 1dfc7dd6138397d41b6ef4512b70f100, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sol
+    second: {fileID: 2100000, guid: f7f4922f5c270474faee51a46b1e6653, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
