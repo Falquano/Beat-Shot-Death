@@ -200,7 +200,7 @@ public class ShootPlayer : MonoBehaviour
         };
         OnShotEvent.Invoke(info);
         CheckShootisOk = false;
-        print("check = " + CheckShootisOk);
+        
     }
 
     private void OkayShot(RaycastHit RayShoot, Vector2 direction)
