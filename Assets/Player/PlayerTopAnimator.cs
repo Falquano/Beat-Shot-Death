@@ -64,6 +64,7 @@ public class PlayerTopAnimator : MonoBehaviour
         animator.SetTrigger("DeathTrigger");
     }
 
+    //Pas encore activé car je ne sais pas où le désactivé
     public void AnimationDecreaseCombo()
     {
         animator.SetTrigger("DecreaseCombo");
