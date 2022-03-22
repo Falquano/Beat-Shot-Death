@@ -15,8 +15,10 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] public UnityEvent<int, int> onTakeDamage;
     [SerializeField] public UnityEvent onDie;
 
-    //Animator de l'objet qui est soit un ennemy soit le player
-    Animator thisAnimator;
+    //Appel du script d'animation du player
+    [SerializeField] private AnimationInvoker ScriptAnimation;
+    
+
 
     private int health;
     public int Health => health;
@@ -24,7 +26,7 @@ public class HealthSystem : MonoBehaviour
     private void Start()
     {
         health = MaxHealth;
-        thisAnimator = GetComponent<Animator>();
+        
     }
     public void DealDamage(int amount)
     {
@@ -34,12 +36,14 @@ public class HealthSystem : MonoBehaviour
         onTakeDamage.Invoke(amount, health);
         print("touched");
 
-        thisAnimator.SetTrigger("TouchedTrigger");
+        
+
+        
 
         if (health <= 0)
         {
             Die();
-            thisAnimator.SetTrigger("DeathTrigger");
+            
         }
     }
 
