@@ -139,6 +139,8 @@ GameObject:
   - component: {fileID: 1952105521}
   - component: {fileID: 245831670}
   - component: {fileID: 245831671}
+  - component: {fileID: 1205841728393270597}
+  - component: {fileID: 4041086488961735541}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -278,7 +280,19 @@ MonoBehaviour:
     m_ActionId: 616b3163-2591-41b3-9ab6-f668eeb9fbf6
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 438154467995756240}
+        m_TargetAssemblyTypeName: ShootPlayer, Assembly-CSharp
+        m_MethodName: DecreaseCombo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 7a890da8-74f7-4de5-8583-8aa52152f057
     m_ActionName: Player/Surchauffe[/Keyboard/r]
   - m_PersistentCalls:
@@ -354,9 +368,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11500000, guid: 004209aff0f83d945bfb66270e9ebb41, type: 3}
         m_TargetAssemblyTypeName: PlayerTopAnimator, Assembly-CSharp
-        m_MethodName: OnShot
+        m_MethodName: 
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -370,18 +384,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: CamShakeOnShoot, Assembly-CSharp
         m_MethodName: OnEvent
         m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 438154467995756240}
-        m_TargetAssemblyTypeName: ShootPlayer, Assembly-CSharp
-        m_MethodName: SetShoot
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -435,12 +437,13 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   tempoManager: {fileID: 0}
-  CheckShootisOk: 0
-  comboMalusNoShot: 10
+  CheckShootisOk: 1
+  comboMalusNoShot: -5
   comboBonusPerfectShot: 10
   comboBonusOkayShot: 2
-  comboMalusFailedShot: 20
-  comboDecrease: 0
+  comboMalusFailedShot: -20
+  comboDecrease: -10
+  ScriptAnimation: {fileID: 0}
 --- !u!114 &7462270552646460797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,7 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aa2e8a9278297488724feb9276051a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 10000000
+  MaxHealth: 100
   onTakeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -550,6 +553,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  ScriptAnimation: {fileID: 0}
 --- !u!114 &1952105521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,6 +597,42 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!95 &1205841728393270597
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047568458364018868}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d2d2feb914f8aa848bce6424917bbf53, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4041086488961735541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047568458364018868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ef115cb0dd8844e95be61a94dec3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockedCheckOffset: 0
+  blockedCheckRadius: 0
+  blockedCheckMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &355953377766436688
 PrefabInstance:
   m_ObjectHideFlags: 0

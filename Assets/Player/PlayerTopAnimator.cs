@@ -10,16 +10,24 @@ public class PlayerTopAnimator : MonoBehaviour
     [SerializeField] private float blockedCheckRadius;
     [SerializeField] private LayerMask blockedCheckMask;
 
+    Rigidbody PlayerRB;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
+        PlayerRB = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
         // On est bloqué si il y a un collider dans la zone juste en face du joueur
-        bool blocked = Physics2D.OverlapCircle(transform.position + transform.up * blockedCheckOffset, blockedCheckRadius, blockedCheckMask);
-        animator.SetBool("Blocked", blocked);
+        //bool blocked = Physics2D.OverlapCircle(transform.position + transform.up * blockedCheckOffset, blockedCheckRadius, blockedCheckMask);
+        //animator.SetBool("Blocked", blocked);
+
+        //Get la velocity qui sera utile pour l'anim de déplacement
+        Vector3 Velocity = PlayerRB.velocity;
+        animator.SetFloat("SpeedX", Velocity.x);
+        animator.SetFloat("SpeedZ", Velocity.z);
     }
 
     private void OnDrawGizmosSelected()
@@ -33,5 +41,31 @@ public class PlayerTopAnimator : MonoBehaviour
             animator.SetTrigger("OkayShot");
         else if (shotInfo.Quality == ShotQuality.Perfect)
             animator.SetTrigger("PerfectShot");
+    }
+
+
+ 
+
+    public void ResetAnimationPlayer() //Appeler à chaque début de temps
+    {
+        animator.ResetTrigger("TouchedTrigger");
+        animator.ResetTrigger("OkayShot");
+        animator.ResetTrigger("PerfectShot");
+        //thisAnimator.ResetTrigger("DeathTrigger");
+    }
+
+    public void AnimationTouchedPlayer()
+    {
+        animator.SetTrigger("TouchedTrigger");
+    }
+
+    public void AnimationDeathPlayer()
+    {
+        animator.SetTrigger("DeathTrigger");
+    }
+
+    public void AnimationDecreaseCombo()
+    {
+        animator.SetTrigger("DecreaseCombo");
     }
 }
