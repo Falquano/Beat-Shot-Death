@@ -15,17 +15,7 @@ public class WeaponCollision : MonoBehaviour
         print("ZoneHit");
         Health = other.GetComponent<HealthSystem>();
         Health.DealDamage(damage);
-        /*if (other.tag == "Player")
-        {
-            Health = other.GetComponent<HealthSystem>();
-            Health.DealDamage(damage);
-        }
-
-        if (other.tag == "Ennemy")
-        {
-            Health = other.GetComponent<HealthSystem>();
-            Health.DealDamage(damage);
-        }*/
+        
     }
 
 
