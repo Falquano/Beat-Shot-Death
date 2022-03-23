@@ -11,11 +11,13 @@ public class PlayerTopAnimator : MonoBehaviour
     [SerializeField] private LayerMask blockedCheckMask;
 
     Rigidbody PlayerRB;
+    private bool fireright;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         PlayerRB = GetComponent<Rigidbody>();
+        
     }
 
     private void Update()
@@ -37,20 +39,37 @@ public class PlayerTopAnimator : MonoBehaviour
 
     public void OnShot(ShotInfo shotInfo)
     {
-        if (shotInfo.Quality == ShotQuality.Okay)
+        Debug.Log("Fire");
+
+        if (fireright)
+        {
+            animator.SetTrigger("Fire");
+            fireright = false;
+            Debug.Log("TirDroit");
+        }
+        else
+        {
+            animator.SetTrigger("FireLeft");
+            fireright = true;
+            Debug.Log("TirGauche");
+        }
+        //
+        /*if (shotInfo.Quality == ShotQuality.Okay)
             animator.SetTrigger("OkayShot");
         else if (shotInfo.Quality == ShotQuality.Perfect)
             animator.SetTrigger("PerfectShot");
+        */
     }
 
 
- 
+
 
     public void ResetAnimationPlayer() //Appeler à chaque début de temps
     {
         animator.ResetTrigger("TouchedTrigger");
         animator.ResetTrigger("OkayShot");
         animator.ResetTrigger("PerfectShot");
+        
         //thisAnimator.ResetTrigger("DeathTrigger");
     }
 

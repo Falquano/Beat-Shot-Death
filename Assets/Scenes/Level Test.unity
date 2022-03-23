@@ -2922,6 +2922,10 @@ PrefabInstance:
       propertyPath: onComboChange.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1592097980}
+    - target: {fileID: 1205841728393270597, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 4cf5266bf9b092e42a153ba9d68926a9, type: 3}
     - target: {fileID: 9047568458364018868, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2932,7 +2936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9047568458364018869, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.72
+      value: -18.88
       objectReference: {fileID: 0}
     - target: {fileID: 9047568458364018869, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2970,7 +2974,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9177113980377592806, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d2d2feb914f8aa848bce6424917bbf53, type: 2}
+    m_RemovedComponents:
+    - {fileID: 9177113980377592806, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
 --- !u!114 &9047568459272337483 stripped
 MonoBehaviour:
