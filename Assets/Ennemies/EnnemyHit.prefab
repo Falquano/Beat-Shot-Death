@@ -95,7 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70bc1496ff1bc5440bcfe226ea91fc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  damageEnnemy: 50
+  damagePlayer: 2
 --- !u!65 &976225041506026993
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -251,9 +252,8 @@ GameObject:
   - component: {fileID: 7621812406030599354}
   - component: {fileID: 4645587618720145146}
   - component: {fileID: 6111625503512367509}
-  - component: {fileID: 976225041948104005}
   - component: {fileID: 976225041948104058}
-  - component: {fileID: 976225041948104059}
+  - component: {fileID: 976225042259337951}
   - component: {fileID: 8432398480891520044}
   - component: {fileID: 7976710815030564518}
   - component: {fileID: 124352209347310466}
@@ -262,7 +262,6 @@ GameObject:
   - component: {fileID: 3649800880175235175}
   - component: {fileID: 4004726453795788782}
   - component: {fileID: 462901432932171217}
-  - component: {fileID: 976225042259337951}
   m_Layer: 0
   m_Name: EnnemyHit
   m_TagString: Ennemy
@@ -367,60 +366,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mesures:
-  - {fileID: 976225041948104058}
-  - {fileID: 976225041948104059}
-  - {fileID: 976225042259337951}
   - {fileID: 0}
+  - {fileID: 976225041948104058}
+  - {fileID: 976225041948104058}
+  - {fileID: 976225042259337951}
   active: 0
---- !u!114 &976225041948104005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7621812406030599355}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95274270c9ca2a64182e92ca912c4a9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 30
-  range: 100
-  EnnemyMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  onShoot:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8432398480891520044}
-        m_TargetAssemblyTypeName: EnnemySoundEffects, Assembly-CSharp
-        m_MethodName: OnShoot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 976225041948104005}
-        m_TargetAssemblyTypeName: ShootMesure, Assembly-CSharp
-        m_MethodName: ShotFX
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  rayOffset: 0.7
-  zapLinePrefab: {fileID: 1940587716762264604, guid: d3cf0f204fdf9104c802cff67a43cddd, type: 3}
-  barrel: {fileID: 7621812406465082211}
-  impactParticlesPrefab: {fileID: 7081961916757537454, guid: f0bfca444f22a92458ec88145b5918c9, type: 3}
-  shotImpactSize: 0.4
 --- !u!114 &976225041948104058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,19 +387,30 @@ MonoBehaviour:
   speed: 5
   ValueMargin: 0.5
   rotationSpeed: 360
---- !u!114 &976225041948104059
+--- !u!114 &976225042259337951
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7621812406030599355}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17c6fa906b42a1543ae9fa3ac11c4652, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f1e766496ccbca47a41c20906816708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 360
+  Player: {fileID: 0}
+  rayOffset: 0.7
+  DistanceMaxForHit: 5
+  damage: 50
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
+  range: 100
+  EnnemyMask:
+    serializedVersion: 2
+    m_Bits: 0
+  ZoneHit: {fileID: 976225041506026995}
 --- !u!114 &8432398480891520044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,30 +599,6 @@ NavMeshAgent:
   m_BaseOffset: 0.82
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &976225042259337951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7621812406030599355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f1e766496ccbca47a41c20906816708, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  rayOffset: 0.7
-  DistanceMaxForHit: 5
-  damage: 50
-  onHit:
-    m_PersistentCalls:
-      m_Calls: []
-  range: 100
-  EnnemyMask:
-    serializedVersion: 2
-    m_Bits: 0
-  ZoneHit: {fileID: 976225041506026995}
 --- !u!1 &7621812406465082204
 GameObject:
   m_ObjectHideFlags: 0
