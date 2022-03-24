@@ -80,6 +80,21 @@ public class PlayerHealthSystem : MonoBehaviour
         
     }
 
+    public bool CheckShield()
+    {
+        bool shieldIsFull;
+        if(shield < MaxShield)
+        {
+            shieldIsFull = false;
+            return shieldIsFull;
+        }
+        else
+        {
+            shieldIsFull = true;
+            return shieldIsFull;
+        }
+        
+    }
     public void OnShieldGive()
     {
 
