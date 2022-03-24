@@ -7,7 +7,7 @@ public class PlayerHealthSystem : MonoBehaviour
 {
     [SerializeField] private int MaxHealth = 5;
 
-    [SerializeField] private int MaxShield = 3;
+    [SerializeField] private int MaxShield = 5;
 
     /// <summary>
     /// Event envoyant lors de la prise de dégat, les dégats, puis les nouveaux PVs
@@ -105,19 +105,19 @@ public class PlayerHealthSystem : MonoBehaviour
 
 
         //Activation de l'UI en fonction du nombre de shield restant
-        /*for (int i = 0; i < shield; i++)
+        for (int i = 0; i < shield; i++)
         {
 
             GameObject UIShieldObject = ShieldUI[i];
             UIShieldObject.SetActive(true);
-        }*/
+        }
 
         
     }
     public void LifeFonctionUI()
     {
         //Désactivation de tout les UI  de shield
-        for (int i = 0; i < MaxShield; i++)
+        for (int i = 0; i < MaxHealth; i++)
         {
 
             GameObject UILifeObject = LifeUI[i];
@@ -126,7 +126,7 @@ public class PlayerHealthSystem : MonoBehaviour
 
 
         //Activation de l'UI en fonction du nombre de shield restant
-        for (int i = 0; i < shield; i++)
+        for (int i = 0; i < health; i++)
         {
 
             GameObject UILifeObject = LifeUI[i];
