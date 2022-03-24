@@ -7,7 +7,7 @@ public class PlayerHealthSystem : MonoBehaviour
 {
     [SerializeField] private int MaxHealth = 5;
 
-    [SerializeField] private int MaxShield = 5;
+    [SerializeField] private int MaxShield = 3;
 
     /// <summary>
     /// Event envoyant lors de la prise de dégat, les dégats, puis les nouveaux PVs
@@ -34,6 +34,9 @@ public class PlayerHealthSystem : MonoBehaviour
     {
         health = MaxHealth;
         shield = MaxShield;
+        ShieldFonctionUI();
+        LifeFonctionUI();
+        print("hellooooo");
 
     }
     public void DealDamage(int amount)
@@ -42,6 +45,11 @@ public class PlayerHealthSystem : MonoBehaviour
         if(shield > 0)
         {
             shield -= amount;
+            if(shield < 0)
+            {
+                health += shield;
+                shield = 0;
+            }
         }
         else //Si il n'y a plus de pts de shield, alors on retire de la vie
         {
@@ -97,12 +105,12 @@ public class PlayerHealthSystem : MonoBehaviour
 
 
         //Activation de l'UI en fonction du nombre de shield restant
-        for (int i = 0; i < shield; i++)
+        /*for (int i = 0; i < shield; i++)
         {
 
             GameObject UIShieldObject = ShieldUI[i];
             UIShieldObject.SetActive(true);
-        }
+        }*/
 
         
     }
