@@ -1977,6 +1977,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1257498809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1703068809797110946, guid: e057c89ee00a6d943988e478506ec618, type: 3}
+  m_PrefabInstance: {fileID: 7189905793581429331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1262488970
 GameObject:
   m_ObjectHideFlags: 0
@@ -3426,6 +3431,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 976225041506026995, guid: fbc8bbc1f7dd83f4ca84a9efa87d5e02, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7621812406030599354, guid: fbc8bbc1f7dd83f4ca84a9efa87d5e02, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -3476,7 +3485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7621812406030599355, guid: fbc8bbc1f7dd83f4ca84a9efa87d5e02, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbc8bbc1f7dd83f4ca84a9efa87d5e02, type: 3}
@@ -3570,6 +3579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnnemyTwoShot
       objectReference: {fileID: 0}
+    - target: {fileID: 4575926113407944490, guid: a471790fc4bb1814d85a883b90adf303, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4575926113407944491, guid: a471790fc4bb1814d85a883b90adf303, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -3624,6 +3637,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 508052843537014880, guid: e057c89ee00a6d943988e478506ec618, type: 3}
+      propertyPath: thisObject
+      value: 
+      objectReference: {fileID: 1257498809}
+    - target: {fileID: 508052843537014880, guid: e057c89ee00a6d943988e478506ec618, type: 3}
       propertyPath: onShieldGiven.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 856743462}
@@ -3642,6 +3659,14 @@ PrefabInstance:
     - target: {fileID: 1703068809797110946, guid: e057c89ee00a6d943988e478506ec618, type: 3}
       propertyPath: m_Name
       value: ShieldGiver
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703068809797110946, guid: e057c89ee00a6d943988e478506ec618, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703068809797110946, guid: e057c89ee00a6d943988e478506ec618, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8178852490520982616, guid: e057c89ee00a6d943988e478506ec618, type: 3}
       propertyPath: m_RootOrder
@@ -3773,6 +3798,10 @@ PrefabInstance:
       propertyPath: tempoManager
       value: 
       objectReference: {fileID: 1592097980}
+    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: TheMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: OnShotEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
