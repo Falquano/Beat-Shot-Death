@@ -18,9 +18,11 @@ public class MoveMesure : Mesure
 
     private void Start()
     {
+        
         //déclaration des variables utiles
         meshAgent = GetComponent<NavMeshAgent>();
         playerTransform = behavior.Player.GetComponent<Transform>();
+        
     }
 
     private void Movement()
@@ -32,7 +34,7 @@ public class MoveMesure : Mesure
         Vector3 VectorToPlayer = playerTransform.position - transform.position;
         //distance jusqu'au pts que l'on veux
         Multiplicateur = DistanceWithPlayer - Distance;
-
+        
         //il prend le vector qui va de l'ennemi à son target et ajoute la position de l'ennemi afin d'avoir la position de la target dans l'espace
         meshAgent.destination = (VectorToPlayer.normalized * Multiplicateur) + transform.position;
 

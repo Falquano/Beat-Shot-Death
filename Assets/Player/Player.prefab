@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 438154467995756240}
   - component: {fileID: 7462270552646460797}
   - component: {fileID: 785891961}
+  - component: {fileID: 7812131819001355763}
   - component: {fileID: 1113547859}
   - component: {fileID: 1952105521}
   - component: {fileID: 245831670}
@@ -498,6 +499,38 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &7812131819001355763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047568458364018868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea84743bdd795f44ac55aef29bd5e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 5
+  MaxShield: 5
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
+  ScriptAnimation: {fileID: 0}
+  shield1: {fileID: 0}
+  shield2: {fileID: 0}
+  shield3: {fileID: 0}
+  shield4: {fileID: 0}
+  shield5: {fileID: 0}
+  ShieldUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1113547859
 MonoBehaviour:
   m_ObjectHideFlags: 0
