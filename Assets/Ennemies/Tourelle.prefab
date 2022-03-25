@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 4309886607036927921}
   - component: {fileID: 4538182450844342328}
   - component: {fileID: 1082543957802906119}
+  - component: {fileID: 7434916864896022506}
   m_Layer: 0
   m_Name: Tourelle
   m_TagString: Ennemy
@@ -327,6 +328,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ShootMesure, Assembly-CSharp
         m_MethodName: ShotFX
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7434916864896022506}
+        m_TargetAssemblyTypeName: EnnemyAnimationEvents, Assembly-CSharp
+        m_MethodName: OnShoot
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -541,3 +554,18 @@ NavMeshAgent:
   m_BaseOffset: 0.82
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7434916864896022506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6966901053907798893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b11951a83b0f1f4ebb6e7f9ba17f241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onFootstep:
+    m_PersistentCalls:
+      m_Calls: []
