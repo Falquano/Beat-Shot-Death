@@ -28,8 +28,10 @@ public class PlayerTopAnimator : MonoBehaviour
 
         //Get la velocity qui sera utile pour l'anim de déplacement
         Vector3 Velocity = PlayerRB.velocity;
-        animator.SetFloat("SpeedX", Velocity.x);
-        animator.SetFloat("SpeedZ", Velocity.z);
+        Vector3 VelocityRelative = transform.InverseTransformDirection(Velocity);
+
+        animator.SetFloat("SpeedX", VelocityRelative.x);
+        animator.SetFloat("SpeedZ", VelocityRelative.z);
     }
 
     private void OnDrawGizmosSelected()
