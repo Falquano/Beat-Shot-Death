@@ -28,8 +28,10 @@ public class PlayerTopAnimator : MonoBehaviour
 
         //Get la velocity qui sera utile pour l'anim de déplacement
         Vector3 Velocity = PlayerRB.velocity;
-        animator.SetFloat("SpeedX", Velocity.x);
-        animator.SetFloat("SpeedZ", Velocity.z);
+        Vector3 VelocityRelative = transform.InverseTransformDirection(Velocity);
+
+        animator.SetFloat("SpeedX", VelocityRelative.x);
+        animator.SetFloat("SpeedZ", VelocityRelative.z);
     }
 
     private void OnDrawGizmosSelected()
@@ -39,26 +41,28 @@ public class PlayerTopAnimator : MonoBehaviour
 
     public void OnShot(ShotInfo shotInfo)
     {
-        Debug.Log("Fire");
 
-        if (fireright)
+
+        if (shotInfo.Quality != ShotQuality.Failed)
         {
-            animator.SetTrigger("Fire");
-            fireright = false;
-            Debug.Log("TirDroit");
+            if (fireright)
+            {
+                animator.SetTrigger("Fire");
+                fireright = false;
+                Debug.Log("TirDroit");
+            }
+            else
+            {
+                animator.SetTrigger("FireLeft");
+                fireright = true;
+                Debug.Log("TirGauche");
+            }
         }
-        else
-        {
-            animator.SetTrigger("FireLeft");
-            fireright = true;
-            Debug.Log("TirGauche");
-        }
-        //
-        /*if (shotInfo.Quality == ShotQuality.Okay)
-            animator.SetTrigger("OkayShot");
-        else if (shotInfo.Quality == ShotQuality.Perfect)
-            animator.SetTrigger("PerfectShot");
-        */
+
+     
+
+        
+        
     }
 
 
