@@ -17,6 +17,9 @@ public class HealthSystem : MonoBehaviour
 
     //Appel du script d'animation du player
     [SerializeField] private AnimationInvoker ScriptAnimation;
+
+    [Header("Debug")]
+    [SerializeField] private bool invincible = false;
     
 
 
@@ -26,24 +29,20 @@ public class HealthSystem : MonoBehaviour
     private void Start()
     {
         health = MaxHealth;
-        
     }
+
     public void DealDamage(int amount)
     {
+        if (invincible)
+            return;
+
         health -= amount;
         
-
-        onTakeDamage.Invoke(amount, health);
-        print("touched");
-
-        
-
-        
+        onTakeDamage.Invoke(amount, health); 
 
         if (health <= 0)
         {
             Die();
-            
         }
     }
 
