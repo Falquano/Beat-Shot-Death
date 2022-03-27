@@ -29,7 +29,6 @@ public class EnnemyBehavior : MonoBehaviour
         tempo.onMesureStart.AddListener(OnNewMesure);
         currentMesure = 0;
         animator = GetComponentInChildren<Animator>();
-        animator.SetFloat("Seed", Random.Range(0f, 1f));
 
         for (int i = 0; i < mesures.Length; i++)
         {
