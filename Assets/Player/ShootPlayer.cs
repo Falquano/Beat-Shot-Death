@@ -242,7 +242,7 @@ public class ShootPlayer : MonoBehaviour
             ShotObject = null,
             EndNormal = Vector2.zero
         };
-        OnShotEvent.Invoke(info);
+        //OnShotEvent.Invoke(info);
         CheckShootisOk = false;
     }
 

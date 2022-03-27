@@ -23,6 +23,7 @@ public class EnnemyBehavior : MonoBehaviour
 
     private void Start()
     {
+        
         player = FindObjectOfType<PlayerMove>().gameObject;
         tempo = FindObjectOfType<TempoManager>();
         tempo.onMesureStart.AddListener(OnNewMesure);
@@ -37,6 +38,7 @@ public class EnnemyBehavior : MonoBehaviour
         }
 
         rigidBodyEnnemy = GetComponent<Rigidbody>();
+        
     }
 
     public void ActivateAtNextMesure()

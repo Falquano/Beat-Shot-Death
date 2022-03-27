@@ -6,7 +6,8 @@ using UnityEngine.Events;
 public class ShootMesure : Mesure
 {
     [Header("Tir")]
-    [SerializeField] private int damage = 30;
+    [SerializeField] private int damageEnnemy = 30;
+    [SerializeField] private int damagePlayer = 1;
     // j'ai du rajouter ça, c'est la distance max des pistolets
     [SerializeField] private float range = 100f;
     [SerializeField] LayerMask EnnemyMask;
@@ -57,11 +58,20 @@ public class ShootMesure : Mesure
         
         if (Physics.Raycast(ray, out RaycastHit hitInfo, range, EnnemyMask))
 		{
-            HealthSystem targetHealth = hitInfo.collider.GetComponent<HealthSystem>();
-            if (targetHealth != null)
+            
+
+            if(hitInfo.collider.tag == "Player")
             {
-                targetHealth.DealDamage(damage);
+                PlayerHealthSystem PlayerHealth = hitInfo.collider.GetComponent<PlayerHealthSystem>();
+                PlayerHealth.DealDamage(damagePlayer);
             }
+            
+            if(hitInfo.collider.tag == "Ennemy")
+            {
+                HealthSystem targetHealth = hitInfo.collider.GetComponent<HealthSystem>();
+                targetHealth.DealDamage(damageEnnemy);
+            }
+            
 
             shotInfo.EndPos = hitInfo.point; 
             shotInfo.EndNormal = hitInfo.normal;

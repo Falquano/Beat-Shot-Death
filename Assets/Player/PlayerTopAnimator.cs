@@ -11,11 +11,13 @@ public class PlayerTopAnimator : MonoBehaviour
     [SerializeField] private LayerMask blockedCheckMask;
 
     Rigidbody PlayerRB;
+    private bool fireright;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         PlayerRB = GetComponent<Rigidbody>();
+        
     }
 
     private void Update()
@@ -26,8 +28,10 @@ public class PlayerTopAnimator : MonoBehaviour
 
         //Get la velocity qui sera utile pour l'anim de déplacement
         Vector3 Velocity = PlayerRB.velocity;
-        animator.SetFloat("SpeedX", Velocity.x);
-        animator.SetFloat("SpeedZ", Velocity.z);
+        Vector3 VelocityRelative = transform.InverseTransformDirection(Velocity);
+
+        animator.SetFloat("SpeedX", VelocityRelative.x);
+        animator.SetFloat("SpeedZ", VelocityRelative.z);
     }
 
     private void OnDrawGizmosSelected()
@@ -37,20 +41,39 @@ public class PlayerTopAnimator : MonoBehaviour
 
     public void OnShot(ShotInfo shotInfo)
     {
-        if (shotInfo.Quality == ShotQuality.Okay)
-            animator.SetTrigger("OkayShot");
-        else if (shotInfo.Quality == ShotQuality.Perfect)
-            animator.SetTrigger("PerfectShot");
+
+
+        if (shotInfo.Quality != ShotQuality.Failed)
+        {
+            if (fireright)
+            {
+                animator.SetTrigger("Fire");
+                fireright = false;
+                Debug.Log("TirDroit");
+            }
+            else
+            {
+                animator.SetTrigger("FireLeft");
+                fireright = true;
+                Debug.Log("TirGauche");
+            }
+        }
+
+     
+
+        
+        
     }
 
 
- 
+
 
     public void ResetAnimationPlayer() //Appeler à chaque début de temps
     {
         animator.ResetTrigger("TouchedTrigger");
         animator.ResetTrigger("OkayShot");
         animator.ResetTrigger("PerfectShot");
+        
         //thisAnimator.ResetTrigger("DeathTrigger");
     }
 
