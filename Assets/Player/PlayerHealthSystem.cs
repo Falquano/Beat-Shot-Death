@@ -23,6 +23,8 @@ public class PlayerHealthSystem : MonoBehaviour
     [SerializeField] private List<GameObject> ShieldUI = new List<GameObject>();
     [SerializeField] private List<GameObject> LifeUI = new List<GameObject>();
 
+    [Header("Debug")]
+    [SerializeField] private bool invincible = false;
 
 
     private int health;
@@ -36,11 +38,13 @@ public class PlayerHealthSystem : MonoBehaviour
         shield = MaxShield;
         ShieldFonctionUI();
         LifeFonctionUI();
-        print("hellooooo");
 
     }
     public void DealDamage(int amount)
     {
+        if (invincible)
+            return;
+
         //Verification qu'il reste des points de shield
         if(shield > 0)
         {
@@ -58,7 +62,6 @@ public class PlayerHealthSystem : MonoBehaviour
 
 
         onTakeDamage.Invoke(amount, health, shield);
-        print("touched");
 
         //Mise à jour de l'UI
         ShieldFonctionUI();
