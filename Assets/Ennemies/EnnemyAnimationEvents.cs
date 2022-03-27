@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 
 public class EnnemyAnimationEvents : MonoBehaviour
 {
-
+    private NavMeshAgent agent;
     private Animator animator;
     Rigidbody EnnemyRB;
 
@@ -15,13 +16,14 @@ public class EnnemyAnimationEvents : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         EnnemyRB = GetComponent<Rigidbody>();
+        agent = GetComponent<NavMeshAgent>();
     }
+
     private void Update()
     {
-       
         //Get la velocity qui sera utile pour l'anim de déplacement
-        Vector3 Velocity = EnnemyRB.velocity;
-        Vector3 VelocityRelative = transform.InverseTransformDirection(Velocity);
+        Vector3 Velocity = agent.velocity;
+        Vector3 VelocityRelative = transform.InverseTransformDirection(Velocity).normalized;
 
         animator.SetFloat("SpeedX", VelocityRelative.x);
         animator.SetFloat("SpeedZ", VelocityRelative.z);
