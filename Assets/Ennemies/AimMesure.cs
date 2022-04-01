@@ -5,6 +5,7 @@ using UnityEngine;
 public class AimMesure : Mesure
 {
     public float rotationSpeed;
+    [SerializeField][Range(0f, 1f)] private float aimingTime = .5f;
 
     private void OnEnable()
     {
@@ -22,6 +23,9 @@ public class AimMesure : Mesure
         if (behavior.Player == null)
             return;
 
+        if (tempo.Tempo > aimingTime)
+            return;
+
         //Récupération du transform du player
         Transform playerTransform = behavior.Player.GetComponent<Transform>();
 
@@ -31,6 +35,5 @@ public class AimMesure : Mesure
         //L'ennemi regarde le player
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        
     }
 }
