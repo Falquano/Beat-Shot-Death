@@ -19,7 +19,7 @@ public class EnnemyBehavior : MonoBehaviour
     private Rigidbody rigidBodyEnnemy;
     public Rigidbody Rigidbody => rigidBodyEnnemy;
 
-    private Animator animator;
+    //private Animator animator;
 
     private void Start()
     {
@@ -28,7 +28,7 @@ public class EnnemyBehavior : MonoBehaviour
         tempo = FindObjectOfType<TempoManager>();
         tempo.onMesureStart.AddListener(OnNewMesure);
         currentMesure = 0;
-        animator = GetComponentInChildren<Animator>();
+        //animator = GetComponentInChildren<Animator>();
 
         for (int i = 0; i < mesures.Length; i++)
         {
@@ -74,7 +74,7 @@ public class EnnemyBehavior : MonoBehaviour
 
     public void OnDamage(int hitLife, int newLife)
     {
-        animator.SetTrigger("Hurt");
+        //animator.SetTrigger("Hurt");
     }
 
     public void Die()
@@ -84,7 +84,7 @@ public class EnnemyBehavior : MonoBehaviour
         //Destroy(this.gameObject);
         enabled = false;
         SetBehaviorEnabled(currentMesure, false);
-        animator.SetBool("Alive", false);
+        //animator.SetBool("Alive", false);
         foreach (Mesure mesure in mesures)
             Destroy(mesure);
         Destroy(Rigidbody);
