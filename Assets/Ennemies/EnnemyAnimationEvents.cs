@@ -32,7 +32,18 @@ public class EnnemyAnimationEvents : MonoBehaviour
 
     public void OnHit()
     {
-        animator.SetTrigger("OnHit");
+        if(gameObject.name == "EnnemyMelee")
+        {
+            animator.SetInteger("AttackRand", Random.Range(1, 4));
+            animator.SetTrigger("OnHit");
+            
+        }
+
+        if (gameObject.name == "EnnemyShot")
+        {
+            animator.SetTrigger("OnHit");
+        }
+
     }
 
     public void OnShoot()
