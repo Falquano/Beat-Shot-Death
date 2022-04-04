@@ -46,6 +46,8 @@ public class EnnemyAnimationEvents : MonoBehaviour
 
     }
 
+    
+
     public void OnShoot()
     {
         animator.SetTrigger("OnShoot");

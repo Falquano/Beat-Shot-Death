@@ -35,17 +35,23 @@ public class HitMesure : Mesure
         tempo.onTimeToShoot.RemoveListener(Hit);
         //animator.SetBool("Aiming", false);
     }
-    private void Hit()
+    public void Hit()
     {
-        //On active un objet qui sera la zone que l'ennemi touche avec son hit
-        ZoneHit.SetActive(true);
-
-
-
+        
         //On invoque l'event pour les anims etc.
         onHit.Invoke();
         
-
-        
     }
+
+    public void AnimOnHit()
+    {
+        //On active un objet qui sera la zone que l'ennemi touche avec son hit
+        ZoneHit.SetActive(true);
+    }
+    public void AnimEndHit()
+    {
+        ZoneHit.SetActive(false);
+    }
+
+
 }
