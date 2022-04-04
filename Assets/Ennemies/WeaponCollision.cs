@@ -14,7 +14,7 @@ public class WeaponCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("Touched");
+        
         if(other.tag == "Player")
         {
             PlayerHealth = other.GetComponent<PlayerHealthSystem>();
