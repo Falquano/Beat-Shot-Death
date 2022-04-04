@@ -41,8 +41,8 @@ public class MoveMesure : Mesure
     }
     private void OnEnable()
     {
-        animator.SetBool("Moving", true);
-        animator.SetBool("Aiming", false);
+        //animator.SetBool("Moving", true);
+        //animator.SetBool("Aiming", false);
 
         if (playerTransform == null)
             playerTransform = behavior.Player.transform;
@@ -58,7 +58,7 @@ public class MoveMesure : Mesure
 
     private void OnDisable()
     {
-        animator.SetBool("Moving", false);
+        //animator.SetBool("Moving", false);
         behavior.Rigidbody.velocity = Vector3.zero;
         meshAgent.ResetPath();
         meshAgent.velocity = Vector3.zero;
