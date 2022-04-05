@@ -48,6 +48,8 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private int comboMalusFailedShot;
     [SerializeField] private int comboDecrease;
 
+    [SerializeField] private int ValuePerfectShot;
+
     //Appel du script d'animation du player
     [SerializeField] private AnimationInvoker ScriptAnimation;
 
@@ -177,8 +179,27 @@ public class ShootPlayer : MonoBehaviour
             //On récupère le script behavior de l'ennemy touché
             HealthSystem targetHealth = RayShoot.transform.GetComponent<HealthSystem>();
 
-            //alors on prend le script de l'ennemy touché et on lui retire 30 pts
-            targetHealth.DealDamage(10 + combo / 5);
+
+            if(combo>= 0 && combo <= 20)
+            {
+                targetHealth.DealDamage(ValuePerfectShot * 1);
+            }
+            else if(combo > 20 && combo <= 40)
+            {
+                targetHealth.DealDamage( (int)(ValuePerfectShot * 1.5));
+            }
+            else if(combo > 40 && combo <= 70)
+            {
+                targetHealth.DealDamage(ValuePerfectShot * 2);
+            }
+            else if(combo > 70 && combo <= 90)
+            {
+                targetHealth.DealDamage(ValuePerfectShot * 3);
+            }
+            else if(combo > 90 && combo <= 100)
+            {
+                targetHealth.DealDamage(ValuePerfectShot * 5);
+            }
         }
 
         //La surchauffe augmente de 10
