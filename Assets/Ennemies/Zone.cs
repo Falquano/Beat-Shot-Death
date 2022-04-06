@@ -13,12 +13,14 @@ public class Zone : MonoBehaviour
 
 	private void Start()
 	{
-		aliveEnnemies = ennemies.Length;
+		/*aliveEnnemies = ennemies.Length;
 		
 		foreach(EnnemyBehavior ennemy in ennemies)
 		{
 			ennemy.GetComponent<HealthSystem>().onDie.AddListener(EnnemyDies);
-		}
+		}*/
+		ennemies = GetComponentsInChildren<EnnemyBehavior>();
+		aliveEnnemies = ennemies.Length;
 	}
 
 	private void OnTriggerEnter(Collider other)
