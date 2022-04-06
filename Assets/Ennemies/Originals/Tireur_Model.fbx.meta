@@ -36,7 +36,17 @@ ModelImporter:
   - first:
       74: -6525130080375751743
     second: Armature|StrafeUpperRight
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rifle
+    second: {fileID: 2100000, guid: 399a53a9d05eb3c44b13f328d8384090, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Soldier
+    second: {fileID: 2100000, guid: 34b7833444d3a8c4fbe16a5435b8d0bb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -49,125 +59,9 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
-      in configuration does not match rotation in animation file:\n\t'Shin.L' : rotation
-      error = 25.021877 deg\n\t'Shin.R' : rotation error = 27.977465 deg\n\t'4arm.L'
-      : rotation error = 26.860970 deg\n\t'4arm.R' : rotation error = 47.191654 deg\n"
+    rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Armature|Death' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'hipSwing' has translation animation that
-      will be discarded.\n\t'hipSwing' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\t'Shin.L' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Toe1.L' has translation
-      animation that will be discarded.\n\t'Shin.R' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'coreIK' has translation
-      animation that will be discarded.\n\t'coreIK' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Spine3' has translation
-      animation that will be discarded.\n\t'Bicep.L' has translation animation that
-      will be discarded.\n\t'4arm.L' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\t'Bicep.R' has translation animation that
-      will be discarded.\n\t'4arm.R' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\nClip 'Armature|Fire1' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'Shin.L' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'Toe1.L' has
-      translation animation that will be discarded.\n\t'Shin.R' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'coreIK' is
-      inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Bicep.L'
-      has translation animation that will be discarded.\n\t'4arm.L' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'4arm.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'Armature|Forward' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'hipSwing'
-      has translation animation that will be discarded.\n\t'Shin.L' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'Toe1.L'
-      has translation animation that will be discarded.\n\t'Shin.R' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'coreIK'
-      has translation animation that will be discarded.\n\t'Spine3' has translation
-      animation that will be discarded.\n\t'Bicep.L' has translation animation that
-      will be discarded.\n\t'4arm.L' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\t'4arm.R' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'Armature|Hit' has
-      import animation warnings that might lower retargeting quality:\nNote: Activate
-      translation DOF on avatar to improve retargeting quality.\n\t'hipSwing' is
-      inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shin.L'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Toe1.L'
-      has translation animation that will be discarded.\n\t'Shin.R' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'coreIK'
-      has translation animation that will be discarded.\n\t'coreIK' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'Spine3'
-      has translation animation that will be discarded.\n\t'Bicep.L' has translation
-      animation that will be discarded.\n\t'4arm.L' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Bicep.R' has translation
-      animation that will be discarded.\n\t'4arm.R' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'Armature|HitBehind'
-      has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'hipSwing'
-      has translation animation that will be discarded.\n\t'hipSwing' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'Shin.L'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Toe1.L'
-      has translation animation that will be discarded.\n\t'Shin.R' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'coreIK'
-      has translation animation that will be discarded.\n\t'coreIK' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'Spine3'
-      has translation animation that will be discarded.\n\t'Bicep.L' has translation
-      animation that will be discarded.\n\t'4arm.L' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Bicep.R' has translation
-      animation that will be discarded.\n\t'4arm.R' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'Armature|HitLeft'
-      has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'hipSwing'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shin.L'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Toe1.L'
-      has translation animation that will be discarded.\n\t'Shin.R' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'Toe1.R'
-      has translation animation that will be discarded.\n\t'coreIK' has translation
-      animation that will be discarded.\n\t'coreIK' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Spine3' has translation
-      animation that will be discarded.\n\t'Bicep.L' has translation animation that
-      will be discarded.\n\t'4arm.L' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\t'Bicep.R' has translation animation that
-      will be discarded.\n\t'4arm.R' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\nClip 'Armature|IdleFire' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'Toe1.L' has translation animation
-      that will be discarded.\n\t'Bicep.L' has translation animation that will be
-      discarded.\n\nClip 'Armature|StrafeLeft' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'hipSwing' has translation animation that
-      will be discarded.\n\t'Shin.L' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\t'Toe1.L' has translation animation that
-      will be discarded.\n\t'Shin.R' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\t'Toe1.R' has translation animation that
-      will be discarded.\n\t'coreIK' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\t'Spine3' has translation animation that
-      will be discarded.\n\t'Bicep.L' has translation animation that will be discarded.\n\t'4arm.L'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'4arm.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'Armature|StrafeRight' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'hipSwing'
-      has translation animation that will be discarded.\n\t'Shin.L' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'Toe1.L'
-      has translation animation that will be discarded.\n\t'Shin.R' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'Toe1.R'
-      has translation animation that will be discarded.\n\t'coreIK' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'Spine3'
-      has translation animation that will be discarded.\n\t'Bicep.L' has translation
-      animation that will be discarded.\n\t'4arm.L' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'4arm.R' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'Armature|StrafeUpperLeft' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Shin.L'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shin.R'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'Armature|StrafeUpperRight' has import animation warnings that might lower
-      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
-      quality.\n\t'Shin.L' is inbetween humanoid transforms and has rotation animation
-      that will be discarded.\n\t'Toe1.L' has translation animation that will be
-      discarded.\n\t'Shin.R' is inbetween humanoid transforms and has rotation animation
-      that will be discarded.\n\t'Toe1.R' has translation animation that will be
-      discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
