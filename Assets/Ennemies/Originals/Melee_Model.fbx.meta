@@ -48,7 +48,12 @@ ModelImporter:
   - first:
       74: -825002406694578147
     second: Armature|SwordAction
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Soldier
+    second: {fileID: 2100000, guid: 34b7833444d3a8c4fbe16a5435b8d0bb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
