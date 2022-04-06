@@ -31,9 +31,6 @@ public class TempoManager : MonoBehaviour
     [SerializeField] public UnityEvent<int> onMesureStart = new UnityEvent<int>();
     [SerializeField] public UnityEvent onTimeToShoot = new UnityEvent();
 
-
-    
-
 	private void Start()
 	{
         if (MainMenu.SelectedSong != null)
@@ -61,13 +58,13 @@ public class TempoManager : MonoBehaviour
     void Update()
     {
         TimerTempo += Time.deltaTime;
-        if (TimerTempo >= TempoDuration)
-        {
-            NouvelleMesure();
-        }
         if ((TimerTempo - Time.deltaTime) / TempoDuration < objectiveShoot && TimerTempo / TempoDuration >= objectiveShoot)
         {
             TimeToShoot();
+        }
+        if (TimerTempo >= TempoDuration)
+        {
+            NouvelleMesure();
         }
 
         TimerTempo %= TempoDuration;

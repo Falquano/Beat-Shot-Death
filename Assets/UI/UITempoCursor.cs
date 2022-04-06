@@ -50,6 +50,5 @@ public class UITempoCursor : MonoBehaviour
         //faire un calcul en fonction de la surchauffe et de la taille du tir pour que que se soit recalculer à chaque fois
         float margin = tempo.MarginPerfectEvolution.Evaluate((float)combo / (float)max) ;
         OkayMargin = tempo.MarginPerfect + (margin * (tempo.MarginOk - tempo.MarginPerfect));
-        
     }
 }
