@@ -24,7 +24,10 @@ public class Zone : MonoBehaviour
 
 		foreach(Door door in GetComponentsInChildren<Door>())
         {
-			onRoomCleared.AddListener(door.Unlock);
+			if (aliveEnnemies > 0)
+				onRoomCleared.AddListener(door.Unlock);
+			else
+				door.Unlock();
         }
 	}
 
