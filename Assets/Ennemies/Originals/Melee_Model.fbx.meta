@@ -54,6 +54,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Soldier
     second: {fileID: 2100000, guid: 34b7833444d3a8c4fbe16a5435b8d0bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sword
+    second: {fileID: 2100000, guid: 6ed0049085adea34a990b3a87d5c9c9a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -68,7 +73,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
       in configuration does not match rotation in animation file:\n\t'Shin.L' : rotation
-      error = 25.021887 deg\n\t'Shin.R' : rotation error = 27.977468 deg\n\t'4arm.L'
+      error = 25.021887 deg\n\t'Shin.R' : rotation error = 27.977470 deg\n\t'4arm.L'
       : rotation error = 26.371613 deg\n\t'4arm.R' : rotation error = 47.201565 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|Death' has import animation warnings
