@@ -21,6 +21,11 @@ public class Zone : MonoBehaviour
 		{
 			ennemy.GetComponent<HealthSystem>().onDie.AddListener(EnnemyDies);
 		}
+
+		foreach(Door door in GetComponentsInChildren<Door>())
+        {
+			onRoomCleared.AddListener(door.Unlock);
+        }
 	}
 
 	private void OnTriggerEnter(Collider other)
