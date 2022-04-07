@@ -18,11 +18,9 @@ public class MoveMesure : Mesure
 
     private void Start()
     {
-        
         //déclaration des variables utiles
         meshAgent = GetComponent<NavMeshAgent>();
         playerTransform = behavior.Player.GetComponent<Transform>();
-        
     }
 
     private void Movement()
@@ -70,12 +68,15 @@ public class MoveMesure : Mesure
         if (behavior.Player == null)
             return;
 
-
         Vector3 direction = playerTransform.position - transform.position;
-
-
         
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, Distance);
     }
 }
