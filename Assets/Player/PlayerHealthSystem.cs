@@ -98,16 +98,11 @@ public class PlayerHealthSystem : MonoBehaviour
         }
         
     }
-    public void OnShieldGive()
-    {
 
-        if(shield < MaxShield)
-        {
-            //Ajout d'un pts de shield et mise à jour de l'UI
-            shield += 1;
-            ShieldFonctionUI();
-        }
-        
+    public void RestockShield()
+    {
+        shield = MaxShield;
+        ShieldFonctionUI();
     }
 
 
