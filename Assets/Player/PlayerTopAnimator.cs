@@ -41,7 +41,7 @@ public class PlayerTopAnimator : MonoBehaviour
 
     public void OnShot(ShotInfo shotInfo)
     {
-
+        print("shooted");
 
         if (shotInfo.Quality != ShotQuality.Failed)
         {

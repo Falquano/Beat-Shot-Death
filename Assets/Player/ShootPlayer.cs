@@ -133,7 +133,6 @@ public class ShootPlayer : MonoBehaviour
         combo = Mathf.Clamp(combo + comboDecrease, 0, maxCombo);
         onComboChange.Invoke(combo, maxCombo);
         OnDecreasingCombo.Invoke();
-
     }
 
    
