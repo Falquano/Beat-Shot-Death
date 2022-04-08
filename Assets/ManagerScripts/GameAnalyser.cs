@@ -10,6 +10,8 @@ public class GameAnalyser : MonoBehaviour
 
     private void Start()
     {
+        System.IO.Directory.CreateDirectory(defaultSavePath);
+
         Sequencer = new Dictionary<Zone, GameSequence>();
 
         foreach (Zone zone in FindObjectsOfType<Zone>())
