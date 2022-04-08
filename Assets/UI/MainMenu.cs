@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
         songDropdown.AddOptions(songList);
         songList.Add($"Rien (il y a un métronome)");
 
-        songDropdown.value = songs.Length;
+        OnValueChange(0);
     }
 
     public void OnValueChange(int index)

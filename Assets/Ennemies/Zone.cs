@@ -7,20 +7,28 @@ public class Zone : MonoBehaviour
 {
 	[SerializeField] public string Name = "Untitled Zone";
 	[SerializeField] private EnnemyBehavior[] ennemies;
-	[SerializeField] public UnityEvent onPlayerEnter;
+	[SerializeField] public UnityEvent<Zone> onPlayerEnter;
+	[SerializeField] public UnityEvent<Zone> onRoomCleared;
 
 	private int aliveEnnemies;
 
 	private void Start()
 	{
-		/*aliveEnnemies = ennemies.Length;
+		ennemies = GetComponentsInChildren<EnnemyBehavior>();
+		aliveEnnemies = ennemies.Length;
 		
 		foreach(EnnemyBehavior ennemy in ennemies)
 		{
 			ennemy.GetComponent<HealthSystem>().onDie.AddListener(EnnemyDies);
-		}*/
-		ennemies = GetComponentsInChildren<EnnemyBehavior>();
-		aliveEnnemies = ennemies.Length;
+		}
+
+		foreach(Door door in GetComponentsInChildren<Door>())
+        {
+			if (aliveEnnemies > 0)
+				onRoomCleared.AddListener(door.Unlock);
+			else
+				door.Unlock();
+        }
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -28,7 +36,7 @@ public class Zone : MonoBehaviour
 		if (other.CompareTag("Player"))
 		{
 			ActivateEnnemies();
-			onPlayerEnter.Invoke();
+			onPlayerEnter.Invoke(this);
 		}
 	}
 
@@ -47,6 +55,7 @@ public class Zone : MonoBehaviour
 		if (aliveEnnemies <= 0)
 		{
 			Debug.Log($"{name} cleared.");
+			onRoomCleared.Invoke(this);
 		}
 	}
 }
