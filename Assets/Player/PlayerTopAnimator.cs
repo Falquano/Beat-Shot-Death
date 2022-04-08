@@ -22,13 +22,13 @@ public class PlayerTopAnimator : MonoBehaviour
 
     private void Update()
     {
-        // On est bloqué si il y a un collider dans la zone juste en face du joueur
-        //bool blocked = Physics2D.OverlapCircle(transform.position + transform.up * blockedCheckOffset, blockedCheckRadius, blockedCheckMask);
-        //animator.SetBool("Blocked", blocked);
+        
 
         //Get la velocity qui sera utile pour l'anim de déplacement
         Vector3 Velocity = PlayerRB.velocity;
         Vector3 VelocityRelative = transform.InverseTransformDirection(Velocity);
+
+        VelocityRelative = VelocityRelative.normalized;
 
         animator.SetFloat("SpeedX", VelocityRelative.x);
         animator.SetFloat("SpeedZ", VelocityRelative.z);
@@ -41,7 +41,7 @@ public class PlayerTopAnimator : MonoBehaviour
 
     public void OnShot(ShotInfo shotInfo)
     {
-        print("shooted");
+        
 
         if (shotInfo.Quality != ShotQuality.Failed)
         {
