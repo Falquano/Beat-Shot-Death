@@ -55,6 +55,9 @@ public class ShootPlayer : MonoBehaviour
     //Appel du script d'animation du player
     [SerializeField] private AnimationInvoker ScriptAnimation;
 
+    [Header("Debug")]
+    [SerializeField] private bool logShots = false;
+
 
     // Update is called once per frame
     void Update()
@@ -140,6 +143,10 @@ public class ShootPlayer : MonoBehaviour
     public void Shoot()
     {
         ShotQuality quality = tempoManager.ShotQualityNow();
+        if (logShots)
+        {
+            Debug.Log($"Shot triggered at {tempoManager.Tempo.ToString("F3")} => {quality}");
+        }
 
 
         //on calcul la direction entre le player et la souris 
