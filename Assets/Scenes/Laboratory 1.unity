@@ -8905,7 +8905,7 @@ PrefabInstance:
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: song
       value: 
-      objectReference: {fileID: 11400000, guid: 79ea092be7a585e42837a03c9be08921, type: 2}
+      objectReference: {fileID: 11400000, guid: bd7c27632e75d8348bda66a7169db356, type: 2}
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -9116,6 +9116,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: logShots
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: tempoManager
       value: 
