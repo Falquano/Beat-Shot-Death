@@ -53,6 +53,7 @@ public class GameAnalyser : MonoBehaviour
 
         foreach (GameSequence sequence in Sequencer.Values)
         {
+            Debug.Log(sequence.CSVLine());
             writer.WriteLine(sequence.CSVLine());
         }
 
@@ -99,7 +100,7 @@ public class GameSequence
 
     public string CSVLine()
     {
-        return Zone.Name + "," + Duration.ToString("0.00") + "," + TimeEntered.ToString("0.00") + "," + TimeExited.ToString("0.00")
+        return Zone.Name + "," + Duration.ToString("0.00").Replace(',', '.') + "," + TimeEntered.ToString("0.00").Replace(',', '.') + "," + TimeExited.ToString("0.00").Replace(',', '.')
             + "," + Shots[ShotQuality.Bad] + "," + Shots[ShotQuality.Good] + "," + Shots[ShotQuality.Perfect];
     }
 }
