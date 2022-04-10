@@ -18,6 +18,8 @@ public class PlayerHealthSystem : MonoBehaviour
     //Appel du script d'animation du player
     [SerializeField] private AnimationInvoker ScriptAnimation;
 
+    [SerializeField] private Animator AnimShield ;
+
     //UI du shield
 
     [SerializeField] private List<GameObject> ShieldUI = new List<GameObject>();
@@ -31,6 +33,19 @@ public class PlayerHealthSystem : MonoBehaviour
     private int shield;
     public int Health => health;
     public int Shield => shield;
+
+
+    public void Update()
+    {
+        if(shield <= 0)
+        {
+            AnimShield.SetBool("Shield", false);
+        }
+        else
+        {
+            AnimShield.SetBool("Shield", true);
+        }
+    }
 
     private void Start()
     {

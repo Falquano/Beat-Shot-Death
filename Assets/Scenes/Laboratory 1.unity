@@ -2167,6 +2167,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 099833bfa7d3b824f8714aadc557bf6d, type: 3}
+--- !u!95 &318404341 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3136136504565582291, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
+  m_PrefabInstance: {fileID: 5164273524794097099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &333047514
 GameObject:
   m_ObjectHideFlags: 0
@@ -9220,6 +9225,10 @@ PrefabInstance:
       propertyPath: onComboChange.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: AnimShield
+      value: 
+      objectReference: {fileID: 318404341}
     - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: LifeUI.Array.data[0]
       value: 
