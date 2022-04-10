@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class TempoManager : MonoBehaviour
 {
     //variable pour le tir en tempo
-    [SerializeField] private float objectiveShoot = 0.5f;
+    [SerializeField] private float objectiveShoot = 1f;
     public float ObjectiveShoot => objectiveShoot;
     [SerializeField] private float marginPerfect = 0.1f;
     public float MarginPerfect => marginPerfect;
@@ -89,7 +89,7 @@ public class TempoManager : MonoBehaviour
         onTimeToShoot.Invoke();
     }
 
-    public ShotQuality ShotQualityNow()
+    /*public ShotQuality ShotQualityNow()
     {
         if (Tempo >= objectiveShoot - marginOk && Tempo <= objectiveShoot + marginOk)
         {
@@ -97,6 +97,20 @@ public class TempoManager : MonoBehaviour
             {
                 return ShotQuality.Perfect;
             }
+            return ShotQuality.Good;
+        }
+        return ShotQuality.Bad;
+    }*/
+
+    // Cette version est plus permissive mais ne fonctionne qu'avec objectiveshoot = 1 !
+    public ShotQuality ShotQualityNow()
+    {
+        if (Tempo >= objectiveShoot - marginPerfect || Tempo < marginPerfect / 2f)
+        {
+            return ShotQuality.Perfect;
+        }
+        else if (Tempo >= objectiveShoot - marginOk)
+        {
             return ShotQuality.Good;
         }
         return ShotQuality.Bad;
