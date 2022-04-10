@@ -27,9 +27,9 @@ public class CamShakeOnShoot : MonoBehaviour
     {
         switch (quality)
         {
-            case ShotQuality.Failed:
+            case ShotQuality.Bad:
                 return failedAmplitude;
-            case ShotQuality.Okay:
+            case ShotQuality.Good:
                 return okayAmplitude;
             case ShotQuality.Perfect:
                 return perfectAmplitude;

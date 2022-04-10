@@ -97,8 +97,8 @@ public class TempoManager : MonoBehaviour
             {
                 return ShotQuality.Perfect;
             }
-            return ShotQuality.Okay;
+            return ShotQuality.Good;
         }
-        return ShotQuality.Failed;
+        return ShotQuality.Bad;
     }
 }

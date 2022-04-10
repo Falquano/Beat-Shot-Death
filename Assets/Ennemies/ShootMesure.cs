@@ -47,7 +47,7 @@ public class ShootMesure : Mesure
 
         ShotInfo shotInfo = new ShotInfo()
         {
-            Quality = ShotQuality.Okay,
+            Quality = ShotQuality.Good,
             StartPos = barrel.position,
             ShotObject = null,
             EndNormal = Vector3.zero,

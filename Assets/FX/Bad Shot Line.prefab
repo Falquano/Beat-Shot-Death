@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1940587716762264604
+--- !u!1 &634932085520703553
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1940587716762264602}
-  - component: {fileID: 1940587716762264605}
-  - component: {fileID: 3123082233283991789}
+  - component: {fileID: 634932085520703559}
+  - component: {fileID: 634932085520703552}
+  - component: {fileID: 4140650699519532208}
   m_Layer: 0
-  m_Name: Okay Shot Line
+  m_Name: Bad Shot Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1940587716762264602
+--- !u!4 &634932085520703559
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940587716762264604}
+  m_GameObject: {fileID: 634932085520703553}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.9020433, y: 1.9847375, z: -5.535045}
+  m_LocalPosition: {x: 2.5480597, y: 0.8750005, z: 2.7765267}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!120 &1940587716762264605
+--- !u!120 &634932085520703552
 LineRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940587716762264604}
+  m_GameObject: {fileID: 634932085520703553}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -51,7 +51,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b2f1875777c5c724ba0ef7e05d43d9f9, type: 2}
+  - {fileID: 2100000, guid: 8635b41fb8eb2dd4a87d80ccd90459e4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,8 +73,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 6, y: 0, z: 0}
+  - {x: 0, y: 1, z: -3}
+  - {x: 6, y: 1, z: -3}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -130,24 +130,33 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &3123082233283991789
+--- !u!114 &4140650699519532208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940587716762264604}
+  m_GameObject: {fileID: 634932085520703553}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c82915f2ce3f3c043abbf73e78ea13f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectLength: 0.15
-  blendOverTime:
+  effectLength: 0.3
+  startWidthOverTime:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
+      value: 1
+      inSlope: -2.6589954
+      outSlope: -2.6589954
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.043640897
+    - serializedVersion: 3
+      time: 0.7
       value: 0
       inSlope: 0
       outSlope: 0
@@ -155,41 +164,31 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  endWidthOverTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.18662697
+      outSlope: -0.18662697
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.054862842
     - serializedVersion: 3
       time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  widthOverTime:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.0512619
-      inSlope: 0.127337
-      outSlope: 0.127337
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.0730497
-    - serializedVersion: 3
-      time: 0.98999995
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.19551446
+      outSlope: -0.19551446
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.06982541
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startColor: {r: 7.152941, g: 23.968628, b: 19.450981, a: 1}
-  endColor: {r: 0.22352941, g: 0.7490196, b: 0.60784316, a: 0.007843138}
+  maxWidth: 0.05

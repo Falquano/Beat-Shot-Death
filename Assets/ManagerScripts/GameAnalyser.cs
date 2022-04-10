@@ -90,8 +90,8 @@ public class GameSequence
 
     public GameSequence()
 	{
-        Shots.Add(ShotQuality.Failed, 0);
-        Shots.Add(ShotQuality.Okay, 0);
+        Shots.Add(ShotQuality.Bad, 0);
+        Shots.Add(ShotQuality.Good, 0);
         Shots.Add(ShotQuality.Perfect, 0);
     }
 
@@ -100,6 +100,6 @@ public class GameSequence
     public string CSVLine()
     {
         return Zone.Name + "," + Duration.ToString("0.00") + "," + TimeEntered.ToString("0.00") + "," + TimeExited.ToString("0.00")
-            + "," + Shots[ShotQuality.Failed] + "," + Shots[ShotQuality.Okay] + "," + Shots[ShotQuality.Perfect];
+            + "," + Shots[ShotQuality.Bad] + "," + Shots[ShotQuality.Good] + "," + Shots[ShotQuality.Perfect];
     }
 }

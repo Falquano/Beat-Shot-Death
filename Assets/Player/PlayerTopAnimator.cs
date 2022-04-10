@@ -43,19 +43,19 @@ public class PlayerTopAnimator : MonoBehaviour
     {
         
 
-        if (shotInfo.Quality != ShotQuality.Failed)
+        if (shotInfo.Quality != ShotQuality.Bad)
         {
             if (fireright)
             {
                 animator.SetTrigger("Fire");
                 fireright = false;
-                Debug.Log("TirDroit");
+                //Debug.Log("TirDroit");
             }
             else
             {
                 animator.SetTrigger("FireLeft");
                 fireright = true;
-                Debug.Log("TirGauche");
+                //Debug.Log("TirGauche");
             }
         }
 
