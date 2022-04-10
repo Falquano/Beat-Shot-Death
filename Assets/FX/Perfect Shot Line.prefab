@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1940587716762264605}
   - component: {fileID: 3123082233283991789}
   m_Layer: 0
-  m_Name: Player Gun Line
+  m_Name: Perfect Shot Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b2f1875777c5c724ba0ef7e05d43d9f9, type: 2}
+  - {fileID: 2100000, guid: 50a8a98154ec0ff47bf46a70b6323aaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,53 +143,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectLength: 0.3
-  blendOverTime:
+  startWidthOverTime:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
+      outWeight: 0.055417016
+    - serializedVersion: 3
+      time: 0.9
+      value: 0
+      inSlope: -3.1693928
+      outSlope: -3.1693928
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.04738152
       outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  endWidthOverTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0.09604195
+      outSlope: 0.09604195
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.07107232
     - serializedVersion: 3
       time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  widthOverTime:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.1000061
-      inSlope: 0.127337
-      outSlope: 0.127337
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.0730497
-    - serializedVersion: 3
-      time: 0.98999995
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -3.732549
+      outSlope: -3.732549
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.041147113
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startColor: {r: 57.22353, g: 191.74902, b: 155.60785, a: 1}
-  endColor: {r: 0.22352941, g: 0.7490196, b: 0.60784316, a: 0.007843138}

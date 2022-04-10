@@ -10,6 +10,8 @@ public class GameAnalyser : MonoBehaviour
 
     private void Start()
     {
+        System.IO.Directory.CreateDirectory(defaultSavePath);
+
         Sequencer = new Dictionary<Zone, GameSequence>();
 
         foreach (Zone zone in FindObjectsOfType<Zone>())
@@ -35,7 +37,7 @@ public class GameAnalyser : MonoBehaviour
         if (currentZone == null)
             return;
 
-        Sequencer[currentZone].Shots.Add(shot);
+        Sequencer[currentZone].Shots[shot.Quality]++;
     }
 
     public void ClearZone(Zone zone)
@@ -51,6 +53,7 @@ public class GameAnalyser : MonoBehaviour
 
         foreach (GameSequence sequence in Sequencer.Values)
         {
+            Debug.Log(sequence.CSVLine());
             writer.WriteLine(sequence.CSVLine());
         }
 
@@ -84,16 +87,20 @@ public class GameSequence
     public Zone Zone;
     public float TimeEntered { get; set; }
     public float TimeExited { get; set; }
-    public List<ShotInfo> Shots { get; } = new List<ShotInfo>();
+    public Dictionary<ShotQuality, int> Shots { get; } = new Dictionary<ShotQuality, int>();
+
+    public GameSequence()
+	{
+        Shots.Add(ShotQuality.Bad, 0);
+        Shots.Add(ShotQuality.Good, 0);
+        Shots.Add(ShotQuality.Perfect, 0);
+    }
 
     public double Duration => TimeExited - TimeEntered;
 
-    public int ShotsByQuality(ShotQuality quality)
-        => Shots.FindAll(x => x.Quality == quality).Count;
-
     public string CSVLine()
     {
-        return Zone.Name + "," + Duration.ToString("0.00") + "," + TimeEntered.ToString("0.00") + "," + TimeExited.ToString("0.00")
-            + "," + ShotsByQuality(ShotQuality.Failed) + "," + ShotsByQuality(ShotQuality.Okay) + "," + ShotsByQuality(ShotQuality.Perfect);
+        return Zone.Name + "," + Duration.ToString("0.00").Replace(',', '.') + "," + TimeEntered.ToString("0.00").Replace(',', '.') + "," + TimeExited.ToString("0.00").Replace(',', '.')
+            + "," + Shots[ShotQuality.Bad] + "," + Shots[ShotQuality.Good] + "," + Shots[ShotQuality.Perfect];
     }
 }

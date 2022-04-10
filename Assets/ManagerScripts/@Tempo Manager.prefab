@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4955465238566614671}
   - component: {fileID: 4955465238566614664}
+  - component: {fileID: 6529192690491224699}
   - component: {fileID: 4955465238566614665}
   - component: {fileID: 4955465238566614666}
   m_Layer: 0
@@ -91,6 +92,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 6529192690491224699}
+        m_TargetAssemblyTypeName: MusicParameterizer, Assembly-CSharp
+        m_MethodName: ResetQuality
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onTimeToShoot:
     m_PersistentCalls:
       m_Calls:
@@ -106,6 +119,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6529192690491224699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4955465238566614670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053784bf850649c4da4dd3c8e3730ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songEmitter: {fileID: 4955465238566614666}
 --- !u!114 &4955465238566614665
 MonoBehaviour:
   m_ObjectHideFlags: 0

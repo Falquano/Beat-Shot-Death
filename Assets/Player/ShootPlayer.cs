@@ -42,16 +42,21 @@ public class ShootPlayer : MonoBehaviour
 
 
     //variable de combo que l'on veux retirer
-    [SerializeField] private int comboMalusNoShot;
-    [SerializeField] private int comboBonusPerfectShot;
-    [SerializeField] private int comboBonusOkayShot;
-    [SerializeField] private int comboMalusFailedShot;
+    [SerializeField] private int comboNoShotMod = -16;
+    [SerializeField] private int comboPerfectShotMod = 10;
+    [SerializeField] private int comboGoodShotMod = 2;
+    [SerializeField] private int comboBadShotMod = -8;
     [SerializeField] private int comboDecrease;
 
-    [SerializeField] private int ValuePerfectShot;
+    [SerializeField] private int perfectShotDamage = 3;
+    [SerializeField] private int goodShotDamage = 2;
+    [SerializeField] private int badShotDamage = 1;
 
     //Appel du script d'animation du player
     [SerializeField] private AnimationInvoker ScriptAnimation;
+
+    [Header("Debug")]
+    [SerializeField] private bool logShots = false;
 
 
     // Update is called once per frame
@@ -101,8 +106,6 @@ public class ShootPlayer : MonoBehaviour
             if(CheckShootisOk == true)
             {
                 Shoot();
-                
-                
             }
         }
     }
@@ -118,7 +121,7 @@ public class ShootPlayer : MonoBehaviour
         if (CheckShootisOk == true)
         {
              //La surchauffe descend de 10 si le joueur n'a pas tirer le tempo précédent
-             combo = Mathf.Clamp(combo + comboMalusNoShot, 0, maxCombo);
+             combo = Mathf.Clamp(combo + comboNoShotMod, 0, maxCombo);
              onComboChange.Invoke(combo, maxCombo);   
         }
 
@@ -139,6 +142,13 @@ public class ShootPlayer : MonoBehaviour
 
     public void Shoot()
     {
+        ShotQuality quality = tempoManager.ShotQualityNow();
+        if (logShots)
+        {
+            Debug.Log($"Shot triggered at {tempoManager.Tempo.ToString("F3")} => {quality}");
+        }
+
+
         //on calcul la direction entre le player et la souris 
         //Vector2 DirectionShoot = Camera.main.ScreenToWorldPoint(MouseScreenPosition) - transform.position;
         Vector3 DirectionShoot = transform.forward;
@@ -151,119 +161,51 @@ public class ShootPlayer : MonoBehaviour
             Debug.DrawLine(transform.position, RayShoot.point, Color.red, 0.2f);
 
             //On vérif si le tir est dans le cadran du tir ok
-        
-            switch (tempoManager.ShotQualityNow())
+
+            //On vérifie si il collide avec un élément et si cet élément possède le tag ennemy
+            if (RayShoot.collider != null && RayShoot.transform.tag == "Ennemy")
             {
-                case ShotQuality.Failed:
-                    FailedShot();
-                    break;
-                case ShotQuality.Okay:
-                    OkayShot(RayShoot, DirectionShoot.normalized);
-                    break;
-                case ShotQuality.Perfect:
-                    PerfectShot(RayShoot, DirectionShoot.normalized);
-                    break;
+                //On récupère le script behavior de l'ennemy touché
+                HealthSystem targetHealth = RayShoot.transform.GetComponent<HealthSystem>();
+
+                // Selon la qualité on envoie les dégats appropriés et on augmente ou diminue le combo
+                switch (quality)
+                {
+                    case ShotQuality.Bad:
+                        targetHealth.DealDamage(ComboDamageBonus(badShotDamage));
+                        combo = Mathf.Clamp(combo + comboBadShotMod, 0, maxCombo);
+                        break;
+                    case ShotQuality.Good:
+                        targetHealth.DealDamage(ComboDamageBonus(goodShotDamage));
+                        combo = Mathf.Clamp(combo + comboGoodShotMod, 0, maxCombo);
+                        break;
+                    case ShotQuality.Perfect:
+                        targetHealth.DealDamage(ComboDamageBonus(perfectShotDamage));
+                        combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
+                        break;
+                }
             }
-		}
 
+            // On crée un "rapport de tir" qui contient toutes les infos nécessaires au lancement d'FX, sons et tout ça
+            ShotInfo info = new ShotInfo()
+            {
+                StartPos = Barrels[barrelIndex].position,
+                EndPos = RaycastHitPoint(RayShoot, DirectionShoot.normalized),
+                Quality = quality,
+                ShotObject = RayShoot.transform == null ? null : RayShoot.transform.gameObject,
+                EndNormal = RayShoot.normal
+            };
+            // On annonce au monde qu'un tir a été effectué avec les infos précédentes
+            OnShotEvent.Invoke(info);
+            // On désactive le tir pour cette mesure
+            CheckShootisOk = false;
+        }
 
+        //On annonce au monde que le combo a changé
+        onComboChange.Invoke(combo, maxCombo);
+
+        // On change de pistolet
         barrelIndex = (barrelIndex + 1) % Barrels.Length;
-    }
-
-    private void PerfectShot(RaycastHit RayShoot, Vector2 direction)
-    {
-        //On vérifie si il collide avec un élément et si cet élément possède le tag ennemy
-        if (RayShoot.collider != null && RayShoot.transform.tag == "Ennemy")
-        {
-            //On récupère le script behavior de l'ennemy touché
-            HealthSystem targetHealth = RayShoot.transform.GetComponent<HealthSystem>();
-
-
-            if(combo>= 0 && combo <= 20)
-            {
-                targetHealth.DealDamage(ValuePerfectShot * 1);
-            }
-            else if(combo > 20 && combo <= 40)
-            {
-                targetHealth.DealDamage( (int)(ValuePerfectShot * 1.5));
-            }
-            else if(combo > 40 && combo <= 70)
-            {
-                targetHealth.DealDamage(ValuePerfectShot * 2);
-            }
-            else if(combo > 70 && combo <= 90)
-            {
-                targetHealth.DealDamage(ValuePerfectShot * 3);
-            }
-            else if(combo > 90 && combo <= 100)
-            {
-                targetHealth.DealDamage(ValuePerfectShot * 5);
-            }
-        }
-
-        //La surchauffe augmente de 10
-        combo = Mathf.Clamp(combo + comboBonusPerfectShot, 0, maxCombo);
-        onComboChange.Invoke(combo, maxCombo);
-
-        ShotInfo info = new ShotInfo()
-        {
-            StartPos = Barrels[barrelIndex].position,
-            EndPos = RaycastHitPoint(RayShoot, direction),
-            Quality = ShotQuality.Perfect,
-            ShotObject = RayShoot.transform == null ? null : RayShoot.transform.gameObject,
-            EndNormal = RayShoot.normal
-        };
-        OnShotEvent.Invoke(info);
-        CheckShootisOk = false;
-        
-    }
-
-    private void OkayShot(RaycastHit RayShoot, Vector2 direction)
-    {
-        //On vérifie si il collide avec un élément et si cet élément possède le tag ennemy
-        if (RayShoot.collider != null && RayShoot.transform.tag == "Ennemy")
-        {
-            //On récupère le script behavior de l'ennemy touché
-            HealthSystem targetHealth = RayShoot.transform.GetComponent<HealthSystem>();
-
-            //Si il n'est pas dans tir parfait mais juste dans le tir ok, on prend le script de l'ennemy et on lui retire 10 pts
-            targetHealth.DealDamage(10);
-        }
-
-        //La surchauffe descend de 10
-        combo = Mathf.Clamp(combo + comboBonusOkayShot, 0, maxCombo);
-        onComboChange.Invoke(combo, maxCombo);
-
-        ShotInfo info = new ShotInfo()
-        {
-            StartPos = Barrels[barrelIndex].position,
-            EndPos = RaycastHitPoint(RayShoot, direction),
-            Quality = ShotQuality.Okay,
-            // test ? valeur si vrai : valeur si faux
-            // c'est pas giga élégant mais parfois c'est juste pratique
-            ShotObject = RayShoot.transform == null ? null : RayShoot.transform.gameObject,
-            EndNormal = RayShoot.normal
-        };
-        OnShotEvent.Invoke(info);
-        CheckShootisOk = false;
-    }
-
-    private void FailedShot()
-    {
-        //La surchauffe descend de 30 car le tir est raté.
-        combo = Mathf.Clamp(combo + comboMalusFailedShot, 0, maxCombo);
-        onComboChange.Invoke(combo, maxCombo);
-
-        ShotInfo info = new ShotInfo()
-        {
-            StartPos = Barrels[barrelIndex].position,
-            EndPos = Barrels[barrelIndex].position,
-            Quality = ShotQuality.Failed,
-            ShotObject = null,
-            EndNormal = Vector2.zero
-        };
-        //OnShotEvent.Invoke(info);
-        CheckShootisOk = false;
     }
 
     public Vector3 RaycastHitPoint(RaycastHit hit, Vector3 direction)
@@ -285,6 +227,30 @@ public class ShootPlayer : MonoBehaviour
             
         }
     }
+
+    private int ComboDamageBonus(int baseDamage)
+    {
+        if (combo >= 0 && combo <= 20)
+        {
+            return baseDamage;
+        }
+        else if (combo > 20 && combo <= 40)
+        {
+            return (int)((float)baseDamage * 1.5f);
+        }
+        else if (combo > 40 && combo <= 70)
+        {
+            return baseDamage * 2;
+        }
+        else if (combo > 70 && combo <= 90)
+        {
+            return baseDamage * 3;
+        }
+        else
+        {
+            return baseDamage * 5;
+        }
+    }
 }
 
 // Un type qui contient toutes les infos sur un tir. Comme ça on peut l'envoyer aux systèmes de particules et tout ça
@@ -300,7 +266,7 @@ public struct ShotInfo
 // Une liste de qualités de tirs pour facilement avoir l'info
 public enum ShotQuality
 {
-    Failed,
-    Okay,
+    Bad,
+    Good,
     Perfect
 }

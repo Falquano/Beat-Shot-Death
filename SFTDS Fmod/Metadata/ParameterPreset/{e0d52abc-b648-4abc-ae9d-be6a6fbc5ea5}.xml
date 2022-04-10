@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{e0d52abc-b648-4abc-ae9d-be6a6fbc5ea5}">
+		<property name="name">
+			<value>Last Shot Quality</value>
+		</property>
+		<relationship name="folder">
+			<destination>{2a51a752-3be1-49a9-9eb7-ec4a8e16f0b0}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{5d52a3ac-d287-4008-ae43-9eea6d86f847}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{5d52a3ac-d287-4008-ae43-9eea6d86f847}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>4</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Bad</value>
+			<value>Good</value>
+			<value>Perfect</value>
+			<value>No Shot</value>
+		</property>
+		<property name="initialValue">
+			<value>3</value>
+		</property>
+	</object>
+</objects>
