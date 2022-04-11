@@ -3477,10 +3477,11 @@ MonoBehaviour:
   comboGoodShotMod: 2
   comboBadShotMod: -8
   comboDecrease: -10
-  perfectShotDamage: 3
+  perfectShotDamage: 4
   goodShotDamage: 2
   badShotDamage: 1
   ScriptAnimation: {fileID: 0}
+  logShots: 0
 --- !u!114 &7462270552646460797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3617,6 +3618,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   ScriptAnimation: {fileID: 0}
+  AnimShield: {fileID: 0}
   ShieldUI:
   - {fileID: 0}
   - {fileID: 0}
