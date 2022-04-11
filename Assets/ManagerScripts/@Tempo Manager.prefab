@@ -50,7 +50,7 @@ MonoBehaviour:
   marginPerfect: 0.2
   marginOk: 0.6666
   TempoDuration: 0.5
-  song: {fileID: 0}
+  song: {fileID: 11400000, guid: bd7c27632e75d8348bda66a7169db356, type: 2}
   songEmitter: {fileID: 4955465238566614666}
   MarginPerfectEvolution:
     serializedVersion: 2
@@ -93,12 +93,12 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 6529192690491224699}
-        m_TargetAssemblyTypeName: MusicParameterizer, Assembly-CSharp
+        m_TargetAssemblyTypeName: ShootPlayer, Assembly-CSharp
         m_MethodName: ResetQuality
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -177,11 +177,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1962048459
-      Data2: 1185736207
-      Data3: 326983596
-      Data4: -371415152
-    Path: event:/FX/Shot Impact
+      Data1: -537341
+      Data2: 1290868107
+      Data3: -10110541
+      Data4: 716366828
+    Path: event:/Music/Test Music/Ultra Adaptative
   Event: 
   PlayEvent: 0
   StopEvent: 0
