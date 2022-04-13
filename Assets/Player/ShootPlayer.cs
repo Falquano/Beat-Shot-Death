@@ -186,6 +186,39 @@ public class ShootPlayer : MonoBehaviour
                 }
             }
 
+            //On vérifie si il collide avec un élément et si cet élément possède le tag Button
+            if (RayShoot.collider != null && RayShoot.transform.tag == "Button")
+            {
+                
+
+                //On récupère l'animator du button
+                Animator AnimButton = RayShoot.transform.GetComponent<Animator>();
+                ButtonJustShoot ButtonScript = RayShoot.transform.GetComponent<ButtonJustShoot>();
+
+                
+
+                // Selon la qualité on change la couleur du bouton et on augmente ou diminue le combo
+                switch (quality)
+                {
+                    case ShotQuality.Bad:
+                        AnimButton.SetInteger("QualityShoot", 1); 
+                        combo = Mathf.Clamp(combo + comboBadShotMod, 0, maxCombo);
+                        print("Orange");
+                        break;
+                    case ShotQuality.Good:
+                        AnimButton.SetInteger("QualityShoot", 2);
+                        combo = Mathf.Clamp(combo + comboGoodShotMod, 0, maxCombo);
+                        print("Yellow");
+                        break;
+                    case ShotQuality.Perfect:
+                        AnimButton.SetInteger("QualityShoot", 3);
+                        combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
+                        ButtonScript.DoorOpening();
+                        print("Green");
+                        break;
+                }
+            }
+
             // On crée un "rapport de tir" qui contient toutes les infos nécessaires au lancement d'FX, sons et tout ça
             ShotInfo info = new ShotInfo()
             {
