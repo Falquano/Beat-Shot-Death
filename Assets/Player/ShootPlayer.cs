@@ -203,18 +203,18 @@ public class ShootPlayer : MonoBehaviour
                     case ShotQuality.Bad:
                         AnimButton.SetInteger("QualityShoot", 1); 
                         combo = Mathf.Clamp(combo + comboBadShotMod, 0, maxCombo);
-                        print("Orange");
+                        
                         break;
                     case ShotQuality.Good:
                         AnimButton.SetInteger("QualityShoot", 2);
                         combo = Mathf.Clamp(combo + comboGoodShotMod, 0, maxCombo);
-                        print("Yellow");
+                        
                         break;
                     case ShotQuality.Perfect:
                         AnimButton.SetInteger("QualityShoot", 3);
                         combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
-                        ButtonScript.DoorOpening();
-                        print("Green");
+                        ButtonScript.DoorOpening(); //peut être l'appeler dans un event plus tard
+                        
                         break;
                 }
             }

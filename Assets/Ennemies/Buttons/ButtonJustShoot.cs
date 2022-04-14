@@ -5,17 +5,14 @@ using UnityEngine.Events;
 
 public class ButtonJustShoot : MonoBehaviour
 {
-    [SerializeField] Animator ButtonAnim;
-    [SerializeField] GameObject Door;
+
+    [SerializeField] Door1 ScriptCodeDoor;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        ButtonAnim = GetComponent<Animator>();
-    }
+    
 
     public void DoorOpening()
     {
-        Door.SetActive(false);
+        ScriptCodeDoor.codeDoor += 1;
     }
 }
