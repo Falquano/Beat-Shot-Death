@@ -130,6 +130,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  melee: 0
 --- !u!1 &7392610202990465567
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +281,7 @@ MonoBehaviour:
   range: 100
   EnnemyMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 247
   onShoot:
     m_PersistentCalls:
       m_Calls:
@@ -544,6 +545,7 @@ MonoBehaviour:
   onFootstep:
     m_PersistentCalls:
       m_Calls: []
+  melee: 0
 --- !u!95 &9011831931644865429
 Animator:
   serializedVersion: 3

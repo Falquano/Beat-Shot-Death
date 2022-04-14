@@ -3599,7 +3599,7 @@ MonoBehaviour:
   range: 100
   EnnemyMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 247
   onShoot:
     m_PersistentCalls:
       m_Calls:
@@ -3877,6 +3877,7 @@ MonoBehaviour:
   onFootstep:
     m_PersistentCalls:
       m_Calls: []
+  melee: 0
 --- !u!95 &9209165428636639211
 Animator:
   serializedVersion: 3

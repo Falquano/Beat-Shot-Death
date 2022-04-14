@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aa2e8a9278297488724feb9276051a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  MaxHealth: 80
   onTakeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -372,7 +372,7 @@ MonoBehaviour:
   range: 100
   EnnemyMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 247
   onShoot:
     m_PersistentCalls:
       m_Calls:
