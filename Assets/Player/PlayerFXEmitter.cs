@@ -17,11 +17,13 @@ public class PlayerFXEmitter : MonoBehaviour
     [SerializeField] private StudioEventEmitter FootstepSoundEmitter;
     [SerializeField] private GameObject ImpactParticlesPrefab;
     [SerializeField] private float okayShotImpactSize = .333f;
+    [SerializeField] private GameObject muzzleFlashPrefab;
 
     public void ShotFX(ShotInfo shotInfo)
     {
         ZapLine(shotInfo);
         Impact(shotInfo.EndPos, shotInfo.EndNormal, shotInfo.Quality);
+        MuzzleFlash(shotInfo);
 
         EmitShotSound(shotInfo);
     }
@@ -59,6 +61,12 @@ public class PlayerFXEmitter : MonoBehaviour
         // je le lance
         gunshot.start();
     }
+
+    private void MuzzleFlash(ShotInfo shotInfo)
+	{
+        GameObject muzzleFlash = Instantiate(muzzleFlashPrefab, shotInfo.StartPos, Quaternion.identity);
+        muzzleFlash.transform.forward = shotInfo.EndPos - shotInfo.StartPos;
+	}
 
     public void OnFootstep()
     {
