@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aa2e8a9278297488724feb9276051a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  MaxHealth: 30
   onTakeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f1e766496ccbca47a41c20906816708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 9047568458364018868, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
   rayOffset: 0.7
   DistanceMaxForHit: 5
   damage: 50
@@ -389,6 +389,7 @@ MonoBehaviour:
   onFootstep:
     m_PersistentCalls:
       m_Calls: []
+  melee: 1
 --- !u!95 &5495042530879478216
 Animator:
   serializedVersion: 3
@@ -457,7 +458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5016392365588698598
 Transform:
   m_ObjectHideFlags: 0
@@ -487,7 +488,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5016392365588698599}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -546,7 +547,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.8625, y: 1.5262, z: 1.4788}
+  m_Size: {x: 1.08, y: 1.5262, z: 1.04}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4611110026496011173
 PrefabInstance:
