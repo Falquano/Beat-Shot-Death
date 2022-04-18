@@ -2476,6 +2476,9 @@ MonoBehaviour:
   onPlayerEnter:
     m_PersistentCalls:
       m_Calls: []
+  onRoomCleared:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &2002279864
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2524,7 +2527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65775677832036308, guid: dfdfd3d053299734bad554314088612b, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 65775677832036308, guid: dfdfd3d053299734bad554314088612b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2532,7 +2535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65775677832036308, guid: dfdfd3d053299734bad554314088612b, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 65775677832036308, guid: dfdfd3d053299734bad554314088612b, type: 3}
       propertyPath: m_AnchorMin.y
@@ -2576,11 +2579,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65775677832036308, guid: dfdfd3d053299734bad554314088612b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 400
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 65775677832036308, guid: dfdfd3d053299734bad554314088612b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 274
+      value: 235.59091
       objectReference: {fileID: 0}
     - target: {fileID: 65775677832036308, guid: dfdfd3d053299734bad554314088612b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2600,6 +2603,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfdfd3d053299734bad554314088612b, type: 3}
+--- !u!95 &2025030419 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7795419657804043720, guid: dfdfd3d053299734bad554314088612b, type: 3}
+  m_PrefabInstance: {fileID: 2025030418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2037973147
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,6 +3201,10 @@ PrefabInstance:
       propertyPath: MaxShield
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: AnimShield
+      value: 
+      objectReference: {fileID: 2025030419}
     - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: invincible
       value: 0

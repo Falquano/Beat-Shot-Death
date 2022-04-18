@@ -3404,7 +3404,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7462270552646460797}
         m_TargetAssemblyTypeName: PlayerFXEmitter, Assembly-CSharp
-        m_MethodName: ShotFX
+        m_MethodName: OnShoot
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3429,18 +3429,6 @@ MonoBehaviour:
       - m_Target: {fileID: 4041086488961735541}
         m_TargetAssemblyTypeName: PlayerTopAnimator, Assembly-CSharp
         m_MethodName: OnShot
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MusicParameterizer, Assembly-CSharp
-        m_MethodName: SetShotQuality
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3482,25 +3470,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MusicParameterizer, Assembly-CSharp
-        m_MethodName: SetCombo
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   tempoManager: {fileID: 0}
   CheckShootisOk: 1
   comboNoShotMod: -16
-  comboPerfectShotMod: 6
+  comboPerfectShotMod: 10
   comboGoodShotMod: 2
-  comboBadShotMod: -4
-  comboDecrease: -6
+  comboBadShotMod: -8
+  comboDecrease: -10
   perfectShotDamage: 4
   goodShotDamage: 2
   badShotDamage: 1
@@ -3642,6 +3618,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   ScriptAnimation: {fileID: 0}
+  AnimShield: {fileID: 0}
   ShieldUI:
   - {fileID: 0}
   - {fileID: 0}

@@ -51,7 +51,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b2f1875777c5c724ba0ef7e05d43d9f9, type: 2}
+  - {fileID: 2100000, guid: f75e94dedc5eef7478a2e03a018789ac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,12 +143,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectLength: 0.3
-  blendOverTime:
+  startWidthOverTime:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
+      value: 1
+      inSlope: -1.8397188
+      outSlope: -1.8397188
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.09815243
+    - serializedVersion: 3
+      time: 1
       value: 0
+      inSlope: -0.30385086
+      outSlope: -0.30385086
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.14549655
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  endWidthOverTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -157,39 +181,14 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  widthOverTime:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.1000061
-      inSlope: 0.127337
-      outSlope: 0.127337
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.0730497
-    - serializedVersion: 3
-      time: 0.98999995
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -3.3025427
+      outSlope: -3.3025427
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.0704388
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startColor: {r: 248.97249, g: 119.25672, b: 74.30069, a: 1}
-  endColor: {r: 0.7490196, g: 0.35734355, b: 0.22352941, a: 0.007843138}
+  maxWidth: 0.2
