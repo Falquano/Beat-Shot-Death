@@ -53,6 +53,11 @@ public class EnnemyAnimationEvents : MonoBehaviour
         animator.SetTrigger("OnShoot");
     }
 
+    public void OnAim() //Uniquement sur les tourelle
+    {
+        animator.SetTrigger("OnAim");
+    }
+
     /*public void Footstep() Je sais pas pourquoi ya ça
      
     {
