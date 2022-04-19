@@ -12,6 +12,8 @@ public class EnnemyAnimationEvents : MonoBehaviour
 
     [SerializeField] public UnityEvent onFootstep;
 
+    [SerializeField] private bool melee;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -32,18 +34,11 @@ public class EnnemyAnimationEvents : MonoBehaviour
 
     public void OnHit()
     {
-        if(gameObject.name == "EnnemyMelee")
+        if (melee)
         {
             animator.SetInteger("AttackRand", Random.Range(1, 4));
-            animator.SetTrigger("OnHit");
-            
         }
-
-        if (gameObject.name == "EnnemyShot")
-        {
-            animator.SetTrigger("OnHit");
-        }
-
+         animator.SetTrigger("OnHit");
     }
 
     
