@@ -3472,7 +3472,7 @@ MonoBehaviour:
         m_CallState: 2
   tempoManager: {fileID: 0}
   CheckShootisOk: 1
-  comboNoShotMod: -16
+  comboNoShotMod: -8
   comboPerfectShotMod: 10
   comboGoodShotMod: 2
   comboBadShotMod: -8
@@ -3480,6 +3480,7 @@ MonoBehaviour:
   perfectShotDamage: 4
   goodShotDamage: 2
   badShotDamage: 1
+  MesureBeforeComboDecreasing: 2
   ScriptAnimation: {fileID: 0}
   logShots: 0
 --- !u!114 &7462270552646460797
