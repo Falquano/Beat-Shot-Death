@@ -51,6 +51,10 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private int perfectShotDamage = 3;
     [SerializeField] private int goodShotDamage = 2;
     [SerializeField] private int badShotDamage = 1;
+    
+    
+    [SerializeField] private int MesureBeforeComboDecreasing;
+    private int numberOfNonShoot = 0;
 
     //Appel du script d'animation du player
     [SerializeField] private AnimationInvoker ScriptAnimation;
@@ -114,15 +118,24 @@ public class ShootPlayer : MonoBehaviour
     {
         //Cette fonction est appelé à chaque début de temps
 
-       
-
 
         //si checkshootisok est true au début de la mesure c'est qu'on a pas tiré
         if (CheckShootisOk == true)
         {
-             //La surchauffe descend de 10 si le joueur n'a pas tirer le tempo précédent
-             combo = Mathf.Clamp(combo + comboNoShotMod, 0, maxCombo);
-             onComboChange.Invoke(combo, maxCombo);   
+            //Cette variable compte le nombre de mesure où le joueur n'a pas tiré
+            numberOfNonShoot += 1;
+      
+        }
+        
+
+        if ( numberOfNonShoot >= MesureBeforeComboDecreasing)
+        {
+            //La surchauffe descend de 10 si le joueur n'a pas tirer X fois d'affilé 
+            combo = Mathf.Clamp(combo + comboNoShotMod, 0, maxCombo);
+            onComboChange.Invoke(combo, maxCombo);
+            
+
+            
         }
 
         //On passe la var de check de tir à true pour que le joueur puisse tirer dans cette nouvelle mesure
@@ -165,6 +178,9 @@ public class ShootPlayer : MonoBehaviour
             //On vérifie si il collide avec un élément et si cet élément possède le tag ennemy
             if (RayShoot.collider != null && RayShoot.transform.tag == "Ennemy")
             {
+                //On tir sur un ennemi (peut importe les dégâts), alors on ne descendra pas en combo)
+                numberOfNonShoot = 0;
+
                 //On récupère le script behavior de l'ennemy touché
                 HealthSystem targetHealth = RayShoot.transform.GetComponent<HealthSystem>();
 
@@ -184,12 +200,15 @@ public class ShootPlayer : MonoBehaviour
                         combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
                         break;
                 }
+
+                
             }
 
             //On vérifie si il collide avec un élément et si cet élément possède le tag Button
             if (RayShoot.collider != null && RayShoot.transform.tag == "Button")
             {
-                
+                //On tir sur un ennemi (peut importe les dégâts), alors on ne descendra pas en combo)
+                numberOfNonShoot = 0;
 
                 //On récupère l'animator du button
                 Animator AnimButton = RayShoot.transform.GetComponent<Animator>();
@@ -217,6 +236,14 @@ public class ShootPlayer : MonoBehaviour
                         
                         break;
                 }
+
+                
+            }
+
+            if(RayShoot.collider != null && RayShoot.transform.tag != "Button" & RayShoot.transform.tag != "Ennemy"  )
+            {
+                //Si le joueur tir sur aucun de ces deux éléments, alors son tir est comptabilisé comme nul est compte comme un non tir, le combo descendra
+                numberOfNonShoot += 1;
             }
 
             // On crée un "rapport de tir" qui contient toutes les infos nécessaires au lancement d'FX, sons et tout ça
