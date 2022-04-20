@@ -1,21 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AimMesure : Mesure
 {
     public float rotationSpeed;
     [SerializeField][Range(0f, 1f)] private float aimingTime = .5f;
 
+    [SerializeField] public UnityEvent onAim;
+
     private void OnEnable()
     {
-        //Debug.Log("Ennemy is now aiming");
-        //animator.SetBool("Aiming", true);
+
+        onAim.Invoke();
+
     }
 
     private void OnDisable()
     {
-        //animator.SetBool("Aiming", false);
+        
     }
 
     private void Update()
