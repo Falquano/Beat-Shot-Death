@@ -4,23 +4,29 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
-public class EnnemyAnimationEvents : MonoBehaviour
+public class Tourelle_Emissive : MonoBehaviour
 {
     private NavMeshAgent agent;
-    private Animator animator;
+    [SerializeField] private Animator animator;
     Rigidbody EnnemyRB;
-    
+
 
     [SerializeField] public UnityEvent onFootstep;
     [SerializeField] private bool melee;
 
+    [SerializeField] private Material emissiveMaterial;
+    [SerializeField] private Renderer objecToChange;
+    
+    private Color color;
+    public bool intensityOverTime;
+    private float timer = 0f;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         EnnemyRB = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
-
+        emissiveMaterial = objecToChange.GetComponent<Renderer>().material;
     }
 
     private void Update()
@@ -32,6 +38,13 @@ public class EnnemyAnimationEvents : MonoBehaviour
         animator.SetFloat("SpeedX", VelocityRelative.x);
         animator.SetFloat("SpeedZ", VelocityRelative.z);
 
+        if (intensityOverTime)
+        {
+            timer += Time.deltaTime;
+            Debug.Log("Timer =" + timer);
+        }
+
+        emissiveMaterial.SetColor("_Emission", color * timer);
     }
 
 
@@ -41,10 +54,10 @@ public class EnnemyAnimationEvents : MonoBehaviour
         {
             animator.SetInteger("AttackRand", Random.Range(1, 4));
         }
-         animator.SetTrigger("OnHit");
+        animator.SetTrigger("OnHit");
     }
 
-    
+
 
     public void OnShoot()
     {
@@ -58,10 +71,10 @@ public class EnnemyAnimationEvents : MonoBehaviour
 
     public void OnAim() //Uniquement sur les tourelle
     {
+        intensityOverTime = true;
 
-        
     }
-    
+
 
 
     /*public void Footstep() Je sais pas pourquoi ya ça
