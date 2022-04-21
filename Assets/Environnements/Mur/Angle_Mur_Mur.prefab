@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6020118169905322189}
   - component: {fileID: 6409066241655767969}
   - component: {fileID: 5682959087574619784}
+  - component: {fileID: 4618691048677665866}
   m_Layer: 0
   m_Name: Mur_court_angle
   m_TagString: Untagged
@@ -82,6 +83,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4618691048677665866
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229853211849866963}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7605080913632177982, guid: 1ee5dcdd74bf56d45977acfc190180d1, type: 3}
+--- !u!64 &5657884933025950112
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882944354379623785}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8202051551619320088, guid: 63d662160e5616a46b39c640c2dec148, type: 3}
 --- !u!1 &3886267855248239473
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +122,7 @@ GameObject:
   - component: {fileID: 4514045721143898571}
   - component: {fileID: 651552173710671470}
   - component: {fileID: 3381693653846624932}
+  - component: {fileID: 8204679602603414830}
   m_Layer: 0
   m_Name: Angle_Mur_Mur
   m_TagString: Untagged
@@ -164,6 +194,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8204679602603414830
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3886267855248239473}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7605080913632177982, guid: 1ee5dcdd74bf56d45977acfc190180d1, type: 3}
 --- !u!1001 &1648570592255987768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -237,6 +281,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63d662160e5616a46b39c640c2dec148, type: 3}
+--- !u!1 &1882944354379623785 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 63d662160e5616a46b39c640c2dec148, type: 3}
+  m_PrefabInstance: {fileID: 1648570592255987768}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1254920197814335443 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 63d662160e5616a46b39c640c2dec148, type: 3}
