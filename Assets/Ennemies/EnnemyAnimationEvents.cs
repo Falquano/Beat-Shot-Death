@@ -9,16 +9,18 @@ public class EnnemyAnimationEvents : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
     Rigidbody EnnemyRB;
+    
 
     [SerializeField] public UnityEvent onFootstep;
-
     [SerializeField] private bool melee;
+
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         EnnemyRB = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
+
     }
 
     private void Update()
@@ -29,6 +31,7 @@ public class EnnemyAnimationEvents : MonoBehaviour
 
         animator.SetFloat("SpeedX", VelocityRelative.x);
         animator.SetFloat("SpeedZ", VelocityRelative.z);
+
     }
 
 
@@ -55,8 +58,11 @@ public class EnnemyAnimationEvents : MonoBehaviour
 
     public void OnAim() //Uniquement sur les tourelle
     {
-        animator.SetTrigger("OnAim");
+
+        
     }
+    
+
 
     /*public void Footstep() Je sais pas pourquoi ya ça
      
