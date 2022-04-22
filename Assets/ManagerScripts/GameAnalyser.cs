@@ -8,6 +8,9 @@ public class GameAnalyser : MonoBehaviour
     public Dictionary<Zone, GameSequence> Sequencer;
     private Zone currentZone;
 
+    [SerializeField] private bool logInUnity;
+    [SerializeField] private bool logInFile;
+
     private void Start()
     {
         System.IO.Directory.CreateDirectory(defaultSavePath);
@@ -60,6 +63,17 @@ public class GameAnalyser : MonoBehaviour
         writer.Close();
     }
 
+    public void LogData()
+    {
+
+        Debug.Log("Zone name,Duration,Time entered,Time exited,Failed shots,Okay shots,Perfect shots");
+
+        foreach (GameSequence sequence in Sequencer.Values)
+        {
+            Debug.Log(sequence.CSVLine());
+        }
+    }
+
     private string GetCorrectSavePath(string path) => GetCorrectSavePath(path, 1);
 
     private string GetCorrectSavePath(string path, int count)
@@ -74,7 +88,11 @@ public class GameAnalyser : MonoBehaviour
 
     private void OnDestroy()
     {
-        SaveData(defaultSavePath + defaultSaveName);
+        if (logInFile)
+            SaveData(defaultSavePath + defaultSaveName);
+
+        if (logInUnity)
+            LogData();
     }
 
     private const string defaultSavePath = "./PlaytestData/";
