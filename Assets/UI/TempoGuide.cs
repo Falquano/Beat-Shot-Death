@@ -29,7 +29,6 @@ public class TempoGuide : MonoBehaviour
     {
         // On met la variable "tempo" du material à jour
         TargetValue = tempo.Tempo;
-        Debug.Log(tempo.Tempo);
     }
 
     public void BeatEnds(int newBeat)
