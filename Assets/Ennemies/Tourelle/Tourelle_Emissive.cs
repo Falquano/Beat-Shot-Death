@@ -13,7 +13,9 @@ public class Tourelle_Emissive : MonoBehaviour
     [SerializeField] private GameObject destroy;
     [SerializeField] private Material emissiveMaterial;
     [SerializeField] private Renderer objecToChange;
-    
+    [SerializeField] private Color colorEmissive;
+    public float emissiveIntensity = 10f;
+
     private Color color;
     public bool intensityOverTime;
 
@@ -23,6 +25,7 @@ public class Tourelle_Emissive : MonoBehaviour
         animatorTourelle = GetComponent<Animator>();
         anneau = GetComponent<Animator>();
         emissiveMaterial = objecToChange.GetComponent<Renderer>().material;
+        colorEmissive = Color.green;
     }
 
     private void Update()
@@ -48,9 +51,10 @@ public class Tourelle_Emissive : MonoBehaviour
     public void OnAim() //Uniquement sur les tourelle
     {
         intensityOverTime = true;
-        emissiveMaterial.EnableKeyword("_EMISSION");
-        emissiveMaterial.SetColor("_EmissionColor", color * 10);
+        //emissiveMaterial.EnableKeyword("_EMISSION");
+        //emissiveMaterial.SetColor("_EmissionColor", color * 10);
         print("okkkkkkkk");
+        entier.GetComponent<Renderer>().material.SetColor("_EmissiveColor", colorEmissive * emissiveIntensity);
 
 
     }
