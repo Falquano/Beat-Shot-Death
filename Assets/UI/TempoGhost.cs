@@ -28,4 +28,9 @@ public class TempoGhost : MonoBehaviour
         if (timer > lifetime)
             Destroy(gameObject);
     }
+
+    private void OnDestroy()
+    {
+        TargetValue = 0f;
+    }
 }

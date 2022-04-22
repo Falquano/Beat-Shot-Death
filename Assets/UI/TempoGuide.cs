@@ -44,4 +44,9 @@ public class TempoGuide : MonoBehaviour
         TempoGhost ghost = Instantiate(tempoGhost, transform.parent).GetComponent<TempoGhost>();
         ghost.Setup(tempo.Tempo, new ShotInfo());
 	}
+
+	private void OnDestroy()
+	{
+        TargetValue = 0f;
+	}
 }
