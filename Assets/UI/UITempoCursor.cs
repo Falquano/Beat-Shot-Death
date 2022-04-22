@@ -9,6 +9,10 @@ public class UITempoCursor : MonoBehaviour
     [SerializeField] private TempoManager tempo;
     private Material material;
 
+
+    [SerializeField] private int beatLead = 1;
+    [SerializeField] private GameObject TempoGuidePrefab;
+
     // Avec ces 3 fields on peut facilement prendre et assigner des valeurs aux variable importantes du material
     public float PerfectMargin { get => material.GetFloat("perfectMargin"); set => material.SetFloat("perfectMargin", value); }
     public float OkayMargin { get => material.GetFloat("okMargin"); set => material.SetFloat("okMargin", value); }
@@ -46,5 +50,16 @@ public class UITempoCursor : MonoBehaviour
         //faire un calcul en fonction de la surchauffe et de la taille du tir pour que que se soit recalculer à chaque fois
         float margin = tempo.MarginPerfectEvolution.Evaluate((float)combo / (float)max) ;
         OkayMargin = tempo.MarginPerfect + (margin * (tempo.MarginOk - tempo.MarginPerfect));
+    }
+
+    public void BeatStart(int beat)
+    {
+        Debug.Log($"{beat} => {tempo.PlayerShootBeat[(beat + beatLead) % 4]}");
+        if (tempo.PlayerShootBeat[(beat + beatLead) % 4])
+        {
+            TempoGuide guide = Instantiate(TempoGuidePrefab, transform).GetComponent<TempoGuide>();
+            guide.player = player;
+            guide.tempo = tempo;
+        }
     }
 }

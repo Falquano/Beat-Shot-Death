@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class TempoGuide : MonoBehaviour
 {
-    [SerializeField] private ShootPlayer player;
-    [SerializeField] private TempoManager tempo;
+    public ShootPlayer player { get; set; }
+    public TempoManager tempo { get; set; }
     private Material material;
     public float TargetValue { get => material.GetFloat("targetValue"); set => material.SetFloat("targetValue", value); }
 
@@ -17,6 +17,8 @@ public class TempoGuide : MonoBehaviour
         Cursor.visible = false;
 
         TargetValue = tempo.ObjectiveShoot;
+
+        tempo.onMesureStart.AddListener(BeatEnds);
     }
 
     // Update is called once per frame
@@ -25,4 +27,14 @@ public class TempoGuide : MonoBehaviour
         // On met la variable "tempo" du material à jour
         material.SetFloat("tempo", tempo.Tempo);
     }
+
+    public void BeatEnds(int newBeat)
+	{
+        Destroy(gameObject);
+	}
+
+    public void Shot()
+	{
+        material.SetColor("_GuideColor", Color.yellow);
+	}
 }

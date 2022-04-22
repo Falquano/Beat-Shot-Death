@@ -14,6 +14,9 @@ public class TempoManager : MonoBehaviour
     [SerializeField] private float marginOk = 0.3f;
     public float MarginOk => marginOk;
 
+    [SerializeField] private bool[] playerShootBeat;
+    public bool[] PlayerShootBeat => playerShootBeat;
+
     private float TimerTempo;
     [Tooltip("Utilisé uniquement si il n'y a pas de musique !")]
     [SerializeField] private float TempoDuration;
@@ -26,10 +29,11 @@ public class TempoManager : MonoBehaviour
     public float Combo { get; set; }
 
 
-    [SerializeField] private int mesurePerRound = 4;
-    public int Mesure { get; private set; }
+    [SerializeField] private int beatPerMesure = 4;
+    public int Beat { get; private set; }
     [SerializeField] public UnityEvent<int> onMesureStart = new UnityEvent<int>();
     [SerializeField] public UnityEvent onTimeToShoot = new UnityEvent();
+    [SerializeField] public UnityEvent onPlayerTimeToShoot = new UnityEvent();
 
 	private void Start()
 	{
@@ -44,6 +48,11 @@ public class TempoManager : MonoBehaviour
             songEmitter.EventReference = song.SongReference;
             songEmitter.Play();
             TimerTempo = song.Offset;
+		}
+
+        if (playerShootBeat == null)
+		{
+            playerShootBeat = new bool[] { true, false, true, false };
 		}
 
         //TimerTempo = ObjectiveShoot * TempoDuration;
@@ -73,8 +82,8 @@ public class TempoManager : MonoBehaviour
     private void NouvelleMesure()
     {
         //Debug.Log("---\tMesure");
-        Mesure = (Mesure + 1) % mesurePerRound;
-        onMesureStart.Invoke(Mesure);
+        Beat = (Beat + 1) % beatPerMesure;
+        onMesureStart.Invoke(Beat);
     }
 
     public void NewCombo(int combo, int max)
@@ -87,6 +96,8 @@ public class TempoManager : MonoBehaviour
     private void TimeToShoot()
     {
         onTimeToShoot.Invoke();
+        if (playerShootBeat[Beat])
+            onPlayerTimeToShoot.Invoke();
     }
 
     /*public ShotQuality ShotQualityNow()
