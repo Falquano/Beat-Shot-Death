@@ -6,37 +6,27 @@ using UnityEngine.Events;
 
 public class Tourelle_Emissive : MonoBehaviour
 {
-    private NavMeshAgent agent;
-    [SerializeField] private Animator animator;
-    Rigidbody EnnemyRB;
 
-
-    [SerializeField] public UnityEvent onFootstep;
-    [SerializeField] private bool melee;
-
+    [SerializeField] private Animator animatorTourelle;
+    [SerializeField] private Animator anneau;
+    [SerializeField] private GameObject entier;
+    [SerializeField] private GameObject destroy;
     [SerializeField] private Material emissiveMaterial;
     [SerializeField] private Renderer objecToChange;
     
     private Color color;
     public bool intensityOverTime;
-    private float timer = 0f;
+
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
-        EnnemyRB = GetComponent<Rigidbody>();
-        agent = GetComponent<NavMeshAgent>();
+        animatorTourelle = GetComponent<Animator>();
+        anneau = GetComponent<Animator>();
         emissiveMaterial = objecToChange.GetComponent<Renderer>().material;
     }
 
     private void Update()
     {
-        //Get la velocity qui sera utile pour l'anim de déplacement
-        Vector3 Velocity = agent.velocity;
-        Vector3 VelocityRelative = transform.InverseTransformDirection(Velocity).normalized;
-
-        animator.SetFloat("SpeedX", VelocityRelative.x);
-        animator.SetFloat("SpeedZ", VelocityRelative.z);
 
         /*if (intensityOverTime)
         {
@@ -48,45 +38,30 @@ public class Tourelle_Emissive : MonoBehaviour
     }
 
 
-    public void OnHit()
-    {
-        if (melee)
-        {
-            animator.SetInteger("AttackRand", Random.Range(1, 4));
-        }
-        animator.SetTrigger("OnHit");
-    }
-
-
-
     public void OnShoot()
     {
-        animator.SetTrigger("OnShoot");
+        animatorTourelle.SetTrigger("OnShoot");
         intensityOverTime = false;
-        timer = 0;
-    }
 
-    public void OnCharge()//Oui je ne sais pas comment on dis charger en anglais car je pense que load n'est pas approprié
-    {
-        animator.SetTrigger("OnShoot");
     }
 
     public void OnAim() //Uniquement sur les tourelle
     {
         intensityOverTime = true;
-        emissiveMaterial.SetColor("_Emission", color * 10);
+        emissiveMaterial.EnableKeyword("_EMISSION");
+        emissiveMaterial.SetColor("_EmissionColor", color * 10);
         print("okkkkkkkk");
 
 
     }
 
-
-
-    /*public void Footstep() Je sais pas pourquoi ya ça
-     
+    public void OnDeath()
     {
-        onFootstep.Invoke();
-    }*/
+        entier.SetActive(false);
+        destroy.SetActive(true);
+        print("Destruction!");
+        anneau.SetTrigger("OnDeath");
+    }
 
 
 }
