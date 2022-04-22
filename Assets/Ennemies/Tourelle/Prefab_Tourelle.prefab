@@ -243,7 +243,6 @@ GameObject:
   - component: {fileID: 747091724734963959}
   - component: {fileID: 4309886607036927921}
   - component: {fileID: 4538182450844342328}
-  - component: {fileID: 1082543957802906119}
   - component: {fileID: 7434916864896022506}
   - component: {fileID: 5935943106036184711}
   - component: {fileID: 8779547635796849986}
@@ -315,9 +314,9 @@ MonoBehaviour:
   onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6753607903501098563}
-        m_TargetAssemblyTypeName: EnnemyBehavior, Assembly-CSharp
-        m_MethodName: Die
+      - m_Target: {fileID: 5935943106036184711}
+        m_TargetAssemblyTypeName: Tourelle_Emissive, Assembly-CSharp
+        m_MethodName: OnDeath
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -628,28 +627,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: -0.11, y: 0.13548267, z: -0.17}
---- !u!195 &1082543957802906119
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6966901053907798893}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 7
-  m_Acceleration: 60
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
-  m_AutoRepath: 1
-  m_Height: 1.04
-  m_BaseOffset: 0.82
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &7434916864896022506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,6 +663,7 @@ MonoBehaviour:
   objecToChange: {fileID: 5193752989136472832}
   colorEmissive: {r: 0.30907795, g: 0.509434, b: 0.25183338, a: 1}
   emissiveIntensity: 10
+  Tourelle: {fileID: 6966901053907798893}
   intensityOverTime: 0
 --- !u!95 &8779547635796849986
 Animator:

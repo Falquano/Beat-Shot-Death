@@ -16,6 +16,8 @@ public class Tourelle_Emissive : MonoBehaviour
     [SerializeField] private Color colorEmissive;
     public float emissiveIntensity = 10f;
 
+    [SerializeField] private GameObject Tourelle;
+
     private Color color;
     public bool intensityOverTime;
 
@@ -65,6 +67,21 @@ public class Tourelle_Emissive : MonoBehaviour
         destroy.SetActive(true);
         print("Destruction!");
         anneau.SetTrigger("OnDeath");
+    }
+
+    public void DeathAnimFinish()
+    {
+        print("destroyed");
+        Destroy(gameObject);
+        Destroy(Tourelle.GetComponent<HealthSystem>());
+        Destroy(Tourelle.GetComponent<EnnemyBehavior>());
+        Destroy(Tourelle.GetComponent<ShootMesure>());
+        Destroy(Tourelle.GetComponent<AimMesure>());
+        Destroy(Tourelle.GetComponent<EnnemySoundEffects>());
+        Destroy(Tourelle.GetComponent<EnnemyAnimationEvents>());
+        Destroy(Tourelle.GetComponent<Tourelle_Emissive>());
+        Destroy(Tourelle.GetComponent<Animator>());
+       
     }
 
 
