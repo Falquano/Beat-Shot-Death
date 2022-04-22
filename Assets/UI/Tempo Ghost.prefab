@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3445611671882588652}
-  - component: {fileID: 3445611671882588655}
+  - component: {fileID: -5838411032662031156}
   - component: {fileID: 3445611671882588654}
   - component: {fileID: 3445611671882588653}
   m_Layer: 5
-  m_Name: TempoGuide
+  m_Name: Tempo Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +38,7 @@ RectTransform:
   m_AnchoredPosition: {x: 75, y: 75}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3445611671882588655
+--- !u!114 &-5838411032662031156
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,10 +47,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3445611671882588643}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 758232484ad928b4b8fe6ae6fe6326a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c9eb50aea5c3a4468eb27f300f3423e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempoGhost: {fileID: 3445611671882588643, guid: 28cac6ac04f9f234a896f23ebcdde61a, type: 3}
+  lifetime: 0.3
 --- !u!222 &3445611671882588654
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 88a47aff139eb214caa03c024ec2971b, type: 2}
+  m_Material: {fileID: 2100000, guid: dd174996514ab1049bfb9057c56a847f, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}

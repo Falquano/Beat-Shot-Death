@@ -116,6 +116,8 @@ public class TempoManager : MonoBehaviour
     // Cette version est plus permissive mais ne fonctionne qu'avec objectiveshoot = 1 !
     public ShotQuality ShotQualityNow()
     {
+        if (!playerShootBeat[(Beat + 1) % beatPerMesure])
+            return ShotQuality.Bad;
         if (Tempo >= objectiveShoot - marginPerfect || Tempo < marginPerfect / 2f)
         {
             return ShotQuality.Perfect;

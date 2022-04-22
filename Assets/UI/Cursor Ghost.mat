@@ -7,13 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cursor Guide
+  m_Name: Cursor Ghost
   m_Shader: {fileID: -6465566751694194690, guid: ea9cf3106b930fb40a5a81586507f759, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -54,18 +54,18 @@ Material:
     - Vector1_c1104b626e1945d283c0967019c54921: 0.1
     - Vector1_c63230e7158d4d3f894629286f15160b: 0.562
     - _EnableExternalAlpha: 0
-    - _TargetValue: 0.9955557
-    - _Tempo: 1
+    - _TargetValue: 0.8211615
+    - _Tempo: 0.9592993
     - okMargin: 0.6666
     - perfectMargin: 0.2
-    - targetValue: 1
-    - tempo: 0.99740416
+    - targetValue: 0.02398108
+    - tempo: 1
     m_Colors:
     - Color_50f42755eab94348bd4eb37bdc5ade14: {r: 1, g: 1, b: 1, a: 0.6}
     - Color_5bd08326a4cb4656ac068d7b29c995be: {r: 1, g: 0, b: 0, a: 1}
     - Color_d7ae4034e3af41989ef349a5a2e52318: {r: 1, g: 1, b: 1, a: 0.29803923}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _GuideColor: {r: 1, g: 0, b: 0, a: 1}
+    - _GuideColor: {r: 0.8207547, g: 0.74530053, b: 0.32830188, a: 0.35686275}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

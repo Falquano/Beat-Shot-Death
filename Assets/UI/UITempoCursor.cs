@@ -54,7 +54,7 @@ public class UITempoCursor : MonoBehaviour
 
     public void BeatStart(int beat)
     {
-        Debug.Log($"{beat} => {tempo.PlayerShootBeat[(beat + beatLead) % 4]}");
+        //Debug.Log($"{beat} => {tempo.PlayerShootBeat[(beat + beatLead) % 4]}");
         if (tempo.PlayerShootBeat[(beat + beatLead) % 4])
         {
             TempoGuide guide = Instantiate(TempoGuidePrefab, transform).GetComponent<TempoGuide>();

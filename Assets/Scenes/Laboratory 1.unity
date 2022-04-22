@@ -8517,11 +8517,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: onPlayerTimeToShoot.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -8530,10 +8534,14 @@ PrefabInstance:
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1943113367}
+      objectReference: {fileID: 162965850}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResetQuality
+      value: BeatStart
       objectReference: {fileID: 0}
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: onPlayerTimeToShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -8568,8 +8576,16 @@ PrefabInstance:
       value: BeatStart
       objectReference: {fileID: 0}
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UITempoCursor, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: ShootPlayer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
@@ -8585,7 +8601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -8773,6 +8789,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1982093569}
     - target: {fileID: 5164273524687819921, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
+      propertyPath: beatLead
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164273524687819921, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
       propertyPath: TempoGuidePrefab
       value: 
       objectReference: {fileID: 3445611671882588643, guid: 930f1e40f41d8034d9dd90f9e44b2d77, type: 3}
@@ -8910,6 +8930,10 @@ PrefabInstance:
       propertyPath: OnShotEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ShotFX
       objectReference: {fileID: 0}
+    - target: {fileID: 7462270552646460797, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: muzzleFlashPrefab
+      value: 
+      objectReference: {fileID: 1633199047972555824, guid: 03028d001b4894a468a46ad90868c7fc, type: 3}
     - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: AnimShield
       value: 

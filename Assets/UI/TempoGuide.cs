@@ -8,7 +8,9 @@ public class TempoGuide : MonoBehaviour
     public ShootPlayer player { get; set; }
     public TempoManager tempo { get; set; }
     private Material material;
-    public float TargetValue { get => material.GetFloat("targetValue"); set => material.SetFloat("targetValue", value); }
+    public float TargetValue { get => material.GetFloat("_TargetValue"); set => material.SetFloat("_TargetValue", value); }
+
+    [SerializeField] private GameObject tempoGhost;
 
     // Start is called before the first frame update
     void Start()
@@ -19,13 +21,15 @@ public class TempoGuide : MonoBehaviour
         TargetValue = tempo.ObjectiveShoot;
 
         tempo.onMesureStart.AddListener(BeatEnds);
+        player.OnShotEvent.AddListener(Shot);
     }
 
     // Update is called once per frame
     void Update()
     {
         // On met la variable "tempo" du material à jour
-        material.SetFloat("tempo", tempo.Tempo);
+        TargetValue = tempo.Tempo;
+        Debug.Log(tempo.Tempo);
     }
 
     public void BeatEnds(int newBeat)
@@ -33,8 +37,12 @@ public class TempoGuide : MonoBehaviour
         Destroy(gameObject);
 	}
 
-    public void Shot()
+    public void Shot(ShotInfo info)
 	{
-        material.SetColor("_GuideColor", Color.yellow);
+        /*material.SetColor("_GuideColor", Color.yellow);
+        enabled = false;*/
+        // Instancier un guide "fantôme" et supprimer celui ci !
+        TempoGhost ghost = Instantiate(tempoGhost, transform.parent).GetComponent<TempoGhost>();
+        ghost.Setup(tempo.Tempo, new ShotInfo());
 	}
 }
