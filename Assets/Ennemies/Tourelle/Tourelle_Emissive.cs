@@ -38,13 +38,13 @@ public class Tourelle_Emissive : MonoBehaviour
         animator.SetFloat("SpeedX", VelocityRelative.x);
         animator.SetFloat("SpeedZ", VelocityRelative.z);
 
-        if (intensityOverTime)
+        /*if (intensityOverTime)
         {
             timer += Time.deltaTime;
             Debug.Log("Timer =" + timer);
         }
 
-        emissiveMaterial.SetColor("_Emission", color * timer);
+        emissiveMaterial.SetColor("_Emission", color * timer);*/
     }
 
 
@@ -62,6 +62,8 @@ public class Tourelle_Emissive : MonoBehaviour
     public void OnShoot()
     {
         animator.SetTrigger("OnShoot");
+        intensityOverTime = false;
+        timer = 0;
     }
 
     public void OnCharge()//Oui je ne sais pas comment on dis charger en anglais car je pense que load n'est pas approprié
@@ -72,6 +74,9 @@ public class Tourelle_Emissive : MonoBehaviour
     public void OnAim() //Uniquement sur les tourelle
     {
         intensityOverTime = true;
+        emissiveMaterial.SetColor("_Emission", color * 10);
+        print("okkkkkkkk");
+
 
     }
 
