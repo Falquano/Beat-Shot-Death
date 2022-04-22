@@ -436,8 +436,8 @@ MonoBehaviour:
   onAim:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7434916864896022506}
-        m_TargetAssemblyTypeName: EnnemyAnimationEvents, Assembly-CSharp
+      - m_Target: {fileID: -6481338589941050553}
+        m_TargetAssemblyTypeName: Tourelle_Emissive, Assembly-CSharp
         m_MethodName: OnAim
         m_Mode: 1
         m_Arguments:
@@ -652,9 +652,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   melee: 0
-  emissiveMaterial: {fileID: 0}
-  objecToChange: {fileID: 0}
-  intensityOverTime: 0
 --- !u!95 &4688689335616860093
 Animator:
   serializedVersion: 3
@@ -686,6 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3174e8a816095741a49ba4304f05fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   onFootstep:
     m_PersistentCalls:
       m_Calls: []
