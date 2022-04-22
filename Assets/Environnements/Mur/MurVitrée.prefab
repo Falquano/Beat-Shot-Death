@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6612318002076756352}
   - component: {fileID: 127869392441734236}
   - component: {fileID: 1387338753912103015}
+  - component: {fileID: 4530724892744599989}
   m_Layer: 0
   m_Name: Circle.001
   m_TagString: Untagged
@@ -81,6 +82,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4530724892744599989
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4480170463111576372}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8314571269056883277, guid: f07d5ea274a52da4786eb17145038e7c, type: 3}
 --- !u!1 &5032896351429707300
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +107,7 @@ GameObject:
   - component: {fileID: 1916935548257557868}
   - component: {fileID: 7732839922950225964}
   - component: {fileID: 3610381496748174703}
+  - component: {fileID: 2113583655588104246}
   m_Layer: 0
   m_Name: "Mur_Vitr\xE9e"
   m_TagString: Untagged
@@ -163,6 +179,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2113583655588104246
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5032896351429707300}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7199688337540710214, guid: f07d5ea274a52da4786eb17145038e7c, type: 3}
 --- !u!1 &8733597979515533464
 GameObject:
   m_ObjectHideFlags: 0

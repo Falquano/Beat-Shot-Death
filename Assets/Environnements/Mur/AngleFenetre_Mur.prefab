@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2697099159613098470}
   - component: {fileID: 3451376930720694996}
   - component: {fileID: 5276775073337493702}
+  - component: {fileID: 8051461494975822720}
   m_Layer: 0
   m_Name: Mur_Plein.003
   m_TagString: Untagged
@@ -81,6 +82,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8051461494975822720
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64711154701422259}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2616754908446503053, guid: fe199d64a9e36b44e895456e82f364da, type: 3}
 --- !u!1 &394534962535205488
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,6 +140,7 @@ GameObject:
   - component: {fileID: 6484489221917260168}
   - component: {fileID: 4407055102844480326}
   - component: {fileID: 6777094198783398637}
+  - component: {fileID: 6437733450929827620}
   m_Layer: 0
   m_Name: "Mur_Vitr\xE9e.003"
   m_TagString: Untagged
@@ -197,6 +213,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6437733450929827620
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032305590155936852}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7721291618699676356, guid: fe199d64a9e36b44e895456e82f364da, type: 3}
 --- !u!1 &8726051776302720129
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +238,7 @@ GameObject:
   - component: {fileID: 4211640519345085537}
   - component: {fileID: 8974372531110547018}
   - component: {fileID: 2316604122820236299}
+  - component: {fileID: 5996007233754257696}
   m_Layer: 0
   m_Name: Angel_MurFenetre.001
   m_TagString: Untagged
@@ -278,3 +309,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5996007233754257696
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8726051776302720129}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1219809881460908251, guid: fe199d64a9e36b44e895456e82f364da, type: 3}

@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 5435428882845494725}
   - component: {fileID: 7881198370681047798}
   - component: {fileID: 1438564881574035105}
+  - component: {fileID: 2363333679957252062}
   m_Layer: 0
   m_Name: Pylone
   m_TagString: Untagged
@@ -113,6 +114,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2363333679957252062
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4811747168113397996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8202051551619320088, guid: 88096a7efa537f040a70def57aaf59a1, type: 3}
 --- !u!1 &6708515245239306306
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +139,7 @@ GameObject:
   - component: {fileID: 7059135522260041842}
   - component: {fileID: 8278247700476615706}
   - component: {fileID: 3613345561140544225}
+  - component: {fileID: 6476336375426310608}
   m_Layer: 0
   m_Name: Mur_Plein
   m_TagString: Untagged
@@ -194,3 +210,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6476336375426310608
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6708515245239306306}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3835389125477100135, guid: 88096a7efa537f040a70def57aaf59a1, type: 3}
