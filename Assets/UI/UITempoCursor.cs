@@ -10,7 +10,6 @@ public class UITempoCursor : MonoBehaviour
     private Material material;
 
     // Avec ces 3 fields on peut facilement prendre et assigner des valeurs aux variable importantes du material
-    public float TargetValue { get => material.GetFloat("targetValue"); set => material.SetFloat("targetValue", value); }
     public float PerfectMargin { get => material.GetFloat("perfectMargin"); set => material.SetFloat("perfectMargin", value); }
     public float OkayMargin { get => material.GetFloat("okMargin"); set => material.SetFloat("okMargin", value); }
 
@@ -19,7 +18,6 @@ public class UITempoCursor : MonoBehaviour
         material = GetComponent<Image>().material;
         Cursor.visible = false;
 
-        TargetValue = tempo.ObjectiveShoot;
         PerfectMargin = tempo.MarginPerfect;
         OkayMargin = tempo.MarginOk;
     }
@@ -27,8 +25,6 @@ public class UITempoCursor : MonoBehaviour
     private void Update()
     {
         transform.position = player.MouseScreenPosition;
-        // On met la variable "tempo" du material à jour
-        material.SetFloat("tempo", tempo.Tempo);
     }
 
     // J'ai fait ça pour être propre mais c'est pas giga important
