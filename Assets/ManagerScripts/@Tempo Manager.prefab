@@ -49,6 +49,7 @@ MonoBehaviour:
   objectiveShoot: 1
   marginPerfect: 0.2
   marginOk: 0.6666
+  playerShootBeat: 01000100
   TempoDuration: 0.5
   song: {fileID: 11400000, guid: bd7c27632e75d8348bda66a7169db356, type: 2}
   songEmitter: {fileID: 4955465238566614666}
@@ -76,33 +77,21 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  mesurePerRound: 4
+  beatPerMesure: 4
   onMesureStart:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ShootPlayer, Assembly-CSharp
-        m_MethodName: CheckPreviousShoot
-        m_Mode: 1
+        m_TargetAssemblyTypeName: UITempoCursor, Assembly-CSharp
+        m_MethodName: BeatStart
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 6529192690491224699}
-        m_TargetAssemblyTypeName: ShootPlayer, Assembly-CSharp
-        m_MethodName: ResetQuality
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
   onTimeToShoot:
     m_PersistentCalls:
@@ -110,6 +99,21 @@ MonoBehaviour:
       - m_Target: {fileID: 4955465238566614665}
         m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPlayerTimeToShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ShootPlayer, Assembly-CSharp
+        m_MethodName: CheckPreviousShoot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
