@@ -3404,7 +3404,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7462270552646460797}
         m_TargetAssemblyTypeName: PlayerFXEmitter, Assembly-CSharp
-        m_MethodName: OnShoot
+        m_MethodName: ShotFX
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3508,6 +3508,7 @@ MonoBehaviour:
   FootstepSoundEmitter: {fileID: 785891961}
   ImpactParticlesPrefab: {fileID: 7081961916757537454, guid: f0bfca444f22a92458ec88145b5918c9, type: 3}
   okayShotImpactSize: 0.333
+  muzzleFlashPrefab: {fileID: 2917940854059323772, guid: d4d9f941727e0b549acd5b10ff22c261, type: 3}
 --- !u!114 &785891961
 MonoBehaviour:
   m_ObjectHideFlags: 0
