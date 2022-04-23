@@ -65,24 +65,11 @@ public class Tourelle_Emissive : MonoBehaviour
     {
         entier.SetActive(false);
         destroy.SetActive(true);
-        print("Destruction!");
+       
         anneau.SetTrigger("OnDeath");
     }
 
-    public void DeathAnimFinish()
-    {
-        print("destroyed");
-        Destroy(gameObject);
-        Destroy(Tourelle.GetComponent<HealthSystem>());
-        Destroy(Tourelle.GetComponent<EnnemyBehavior>());
-        Destroy(Tourelle.GetComponent<ShootMesure>());
-        Destroy(Tourelle.GetComponent<AimMesure>());
-        Destroy(Tourelle.GetComponent<EnnemySoundEffects>());
-        Destroy(Tourelle.GetComponent<EnnemyAnimationEvents>());
-        Destroy(Tourelle.GetComponent<Tourelle_Emissive>());
-        Destroy(Tourelle.GetComponent<Animator>());
-       
-    }
+    
 
 
 }
