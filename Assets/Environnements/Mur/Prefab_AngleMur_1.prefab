@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5ef5098c135600a44aabce9caf26ebc5, type: 2}
+  - {fileID: 2100000, guid: 03a74609f81a68045b7d8876cc13590d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -166,6 +166,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 707674e2986b8d94480ee9c22f4b0643, type: 3}
       propertyPath: m_Name
       value: Collider_Angle
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 707674e2986b8d94480ee9c22f4b0643, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 707674e2986b8d94480ee9c22f4b0643, type: 3}
