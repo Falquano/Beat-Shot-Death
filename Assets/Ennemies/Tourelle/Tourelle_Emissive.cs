@@ -50,7 +50,7 @@ public class Tourelle_Emissive : MonoBehaviour
 
     }
 
-    public void OnAim() //Uniquement sur les tourelle
+    public void OnAim()
     {
         intensityOverTime = true;
         //emissiveMaterial.EnableKeyword("_EMISSION");
