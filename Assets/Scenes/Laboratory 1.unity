@@ -7300,17 +7300,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2438681364463424686, guid: 48728ef15e727ad4e9fc0d63c6dce55e, type: 3}
   m_PrefabInstance: {fileID: 1920799769}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1943113367 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6529192690491224699, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
-  m_PrefabInstance: {fileID: 4955465239335946804}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 053784bf850649c4da4dd3c8e3730ecb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1944472876
 GameObject:
   m_ObjectHideFlags: 0
@@ -8500,53 +8489,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
-      propertyPath: song
-      value: 
-      objectReference: {fileID: 11400000, guid: bd7c27632e75d8348bda66a7169db356, type: 2}
-    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
-      propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
-      propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1982093569}
+      objectReference: {fileID: 162965850}
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
-      propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: ShootPlayer, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
-      propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
-      propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      propertyPath: onPlayerTimeToShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955465238566614666, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
-      propertyPath: EventReference.Path
-      value: event:/Music/Test Music/Ultra Adaptative
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955465238566614666, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
-      propertyPath: EventReference.Guid.Data1
-      value: -537341
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955465238566614666, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
-      propertyPath: EventReference.Guid.Data2
-      value: 1290868107
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955465238566614666, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
-      propertyPath: EventReference.Guid.Data3
-      value: -10110541
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955465238566614666, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
-      propertyPath: EventReference.Guid.Data4
-      value: 716366828
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1982093569}
     - target: {fileID: 4955465238566614670, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: m_Name
       value: '@Tempo Manager'
@@ -8717,34 +8666,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 245831672}
-    - target: {fileID: 5230668867133991718, guid: 4c3322d5b1cdb1c4c91053b4de6f7262, type: 3}
-      propertyPath: m_Lens.FieldOfView
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5230668867133991719, guid: 4c3322d5b1cdb1c4c91053b4de6f7262, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 17.000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 5230668867133991719, guid: 4c3322d5b1cdb1c4c91053b4de6f7262, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5230668867296212087, guid: 4c3322d5b1cdb1c4c91053b4de6f7262, type: 3}
-      propertyPath: m_TrackedObjectOffset.y
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5230668867485459741, guid: 4c3322d5b1cdb1c4c91053b4de6f7262, type: 3}
-      propertyPath: field of view
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5230668867485459938, guid: 4c3322d5b1cdb1c4c91053b4de6f7262, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 17.000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 5230668867485459938, guid: 4c3322d5b1cdb1c4c91053b4de6f7262, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5230668868816518671, guid: 4c3322d5b1cdb1c4c91053b4de6f7262, type: 3}
       propertyPath: player
       value: 
@@ -8815,29 +8736,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 636008007}
     - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
-      propertyPath: OnShotEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
-      value: 
-      objectReference: {fileID: 1943113367}
-    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
-      propertyPath: onComboChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: onComboChange.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 162965850}
-    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
-      propertyPath: onComboChange.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 1943113367}
-    - target: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
-      propertyPath: OnShotEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShotFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 7462270552646460797, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
-      propertyPath: muzzleFlashPrefab
-      value: 
-      objectReference: {fileID: 3701074528581934087, guid: e5e1e9b79e8b3f54a8d8cba1bae8bff9, type: 3}
     - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: AnimShield
       value: 

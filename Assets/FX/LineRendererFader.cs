@@ -31,10 +31,17 @@ public class LineRendererFader : MonoBehaviour
 
     private float Advancement => timer / effectLength;
 
+
+    private Vector3 initialPosition;
+    private Vector3 targetPosition;
+    [SerializeField] private AnimationCurve tailMovementSpeedCurve = AnimationCurve.Linear(0f, 1f, 0f, 0f);
+
     // Start is called before the first frame update
     void Start()
     {
         line = GetComponent<LineRenderer>();
+        initialPosition = line.GetPosition(0);
+        targetPosition = line.GetPosition(line.positionCount - 1);
     }
 
     // Update is called once per frame
@@ -51,6 +58,9 @@ public class LineRendererFader : MonoBehaviour
         //line.widthMultiplier = newWidth;
         line.startWidth = newStartWidth;
         line.endWidth = newEndWidth;
+
+        Vector3 newPosition = initialPosition + (targetPosition - initialPosition) * tailMovementSpeedCurve.Evaluate(Advancement);
+        line.SetPosition(0, newPosition);
 
         timer += Time.deltaTime;
 

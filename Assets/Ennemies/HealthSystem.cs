@@ -50,7 +50,7 @@ public class HealthSystem : MonoBehaviour
     {
         onDie.Invoke();
 
-        Destroy(gameObject);
+        
         // à la place faudrait lancer l'animation de mort et tout
     }
 }
