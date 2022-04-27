@@ -7,21 +7,18 @@ public class Door : MonoBehaviour
     [SerializeField] private bool locked = true;
     private bool playerWaiting = false;
 
-    private void OnTriggerEnter(Collider other)
+    public void PlayerEnterTrigger()
     {
-        if (other.CompareTag("Player"))
-        {
-            if (locked)
-                playerWaiting = true;
-            else
-                Open();
-        }
+        if (locked)
+            playerWaiting = true;
+        else
+            Open();
     }
 
-    private void OnTriggerExit(Collider other)
+    public void PlayerExitTrigger()
     {
-        if (other.CompareTag("Player"))
-            playerWaiting = false;
+        playerWaiting = false;
+        Close();
     }
 
     public void Unlock()
@@ -33,8 +30,20 @@ public class Door : MonoBehaviour
 
     public void Unlock(Zone zone) => Unlock();
 
-    private void Open()
+    public void Open()
     {
-        Destroy(gameObject);
+        if (locked)
+            return;
+
+        GetComponent<Renderer>().enabled = false;
+        GetComponent<Collider>().enabled = false;
+    }
+
+    public void Close()
+    {
+        gameObject.SetActive(true);
+
+        GetComponent<Renderer>().enabled = true;
+        GetComponent<Collider>().enabled = true;
     }
 }
