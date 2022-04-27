@@ -3470,6 +3470,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ComboUI, Assembly-CSharp
+        m_MethodName: ChangeCombo
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   tempoManager: {fileID: 0}
   CheckShootisOk: 1
   comboNoShotMod: -8
@@ -3508,7 +3520,7 @@ MonoBehaviour:
   FootstepSoundEmitter: {fileID: 785891961}
   ImpactParticlesPrefab: {fileID: 7081961916757537454, guid: f0bfca444f22a92458ec88145b5918c9, type: 3}
   okayShotImpactSize: 0.333
-  muzzleFlashPrefab: {fileID: 2917940854059323772, guid: d4d9f941727e0b549acd5b10ff22c261, type: 3}
+  muzzleFlashPrefab: {fileID: 3701074528581934087, guid: e5e1e9b79e8b3f54a8d8cba1bae8bff9, type: 3}
 --- !u!114 &785891961
 MonoBehaviour:
   m_ObjectHideFlags: 0
