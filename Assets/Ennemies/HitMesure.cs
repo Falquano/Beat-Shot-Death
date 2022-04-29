@@ -24,7 +24,6 @@ public class HitMesure : Mesure
 
     private void OnEnable()
     {
-        
         tempo.onTimeToShoot.AddListener(Hit);
         //animator.SetBool("Aiming", true);
     }
@@ -48,10 +47,9 @@ public class HitMesure : Mesure
         //On active un objet qui sera la zone que l'ennemi touche avec son hit
         ZoneHit.SetActive(true);
     }
+
     public void AnimEndHit()
     {
         ZoneHit.SetActive(false);
     }
-
-
 }

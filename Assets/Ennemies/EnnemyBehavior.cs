@@ -26,8 +26,6 @@ public class EnnemyBehavior : MonoBehaviour
     {
         
         player = FindObjectOfType<PlayerMove>().gameObject;
-        tempo = FindObjectOfType<TempoManager>();
-        tempo.onMesureStart.AddListener(OnNewMesure);
         currentMesure = 0;
         //animator = GetComponentInChildren<Animator>();
 
@@ -39,6 +37,17 @@ public class EnnemyBehavior : MonoBehaviour
 
         rigidBodyEnnemy = GetComponent<Rigidbody>();
         
+    }
+
+    private void OnEnable()
+    {
+        tempo = FindObjectOfType<TempoManager>();
+        tempo.onMesureStart.AddListener(OnNewMesure);
+    }
+
+    private void OnDisable()
+    {
+        tempo.onMesureStart.RemoveListener(OnNewMesure);
     }
 
     public void ActivateAtNextMesure()
@@ -82,15 +91,16 @@ public class EnnemyBehavior : MonoBehaviour
     {
         active = false;
         activeEnnemies--;
-        //Destroy(this.gameObject);
+        Destroy(this.gameObject);
+        
         enabled = false;
         SetBehaviorEnabled(currentMesure, false);
-        //animator.SetBool("Alive", false);
-        foreach (Mesure mesure in mesures)
-            Destroy(mesure);
         Destroy(Rigidbody);
         Destroy(GetComponent<Collider2D>());
-        Destroy(this);
+        //Destroy(this);
+        //animator.SetBool("Alive", false);
+        /*foreach (Mesure mesure in mesures)
+            Destroy(mesure);*/
     }
 
     private static uint activeEnnemies = 0;

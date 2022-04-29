@@ -62,8 +62,6 @@ public class ShootPlayer : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool logShots = false;
 
-    [SerializeField] private Animator UICombo;
-
     // Update is called once per frame
     void Update()
     {
@@ -86,27 +84,6 @@ public class ShootPlayer : MonoBehaviour
         }
 
         tempoManager.Combo = combo;
-
-        if(combo>=0 && combo <= 20)
-        {
-            UICombo.SetInteger("ComboInt", 0);
-        }
-        else if(combo > 20 && combo <= 40)
-        {
-            UICombo.SetInteger("ComboInt", 1);
-        }
-        else if (combo > 40 && combo <= 60)
-        {
-            UICombo.SetInteger("ComboInt", 2);
-        }
-        else if (combo > 60 && combo <= 80)
-        {
-            UICombo.SetInteger("ComboInt", 3);
-        }
-        else if (combo > 80 && combo <= 100)
-        {
-            UICombo.SetInteger("ComboInt", 4);
-        }
     }
 
     public static Vector3 ExpandToGround(Vector3 origin, Vector3 direction, float height)
