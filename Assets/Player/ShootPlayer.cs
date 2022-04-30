@@ -142,13 +142,6 @@ public class ShootPlayer : MonoBehaviour
     }
 
 
-    public void DecreaseCombo()
-    {
-        //Le combo descend si on appuye sur R
-        combo = Mathf.Clamp(combo + comboDecrease, 0, maxCombo);
-        onComboChange.Invoke(combo, maxCombo);
-        OnDecreasingCombo.Invoke();
-    }
 
    
 
