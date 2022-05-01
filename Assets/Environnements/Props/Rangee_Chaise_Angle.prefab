@@ -40,6 +40,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5946419396588769667}
     m_Modifications:
+    - target: {fileID: 4917678368960474355, guid: c917db62011e74342801f1a4deedffb8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e2ce4ef0bb8e5543b684cb3519152ee, type: 2}
     - target: {fileID: 6085549157192112028, guid: c917db62011e74342801f1a4deedffb8, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -174,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chaise_Rangee (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3480876953760995910, guid: a6e90387854a0e247b97c7058f0e8baa, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a941d92cfef1f6e4b82a3d84877a966d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6e90387854a0e247b97c7058f0e8baa, type: 3}
 --- !u!4 &8919713601672218644 stripped
@@ -248,6 +256,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chaise_Rangee
       objectReference: {fileID: 0}
+    - target: {fileID: 3480876953760995910, guid: a6e90387854a0e247b97c7058f0e8baa, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a941d92cfef1f6e4b82a3d84877a966d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6e90387854a0e247b97c7058f0e8baa, type: 3}
 --- !u!4 &4933773174958486258 stripped
