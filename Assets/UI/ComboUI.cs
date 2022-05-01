@@ -13,6 +13,7 @@ public class ComboUI : MonoBehaviour
 
     public void ChangeCombo(int combo, int max)
     {
+        print(combo);
 
         if (combo >= 0 && combo <= 20)
         {
