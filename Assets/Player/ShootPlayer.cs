@@ -268,17 +268,7 @@ public class ShootPlayer : MonoBehaviour
         return transform.position + direction * range;
     }
 
-    public void Overheated(CallbackContext callBack)
-    {
-        //lorsque l'on clic sur R la surchauffe descend de 10 (celle-ci est clamper de 0 à 100)
-        if (callBack.performed)
-        {
-            combo -= 10;
-            combo = Mathf.Clamp(combo, 0, maxCombo);
-            onComboChange.Invoke(combo, maxCombo);
-            
-        }
-    }
+    
 
     private int ComboDamageBonus(int baseDamage)
     {
