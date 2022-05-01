@@ -55,7 +55,7 @@ public class BarriereAnim : MonoBehaviour
             step2 = true;
         }
 
-        if (collision.gameObject.tag == "Player" && step2 == true)
+        /*if (collision.gameObject.tag == "Player" && step2 == true)
         {
             barriere1.SetActive(false);
             barriere2.SetActive(true);
@@ -63,6 +63,7 @@ public class BarriereAnim : MonoBehaviour
             anim1.Play("Scene");
             step2 = false;
         }
+        */
 
     }
 
