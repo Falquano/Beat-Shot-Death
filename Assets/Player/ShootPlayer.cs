@@ -146,6 +146,8 @@ public class ShootPlayer : MonoBehaviour
     {
         combo += 15;
         print(combo);
+        //On annonce au monde que le combo a changé
+        onComboChange.Invoke(combo, maxCombo);
     }
    
 
