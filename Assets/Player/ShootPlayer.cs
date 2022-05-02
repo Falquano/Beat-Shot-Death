@@ -27,7 +27,7 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] public UnityEvent<ShotInfo> OnShotEvent = new UnityEvent<ShotInfo>();
     [SerializeField] public UnityEvent OnDecreasingCombo = new UnityEvent();
 
-    [SerializeField] private int combo = 0;
+    [SerializeField] public int combo = 0;
     [SerializeField] private int maxCombo = 100;
     /// <summary>
     /// Évènement invoqué lorsque la valeur de combo change. Envoie la nouvelle valeur suivie de maxCombo.
@@ -142,14 +142,13 @@ public class ShootPlayer : MonoBehaviour
     }
 
 
-    public void DecreaseCombo()
+    public void OnComboIncrease()
     {
-        //Le combo descend si on appuye sur R
-        combo = Mathf.Clamp(combo + comboDecrease, 0, maxCombo);
+        combo += 15;
+        print(combo);
+        //On annonce au monde que le combo a changé
         onComboChange.Invoke(combo, maxCombo);
-        OnDecreasingCombo.Invoke();
     }
-
    
 
     public void Shoot()
@@ -275,39 +274,29 @@ public class ShootPlayer : MonoBehaviour
         return transform.position + direction * range;
     }
 
-    public void Overheated(CallbackContext callBack)
-    {
-        //lorsque l'on clic sur R la surchauffe descend de 10 (celle-ci est clamper de 0 à 100)
-        if (callBack.performed)
-        {
-            combo -= 10;
-            combo = Mathf.Clamp(combo, 0, maxCombo);
-            onComboChange.Invoke(combo, maxCombo);
-            
-        }
-    }
+    
 
     private int ComboDamageBonus(int baseDamage)
     {
-        if (combo >= 0 && combo <= 20)
+        if (combo >= 0 && combo <= 1)
         {
             return baseDamage;
         }
-        else if (combo > 20 && combo <= 40)
+        else if (combo > 1 && combo <= 25)
         {
-            return (int)((float)baseDamage * 1.5f);
+            return (int)((float)baseDamage * 2f);
         }
-        else if (combo > 40 && combo <= 70)
-        {
-            return baseDamage * 2;
-        }
-        else if (combo > 70 && combo <= 90)
+        else if (combo > 25 && combo <= 50)
         {
             return baseDamage * 3;
         }
-        else
+        else if (combo > 50 && combo <= 75)
         {
             return baseDamage * 5;
+        }
+        else
+        {
+            return baseDamage * 8;
         }
     }
 }
