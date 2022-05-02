@@ -276,25 +276,25 @@ public class ShootPlayer : MonoBehaviour
 
     private int ComboDamageBonus(int baseDamage)
     {
-        if (combo >= 0 && combo <= 20)
+        if (combo >= 0 && combo <= 1)
         {
             return baseDamage;
         }
-        else if (combo > 20 && combo <= 40)
+        else if (combo > 1 && combo <= 25)
         {
-            return (int)((float)baseDamage * 1.5f);
+            return (int)((float)baseDamage * 2f);
         }
-        else if (combo > 40 && combo <= 70)
-        {
-            return baseDamage * 2;
-        }
-        else if (combo > 70 && combo <= 90)
+        else if (combo > 25 && combo <= 50)
         {
             return baseDamage * 3;
         }
-        else
+        else if (combo > 50 && combo <= 75)
         {
             return baseDamage * 5;
+        }
+        else
+        {
+            return baseDamage * 8;
         }
     }
 }
