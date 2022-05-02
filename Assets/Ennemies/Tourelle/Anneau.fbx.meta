@@ -5,16 +5,26 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -623603649343465320
-    second: Anneau_Destruction
+    second: Idle
   - first:
-      74: -1609281748187839663
-    second: Idle_Anneau
+      74: -6821437695532330919
+    second: Destru
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Dorerie
-    second: {fileID: 2100000, guid: 050210d600132874887231e2379671b6, type: 2}
+      name: Cristal1
+    second: {fileID: 2100000, guid: 34c4ede2c6316d34eb6ebccdc1bbe52f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pylone
+    second: {fileID: 2100000, guid: a4c76d262d8e95a418fdb6b7e4799ea1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sol
+    second: {fileID: 2100000, guid: 932fe8ef1a6d6d444b6bacca3c2fce40, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -43,7 +53,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Anneau_Destruction
+      name: Idle
       takeName: Scene
       internalID: 0
       firstFrame: 0
@@ -54,7 +64,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -72,18 +82,18 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Idle_Anneau
+      name: Destru
       takeName: Scene
       internalID: 0
-      firstFrame: 0
-      lastFrame: 1
+      firstFrame: 150
+      lastFrame: 300
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -161,7 +171,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 1
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
