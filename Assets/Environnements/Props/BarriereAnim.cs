@@ -49,13 +49,13 @@ public class BarriereAnim : MonoBehaviour
         {
             barriere.SetActive(false);
             barriere1.SetActive(true);
-            print("je suis collisioné");
+            print("je suis collision");
             anim.Play("Scene");
             step1 = false;
             step2 = true;
         }
 
-        if (collision.gameObject.tag == "Player" && step2 == true)
+        /*if (collision.gameObject.tag == "Player" && step2 == true)
         {
             barriere1.SetActive(false);
             barriere2.SetActive(true);
@@ -63,6 +63,7 @@ public class BarriereAnim : MonoBehaviour
             anim1.Play("Scene");
             step2 = false;
         }
+        */
 
     }
 
