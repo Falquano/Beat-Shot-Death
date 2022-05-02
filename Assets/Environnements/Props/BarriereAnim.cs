@@ -49,7 +49,7 @@ public class BarriereAnim : MonoBehaviour
         {
             barriere.SetActive(false);
             barriere1.SetActive(true);
-            print("je suis collisioné");
+            print("je suis collision");
             anim.Play("Scene");
             step1 = false;
             step2 = true;
