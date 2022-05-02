@@ -19,11 +19,11 @@ public class UITempoCursor : MonoBehaviour
 
     private void Start()
     {
-        material = GetComponent<Image>().material;
+       /* material = GetComponent<Image>().material;
         Cursor.visible = false;
 
         PerfectMargin = tempo.MarginPerfect;
-        OkayMargin = tempo.MarginOk;
+        OkayMargin = tempo.MarginOk;*/
     }
 
     private void Update()
@@ -45,7 +45,7 @@ public class UITempoCursor : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void NewCombo(int combo, int max)
+    /*public void NewCombo(int combo, int max)
     {
         //faire un calcul en fonction de la surchauffe et de la taille du tir pour que que se soit recalculer à chaque fois
         float margin = tempo.MarginPerfectEvolution.Evaluate((float)combo / (float)max) ;
@@ -61,5 +61,5 @@ public class UITempoCursor : MonoBehaviour
             guide.player = player;
             guide.tempo = tempo;
         }
-    }
+    }*/
 }

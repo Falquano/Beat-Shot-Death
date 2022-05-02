@@ -27,7 +27,7 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] public UnityEvent<ShotInfo> OnShotEvent = new UnityEvent<ShotInfo>();
     [SerializeField] public UnityEvent OnDecreasingCombo = new UnityEvent();
 
-    [SerializeField] private int combo = 0;
+    [SerializeField] public int combo = 0;
     [SerializeField] private int maxCombo = 100;
     /// <summary>
     /// Évènement invoqué lorsque la valeur de combo change. Envoie la nouvelle valeur suivie de maxCombo.
