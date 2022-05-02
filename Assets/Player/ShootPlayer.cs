@@ -142,7 +142,11 @@ public class ShootPlayer : MonoBehaviour
     }
 
 
-
+    public void OnComboIncrease()
+    {
+        combo += 15;
+        print(combo);
+    }
    
 
     public void Shoot()
