@@ -108,18 +108,7 @@ public class TempoManager : MonoBehaviour
             onPlayerTimeToShoot.Invoke();
     }
 
-    /*public ShotQuality ShotQualityNow()
-    {
-        if (Tempo >= objectiveShoot - marginOk && Tempo <= objectiveShoot + marginOk)
-        {
-            if (Tempo >= objectiveShoot - marginPerfect && Tempo <= objectiveShoot + marginPerfect)
-            {
-                return ShotQuality.Perfect;
-            }
-            return ShotQuality.Good;
-        }
-        return ShotQuality.Bad;
-    }*/
+    
 
     // Cette version est plus permissive mais ne fonctionne qu'avec objectiveshoot = 1 !
     public ShotQuality ShotQualityNow()
