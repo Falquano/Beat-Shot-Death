@@ -18,7 +18,7 @@ public class TempoManager : MonoBehaviour
     public bool[] PlayerShootBeat => playerShootBeat;
 
     private float TimerTempo;
-    [Tooltip("Utilisé uniquement si il n'y a pas de musique !")]
+    [Tooltip("Utilisï¿½ uniquement si il n'y a pas de musique !")]
     [SerializeField] private float TempoDuration;
     [Tooltip("Musique du niveau")]
     [SerializeField] private Song song;
@@ -30,8 +30,11 @@ public class TempoManager : MonoBehaviour
 
 
     [SerializeField] private int beatPerMesure = 4;
+    
+    [SerializeField] private int playerBar = 2;
     public int Beat { get; private set; }
     [SerializeField] public UnityEvent<int> onMesureStart = new UnityEvent<int>();
+    [SerializeField] public UnityEvent<int> onPlayerBarStart = new UnityEvent<int>();
     [SerializeField] public UnityEvent onTimeToShoot = new UnityEvent();
     [SerializeField] public UnityEvent onPlayerTimeToShoot = new UnityEvent();
 
@@ -82,13 +85,18 @@ public class TempoManager : MonoBehaviour
     private void NouvelleMesure()
     {
         //Debug.Log("---\tMesure");
-        Beat = (Beat + 1) % beatPerMesure;
-        onMesureStart.Invoke(Beat);
+        Beat = (Beat + 1) % beatPerMesure; //Va de 0 Ã  4 (beatPerMesure = 4 inspecteur)
+        onMesureStart.Invoke(Beat); //AppelÃ© tous les beats
+
+        if (Beat % playerBar == 0)
+        {
+            onPlayerBarStart.Invoke(Beat);
+        }
     }
 
     public void NewCombo(int combo, int max)
     {
-        //faire un calcul en fonction de la surchauffe et de la taille du tir pour que se soit recalculer à chaque fois
+        //faire un calcul en fonction de la surchauffe et de la taille du tir pour que se soit recalculer ï¿½ chaque fois
         float margin = MarginPerfectEvolution.Evaluate((float)combo / (float)max);
         marginPerfect = margin;
     }

@@ -51,8 +51,11 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private int perfectShotDamage = 3;
     [SerializeField] private int goodShotDamage = 2;
     [SerializeField] private int badShotDamage = 1;
-    
-    
+
+    public bool inTempo; 
+    //check de si le joueur tir quand la croix est rouge
+
+
     [SerializeField] private int MesureBeforeComboDecreasing;
     private int numberOfNonShoot = 0;
 
@@ -86,7 +89,7 @@ public class ShootPlayer : MonoBehaviour
         tempoManager.Combo = combo;
     }
 
-    public static Vector3 ExpandToGround(Vector3 origin, Vector3 direction, float height)
+    public static Vector3 ExpandToGround(Vector3 origin, Vector3 direction, float height) //A quoi sa sert ?
 	{
         float mod = direction.y / direction.magnitude * (height - origin.y);
         return origin + direction * mod;
@@ -299,6 +302,32 @@ public class ShootPlayer : MonoBehaviour
             return baseDamage * 8;
         }
     }
+
+
+    
+
+    public void OnShoot2()
+    {
+        if (inTempo)
+        {
+            //targetHealth.DealDamage(ComboDamageBonus(20));
+            combo = Mathf.Clamp(combo + comboBadShotMod, 0, maxCombo);
+        }
+        else if(inTempo == false)
+        {
+
+        }
+    }
+
+    public void InTempo(bool tempoEventAnim)
+    {
+        //Valide quand la croix devient rouge et quand elle se réinitialise
+        inTempo = tempoEventAnim;
+    }
+
+    
+
+
 }
 
 // Un type qui contient toutes les infos sur un tir. Comme ça on peut l'envoyer aux systèmes de particules et tout ça

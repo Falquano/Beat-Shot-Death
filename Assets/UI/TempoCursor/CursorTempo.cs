@@ -34,5 +34,15 @@ public class CursorTempo : MonoBehaviour
         }
     }
 
+    private void TempoTrue()
+    {
+        scriptshootplayer.InTempo(true);
+    }
+
+    private void TempoFalse()
+    {
+        scriptshootplayer.InTempo(false);
+    }
+
 
 }

@@ -21,7 +21,7 @@ public class DamageFx : MonoBehaviour
         enabled = false;
     }
 
-    public void EffectsOnDamage(int damage, int newLife, int newShield)
+    public void EffectsOnDamage(int damage, int newLife)
     {
         // On commence par le camshake
         camShaker.Shake(shakeFrequency, shakeAmplitude, shakeDuration);
