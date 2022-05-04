@@ -8,55 +8,43 @@ public class Tourelle_Emissive : MonoBehaviour
 {
 
     [SerializeField] private Animator animatorTourelle;
-    [SerializeField] private Animator anneau;
     [SerializeField] private GameObject entier;
+    [SerializeField] private GameObject anneau;
     [SerializeField] private GameObject destroy;
-    [SerializeField] private Material emissiveMaterial;
-    [SerializeField] private Renderer objecToChange;
-    [SerializeField] private Color colorEmissive;
-    public float emissiveIntensity = 10f;
+    [SerializeField] private GameObject Light;
 
-    [SerializeField] private GameObject Tourelle;
+    [SerializeField] private Animation anim;
 
-    private Color color;
-    public bool intensityOverTime;
 
 
     private void Start()
     {
+        anim = Light.GetComponent<Animation>();
         animatorTourelle = GetComponent<Animator>();
-        anneau = GetComponent<Animator>();
-        emissiveMaterial = objecToChange.GetComponent<Renderer>().material;
-        colorEmissive = Color.green;
+        anim.Play("Idle-Light");
+
     }
 
     private void Update()
     {
 
-        /*if (intensityOverTime)
-        {
-            timer += Time.deltaTime;
-            Debug.Log("Timer =" + timer);
-        }
-
-        emissiveMaterial.SetColor("_Emission", color * timer);*/
     }
 
 
     public void OnShoot()
     {
         animatorTourelle.SetTrigger("OnShoot");
-        intensityOverTime = false;
+
+        anim.Play("Idle-Light");
 
     }
 
     public void OnAim()
     {
-        intensityOverTime = true;
-        //emissiveMaterial.EnableKeyword("_EMISSION");
-        //emissiveMaterial.SetColor("_EmissionColor", color * 10);
+
         print("okkkkkkkk");
-        entier.GetComponent<Renderer>().material.SetColor("_EmissiveColor", colorEmissive * emissiveIntensity);
+
+        anim.Play("FeedBack_Light");
 
 
     }
@@ -65,8 +53,8 @@ public class Tourelle_Emissive : MonoBehaviour
     {
         entier.SetActive(false);
         destroy.SetActive(true);
-       
-        anneau.SetTrigger("OnDeath");
+        anneau.SetActive(false);
+        animatorTourelle.SetTrigger("OnDeath");
     }
 
     

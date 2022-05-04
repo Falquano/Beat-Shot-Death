@@ -49,8 +49,12 @@ public class HealthSystem : MonoBehaviour
     private void Die()
     {
         onDie.Invoke();
-
         
+        Destroy(GetComponent<ShootMesure>());
+        Destroy(GetComponent<AimMesure>());
+        Destroy(GetComponent<EnnemyBehavior>());
+
+
         // à la place faudrait lancer l'animation de mort et tout
     }
 }
