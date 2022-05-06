@@ -18,6 +18,8 @@ public class BarriereAnim : MonoBehaviour
     private bool step1;
     private bool step2;
 
+    private int numberShot= 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +32,20 @@ public class BarriereAnim : MonoBehaviour
         step1 = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void shotCollision()//Tu appel ça depuis le script du player ou d'un ennemi si il tir et que c'est cette objet +++ Sans oublié de lui donné le raycast du tir
+    {
+        if(numberShot == 0)
+        {
+            //récupération de la normal du raycast
+            numberShot += 1;
+        }
+        else
+        {
+
+        }
+    }
+
+    public void hitCollision()
     {
 
     }

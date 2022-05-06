@@ -3329,7 +3329,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 438154467995756240}
         m_TargetAssemblyTypeName: ShootPlayer, Assembly-CSharp
-        m_MethodName: DecreaseCombo
+        m_MethodName: OnComboIncrease
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3438,38 +3438,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnDecreasingCombo:
-    m_PersistentCalls:
-      m_Calls: []
   combo: 0
   maxCombo: 100
   onComboChange:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIBarFiller, Assembly-CSharp
-        m_MethodName: SetProgress
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UITempoCursor, Assembly-CSharp
-        m_MethodName: NewCombo
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ComboUI, Assembly-CSharp
         m_MethodName: ChangeCombo
@@ -3492,6 +3465,7 @@ MonoBehaviour:
   perfectShotDamage: 4
   goodShotDamage: 2
   badShotDamage: 1
+  inTempo: 0
   MesureBeforeComboDecreasing: 2
   ScriptAnimation: {fileID: 0}
   logShots: 0
@@ -3564,7 +3538,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
-  MaxShield: 5
   onTakeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -3631,20 +3604,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  ScriptAnimation: {fileID: 0}
-  AnimShield: {fileID: 0}
-  ShieldUI:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  LifeUI:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   invincible: 0
 --- !u!114 &1952105521
 MonoBehaviour:
