@@ -16,25 +16,25 @@ public class CursorTempo : MonoBehaviour
         {
             Cursor.SetTrigger("Combo0");
         }
-        else if(combo > 1 && combo <= 25)
+        else if(combo > 1 && combo <= 10)
         {
             Cursor.SetTrigger("Combo1");
         }
-        else if (combo > 25 && combo <= 50)
+        else if (combo > 10 && combo <= 30)
         {
             Cursor.SetTrigger("Combo2");
         }
-        else if (combo > 50 && combo <= 75)
+        else if (combo > 30 && combo <= 60)
         {
             Cursor.SetTrigger("Combo3");
         }
-        else if (combo > 75 )
+        else if (combo > 60 )
         {
             Cursor.SetTrigger("Combo4");
         }
     }
 
-    private void TempoTrue()
+    /*private void TempoTrue()
     {
         scriptshootplayer.InTempo(true);
     }
@@ -42,7 +42,7 @@ public class CursorTempo : MonoBehaviour
     private void TempoFalse()
     {
         scriptshootplayer.InTempo(false);
-    }
+    }*/
 
 
 }
