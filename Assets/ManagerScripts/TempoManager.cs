@@ -9,7 +9,7 @@ public class TempoManager : MonoBehaviour
     //variable pour le tir en tempo
     [SerializeField] private float objectiveShoot = 1f;
     public float ObjectiveShoot => objectiveShoot;
-    [SerializeField] private float marginPerfect = 0.1f;
+    [SerializeField] private float marginPerfect = 1f;
     public float MarginPerfect => marginPerfect;
     [SerializeField] private float marginOk = 0.3f;
     public float MarginOk => marginOk;
@@ -24,7 +24,7 @@ public class TempoManager : MonoBehaviour
     [SerializeField] private Song song;
     [SerializeField] private StudioEventEmitter songEmitter;
     public float Tempo => TimerTempo / TempoDuration;
-    [SerializeField] public AnimationCurve MarginPerfectEvolution;
+    //[SerializeField] public AnimationCurve MarginPerfectEvolution;
 
     public float Combo { get; set; }
 
@@ -80,6 +80,9 @@ public class TempoManager : MonoBehaviour
         }
 
         TimerTempo %= TempoDuration;
+
+        marginPerfect = CalculMarginPerfect();
+        print(marginPerfect);
     }
 
     private void NouvelleMesure()
@@ -97,8 +100,33 @@ public class TempoManager : MonoBehaviour
     public void NewCombo(int combo, int max)
     {
         //faire un calcul en fonction de la surchauffe et de la taille du tir pour que se soit recalculer � chaque fois
-        float margin = MarginPerfectEvolution.Evaluate((float)combo / (float)max);
-        marginPerfect = margin;
+        //float margin = MarginPerfectEvolution.Evaluate((float)combo / (float)max);
+
+        
+    }
+
+    private float CalculMarginPerfect()
+    {
+        if(Combo >= 0 && Combo < 1)
+        {
+            return (1.0f);
+        }
+        else if(Combo > 1 && Combo <= 10)
+        {
+            return (0.84f);
+        }
+        else if(Combo > 10 && Combo <= 30)
+        {
+            return (0.68f);
+        }
+        else if(Combo > 30 && Combo <= 60)
+        {
+            return (0.54f);
+        }
+        else
+        {
+            return (0.34f);
+        }
     }
 
     private void TimeToShoot()
@@ -108,32 +136,24 @@ public class TempoManager : MonoBehaviour
             onPlayerTimeToShoot.Invoke();
     }
 
-    /*public ShotQuality ShotQualityNow()
-    {
-        if (Tempo >= objectiveShoot - marginOk && Tempo <= objectiveShoot + marginOk)
-        {
-            if (Tempo >= objectiveShoot - marginPerfect && Tempo <= objectiveShoot + marginPerfect)
-            {
-                return ShotQuality.Perfect;
-            }
-            return ShotQuality.Good;
-        }
-        return ShotQuality.Bad;
-    }*/
+    
 
     // Cette version est plus permissive mais ne fonctionne qu'avec objectiveshoot = 1 !
     public ShotQuality ShotQualityNow()
     {
         if (!playerShootBeat[(Beat + 1) % beatPerMesure])
             return ShotQuality.Bad;
+
         if (Tempo >= objectiveShoot - marginPerfect || Tempo < marginPerfect / 2f)
         {
+            //print(
             return ShotQuality.Perfect;
+
         }
-        else if (Tempo >= objectiveShoot - marginOk)
-        {
-            return ShotQuality.Good;
-        }
+        //else if (Tempo >= objectiveShoot - marginOk)
+        //{
+        //    return ShotQuality.Good;
+        //}
         return ShotQuality.Bad;
     }
 }

@@ -13991,8 +13991,60 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: bd7c27632e75d8348bda66a7169db356, type: 2}
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: MarginPerfectEvolution.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: MarginPerfectEvolution.m_Curve.Array.data[1].time
+      value: 0.4936376
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: MarginPerfectEvolution.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: MarginPerfectEvolution.m_Curve.Array.data[1].value
+      value: 0.658923
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: MarginPerfectEvolution.m_Curve.Array.data[0].inSlope
+      value: -0.6909462
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: MarginPerfectEvolution.m_Curve.Array.data[1].inSlope
+      value: -0.9961167
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: MarginPerfectEvolution.m_Curve.Array.data[2].inSlope
+      value: -1.3012872
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: MarginPerfectEvolution.m_Curve.Array.data[0].outSlope
+      value: -0.6909462
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: MarginPerfectEvolution.m_Curve.Array.data[1].outSlope
+      value: -0.9961167
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: MarginPerfectEvolution.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: MarginPerfectEvolution.m_Curve.Array.data[2].outSlope
+      value: -1.3012872
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: MarginPerfectEvolution.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: MarginPerfectEvolution.m_Curve.Array.data[2].tangentMode
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: onMesureStart.m_PersistentCalls.m_Calls.Array.data[1].m_Mode

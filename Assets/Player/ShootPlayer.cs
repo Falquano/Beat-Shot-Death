@@ -25,7 +25,7 @@ public class ShootPlayer : MonoBehaviour
 
     // Un event qui s'active quand on tire et envoie les données du tir. Le fonctionnement des events a été bien expliqué par @Céleste dans le channel de prog je crois
     [SerializeField] public UnityEvent<ShotInfo> OnShotEvent = new UnityEvent<ShotInfo>();
-    [SerializeField] public UnityEvent OnDecreasingCombo = new UnityEvent();
+
 
     [SerializeField] public int combo = 0;
     [SerializeField] private int maxCombo = 100;
@@ -38,7 +38,7 @@ public class ShootPlayer : MonoBehaviour
 
 
     //je ne suis pas sur de cette variable
-    [SerializeField] public bool CheckShootisOk = true ;
+    [SerializeField] public bool CheckShootisOk = true;
 
 
     //variable de combo que l'on veux retirer
@@ -52,7 +52,7 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private int goodShotDamage = 2;
     [SerializeField] private int badShotDamage = 1;
 
-    public bool inTempo; 
+    public bool inTempo;
     //check de si le joueur tir quand la croix est rouge
 
 
@@ -77,8 +77,9 @@ public class ShootPlayer : MonoBehaviour
             direction.y = 0;
             transform.forward = direction.normalized;
             Debug.DrawRay(transform.position, transform.right * 4, Color.white);
-        } else
-		{
+        }
+        else
+        {
             MouseWorldPosition = ExpandToGround(pointerRay.origin, pointerRay.direction, transform.position.y);
             Vector3 direction = MouseWorldPosition - transform.position;
             direction.y = 0;
@@ -90,26 +91,26 @@ public class ShootPlayer : MonoBehaviour
     }
 
     public static Vector3 ExpandToGround(Vector3 origin, Vector3 direction, float height) //A quoi sa sert ?
-	{
+    {
         float mod = direction.y / direction.magnitude * (height - origin.y);
         return origin + direction * mod;
-	}
+    }
 
     public void LookAt(CallbackContext callBack)
     {
         //récupération de la position de la souris par rapport à l'écran
         MouseScreenPosition = callBack.ReadValue<Vector2>();
         MouseScreenPosition = new Vector2(
-            Mathf.Clamp(MouseScreenPosition.x, 0, Camera.main.pixelWidth), 
+            Mathf.Clamp(MouseScreenPosition.x, 0, Camera.main.pixelWidth),
             Mathf.Clamp(MouseScreenPosition.y, 0, Camera.main.pixelHeight));
     }
 
     public void OnFire(CallbackContext callBack)
     {
         //si lorsque la fonction est appelée, le bouton est appuyé donc Fire = 1
-        if (callBack.performed )
+        if (callBack.performed)
         {
-            if(CheckShootisOk == true)
+            if (CheckShootisOk == true)
             {
                 Shoot();
             }
@@ -118,7 +119,7 @@ public class ShootPlayer : MonoBehaviour
 
     public void CheckPreviousShoot()
     {
-        //Cette fonction est appelé à chaque début de temps
+        //Cette fonction est appelé tout les 2 beats
 
 
         //si checkshootisok est true au début de la mesure c'est qu'on a pas tiré
@@ -126,18 +127,18 @@ public class ShootPlayer : MonoBehaviour
         {
             //Cette variable compte le nombre de mesure où le joueur n'a pas tiré
             numberOfNonShoot += 1;
-      
-        }
-        
 
-        if ( numberOfNonShoot >= MesureBeforeComboDecreasing)
+        }
+
+
+        if (numberOfNonShoot >= MesureBeforeComboDecreasing)
         {
             //La surchauffe descend de 10 si le joueur n'a pas tirer X fois d'affilé 
             combo = Mathf.Clamp(combo + comboNoShotMod, 0, maxCombo);
             onComboChange.Invoke(combo, maxCombo);
-            
 
-            
+
+
         }
 
         //On passe la var de check de tir à true pour que le joueur puisse tirer dans cette nouvelle mesure
@@ -147,12 +148,13 @@ public class ShootPlayer : MonoBehaviour
 
     public void OnComboIncrease()
     {
+        //Je ne sais pas pk mais ça augmente de plein 
         combo += 15;
         print(combo);
         //On annonce au monde que le combo a changé
         onComboChange.Invoke(combo, maxCombo);
     }
-   
+
 
     public void Shoot()
     {
@@ -169,8 +171,8 @@ public class ShootPlayer : MonoBehaviour
 
         Ray ray = new Ray(transform.position, DirectionShoot.normalized);
         //on créer un raycast du player dans la direction de la souris de distance max sur un mask sans le player lui-même
-        if (Physics.Raycast(ray, out RaycastHit RayShoot , range, TheMask))
-		{
+        if (Physics.Raycast(ray, out RaycastHit RayShoot, range, TheMask))
+        {
             //Debug
             Debug.DrawLine(transform.position, RayShoot.point, Color.red, 0.2f);
 
@@ -202,7 +204,7 @@ public class ShootPlayer : MonoBehaviour
                         break;
                 }
 
-                
+
             }
 
             //On vérifie si il collide avec un élément et si cet élément possède le tag Button
@@ -215,33 +217,33 @@ public class ShootPlayer : MonoBehaviour
                 Animator AnimButton = RayShoot.transform.GetComponent<Animator>();
                 ButtonJustShoot ButtonScript = RayShoot.transform.GetComponent<ButtonJustShoot>();
 
-                
+
 
                 // Selon la qualité on change la couleur du bouton et on augmente ou diminue le combo
                 switch (quality)
                 {
                     case ShotQuality.Bad:
-                        AnimButton.SetInteger("QualityShoot", 1); 
+                        AnimButton.SetInteger("QualityShoot", 1);
                         combo = Mathf.Clamp(combo + comboBadShotMod, 0, maxCombo);
-                        
+
                         break;
                     case ShotQuality.Good:
                         AnimButton.SetInteger("QualityShoot", 2);
                         combo = Mathf.Clamp(combo + comboGoodShotMod, 0, maxCombo);
-                        
+
                         break;
                     case ShotQuality.Perfect:
                         AnimButton.SetInteger("QualityShoot", 3);
                         combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
                         ButtonScript.DoorOpening(); //peut être l'appeler dans un event plus tard
-                        
+
                         break;
                 }
 
-                
+
             }
 
-            if(RayShoot.collider != null && RayShoot.transform.tag != "Button" & RayShoot.transform.tag != "Ennemy"  )
+            if (RayShoot.collider != null && RayShoot.transform.tag != "Button" & RayShoot.transform.tag != "Ennemy")
             {
                 //Si le joueur tir sur aucun de ces deux éléments, alors son tir est comptabilisé comme nul est compte comme un non tir, le combo descendra
                 numberOfNonShoot += 1;
@@ -277,7 +279,7 @@ public class ShootPlayer : MonoBehaviour
         return transform.position + direction * range;
     }
 
-    
+
 
     private int ComboDamageBonus(int baseDamage)
     {
@@ -304,28 +306,12 @@ public class ShootPlayer : MonoBehaviour
     }
 
 
-    
 
-    public void OnShoot2()
-    {
-        if (inTempo)
-        {
-            //targetHealth.DealDamage(ComboDamageBonus(20));
-            combo = Mathf.Clamp(combo + comboBadShotMod, 0, maxCombo);
-        }
-        else if(inTempo == false)
-        {
 
-        }
-    }
 
-    public void InTempo(bool tempoEventAnim)
-    {
-        //Valide quand la croix devient rouge et quand elle se réinitialise
-        inTempo = tempoEventAnim;
-    }
 
-    
+
+
 
 
 }
@@ -347,3 +333,6 @@ public enum ShotQuality
     Good,
     Perfect
 }
+
+
+
