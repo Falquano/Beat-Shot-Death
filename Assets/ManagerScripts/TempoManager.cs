@@ -34,11 +34,15 @@ public class TempoManager : MonoBehaviour
     [SerializeField] private int playerBar = 2;
     public int Beat { get; private set; }
     [SerializeField] public UnityEvent<int> onMesureStart = new UnityEvent<int>();
-    [SerializeField] public UnityEvent<int> onPlayerBarStart = new UnityEvent<int>();
+    [SerializeField] public UnityEvent<int, float> onPlayerBarStart = new UnityEvent<int, float>();
     [SerializeField] public UnityEvent onTimeToShoot = new UnityEvent();
     [SerializeField] public UnityEvent onPlayerTimeToShoot = new UnityEvent();
 
-	private void Start()
+
+    //Script de vfx d'onde
+    [SerializeField] private VFXOndeScript VFXOnde;
+
+    private void Start()
 	{
         if (MainMenu.SelectedSong != null)
 		{
@@ -82,7 +86,7 @@ public class TempoManager : MonoBehaviour
         TimerTempo %= TempoDuration;
 
         marginPerfect = CalculMarginPerfect();
-        print(marginPerfect);
+        
     }
 
     private void NouvelleMesure()
@@ -93,7 +97,14 @@ public class TempoManager : MonoBehaviour
 
         if (Beat % playerBar == 0)
         {
-            onPlayerBarStart.Invoke(Beat);
+            //Appelé tous les 2 beats.
+            onPlayerBarStart.Invoke(Beat, Combo);
+            
+
+        }
+        else
+        {
+            VFXOnde.OnVFXOndeActive(Combo);
         }
     }
 

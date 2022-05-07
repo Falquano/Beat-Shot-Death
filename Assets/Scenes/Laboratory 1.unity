@@ -24676,6 +24676,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1035591652}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1054133274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8715738995190079224, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
+  m_PrefabInstance: {fileID: 5164273524794097099}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870aadf91ac48a449af6dbc5e7a3bb9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1075166493
 GameObject:
   m_ObjectHideFlags: 0
@@ -49430,6 +49441,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
+      propertyPath: VFXOnde
+      value: 
+      objectReference: {fileID: 1054133274}
+    - target: {fileID: 4955465238566614664, guid: b47b2b84c5d25424cabe72aa41657a9b, type: 3}
       propertyPath: marginOk
       value: 1
       objectReference: {fileID: 0}
@@ -49710,6 +49725,14 @@ PrefabInstance:
       propertyPath: camShaker
       value: 
       objectReference: {fileID: 636008006}
+    - target: {fileID: 5164273525259062993, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
+      propertyPath: vignetteDuration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296488180996653001, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
 --- !u!1001 &5230668867732233570
