@@ -13,25 +13,25 @@ public class ComboUI : MonoBehaviour
 
     public void ChangeCombo(int combo, int max)
     {
-        print(combo);
+        //print(combo);
 
-        if (combo >= 0 && combo <= 20)
+        if (combo >= 0 && combo <= 1)
         {
             animator.SetInteger("ComboInt", 0);
         }
-        else if (combo > 20 && combo <= 40)
+        else if (combo > 1 && combo <= 10)
         {
             animator.SetInteger("ComboInt", 1);
         }
-        else if (combo > 40 && combo <= 60)
+        else if (combo > 10 && combo <= 30)
         {
             animator.SetInteger("ComboInt", 2);
         }
-        else if (combo > 60 && combo <= 80)
+        else if (combo > 30 && combo <= 60)
         {
             animator.SetInteger("ComboInt", 3);
         }
-        else if (combo > 80 && combo <= 100)
+        else if (combo > 60 && combo <= 100)
         {
             animator.SetInteger("ComboInt", 4);
         }
