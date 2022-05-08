@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Lance des effets visuels et audio liés au joueur
+/// Lance des effets visuels et audio liï¿½s au joueur
 /// </summary>
 public class PlayerFXEmitter : MonoBehaviour
 {
@@ -54,9 +54,9 @@ public class PlayerFXEmitter : MonoBehaviour
 
     private void EmitShotSound(ShotInfo shotInfo)
     {
-        // Je crée un truc qui joue un son
+        // Je crï¿½e un truc qui joue un son
         EventInstance gunshot = FMODUnity.RuntimeManager.CreateInstance(GunshotSound);
-        // je met en place son paramètre
+        // je met en place son paramï¿½tre
         gunshot.setParameterByNameWithLabel("Quality", shotInfo.Quality.ToString());
         // je le lance
         gunshot.start();
