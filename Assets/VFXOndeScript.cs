@@ -32,7 +32,7 @@ public class VFXOndeScript : MonoBehaviour
 
     public void OnVFXOndeActive(float combo)
     {
-        //Denis: il faut une autre condition (que je peux pas faire vu que je connais pas 100% le code de Victor) 
+        //Denis: il faut une autre condition (que je peux pas faire vu que je connais pas 100% le code de Victor+ de toi) 
         //qui fait en sorte que quand le combo baisse, l'onde se joue pas car on veut qu'il apparait uniquement lorsqu'il atteint  
         //un certain palier comme else if(combo >= 1 && combo < 10 && !ondebool1 )  par exemple [8/05/2022 11:21]
 
@@ -71,7 +71,7 @@ public class VFXOndeScript : MonoBehaviour
             Onde4.Play();
             ondebool4=true;
         }
-        else if (combo<100) //Permet d'eviter que l'onde ne se joue jamais car en restant true les ondes se joue pas
+        if (combo<100) //Permet d'eviter que l'onde ne se joue jamais car en restant true les ondes se joue pas
         {
             ondebool1=false;
             ondebool2=false;

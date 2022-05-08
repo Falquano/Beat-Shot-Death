@@ -30459,7 +30459,7 @@ VisualEffect:
   m_GameObject: {fileID: 1323589494}
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: 829133b3ba659d94b869d96d92d53b92, type: 3}
-  m_InitialEventName: OnPlay
+  m_InitialEventName: Play
   m_InitialEventNameOverriden: 1
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
@@ -49345,11 +49345,6 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
---- !u!224 &2056720882 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5164273524687819932, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
-  m_PrefabInstance: {fileID: 5164273524794097099}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2057188276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49407,49 +49402,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51c5b90d79a6c2341a23deede2b12cc0, type: 3}
---- !u!1 &2075879123
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2075879125}
-  - component: {fileID: 2075879124}
-  m_Layer: 0
-  m_Name: Mouse.Position
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2075879124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2075879123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62683706c45eec84cb1b485658aafd2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &2075879125
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2075879123}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -204.68, y: -180, z: -3.78}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2056720882}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2084328094
 GameObject:
   m_ObjectHideFlags: 0
