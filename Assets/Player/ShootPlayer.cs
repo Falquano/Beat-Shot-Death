@@ -6,7 +6,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class ShootPlayer : MonoBehaviour
 {
-    // Ce que ça veut dire c'est que on peut accéder à MousePosition de n'importe où mais on ne peut la modifier que dans cette classe.
+    // Ce que ï¿½a veut dire c'est que on peut accï¿½der ï¿½ MousePosition de n'importe oï¿½ mais on ne peut la modifier que dans cette classe.
     public Vector2 MouseScreenPosition { get; private set; }
     public Vector3 MouseWorldPosition;
 
@@ -15,7 +15,7 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] LayerMask TheMask;
     [SerializeField] private LayerMask pointerLayerMask;
 
-    // j'ai du rajouter ça, c'est la distance max des pistolets
+    // j'ai du rajouter ï¿½a, c'est la distance max des pistolets
     [SerializeField] private float range = 100f;
 
     // Une liste d'empties depuis lesquels le joueur tire
@@ -23,14 +23,14 @@ public class ShootPlayer : MonoBehaviour
     // Une variable qui va de pistolet en pistolet pour alterner lequel tire
     private int barrelIndex;
 
-    // Un event qui s'active quand on tire et envoie les données du tir. Le fonctionnement des events a été bien expliqué par @Céleste dans le channel de prog je crois
+    // Un event qui s'active quand on tire et envoie les donnï¿½es du tir. Le fonctionnement des events a ï¿½tï¿½ bien expliquï¿½ par @Cï¿½leste dans le channel de prog je crois
     [SerializeField] public UnityEvent<ShotInfo> OnShotEvent = new UnityEvent<ShotInfo>();
 
 
     [SerializeField] public int combo = 0;
     [SerializeField] private int maxCombo = 100;
     /// <summary>
-    /// Évènement invoqué lorsque la valeur de combo change. Envoie la nouvelle valeur suivie de maxCombo.
+    /// ï¿½vï¿½nement invoquï¿½ lorsque la valeur de combo change. Envoie la nouvelle valeur suivie de maxCombo.
     /// </summary>
     [SerializeField] public UnityEvent<int, int> onComboChange = new UnityEvent<int, int>();
 
@@ -48,9 +48,9 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private int comboBadShotMod = -8;
     [SerializeField] private int comboDecrease;
 
-    [SerializeField] private int perfectShotDamage = 3;
-    [SerializeField] private int goodShotDamage = 2;
-    [SerializeField] private int badShotDamage = 1;
+    [SerializeField] private int perfectShotDamage = 20;
+    [SerializeField] private int goodShotDamage = 20;
+    [SerializeField] private int badShotDamage = 10;
 
     public bool inTempo;
     //check de si le joueur tir quand la croix est rouge
@@ -68,7 +68,7 @@ public class ShootPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //calcul à chaque frame de la position de la souris à son dernier déplacement dans le monde.
+        //calcul ï¿½ chaque frame de la position de la souris ï¿½ son dernier dï¿½placement dans le monde.
         Ray pointerRay = Camera.main.ScreenPointToRay(MouseScreenPosition);
         if (Physics.Raycast(pointerRay, out RaycastHit hitInfo, float.MaxValue, pointerLayerMask))
         {
@@ -98,7 +98,7 @@ public class ShootPlayer : MonoBehaviour
 
     public void LookAt(CallbackContext callBack)
     {
-        //récupération de la position de la souris par rapport à l'écran
+        //rï¿½cupï¿½ration de la position de la souris par rapport ï¿½ l'ï¿½cran
         MouseScreenPosition = callBack.ReadValue<Vector2>();
         MouseScreenPosition = new Vector2(
             Mathf.Clamp(MouseScreenPosition.x, 0, Camera.main.pixelWidth),
@@ -107,7 +107,7 @@ public class ShootPlayer : MonoBehaviour
 
     public void OnFire(CallbackContext callBack)
     {
-        //si lorsque la fonction est appelée, le bouton est appuyé donc Fire = 1
+        //si lorsque la fonction est appelï¿½e, le bouton est appuyï¿½ donc Fire = 1
         if (callBack.performed)
         {
             if (CheckShootisOk == true)
@@ -119,13 +119,13 @@ public class ShootPlayer : MonoBehaviour
 
     public void CheckPreviousShoot()
     {
-        //Cette fonction est appelé tout les 2 beats
+        //Cette fonction est appelï¿½ tout les 2 beats
 
 
-        //si checkshootisok est true au début de la mesure c'est qu'on a pas tiré
+        //si checkshootisok est true au dï¿½but de la mesure c'est qu'on a pas tirï¿½
         if (CheckShootisOk == true)
         {
-            //Cette variable compte le nombre de mesure où le joueur n'a pas tiré
+            //Cette variable compte le nombre de mesure oï¿½ le joueur n'a pas tirï¿½
             numberOfNonShoot += 1;
 
         }
@@ -133,7 +133,7 @@ public class ShootPlayer : MonoBehaviour
 
         if (numberOfNonShoot >= MesureBeforeComboDecreasing)
         {
-            //La surchauffe descend de 10 si le joueur n'a pas tirer X fois d'affilé 
+            //La surchauffe descend de 10 si le joueur n'a pas tirer X fois d'affilï¿½ 
             combo = Mathf.Clamp(combo + comboNoShotMod, 0, maxCombo);
             onComboChange.Invoke(combo, maxCombo);
 
@@ -141,17 +141,17 @@ public class ShootPlayer : MonoBehaviour
 
         }
 
-        //On passe la var de check de tir à true pour que le joueur puisse tirer dans cette nouvelle mesure
+        //On passe la var de check de tir ï¿½ true pour que le joueur puisse tirer dans cette nouvelle mesure
         CheckShootisOk = true;
     }
 
 
     public void OnComboIncrease()
     {
-        //Je ne sais pas pk mais ça augmente de plein 
+        //Je ne sais pas pk mais ï¿½a augmente de plein 
         combo += 15;
         print(combo);
-        //On annonce au monde que le combo a changé
+        //On annonce au monde que le combo a changï¿½
         onComboChange.Invoke(combo, maxCombo);
     }
 
@@ -170,24 +170,24 @@ public class ShootPlayer : MonoBehaviour
         Vector3 DirectionShoot = transform.forward;
 
         Ray ray = new Ray(transform.position, DirectionShoot.normalized);
-        //on créer un raycast du player dans la direction de la souris de distance max sur un mask sans le player lui-même
+        //on crï¿½er un raycast du player dans la direction de la souris de distance max sur un mask sans le player lui-mï¿½me
         if (Physics.Raycast(ray, out RaycastHit RayShoot, range, TheMask))
         {
             //Debug
             Debug.DrawLine(transform.position, RayShoot.point, Color.red, 0.2f);
 
-            //On vérif si le tir est dans le cadran du tir ok
+            //On vï¿½rif si le tir est dans le cadran du tir ok
 
-            //On vérifie si il collide avec un élément et si cet élément possède le tag ennemy
+            //On vï¿½rifie si il collide avec un ï¿½lï¿½ment et si cet ï¿½lï¿½ment possï¿½de le tag ennemy
             if (RayShoot.collider != null && RayShoot.transform.tag == "Ennemy")
             {
-                //On tir sur un ennemi (peut importe les dégâts), alors on ne descendra pas en combo)
+                //On tir sur un ennemi (peut importe les dï¿½gï¿½ts), alors on ne descendra pas en combo)
                 numberOfNonShoot = 0;
 
-                //On récupère le script behavior de l'ennemy touché
+                //On rï¿½cupï¿½re le script behavior de l'ennemy touchï¿½
                 HealthSystem targetHealth = RayShoot.transform.GetComponent<HealthSystem>();
 
-                // Selon la qualité on envoie les dégats appropriés et on augmente ou diminue le combo
+                // Selon la qualitï¿½ on envoie les dï¿½gats appropriï¿½s et on augmente ou diminue le combo
                 switch (quality)
                 {
                     case ShotQuality.Bad:
@@ -207,19 +207,19 @@ public class ShootPlayer : MonoBehaviour
 
             }
 
-            //On vérifie si il collide avec un élément et si cet élément possède le tag Button
+            //On vï¿½rifie si il collide avec un ï¿½lï¿½ment et si cet ï¿½lï¿½ment possï¿½de le tag Button
             if (RayShoot.collider != null && RayShoot.transform.tag == "Button")
             {
-                //On tir sur un ennemi (peut importe les dégâts), alors on ne descendra pas en combo)
+                //On tir sur un ennemi (peut importe les dï¿½gï¿½ts), alors on ne descendra pas en combo)
                 numberOfNonShoot = 0;
 
-                //On récupère l'animator du button
+                //On rï¿½cupï¿½re l'animator du button
                 Animator AnimButton = RayShoot.transform.GetComponent<Animator>();
                 ButtonJustShoot ButtonScript = RayShoot.transform.GetComponent<ButtonJustShoot>();
 
 
 
-                // Selon la qualité on change la couleur du bouton et on augmente ou diminue le combo
+                // Selon la qualitï¿½ on change la couleur du bouton et on augmente ou diminue le combo
                 switch (quality)
                 {
                     case ShotQuality.Bad:
@@ -235,7 +235,7 @@ public class ShootPlayer : MonoBehaviour
                     case ShotQuality.Perfect:
                         AnimButton.SetInteger("QualityShoot", 3);
                         combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
-                        ButtonScript.DoorOpening(); //peut être l'appeler dans un event plus tard
+                        ButtonScript.DoorOpening(); //peut ï¿½tre l'appeler dans un event plus tard
 
                         break;
                 }
@@ -245,11 +245,11 @@ public class ShootPlayer : MonoBehaviour
 
             if (RayShoot.collider != null && RayShoot.transform.tag != "Button" & RayShoot.transform.tag != "Ennemy")
             {
-                //Si le joueur tir sur aucun de ces deux éléments, alors son tir est comptabilisé comme nul est compte comme un non tir, le combo descendra
+                //Si le joueur tir sur aucun de ces deux ï¿½lï¿½ments, alors son tir est comptabilisï¿½ comme nul est compte comme un non tir, le combo descendra
                 numberOfNonShoot += 1;
             }
 
-            // On crée un "rapport de tir" qui contient toutes les infos nécessaires au lancement d'FX, sons et tout ça
+            // On crï¿½e un "rapport de tir" qui contient toutes les infos nï¿½cessaires au lancement d'FX, sons et tout ï¿½a
             ShotInfo info = new ShotInfo()
             {
                 StartPos = Barrels[barrelIndex].position,
@@ -258,13 +258,13 @@ public class ShootPlayer : MonoBehaviour
                 ShotObject = RayShoot.transform == null ? null : RayShoot.transform.gameObject,
                 EndNormal = RayShoot.normal
             };
-            // On annonce au monde qu'un tir a été effectué avec les infos précédentes
+            // On annonce au monde qu'un tir a ï¿½tï¿½ effectuï¿½ avec les infos prï¿½cï¿½dentes
             OnShotEvent.Invoke(info);
-            // On désactive le tir pour cette mesure
+            // On dï¿½sactive le tir pour cette mesure
             CheckShootisOk = false;
         }
 
-        //On annonce au monde que le combo a changé
+        //On annonce au monde que le combo a changï¿½
         onComboChange.Invoke(combo, maxCombo);
 
         // On change de pistolet
@@ -316,7 +316,7 @@ public class ShootPlayer : MonoBehaviour
 
 }
 
-// Un type qui contient toutes les infos sur un tir. Comme ça on peut l'envoyer aux systèmes de particules et tout ça
+// Un type qui contient toutes les infos sur un tir. Comme ï¿½a on peut l'envoyer aux systï¿½mes de particules et tout ï¿½a
 public struct ShotInfo
 {
     public Vector3 StartPos { get; set; }
@@ -326,7 +326,7 @@ public struct ShotInfo
     public Vector3 EndNormal { get; set; }
 }
 
-// Une liste de qualités de tirs pour facilement avoir l'info
+// Une liste de qualitï¿½s de tirs pour facilement avoir l'info
 public enum ShotQuality
 {
     Bad,

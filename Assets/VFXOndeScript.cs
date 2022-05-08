@@ -40,21 +40,24 @@ public class VFXOndeScript : MonoBehaviour
 
         if(combo >= 0 && combo < 1)
         {
-            print("combo  0");
+            
         }
         else if(combo >= 1 && combo < 11 && !ondebool1 ) 
         //modification de 10 par 11 ainsi que le reste dans else if car lorsque le joueur atteint le 1er pallier, l'onde 2 se joue alors que 
         //que normalement l'onde1 est censer etre jouer ainsi de suite 
         {
             //Play l'onde1
+
             print("combo  1");
             Onde1.Play();
+
+
             ondebool1=true; // revient a true pour eviter qu'il joue infiniment
         }
         else if (combo >= 11 && combo < 31 && !ondebool2)
         {
             //Play onde 2
-            print("combo  2");
+            
             Onde2.Play();
             //ondebool2=true;
 

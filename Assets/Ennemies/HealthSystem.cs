@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -26,7 +27,6 @@ public class HealthSystem : MonoBehaviour
 
     private int health;
     public int Health => health;
-    public Healthbar healthbar;
 
     private void Start()
     {
@@ -40,7 +40,6 @@ public class HealthSystem : MonoBehaviour
 
         health -= amount;
         
-        healthbar.UpdateHealth((float)health / (float)MaxHealth);
         onTakeDamage.Invoke(amount, health); 
         DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
         indicator.SetDamageText(amount);
@@ -54,6 +53,7 @@ public class HealthSystem : MonoBehaviour
     private void Die()
     {
         onDie.Invoke();
+        print("morte");
         
         Destroy(GetComponent<ShootMesure>());
         Destroy(GetComponent<AimMesure>());

@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DamageIndicator : MonoBehaviour
 {
-    public Text text;
+    public TextMeshProUGUI text;
     public float lifetime = 0.6f;
     public float minDist = 2f;
     public float maxDist = 3f;
@@ -17,9 +18,9 @@ public class DamageIndicator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.LookAt(2 * transform.position - Camera.main.transform.position);
+        //transform.LookAt(2 * transform.position);
 
-        float direction = Random.rotation.eulerAngles.z;
+        float direction = Random.rotation.eulerAngles.x;
         iniPos = transform.position;
         float dist = Random.Range(minDist, maxDist);
         targetPos = iniPos + (Quaternion.Euler(0, 0, direction) * new Vector3(dist, dist, 0f));

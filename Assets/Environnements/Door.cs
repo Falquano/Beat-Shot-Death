@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,14 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private bool locked = true;
     private bool playerWaiting = false;
+    
+    public Animation anim;
+    [SerializeField] private Material close;
+    [SerializeField] private Material open;
+    [SerializeField] private GameObject change1;
+    [SerializeField] private GameObject change2;
+    [SerializeField] private StudioEventEmitter doorEmitter;
+    [SerializeField] private StudioEventEmitter closeEmitter;
 
     public void PlayerEnterTrigger()
     {
@@ -24,6 +33,8 @@ public class Door : MonoBehaviour
     public void Unlock()
     {
         locked = false;
+        change1.GetComponent<MeshRenderer>().material = open;
+        change2.GetComponent<MeshRenderer>().material = open;
         if (playerWaiting)
             Open();
     }
@@ -32,18 +43,24 @@ public class Door : MonoBehaviour
 
     public void Open()
     {
-        if (locked)
+        /*if (locked)
             return;
-
-        GetComponent<Renderer>().enabled = false;
+        */
+        
+        if(!locked)
+            Debug.Log("OpeningNow");
+        //GetComponent<Renderer>().enabled = false;
+        doorEmitter.Play();
         GetComponent<Collider>().enabled = false;
+            anim.Play("Open");
     }
 
     public void Close()
     {
         gameObject.SetActive(true);
 
-        GetComponent<Renderer>().enabled = true;
+        //GetComponent<Renderer>().enabled = true;
         GetComponent<Collider>().enabled = true;
+        closeEmitter.Play();
     }
 }
