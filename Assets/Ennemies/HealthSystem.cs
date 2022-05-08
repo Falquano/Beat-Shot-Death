@@ -49,6 +49,7 @@ public class HealthSystem : MonoBehaviour
     private void Die()
     {
         onDie.Invoke();
+        print("morte");
         
         Destroy(GetComponent<ShootMesure>());
         Destroy(GetComponent<AimMesure>());

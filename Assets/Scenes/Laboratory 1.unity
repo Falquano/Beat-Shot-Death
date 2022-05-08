@@ -48863,6 +48863,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1462242837}
     m_Modifications:
+    - target: {fileID: 5264999109552689452, guid: 51c5b90d79a6c2341a23deede2b12cc0, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6966901053907798892, guid: 51c5b90d79a6c2341a23deede2b12cc0, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -49512,6 +49516,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 213952295, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 607830546, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
       propertyPath: scriptshootplayer
       value: 
@@ -49520,6 +49528,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1006393733, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1323589496, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -49544,6 +49556,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1887544879, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2039676992, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -49555,6 +49571,10 @@ PrefabInstance:
     - target: {fileID: 2039676992, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094430121, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5164273524539832499, guid: 855e3c5cc4a50194babf80b379efb818, type: 3}
       propertyPath: m_Name

@@ -42,7 +42,7 @@ public class Tourelle_Emissive : MonoBehaviour
     public void OnAim()
     {
 
-        print("okkkkkkkk");
+        
 
         anim.Play("FeedBack_Light");
 
