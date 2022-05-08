@@ -10,7 +10,7 @@ public class HealthSystem : MonoBehaviour
     //[SerializeField] private int MaxShield;
 
     /// <summary>
-    /// Event envoyant lors de la prise de dégat, les dégats, puis les nouveaux PVs
+    /// Event envoyant lors de la prise de dï¿½gat, les dï¿½gats, puis les nouveaux PVs
     /// </summary>
     [SerializeField] public UnityEvent<int, int> onTakeDamage;
     [SerializeField] public UnityEvent onDie;
@@ -20,11 +20,13 @@ public class HealthSystem : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] private bool invincible = false;
+    public GameObject damageText;
     
 
 
     private int health;
     public int Health => health;
+    public Healthbar healthbar;
 
     private void Start()
     {
@@ -38,7 +40,10 @@ public class HealthSystem : MonoBehaviour
 
         health -= amount;
         
+        healthbar.UpdateHealth((float)health / (float)MaxHealth);
         onTakeDamage.Invoke(amount, health); 
+        DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
+        indicator.SetDamageText(amount);
 
         if (health <= 0)
         {
@@ -55,6 +60,6 @@ public class HealthSystem : MonoBehaviour
         Destroy(GetComponent<EnnemyBehavior>());
 
 
-        // à la place faudrait lancer l'animation de mort et tout
+        // ï¿½ la place faudrait lancer l'animation de mort et tout
     }
 }

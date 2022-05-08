@@ -25,8 +25,9 @@ public class VFXOndeScript : MonoBehaviour
 
 
     //Oubli pas de placer tes vfx sur l'objet combo et de bien les placer au centre :Check
-    //Ensuite tu les d�placer dans l'inspecteur de ce script dans le bon ordre : Check
-    //Puis tu met juste la ligne de code qui permet de lire un vfx : Problème 
+    //Ensuite tu les dplacer dans l'inspecteur de ce script dans le bon ordre : Check
+    //Puis tu met juste la ligne de code qui permet de lire un vfx : Problme 
+
 
 
 
@@ -47,7 +48,7 @@ public class VFXOndeScript : MonoBehaviour
         {
             //Play l'onde1
             print("combo  1");
-            Onde1.Play(); 
+            Onde1.Play();
             ondebool1=true; // revient a true pour eviter qu'il joue infiniment
         }
         else if (combo >= 11 && combo < 31 && !ondebool2)
@@ -73,7 +74,7 @@ public class VFXOndeScript : MonoBehaviour
         }
         if (combo<100) //Permet d'eviter que l'onde ne se joue jamais car en restant true les ondes se joue plus
         {
-            ondebool1=false;
+            //ondebool1=false;
             //ondebool2=false;
             //ondebool3=false;
             //ondebool4=false;
