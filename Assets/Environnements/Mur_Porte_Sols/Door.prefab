@@ -336,6 +336,8 @@ GameObject:
   - component: {fileID: 8462633618448850733}
   - component: {fileID: -5030640454117670288}
   - component: {fileID: 2535346054986367561}
+  - component: {fileID: -6564739969749499358}
+  - component: {fileID: 7458642423918997538}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -380,6 +382,8 @@ MonoBehaviour:
   open: {fileID: 2100000, guid: 9c9b97b4e5ae2964696ffbd7c1051e61, type: 2}
   change1: {fileID: 4099012938259700594}
   change2: {fileID: 4276619394110007332}
+  doorEmitter: {fileID: -6564739969749499358}
+  closeEmitter: {fileID: 7458642423918997538}
 --- !u!111 &-5030640454117670288
 Animation:
   m_ObjectHideFlags: 0
@@ -410,6 +414,66 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.3780034, z: 0.3559454}
   m_Center: {x: -1.6752563e-14, y: 0.70131576, z: 0.07327549}
+--- !u!114 &-6564739969749499358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6756961692934798340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -363449414
+      Data2: 1256885676
+      Data3: 1241495473
+      Data4: 1096409254
+    Path: event:/FX/Door_Open
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &7458642423918997538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6756961692934798340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1814590931
+      Data2: 1329644002
+      Data3: 1703714192
+      Data4: 548947813
+    Path: event:/FX/Door_Close
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8336796639754503702
 GameObject:
   m_ObjectHideFlags: 0
