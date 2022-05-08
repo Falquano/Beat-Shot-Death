@@ -24,9 +24,10 @@ public class VFXOndeScript : MonoBehaviour
 	public bool ondebool4 = false;
 
 
-    //Oubli pas de placer tes vfx sur l'objet combo et de bien les placer au centre
-    //Ensuite tu les d�placer dans l'inspecteur de ce script dans le bon ordre
-    //Puis tu met juste la ligne de code qui permet de lire un vfx
+    //Oubli pas de placer tes vfx sur l'objet combo et de bien les placer au centre :Check
+    //Ensuite tu les dplacer dans l'inspecteur de ce script dans le bon ordre : Check
+    //Puis tu met juste la ligne de code qui permet de lire un vfx : Problme 
+
 
 
 
@@ -46,8 +47,11 @@ public class VFXOndeScript : MonoBehaviour
         //que normalement l'onde1 est censer etre jouer ainsi de suite 
         {
             //Play l'onde1
-            
-            Onde1.Play(); 
+
+            print("combo  1");
+            Onde1.Play();
+
+
             ondebool1=true; // revient a true pour eviter qu'il joue infiniment
         }
         else if (combo >= 11 && combo < 31 && !ondebool2)
@@ -55,28 +59,28 @@ public class VFXOndeScript : MonoBehaviour
             //Play onde 2
             
             Onde2.Play();
-            ondebool2=true;
+            //ondebool2=true;
 
         }
         else if (combo >= 31 && combo < 61 && !ondebool3)
         {
             //Play onde 3
             Onde3.Play();
-            ondebool3=true;
+            //ondebool3=true;
  
         }
         else if (combo >= 61 && combo < 100 && !ondebool4)
         {
             //Play Onde 4
             Onde4.Play();
-            ondebool4=true;
+            //ondebool4=true;
         }
-        if (combo<100) //Permet d'eviter que l'onde ne se joue jamais car en restant true les ondes se joue pas
+        if (combo<100) //Permet d'eviter que l'onde ne se joue jamais car en restant true les ondes se joue plus
         {
-            ondebool1=false;
-            ondebool2=false;
-            ondebool3=false;
-            ondebool4=false;
+            //ondebool1=false;
+            //ondebool2=false;
+            //ondebool3=false;
+            //ondebool4=false;
         }
     }
 }
