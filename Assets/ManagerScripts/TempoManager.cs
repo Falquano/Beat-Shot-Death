@@ -40,7 +40,7 @@ public class TempoManager : MonoBehaviour
 
 
     //Script de vfx d'onde
-    [SerializeField] private VFXOndeScript VFXOnde;
+
 
     private void Start()
 	{
@@ -104,7 +104,7 @@ public class TempoManager : MonoBehaviour
         }
         else
         {
-            VFXOnde.OnVFXOndeActive(Combo);
+            //VFXOnde.OnVFXOndeActive(Combo);
         }
     }
 
