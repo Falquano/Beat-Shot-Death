@@ -3564,6 +3564,7 @@ MonoBehaviour:
         m_CallState: 2
   ScriptAnimation: {fileID: 0}
   invincible: 0
+  damageText: {fileID: 259312728796913392, guid: f89c27a80d793bc4ea3c153c55e34633, type: 3}
 --- !u!114 &6439272819357905743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3674,6 +3675,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 360
   aimingTime: 0.5
+  onAim:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8685713312603719414
 MonoBehaviour:
   m_ObjectHideFlags: 0

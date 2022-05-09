@@ -37,7 +37,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289888870111577408}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.2477462, y: 1.8750005, z: -1.9925225}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -128,6 +128,7 @@ MonoBehaviour:
         m_CallState: 2
   ScriptAnimation: {fileID: 0}
   invincible: 0
+  damageText: {fileID: 259312728796913392, guid: f89c27a80d793bc4ea3c153c55e34633, type: 3}
 --- !u!114 &3238191573442695278
 MonoBehaviour:
   m_ObjectHideFlags: 0
