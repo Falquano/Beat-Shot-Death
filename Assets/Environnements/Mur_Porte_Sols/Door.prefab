@@ -140,7 +140,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 701c8672282b1ca4aaa4dc7803c51a41, type: 2}
+  - {fileID: 2100000, guid: 9c9b97b4e5ae2964696ffbd7c1051e61, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -221,7 +221,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 701c8672282b1ca4aaa4dc7803c51a41, type: 2}
+  - {fileID: 2100000, guid: 9c9b97b4e5ae2964696ffbd7c1051e61, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -334,10 +334,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6237024172325512894}
   - component: {fileID: 8462633618448850733}
-  - component: {fileID: -5030640454117670288}
   - component: {fileID: 2535346054986367561}
   - component: {fileID: -6564739969749499358}
   - component: {fileID: 7458642423918997538}
+  - component: {fileID: 4427497474471922804}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -377,30 +377,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 1
-  anim: {fileID: -5030640454117670288}
+  anim: {fileID: 4427497474471922804}
   close: {fileID: 2100000, guid: 701c8672282b1ca4aaa4dc7803c51a41, type: 2}
   open: {fileID: 2100000, guid: 9c9b97b4e5ae2964696ffbd7c1051e61, type: 2}
   change1: {fileID: 4099012938259700594}
   change2: {fileID: 4276619394110007332}
   doorEmitter: {fileID: -6564739969749499358}
   closeEmitter: {fileID: 7458642423918997538}
---- !u!111 &-5030640454117670288
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6756961692934798340}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: -623603649343465320, guid: b39561c5a7c60924da15fa8372811118, type: 3}
-  m_Animations:
-  - {fileID: -623603649343465320, guid: b39561c5a7c60924da15fa8372811118, type: 3}
-  - {fileID: 1007095770567677685, guid: b39561c5a7c60924da15fa8372811118, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!65 &2535346054986367561
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -474,6 +457,25 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!111 &4427497474471922804
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6756961692934798340}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 6300630203861294294, guid: b39561c5a7c60924da15fa8372811118, type: 3}
+  m_Animations:
+  - {fileID: 6300630203861294294, guid: b39561c5a7c60924da15fa8372811118, type: 3}
+  - {fileID: 3096326870255912715, guid: b39561c5a7c60924da15fa8372811118, type: 3}
+  - {fileID: -623603649343465320, guid: b39561c5a7c60924da15fa8372811118, type: 3}
+  - {fileID: 1007095770567677685, guid: b39561c5a7c60924da15fa8372811118, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &8336796639754503702
 GameObject:
   m_ObjectHideFlags: 0

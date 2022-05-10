@@ -14,10 +14,13 @@ public class PlayerFXEmitter : MonoBehaviour
     [SerializeField] private GameObject BadShotLinePrefab;
     //[SerializeField] private StudioEventEmitter GunshotSoundEmitter;
     [SerializeField] private EventReference GunshotSound;
+    [SerializeField] private EventReference BadshotSound;
     [SerializeField] private StudioEventEmitter FootstepSoundEmitter;
     [SerializeField] private GameObject ImpactParticlesPrefab;
     [SerializeField] private float okayShotImpactSize = .333f;
     [SerializeField] private GameObject muzzleFlashPrefab;
+
+    private int combo;
 
     public void ShotFX(ShotInfo shotInfo)
     {
@@ -55,9 +58,41 @@ public class PlayerFXEmitter : MonoBehaviour
     private void EmitShotSound(ShotInfo shotInfo)
     {
         // Je cr�e un truc qui joue un son
-        EventInstance gunshot = FMODUnity.RuntimeManager.CreateInstance(GunshotSound);
+        EventInstance gunshot;
+
+        if (shotInfo.Quality == ShotQuality.Bad)
+        {
+            // Instancie la merde
+            gunshot = FMODUnity.RuntimeManager.CreateInstance(BadshotSound); // Changer le EventReference
+        }
+        else
+        {
+            gunshot = FMODUnity.RuntimeManager.CreateInstance(GunshotSound);
+        }
+
         // je met en place son param�tre
         gunshot.setParameterByNameWithLabel("Quality", shotInfo.Quality.ToString());
+
+        if (combo >= 0 && combo <= 1)
+        {
+            gunshot.setParameterByName("Palier2", 0);
+        }
+        else if (combo > 1 && combo <= 10)
+        {
+            gunshot.setParameterByName("Palier2", 1);
+        }
+        else if (combo > 10 && combo <= 30)
+        {
+            gunshot.setParameterByName("Palier2", 2);
+        }
+        else if (combo > 30 && combo <= 60)
+        {
+            gunshot.setParameterByName("Palier2", 3);
+        }
+        else if (combo > 60 && combo <= 100)
+        {
+            gunshot.setParameterByName("Palier2", 4);
+        }
         // je le lance
         gunshot.start();
     }
@@ -71,5 +106,10 @@ public class PlayerFXEmitter : MonoBehaviour
     public void OnFootstep()
     {
         FootstepSoundEmitter.Play();
+    }
+
+    public void ComboChange(int newCombo, int max)
+    {
+        combo = newCombo;
     }
 }

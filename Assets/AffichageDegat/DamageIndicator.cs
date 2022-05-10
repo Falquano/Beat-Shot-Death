@@ -45,8 +45,25 @@ public class DamageIndicator : MonoBehaviour
     {
         text.text = amount.ToString();
 
-        
+        if (amount >= 10 && amount <=20)
+        {
+            text.color = new Color (0,0,255, 1f);//blue
+            text.fontSize = 28f;
+        }
+        else if (amount >= 30 && amount <=60)
+        {
+            text.color = new Color (0,255,0, 1f); //green
+            text.fontSize = 35f;
+        }  
+        else if (amount >= 61 && amount <=80)
+        {
+            text.color = new Color (255,200,0, 1f);//yellow
+            text.fontSize = 40f;
+        }
+        else if (amount == 120)
+        {
+            text.color = new Color (255,0,0, 1f);//rouge
+            text.fontSize = 45f;
+        } 
     }
-
-    
 }

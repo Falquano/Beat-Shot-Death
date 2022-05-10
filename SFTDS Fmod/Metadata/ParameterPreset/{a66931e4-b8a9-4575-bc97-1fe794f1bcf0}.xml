@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{a66931e4-b8a9-4575-bc97-1fe794f1bcf0}">
+		<property name="name">
+			<value>Palier</value>
+		</property>
+		<relationship name="folder">
+			<destination>{2a51a752-3be1-49a9-9eb7-ec4a8e16f0b0}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{3325bcea-cc04-4f7a-891d-c22bfb9ade7f}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{3325bcea-cc04-4f7a-891d-c22bfb9ade7f}">
+		<property name="maximum">
+			<value>5</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>0.60000002384185791</value>
+		</property>
+	</object>
+</objects>

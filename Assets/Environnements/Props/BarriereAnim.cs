@@ -9,14 +9,10 @@ public class BarriereAnim : MonoBehaviour
     [SerializeField] private GameObject barriere2_front;
     [SerializeField] private GameObject barriere1_back;
     [SerializeField] private GameObject barriere2_back;
-    [SerializeField] private GameObject collider1;
-    [SerializeField] private GameObject collider2;
     private Animation anim1_front;
     private Animation anim2_front;
     private Animation anim1_back;
     private Animation anim2_back;
-    private bool step1;
-    private bool step2;
 
     private int numberShot= 0;
 
@@ -28,16 +24,40 @@ public class BarriereAnim : MonoBehaviour
         anim2_front = barriere2_front.GetComponent<Animation>();
         anim1_back = barriere1_back.GetComponent<Animation>();
         anim2_back = barriere2_back.GetComponent<Animation>();
-        step2 = false;
-        step1 = true;
     }
 
-    public void shotCollision()//Tu appel ça depuis le script du player ou d'un ennemi si il tir et que c'est cette objet +++ Sans oublié de lui donné le raycast du tir
+    public void ShotCollision(Vector3 normal)//Tu appel ça depuis le script du player ou d'un ennemi si il tir et que c'est cette objet +++ Sans oublié de lui donné le raycast du tir
     {
+        Debug.Log(normal);
+
         if(numberShot == 0)
         {
             //récupération de la normal du raycast
+            if(normal.x <= 1)
+            {
+                barriere.SetActive(false);
+                barriere1_front.SetActive(true);
+                barriere1_back.SetActive(false);
+
+                if (anim1_front == null)
+                    throw new System.Exception("AAAAAAAAAAAAAAAAAAAAAAAA");
+
+                //anim1_front.Play("Scene");
+            }
+
+            if (normal.x <= -1)
+            {
+                barriere.SetActive(false);
+                barriere1_front.SetActive(false);
+                barriere1_back.SetActive(true);
+
+                if (anim1_front == null)
+                    throw new System.Exception("AAAAAAAAAAAAAAAAAAAAAAAA");
+
+                //anim1_back.Play("Scene");
+            }
             numberShot += 1;
+            Debug.Log("NumberShot" + numberShot);
         }
         else
         {
