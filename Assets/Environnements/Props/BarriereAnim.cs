@@ -97,7 +97,7 @@ public class BarriereAnim : MonoBehaviour
         }
 
         numberShot ++;
-        Debug.Log("NumberShot" + numberShot);
+        //Debug.Log("NumberShot" + numberShot);
     }
 
     public void hitCollision()

@@ -284,7 +284,7 @@ public class ShootPlayer : MonoBehaviour
 
 
 
-    private int ComboDamageBonus(int baseDamage)
+    private int ComboDamageBonus(int baseDamage) //Calcul des dégâts en fonction du combo
     {
         if (combo >= 0 && combo <= 1)
         {
