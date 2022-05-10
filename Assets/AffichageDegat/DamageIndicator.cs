@@ -48,12 +48,12 @@ public class DamageIndicator : MonoBehaviour
         if (amount >= 10 && amount <=20)
         {
             text.color = new Color (0,0,255, 1f);//blue
-            text.fontSize = 28f;
+            text.fontSize = 10f;
         }
         else if (amount >= 30 && amount <=60)
         {
             text.color = new Color (0,255,0, 1f); //green
-            text.fontSize = 35f;
+            text.fontSize = 25f;
         }  
         else if (amount >= 61 && amount <=80)
         {
@@ -63,7 +63,7 @@ public class DamageIndicator : MonoBehaviour
         else if (amount == 120)
         {
             text.color = new Color (255,0,0, 1f);//rouge
-            text.fontSize = 45f;
+            text.fontSize = 55f;
         } 
     }
 }

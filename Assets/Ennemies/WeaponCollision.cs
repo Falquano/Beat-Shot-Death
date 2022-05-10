@@ -17,6 +17,7 @@ public class WeaponCollision : MonoBehaviour
         
         if(other.tag == "Player")
         {
+            
             PlayerHealth = other.GetComponent<PlayerHealthSystem>();
             PlayerHealth.DealDamage(damagePlayer);
         }
