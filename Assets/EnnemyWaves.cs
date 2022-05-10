@@ -28,7 +28,7 @@ public class EnnemyWaves : MonoBehaviour
         ennemiesArray = GetComponentsInChildren<EnnemyBehavior>();
         livingEnnemies = ennemiesArray.Length;
         totalEnnemies = ennemiesArray.Length;
-        Debug.Log(livingEnnemies);
+
         close = false;
 
         foreach (EnnemyBehavior ennemy in ennemiesArray)
@@ -40,7 +40,7 @@ public class EnnemyWaves : MonoBehaviour
     private void EnnemyDies()
     {
         livingEnnemies--;
-        Debug.Log(livingEnnemies);
+
     }
 
         // Update is called once per frame
@@ -63,7 +63,7 @@ public class EnnemyWaves : MonoBehaviour
                 ennemiesArray = GetComponentsInChildren<EnnemyBehavior>();
                 livingEnnemies = ennemiesArray.Length;
                 totalEnnemies++;
-                Debug.Log("SPAWN");
+
 
                 if(totalEnnemies >= wave)
                 {

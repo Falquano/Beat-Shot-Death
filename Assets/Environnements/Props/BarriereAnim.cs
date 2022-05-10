@@ -28,25 +28,14 @@ public class BarriereAnim : MonoBehaviour
 
     public void ShotCollision(Vector3 normal)//Tu appel ça depuis le script du player ou d'un ennemi si il tir et que c'est cette objet +++ Sans oublié de lui donné le raycast du tir
     {
-        Debug.Log(normal);
+
 
         if(numberShot == 0)
         {
             //récupération de la normal du raycast
-            if(normal.x <= 1)
+            if(normal.x == 1)
             {
-                barriere.SetActive(false);
-                barriere1_front.SetActive(true);
-                barriere1_back.SetActive(false);
-
-                if (anim1_front == null)
-                    throw new System.Exception("AAAAAAAAAAAAAAAAAAAAAAAA");
-
-                //anim1_front.Play("Scene");
-            }
-
-            if (normal.x <= -1)
-            {
+                Debug.Log("Front" + normal);
                 barriere.SetActive(false);
                 barriere1_front.SetActive(false);
                 barriere1_back.SetActive(true);
@@ -54,15 +43,29 @@ public class BarriereAnim : MonoBehaviour
                 if (anim1_front == null)
                     throw new System.Exception("AAAAAAAAAAAAAAAAAAAAAAAA");
 
+                //anim1_front.Play("Scene");
+            }
+
+            if (normal.x == -1)
+            {
+                Debug.Log("Back" + normal);
+                barriere.SetActive(false);
+                barriere1_front.SetActive(true);
+                barriere1_back.SetActive(false);
+
+                if (anim1_front == null)
+                    throw new System.Exception("AAAAAAAAAAAAAAAAAAAAAAAA");
+
                 //anim1_back.Play("Scene");
             }
-            numberShot += 1;
-            Debug.Log("NumberShot" + numberShot);
+
         }
         else
         {
 
         }
+        numberShot ++;
+        Debug.Log("NumberShot" + numberShot);
     }
 
     public void hitCollision()
