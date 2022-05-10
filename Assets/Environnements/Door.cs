@@ -16,6 +16,11 @@ public class Door : MonoBehaviour
     [SerializeField] private StudioEventEmitter doorEmitter;
     [SerializeField] private StudioEventEmitter closeEmitter;
 
+    private void Start()
+    {
+        GetComponent<Collider>().enabled = false;
+    }
+    
     public void PlayerEnterTrigger()
     {
         if (locked)
@@ -29,6 +34,7 @@ public class Door : MonoBehaviour
         playerWaiting = false;
         Close();
     }
+    
 
     public void Unlock()
     {

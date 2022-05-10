@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4874341864859762225}
   - component: {fileID: 4874341864859762226}
   - component: {fileID: 4874341864859762230}
+  - component: {fileID: 314563642602374299}
   m_Layer: 0
   m_Name: Porte
   m_TagString: Untagged
@@ -97,6 +98,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 1
+  anim: {fileID: 0}
+  close: {fileID: 0}
+  open: {fileID: 0}
+  change1: {fileID: 0}
+  change2: {fileID: 0}
+  doorEmitter: {fileID: 0}
+  closeEmitter: {fileID: 0}
 --- !u!65 &4874341864859762230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -110,6 +118,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &314563642602374299
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4874341864859762228}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8eb47be7c4ed40b47ad6fd6877118a5b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5237811991654454540
 GameObject:
   m_ObjectHideFlags: 0

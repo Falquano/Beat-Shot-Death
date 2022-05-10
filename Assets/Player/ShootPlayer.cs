@@ -206,9 +206,8 @@ public class ShootPlayer : MonoBehaviour
 
 
             }
-
             //On v�rifie si il collide avec un �l�ment et si cet �l�ment poss�de le tag Button
-            if (RayShoot.collider != null && RayShoot.transform.tag == "Button")
+            else if (RayShoot.collider != null && RayShoot.transform.tag == "Button")
             {
                 //On tir sur un ennemi (peut importe les d�g�ts), alors on ne descendra pas en combo)
                 numberOfNonShoot = 0;
@@ -242,8 +241,12 @@ public class ShootPlayer : MonoBehaviour
 
 
             }
-
-            if (RayShoot.collider != null && RayShoot.transform.tag != "Button" & RayShoot.transform.tag != "Ennemy")
+            else if (RayShoot.collider != null && RayShoot.transform.tag == "Barriere")
+            {
+                BarriereAnim barriere = RayShoot.transform.GetComponent<BarriereAnim>();
+                barriere.ShotCollision(RayShoot.normal);
+            }
+            else
             {
                 //Si le joueur tir sur aucun de ces deux �l�ments, alors son tir est comptabilis� comme nul est compte comme un non tir, le combo descendra
                 numberOfNonShoot += 1;
