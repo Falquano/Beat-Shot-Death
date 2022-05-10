@@ -13,7 +13,7 @@ public class BarriereAnim : MonoBehaviour
     private Animation anim2_front;
     private Animation anim1_back;
     private Animation anim2_back;
-
+    [SerializeField] int barriereHealth; 
     private int numberShot= 0;
 
 
@@ -30,7 +30,7 @@ public class BarriereAnim : MonoBehaviour
     {
 
 
-        if(numberShot == 0)
+        if(numberShot == barriereHealth/2)
         {
             //récupération de la normal du raycast
             if(normal.x == 1)
@@ -60,10 +60,42 @@ public class BarriereAnim : MonoBehaviour
             }
 
         }
-        else
+
+        if (numberShot == barriereHealth)
         {
+            //récupération de la normal du raycast
+            if (normal.x == 1)
+            {
+                barriere1_front.SetActive(false);
+                barriere1_back.SetActive(false);
+                barriere2_front.SetActive(false);
+                barriere2_back.SetActive(true);
+                Collider mycollide = GetComponent<Collider>();
+                mycollide.enabled = false;
+
+                if (anim1_front == null)
+                    throw new System.Exception("AAAAAAAAAAAAAAAAAAAAAAAA");
+
+                //anim1_front.Play("Scene");
+            }
+
+            if (normal.x == -1)
+            {
+                barriere1_back.SetActive(false);
+                barriere1_front.SetActive(false);
+                barriere2_front.SetActive(true);
+                barriere2_back.SetActive(false);
+                Collider mycollide = GetComponent<Collider>();
+                mycollide.enabled = false;
+
+                if (anim1_front == null)
+                    throw new System.Exception("AAAAAAAAAAAAAAAAAAAAAAAA");
+
+                //anim1_back.Play("Scene");
+            }
 
         }
+
         numberShot ++;
         Debug.Log("NumberShot" + numberShot);
     }
