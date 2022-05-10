@@ -289,19 +289,19 @@ public class ShootPlayer : MonoBehaviour
         }
         else if (combo > 1 && combo <= 25)
         {
-            return (int)((float)baseDamage * 2f);
+            return (int)((float)baseDamage * 1.5f);
         }
         else if (combo > 25 && combo <= 50)
         {
-            return baseDamage * 3;
+            return baseDamage * 2;
         }
         else if (combo > 50 && combo <= 75)
         {
-            return baseDamage * 5;
+            return baseDamage * 4;
         }
         else
         {
-            return baseDamage * 8;
+            return baseDamage * 6;
         }
     }
 
