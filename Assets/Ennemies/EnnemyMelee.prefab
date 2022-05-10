@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aa2e8a9278297488724feb9276051a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 30
+  MaxHealth: 100
   onTakeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 5016392365588698595}
   - component: {fileID: 5016392365588698596}
   - component: {fileID: 5016392365588698594}
-  - component: {fileID: 5016392365588698597}
+  - component: {fileID: 3308962055020917125}
   m_Layer: 8
   m_Name: HitZone
   m_TagString: Untagged
@@ -468,7 +468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5016392365588698599}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.11, y: 1.92, z: 0.94}
+  m_LocalPosition: {x: -0.11, y: 1.1, z: 0.94}
   m_LocalScale: {x: 1.8625, y: 1.5262, z: 1.4788}
   m_Children: []
   m_Father: {fileID: 2438681364463424686}
@@ -535,9 +535,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70bc1496ff1bc5440bcfe226ea91fc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageEnnemy: 50
+  damageEnnemy: 20
   damagePlayer: 2
---- !u!65 &5016392365588698597
+--- !u!65 &3308962055020917125
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -548,7 +548,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.08, y: 1.5262, z: 1.04}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4611110026496011173
 PrefabInstance:

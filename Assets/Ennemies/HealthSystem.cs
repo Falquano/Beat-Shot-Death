@@ -40,6 +40,7 @@ public class HealthSystem : MonoBehaviour
 
         health -= amount;
         
+        
         onTakeDamage.Invoke(amount, health); 
         DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
         indicator.SetDamageText(amount);
@@ -53,7 +54,7 @@ public class HealthSystem : MonoBehaviour
     private void Die()
     {
         onDie.Invoke();
-        print("morte");
+        
         
         Destroy(GetComponent<ShootMesure>());
         Destroy(GetComponent<AimMesure>());
