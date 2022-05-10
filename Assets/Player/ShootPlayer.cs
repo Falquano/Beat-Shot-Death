@@ -223,12 +223,12 @@ public class ShootPlayer : MonoBehaviour
                 {
                     case ShotQuality.Bad:
                         AnimButton.SetInteger("QualityShoot", 1);
-                        combo = Mathf.Clamp(combo + comboBadShotMod, 0, maxCombo);
+
 
                         break;
                     case ShotQuality.Good:
                         AnimButton.SetInteger("QualityShoot", 2);
-                        combo = Mathf.Clamp(combo + comboGoodShotMod, 0, maxCombo);
+
 
                         break;
                     case ShotQuality.Perfect:

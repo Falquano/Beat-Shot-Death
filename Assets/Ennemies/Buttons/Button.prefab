@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5495138845040030859}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.11, y: 3.73, z: -7.69}
-  m_LocalScale: {x: 1.7622, y: 1.08324, z: 1.6871}
+  m_LocalScale: {x: 1.7622, y: 1.0832404, z: 1.6871004}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0ba2248ae51e7f84c97241d19262b9f1, type: 2}
+  - {fileID: 2100000, guid: 1a6a075da46c3d247814af7b0d301a0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,7 +95,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 6.13, y: 1.62, z: 2.04}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-3962664616825551457
 MonoBehaviour:
@@ -109,8 +109,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea2551aaf26a764da4890648698ff9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonAnim: {fileID: 6926744810694307203}
-  Door: {fileID: 0}
+  doors:
+  - {fileID: 0}
+  - {fileID: 0}
+  close: 0
+  colorMat:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!95 &6926744810694307203
 Animator:
   serializedVersion: 3
