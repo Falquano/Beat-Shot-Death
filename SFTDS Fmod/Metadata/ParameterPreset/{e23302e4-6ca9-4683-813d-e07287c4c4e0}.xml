@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{e23302e4-6ca9-4683-813d-e07287c4c4e0}">
+		<property name="name">
+			<value>Palier2</value>
+		</property>
+		<relationship name="folder">
+			<destination>{2a51a752-3be1-49a9-9eb7-ec4a8e16f0b0}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{1fd6a916-5071-4a66-9dd2-583e45ae4290}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{1fd6a916-5071-4a66-9dd2-583e45ae4290}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>5</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

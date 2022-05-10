@@ -11,7 +11,7 @@ public class EnnemyBehavior : MonoBehaviour
     [SerializeField] private Mesure[] mesures;
     private int currentMesure;
 
-    [SerializeField] private bool active;
+    [SerializeField] private bool active = true;
     public bool Active { get => active; set => active = value; }
 
     private GameObject player;
@@ -24,9 +24,10 @@ public class EnnemyBehavior : MonoBehaviour
 
     private void Start()
     {
-        
+        tempo = FindObjectOfType<TempoManager>();
         player = FindObjectOfType<PlayerMove>().gameObject;
-        currentMesure = 0;
+        
+        currentMesure = tempo.Beat;
         //animator = GetComponentInChildren<Animator>();
 
         for (int i = 0; i < mesures.Length; i++)
@@ -36,7 +37,6 @@ public class EnnemyBehavior : MonoBehaviour
         }
 
         rigidBodyEnnemy = GetComponent<Rigidbody>();
-        
     }
 
     private void OnEnable()
