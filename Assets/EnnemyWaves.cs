@@ -20,6 +20,7 @@ public class EnnemyWaves : MonoBehaviour
     [SerializeField] private bool close;
     [SerializeField] private int varEnnemiMax;
     private Door[] doors;
+    public Collider exitCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -29,11 +30,21 @@ public class EnnemyWaves : MonoBehaviour
         livingEnnemies = ennemiesArray.Length;
         totalEnnemies = ennemiesArray.Length;
 
+
         close = false;
 
         foreach (EnnemyBehavior ennemy in ennemiesArray)
         {
             ennemy.GetComponent<HealthSystem>().onDie.AddListener(EnnemyDies);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            close = true;
+            Debug.Log("Je sors de la salle");
         }
     }
 

@@ -39,6 +39,7 @@ public class HitMesure : Mesure
         
         //On invoque l'event pour les anims etc.
         onHit.Invoke();
+
         
     }
 

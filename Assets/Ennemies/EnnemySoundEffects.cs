@@ -15,21 +15,13 @@ public class EnnemySoundEffects : MonoBehaviour
     public void OnShoot()
     {
         EmitShotSound();
-        Debug.Log("jappel l'attaque");
-
-    }
-
-    public void OnHit()
-    {
-        EmitShotSound();
-        Debug.Log("jappel l'attaque");
 
     }
 
     private void EmitShotSound()
     {
         GunshotSoundEmitter.Play();
-        Debug.Log("j'attaque");
+
     }
 
     public void OnFootstep()
