@@ -9951,6 +9951,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnnemyMelee
       objectReference: {fileID: 0}
+    - target: {fileID: 5405317941209828280, guid: 48728ef15e727ad4e9fc0d63c6dce55e, type: 3}
+      propertyPath: onFootstep.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405317941209828280, guid: 48728ef15e727ad4e9fc0d63c6dce55e, type: 3}
+      propertyPath: onFootstep.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405317941209828280, guid: 48728ef15e727ad4e9fc0d63c6dce55e, type: 3}
+      propertyPath: onFootstep.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1340222285}
+    - target: {fileID: 5405317941209828280, guid: 48728ef15e727ad4e9fc0d63c6dce55e, type: 3}
+      propertyPath: onFootstep.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405317941209828280, guid: 48728ef15e727ad4e9fc0d63c6dce55e, type: 3}
+      propertyPath: onFootstep.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405317941209828280, guid: 48728ef15e727ad4e9fc0d63c6dce55e, type: 3}
+      propertyPath: onFootstep.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FMODUnity.StudioEventEmitter, FMODUnity
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405317941209828280, guid: 48728ef15e727ad4e9fc0d63c6dce55e, type: 3}
+      propertyPath: onFootstep.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48728ef15e727ad4e9fc0d63c6dce55e, type: 3}
 --- !u!4 &1030502951 stripped
@@ -11851,6 +11879,17 @@ Transform:
   m_Father: {fileID: 1379802255}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1340222285 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2784079984438953650, guid: 48728ef15e727ad4e9fc0d63c6dce55e, type: 3}
+  m_PrefabInstance: {fileID: 1030502950}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1350349613
 PrefabInstance:
   m_ObjectHideFlags: 0
