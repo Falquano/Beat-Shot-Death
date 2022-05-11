@@ -7530,21 +7530,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1822282745}
     m_Modifications:
+    - target: {fileID: 89198506583064440, guid: fd23640d5d887164ba4c664f3781e348, type: 3}
+      propertyPath: doorEmitter
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427603859690573943, guid: fd23640d5d887164ba4c664f3781e348, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427603859690573943, guid: fd23640d5d887164ba4c664f3781e348, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 31.24
+      objectReference: {fileID: 0}
     - target: {fileID: 7257555590352548570, guid: fd23640d5d887164ba4c664f3781e348, type: 3}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7257555590352548570, guid: fd23640d5d887164ba4c664f3781e348, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.009999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 7257555590352548570, guid: fd23640d5d887164ba4c664f3781e348, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.009999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 7257555590352548570, guid: fd23640d5d887164ba4c664f3781e348, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.009999998
       objectReference: {fileID: 0}
     - target: {fileID: 7257555590352548570, guid: fd23640d5d887164ba4c664f3781e348, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7590,10 +7590,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MurPorte (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 8128621910111697809, guid: fd23640d5d887164ba4c664f3781e348, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 8eb47be7c4ed40b47ad6fd6877118a5b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd23640d5d887164ba4c664f3781e348, type: 3}
 --- !u!1001 &769609014
@@ -13694,9 +13690,9 @@ MonoBehaviour:
   ennemiesArray: []
   livingEnnemies: 0
   totalEnnemies: 0
-  wave: 50
+  wave: 4
   close: 0
-  varEnnemiMax: 10
+  varEnnemiMax: 4
 --- !u!1001 &1518349007
 PrefabInstance:
   m_ObjectHideFlags: 0

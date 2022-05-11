@@ -13,7 +13,6 @@ public class Door : MonoBehaviour
     [SerializeField] private Material open;
     [SerializeField] private GameObject change1;
     [SerializeField] private GameObject change2;
-    [SerializeField] private StudioEventEmitter doorEmitter;
     [SerializeField] private StudioEventEmitter closeEmitter;
 
     private void Start()
@@ -56,7 +55,7 @@ public class Door : MonoBehaviour
         if(!locked)
             Debug.Log("OpeningNow");
         //GetComponent<Renderer>().enabled = false;
-        doorEmitter.Play();
+
         GetComponent<Collider>().enabled = false;
             anim.Play("Open");
     }
@@ -67,6 +66,6 @@ public class Door : MonoBehaviour
         anim.Play("Idle_Close");
         //GetComponent<Renderer>().enabled = true;
         GetComponent<Collider>().enabled = true;
-        closeEmitter.Play();
+
     }
 }
