@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class ButtonJustShoot : MonoBehaviour
     [SerializeField] private bool close;
     public List<SpriteRenderer> colorMat = new List<SpriteRenderer>();
     private bool detruit;
+    [SerializeField] private StudioEventEmitter destroyEmitter;
 
 
     private void Start()
@@ -33,6 +35,7 @@ public class ButtonJustShoot : MonoBehaviour
         else
             close = true;
             detruit = true;
+            destroyEmitter.Play();
             DoorClose();
 
     }
