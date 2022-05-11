@@ -1,6 +1,9 @@
+using FMODUnity;
+using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class BarriereAnim : MonoBehaviour
 {
@@ -15,6 +18,9 @@ public class BarriereAnim : MonoBehaviour
     private Animation anim2_back;
     [SerializeField] int barriereHealth; 
     private int numberShot= 0;
+
+    [SerializeField] private StudioEventEmitter barriere1;
+    [SerializeField] private StudioEventEmitter barriere2;
 
 
     // Start is called before the first frame update
@@ -53,11 +59,14 @@ public class BarriereAnim : MonoBehaviour
                 barriere1_front.SetActive(true);
                 barriere1_back.SetActive(false);
 
+
                 if (anim1_front == null)
                     throw new System.Exception("AAAAAAAAAAAAAAAAAAAAAAAA");
 
                 //anim1_back.Play("Scene");
             }
+
+            barriere1.Play();
 
         }
 
@@ -93,6 +102,7 @@ public class BarriereAnim : MonoBehaviour
 
                 //anim1_back.Play("Scene");
             }
+            barriere2.Play();
 
         }
 

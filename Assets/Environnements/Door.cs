@@ -66,6 +66,8 @@ public class Door : MonoBehaviour
         anim.Play("Idle_Close");
         //GetComponent<Renderer>().enabled = true;
         GetComponent<Collider>().enabled = true;
+        closeEmitter.Play();
+        
 
     }
 }

@@ -11,6 +11,7 @@ public class ButtonJustShoot : MonoBehaviour
     [SerializeField] private Door[] doors;
     [SerializeField] private bool close;
     public List<SpriteRenderer> colorMat = new List<SpriteRenderer>();
+    private bool detruit;
 
 
     private void Start()
@@ -18,6 +19,7 @@ public class ButtonJustShoot : MonoBehaviour
 
         //doors = GetComponentsInChildren<Door>();
         close = false;
+        detruit = false;
     }
 
     // Start is called before the first frame update
@@ -25,8 +27,13 @@ public class ButtonJustShoot : MonoBehaviour
         
     public void DoorOpening()
     {
-        close = true;
-        DoorClose();
+        if (detruit)
+            return;
+
+        else
+            close = true;
+            detruit = true;
+            DoorClose();
 
     }
 
@@ -35,16 +42,18 @@ public class ButtonJustShoot : MonoBehaviour
         if (!close)
             return;
 
-        close = true;
-        foreach (Door door in doors)
+        if((close) && (detruit))
         {
-            Debug.Log("jevaisMarcherTKT");
-            door.Close();
-        }
+            foreach (Door door in doors)
+            {
+                door.Close();
+            }
 
-        for (var i = 0; i < colorMat.Count; i++)
-        {
-            colorMat[i].color = Color.red; 
+            for (var i = 0; i < colorMat.Count; i++)
+            {
+                colorMat[i].color = Color.red;
+            }
+
         }
 
     }
