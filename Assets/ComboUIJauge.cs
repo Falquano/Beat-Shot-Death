@@ -9,15 +9,15 @@ public class ComboUIJauge : MonoBehaviour
     [SerializeField] private Image ComboIMage2;
     [SerializeField] private Image ComboIMage3;
     [SerializeField] private Image ComboIMage4;
+
     
 
-   
+
+    
 
 
-    public void OnComboChange(int combo, int  max)
+    public void OnComboChangeUI(int combo, int  max)
     {
-
-
 
         if(combo == 0)
         {

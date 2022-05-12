@@ -4,10 +4,53 @@ using UnityEngine;
 
 public class CursorTempo : MonoBehaviour
 {
-    [SerializeField] private Animator Cursor;
-    [SerializeField] ShootPlayer scriptshootplayer;
+    /*[SerializeField] private Animator Cursor;
+    [SerializeField] ShootPlayer scriptshootplayer;*/
 
-    public void CursorTempoAnim()
+    [SerializeField] GameObject PrefabUI;
+
+    [SerializeField]  private List<GameObject> AnimList = new List<GameObject>();
+
+    //Pour chaque début de beat on créer une anim qui est stocker dans une list
+    public void NewUIOnBeat()
+    {
+        GameObject myAnim = Instantiate(PrefabUI, transform);
+        AnimList.Add(myAnim);
+
+    }
+
+
+    //Pour chaque début de beat, on active le trigger de toutes les anim qui existe
+    public void TriggerAnimSet()
+    {
+        print("proutasse");
+        for (var i = 0; i < AnimList.Count; i++)
+        {
+            Animator AnimAnimator = AnimList[i].GetComponent<Animator>();
+            AnimAnimator.SetTrigger("Trigger");
+        }
+    }
+
+    //Quand un anim se détruit, on la supprime du tableau
+    public void OnAnimDestroy(GameObject anim)
+    {
+        AnimList.Remove(anim);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*public void CursorTempoAnim()
     {
         int combo = scriptshootplayer.combo;
         
@@ -32,7 +75,7 @@ public class CursorTempo : MonoBehaviour
         {
             Cursor.SetTrigger("Combo4");
         }
-    }
+    }*/
 
     /*private void TempoTrue()
     {

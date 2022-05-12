@@ -37,6 +37,8 @@ public class TempoManager : MonoBehaviour
     [SerializeField] public UnityEvent onTimeToShoot = new UnityEvent();
     [SerializeField] public UnityEvent onPlayerTimeToShoot = new UnityEvent();
 
+    
+
 
     //Script de vfx d'onde
 
@@ -62,6 +64,7 @@ public class TempoManager : MonoBehaviour
 		}
 
         
+        
         //TimerTempo = ObjectiveShoot * TempoDuration;
 
     }
@@ -74,6 +77,8 @@ public class TempoManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         TimerTempo += Time.deltaTime;
         if ((TimerTempo - Time.deltaTime) / TempoDuration < objectiveShoot && TimerTempo / TempoDuration >= objectiveShoot)
         {
@@ -82,6 +87,8 @@ public class TempoManager : MonoBehaviour
         if (TimerTempo >= TempoDuration) // Si le temps qui passe est égale à un  temps 
         {
             NouvelleMesure();
+            
+
         }
 
         TimerTempo %= TempoDuration;
