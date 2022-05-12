@@ -11,19 +11,23 @@ public class EnnemySoundEffects : MonoBehaviour
     [SerializeField] private StudioEventEmitter HurtSoundEmitter;
     [SerializeField] private StudioEventEmitter DieSoundEmitter;
 
+
     public void OnShoot()
     {
         EmitShotSound();
+
     }
 
     private void EmitShotSound()
     {
         GunshotSoundEmitter.Play();
+
     }
 
     public void OnFootstep()
     {
         FootstepSoundEmitter.Play();
+        //Debug.Log("JeMarche");
     }
 
     public void HurtSoundEffect(int damage, int newLife)

@@ -64,11 +64,10 @@ public class EnnemyAnimationEvents : MonoBehaviour
     
 
 
-    /*public void Footstep() Je sais pas pourquoi ya ça
-     
+    public void Footstep() //Je sais pas pourquoi ya ça
     {
         onFootstep.Invoke();
-    }*/
+    }
 
 
 }

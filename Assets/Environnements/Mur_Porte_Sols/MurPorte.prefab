@@ -245,7 +245,7 @@ Transform:
   m_GameObject: {fileID: 8067025518868654176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -60.60519, y: 0.87500036, z: -28.875233}
-  m_LocalScale: {x: 0.009999997, y: 0.009999996, z: 0.009999996}
+  m_LocalScale: {x: 0.009999996, y: 0.009999996, z: 0.009999998}
   m_Children:
   - {fileID: 2505102628177856235}
   - {fileID: 6648281212981000164}
@@ -559,11 +559,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 7458642423918997538, guid: 8736787ab2c459d4ba6fb791fcf70d0b, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458642423918997538, guid: 8736787ab2c459d4ba6fb791fcf70d0b, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 31.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458642423918997538, guid: 8736787ab2c459d4ba6fb791fcf70d0b, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 21.547483
+      objectReference: {fileID: 0}
     - target: {fileID: 8462633618448850733, guid: 8736787ab2c459d4ba6fb791fcf70d0b, type: 3}
       propertyPath: locked
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8462633618448850733, guid: 8736787ab2c459d4ba6fb791fcf70d0b, type: 3}
+      propertyPath: doorEmitter
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -6564739969749499358, guid: 8736787ab2c459d4ba6fb791fcf70d0b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8736787ab2c459d4ba6fb791fcf70d0b, type: 3}
 --- !u!4 &2505102628177856235 stripped
 Transform:

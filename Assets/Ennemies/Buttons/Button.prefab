@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5495138845040030852}
   - component: {fileID: -3962664616825551457}
   - component: {fileID: 6926744810694307203}
+  - component: {fileID: 6809466308947043206}
   m_Layer: 0
   m_Name: Button
   m_TagString: Button
@@ -124,6 +125,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  destroyEmitter: {fileID: 6809466308947043206}
 --- !u!95 &6926744810694307203
 Animator:
   serializedVersion: 3
@@ -143,3 +145,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6809466308947043206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5495138845040030859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1873341113
+      Data2: 1322559164
+      Data3: 244138370
+      Data4: 1539331760
+    Path: event:/Environnements/Door/Button
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

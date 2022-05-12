@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 303860282767870696}
   - component: {fileID: 3209267591372646868}
   - component: {fileID: 715990910}
+  - component: {fileID: 3754789690943097766}
+  - component: {fileID: 5968791745370481389}
   m_Layer: 0
   m_Name: Barriere
   m_TagString: Barriere
@@ -88,6 +90,8 @@ MonoBehaviour:
   barriere1_back: {fileID: 2484364547873104476}
   barriere2_back: {fileID: 8355498790539334087}
   barriereHealth: 4
+  barriere1: {fileID: 3754789690943097766}
+  barriere2: {fileID: 5968791745370481389}
 --- !u!65 &715990910
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -101,6 +105,66 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.84, y: 1.267614, z: 0.04}
   m_Center: {x: 0, y: 0.721193, z: 0}
+--- !u!114 &3754789690943097766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3615722882128421799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1409256939
+      Data2: 1333379071
+      Data3: 2108966540
+      Data4: -257943648
+    Path: event:/Environnements/Barriere/Barriere_Step1
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &5968791745370481389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3615722882128421799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1294050560
+      Data2: 1331042797
+      Data3: 1274463368
+      Data4: -1896360501
+    Path: event:/Environnements/Barriere/Barriere_Step2
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!111 &8539798810934413358
 Animation:
   m_ObjectHideFlags: 0

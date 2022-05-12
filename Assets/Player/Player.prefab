@@ -3189,6 +3189,7 @@ GameObject:
   - component: {fileID: 245831671}
   - component: {fileID: 1205841728393270597}
   - component: {fileID: 4041086488961735541}
+  - component: {fileID: 462927568}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -3455,12 +3456,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MusicParameterizer, Assembly-CSharp
+        m_MethodName: SetCombo
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7462270552646460797}
+        m_TargetAssemblyTypeName: PlayerFXEmitter, Assembly-CSharp
+        m_MethodName: ComboChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   tempoManager: {fileID: 0}
   CheckShootisOk: 1
   comboNoShotMod: -8
-  comboPerfectShotMod: 10
+  comboPerfectShotMod: 5
   comboGoodShotMod: 2
-  comboBadShotMod: -8
+  comboBadShotMod: -5
   comboDecrease: -10
   perfectShotDamage: 20
   goodShotDamage: 20
@@ -3491,6 +3516,13 @@ MonoBehaviour:
       Data3: 1983931013
       Data4: 814347499
     Path: event:/Player/Shot
+  BadshotSound:
+    Guid:
+      Data1: -1867225826
+      Data2: 1133453232
+      Data3: 761065907
+      Data4: -534717300
+    Path: event:/Player/BadShot
   FootstepSoundEmitter: {fileID: 785891961}
   ImpactParticlesPrefab: {fileID: 7081961916757537454, guid: f0bfca444f22a92458ec88145b5918c9, type: 3}
   okayShotImpactSize: 0.333
@@ -3604,7 +3636,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  invincible: 0
+  invincible: 1
 --- !u!114 &1952105521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3684,6 +3716,20 @@ MonoBehaviour:
   blockedCheckMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &462927568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047568458364018868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1 &9064211643043433909
 GameObject:
   m_ObjectHideFlags: 0
