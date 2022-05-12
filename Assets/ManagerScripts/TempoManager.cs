@@ -114,23 +114,23 @@ public class TempoManager : MonoBehaviour
     {
         if(Combo >= 0 && Combo < 1)
         {
-            return (1.0f);
+            return (0.70f);
         }
         else if(Combo > 1 && Combo <= 10)
         {
-            return (0.84f);
+            return (0.70f);
         }
         else if(Combo > 10 && Combo <= 30)
         {
-            return (0.68f);
+            return (0.70f);
         }
         else if(Combo > 30 && Combo <= 60)
         {
-            return (0.51f);
+            return (0.70f);
         }
         else
         {
-            return (0.34f);
+            return (0.70f);
         }
     }
 

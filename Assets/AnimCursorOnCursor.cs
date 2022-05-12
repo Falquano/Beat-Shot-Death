@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class AnimCursorOnCursor : MonoBehaviour
 {
-    [SerializeField] private CursorTempo ScriptGestionAnim;
-    [SerializeField] private GameObject thisObject;
+    [SerializeField] private Animator Anim;
+    
 
-    public void OnAnimFinished()
+    public void OnBeatBegin()
     {
-        ScriptGestionAnim.OnAnimDestroy(thisObject);
-        Destroy(thisObject);
+        Anim.SetTrigger("Trigger");
     }
 }
