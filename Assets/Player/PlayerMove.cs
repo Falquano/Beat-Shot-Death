@@ -9,6 +9,9 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody myRB;
 
     [SerializeField] private float Speed;
+    [SerializeField] private float SpeedDash;
+
+    public bool DashIsOk = false;
 
     private void Start()
     {
@@ -22,7 +25,15 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        myRB.velocity = new Vector3(Move.x, 0, Move.y) * Speed;
+        if (DashIsOk)
+        {
+            myRB.velocity = new Vector3(Move.x, 0, Move.y) * Speed * SpeedDash;
+        }
+        else
+        {
+            myRB.velocity = new Vector3(Move.x, 0, Move.y) * Speed;
+        }
+        
     }
 
     public float CurrentSpeed => myRB.velocity.magnitude;

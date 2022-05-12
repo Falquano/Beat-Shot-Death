@@ -21,7 +21,7 @@ public class PlayerHealthSystem : MonoBehaviour
     
 
     [Header("Debug")]
-    [SerializeField] private bool invincible = false;
+    [SerializeField] public bool invincible = false;
 
 
     private int health;

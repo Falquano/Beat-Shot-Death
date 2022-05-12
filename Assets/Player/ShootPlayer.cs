@@ -5,7 +5,12 @@ using UnityEngine.Events;
 using static UnityEngine.InputSystem.InputAction;
 
 public class ShootPlayer : MonoBehaviour
+
 {
+
+    [SerializeField] private PlayerHealthSystem ScriptHealthPlayer;
+    [SerializeField] private PlayerMove ScriptPlayerMove;
+
     // Ce que �a veut dire c'est que on peut acc�der � MousePosition de n'importe o� mais on ne peut la modifier que dans cette classe.
     public Vector2 MouseScreenPosition { get; private set; }
     public Vector3 MouseWorldPosition;
@@ -33,12 +38,15 @@ public class ShootPlayer : MonoBehaviour
     /// �v�nement invoqu� lorsque la valeur de combo change. Envoie la nouvelle valeur suivie de maxCombo.
     /// </summary>
     [SerializeField] public UnityEvent<int, int> onComboChange = new UnityEvent<int, int>();
+    [SerializeField] public UnityEvent OnDashEvent = new UnityEvent();
 
     [SerializeField] private TempoManager tempoManager;
 
 
     //je ne suis pas sur de cette variable
     [SerializeField] public bool CheckShootisOk = true;
+    //Verif si le dash se produit, pour l'invincibilité ainsi que la vitesse de déplacement
+    private bool dashIsHappening = false;
 
 
     //variable de combo que l'on veux retirer
@@ -52,6 +60,8 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private int goodShotDamage = 20;
     [SerializeField] private int badShotDamage = 10;
 
+    [SerializeField] private int comboDash = 10;
+
     public bool inTempo;
     //check de si le joueur tir quand la croix est rouge
 
@@ -64,6 +74,7 @@ public class ShootPlayer : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] private bool logShots = false;
+    
 
     // Update is called once per frame
     void Update()
@@ -88,6 +99,19 @@ public class ShootPlayer : MonoBehaviour
         }
 
         tempoManager.Combo = combo;
+
+
+        if (dashIsHappening)
+        {
+            ScriptHealthPlayer.invincible = true;
+            ScriptPlayerMove.DashIsOk = true;
+        }
+        else
+        {
+            ScriptHealthPlayer.invincible = false;
+            ScriptPlayerMove.DashIsOk = false;
+
+        }
     }
 
     public static Vector3 ExpandToGround(Vector3 origin, Vector3 direction, float height) //A quoi sa sert ?
@@ -116,6 +140,20 @@ public class ShootPlayer : MonoBehaviour
             }
         }
     }
+
+    public void OnDash(CallbackContext callBack)
+    {
+        //si lorsque la fonction est appel�e, le bouton est appuy� donc Fire = 1
+        if (callBack.performed)
+        {
+            if (CheckShootisOk == true)
+            {
+                Dash();
+            }
+        }
+    }
+
+    
 
     public void CheckPreviousShoot()
     {
@@ -149,12 +187,47 @@ public class ShootPlayer : MonoBehaviour
     public void OnComboIncrease()
     {
         //Je ne sais pas pk mais �a augmente de plein 
-        combo += 15;
+        combo = Mathf.Clamp(combo + 15, 0, maxCombo);
         print(combo);
         //On annonce au monde que le combo a chang�
         onComboChange.Invoke(combo, maxCombo);
     }
 
+    public void Dash()
+    {
+        
+        ShotQuality quality = tempoManager.ShotQualityNow();
+
+
+        switch (quality)
+        {
+            case ShotQuality.Bad:
+                //Si le joueur tir sur aucun de ces deux �l�ments, alors son tir est comptabilis� comme nul est compte comme un non tir, le combo descendra
+                numberOfNonShoot += 1;
+
+                break;
+            case ShotQuality.Good:
+                
+                break;
+            case ShotQuality.Perfect:
+
+                OnDashEvent.Invoke();
+
+                //Si le dash est réussit, le combo ne descendra pas
+                numberOfNonShoot = 0;
+                //On ne pourra alors pas tirer
+                CheckShootisOk = false;
+
+                //Augmentation du combo
+                combo = Mathf.Clamp(combo + comboDash, 0, maxCombo);
+
+                //On annonce au monde que le combo a chang�
+                onComboChange.Invoke(combo, maxCombo);
+                break;
+        }
+
+
+    }
 
     public void Shoot()
     {
@@ -311,7 +384,15 @@ public class ShootPlayer : MonoBehaviour
 
 
 
+    public void DashTrue()
+    {
+        dashIsHappening = true;
+    }
 
+    public void DashFalse()
+    {
+        dashIsHappening = false;
+    }
 
 
 
