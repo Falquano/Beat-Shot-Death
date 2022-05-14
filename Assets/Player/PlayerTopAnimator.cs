@@ -82,4 +82,13 @@ public class PlayerTopAnimator : MonoBehaviour
     {
         animator.SetTrigger("DecreaseCombo");
     }
+
+
+
+    public void DashingAnimation()
+    {
+        animator.SetTrigger("caca");
+    }
+
+
 }
