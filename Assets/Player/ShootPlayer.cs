@@ -74,7 +74,10 @@ public class ShootPlayer : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] private bool logShots = false;
+
+
     
+
 
     // Update is called once per frame
     void Update()
@@ -210,8 +213,11 @@ public class ShootPlayer : MonoBehaviour
                 
                 break;
             case ShotQuality.Perfect:
+                
 
+                //Appel des éléments de dash comme l'anim...
                 OnDashEvent.Invoke();
+                
 
                 //Si le dash est réussit, le combo ne descendra pas
                 numberOfNonShoot = 0;
