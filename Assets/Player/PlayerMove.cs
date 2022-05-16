@@ -9,7 +9,6 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody RB;
 
     [SerializeField] private float Speed;
-    [SerializeField] private float SpeedDash;
     //Speed de l'impulse du dash  
     [SerializeField] private float impulseDash;
 
@@ -29,7 +28,12 @@ public class PlayerMove : MonoBehaviour
     {
         if (DashIsOk)
         {
-            RB.AddForce(transform.forward * impulseDash, ForceMode.Impulse);
+            //RB.AddForce(transform.forward * impulseDash, ForceMode.Impulse);
+            Vector3 Dash =  transform.forward * impulseDash * Time.deltaTime;
+            Dash = new Vector3(Dash.x, 0, Dash.z);
+            transform.position += Dash;
+
+            RB.velocity = Vector3.zero;
         }
         else
         {
@@ -39,11 +43,11 @@ public class PlayerMove : MonoBehaviour
     }
 
 
-    public void OnDashImpulse()
+   public void OnDashVelocityZero()
     {
-        RB.AddForce(transform.forward * impulseDash, ForceMode.Impulse);
+        
+        RB.velocity = Vector3.zero;
     }
-
 
     public float CurrentSpeed => RB.velocity.magnitude;
 }
