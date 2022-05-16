@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.VFX;
+using UnityEditor.VFX;
+using UnityEditor.VFX.UI;
 
 public class ShootMesure : Mesure
 {
     [Header("Tir")]
     [SerializeField] private int damageEnnemy = 30;
     [SerializeField] private int damagePlayer = 1;
-    // j'ai du rajouter ça, c'est la distance max des pistolets
+    // j'ai du rajouter ï¿½a, c'est la distance max des pistolets
     [SerializeField] private float range = 100f;
     [SerializeField] LayerMask EnnemyMask;
     [SerializeField] public UnityEvent<ShotInfo> onShoot;
@@ -16,6 +19,7 @@ public class ShootMesure : Mesure
 
     [Header("FX")]
     [SerializeField] private GameObject zapLinePrefab;
+    //[SerializeField] private VisualEffect FuturLinePrefab;
     [SerializeField] private Transform barrel;
     [SerializeField] private GameObject impactParticlesPrefab;
     [SerializeField] private float shotImpactSize = .6f;
