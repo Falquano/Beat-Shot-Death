@@ -10,6 +10,8 @@ public class AimMesure : Mesure
 
     [SerializeField] public UnityEvent onAim;
 
+    
+
     private void OnEnable()
     {
 
@@ -24,7 +26,7 @@ public class AimMesure : Mesure
 
     private void Update()
     {
-        if (behavior.Player == null)
+        if (behavior.Player == null || PlayerisDead == true)
             return;
 
         if (tempo.Tempo > aimingTime)
@@ -40,4 +42,7 @@ public class AimMesure : Mesure
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
+
+
+    
 }

@@ -20,6 +20,10 @@ public class ShootMesure : Mesure
     [SerializeField] private GameObject impactParticlesPrefab;
     [SerializeField] private float shotImpactSize = .6f;
 
+    [SerializeField] private PlayerHealthSystem scriptPlayerHealth;
+
+    
+
     private void OnEnable()
     {
         
@@ -35,7 +39,7 @@ public class ShootMesure : Mesure
 
     private void Shoot()
     {
-        if (behavior.Player == null)
+        if (behavior.Player == null || PlayerisDead == true)
             return;
 
         
@@ -104,4 +108,6 @@ public class ShootMesure : Mesure
         particle.localScale = size;
         particle.up = normal;
     }
+
+   
 }

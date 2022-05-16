@@ -21,6 +21,8 @@ public class HitMesure : Mesure
 
     [SerializeField] GameObject ZoneHit;
 
+    
+
 
     private void OnEnable()
     {
@@ -36,7 +38,8 @@ public class HitMesure : Mesure
     }
     public void Hit()
     {
-        
+        if( PlayerisDead == true)
+            return;
         //On invoque l'event pour les anims etc.
         onHit.Invoke();
 
@@ -53,4 +56,7 @@ public class HitMesure : Mesure
     {
         ZoneHit.SetActive(false);
     }
+
+
+    
 }

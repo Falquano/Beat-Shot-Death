@@ -16,6 +16,8 @@ public class MoveMesure : Mesure
 
     public float rotationSpeed;
 
+   
+
     private void Start()
     {
         //déclaration des variables utiles
@@ -65,7 +67,7 @@ public class MoveMesure : Mesure
 
     private void Update()
     {
-        if (behavior.Player == null)
+        if (behavior.Player == null || PlayerisDead == true)
             return;
 
         Vector3 direction = playerTransform.position - transform.position;
@@ -79,4 +81,6 @@ public class MoveMesure : Mesure
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, Distance);
     }
+
+
 }
