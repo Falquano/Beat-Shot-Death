@@ -30,8 +30,12 @@ public class TempoManager : MonoBehaviour
 
 
     [SerializeField] private int beatPerMesure = 4;
-    
-    
+
+    //Renderer renderer;
+    //renderer.material.SetColor("_EmissionColor", new Vector4(R, G, B, Intensity);
+    //Changer l'émissivité d'un élément
+
+
     public int Beat { get; private set; }
     [SerializeField] public UnityEvent<int> onMesureStart = new UnityEvent<int>();
     [SerializeField] public UnityEvent onTimeToShoot = new UnityEvent();
@@ -45,6 +49,9 @@ public class TempoManager : MonoBehaviour
 
     private void Start()
 	{
+
+        
+
         if (MainMenu.SelectedSong != null)
 		{
 			song = MainMenu.SelectedSong;

@@ -6,16 +6,17 @@ using static UnityEngine.InputSystem.InputAction;
 public class PlayerMove : MonoBehaviour
 {
     private Vector2 Move;
-    private Rigidbody myRB;
+    private Rigidbody RB;
 
     [SerializeField] private float Speed;
-    [SerializeField] private float SpeedDash;
+    //Speed de l'impulse du dash  
+    [SerializeField] private float impulseDash;
 
     public bool DashIsOk = false;
 
     private void Start()
     {
-        myRB = GetComponent<Rigidbody>();
+        RB = GetComponent<Rigidbody>();
     }
 
     public void OnMoveInput( CallbackContext callBack)
@@ -27,14 +28,26 @@ public class PlayerMove : MonoBehaviour
     {
         if (DashIsOk)
         {
-            myRB.velocity = new Vector3(Move.x, 0, Move.y) * Speed * SpeedDash;
+            //RB.AddForce(transform.forward * impulseDash, ForceMode.Impulse);
+            Vector3 Dash =  transform.forward * impulseDash * Time.deltaTime;
+            Dash = new Vector3(Dash.x, 0, Dash.z);
+            transform.position += Dash;
+
+            RB.velocity = Vector3.zero;
         }
         else
         {
-            myRB.velocity = new Vector3(Move.x, 0, Move.y) * Speed;
+            RB.velocity = new Vector3(Move.x, 0, Move.y) * Speed;
         }
         
     }
 
-    public float CurrentSpeed => myRB.velocity.magnitude;
+
+   public void OnDashVelocityZero()
+    {
+        
+        RB.velocity = Vector3.zero;
+    }
+
+    public float CurrentSpeed => RB.velocity.magnitude;
 }
