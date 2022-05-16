@@ -32,6 +32,8 @@ public class PlayerMove : MonoBehaviour
             Vector3 Dash =  transform.forward * impulseDash * Time.deltaTime;
             Dash = new Vector3(Dash.x, 0, Dash.z);
             transform.position += Dash;
+
+            RB.velocity = Vector3.zero;
         }
         else
         {
@@ -41,11 +43,11 @@ public class PlayerMove : MonoBehaviour
     }
 
 
-    /*public void OnDashImpulse()
+   public void OnDashVelocityZero()
     {
-        RB.AddForce(transform.forward * impulseDash, ForceMode.Impulse);
+        
+        RB.velocity = Vector3.zero;
     }
-    */
 
     public float CurrentSpeed => RB.velocity.magnitude;
 }

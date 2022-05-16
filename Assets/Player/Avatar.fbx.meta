@@ -600,14 +600,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 1
-        functionName: DashFalse
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.016342415
+      - time: 0
         functionName: DashTrue
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -623,6 +616,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.7634241
         functionName: OnFootstep
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: DashFalse
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
