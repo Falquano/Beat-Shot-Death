@@ -13,6 +13,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float impulseDash;
 
     public bool DashIsOk = false;
+    [SerializeField] private PlayerHealthSystem ScriptHealthPlayer;
 
     private void Start()
     {
@@ -26,6 +27,11 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        if (ScriptHealthPlayer.PlayerisDead)
+        {
+            return;
+        }
+
         if (DashIsOk)
         {
             //RB.AddForce(transform.forward * impulseDash, ForceMode.Impulse);

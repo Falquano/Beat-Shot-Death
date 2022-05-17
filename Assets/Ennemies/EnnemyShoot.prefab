@@ -3493,6 +3493,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5015795817035369439}
+  - {fileID: 7445170485010344725}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3646,6 +3647,7 @@ MonoBehaviour:
   barrel: {fileID: 565818848599493668}
   impactParticlesPrefab: {fileID: 7081961916757537454, guid: f0bfca444f22a92458ec88145b5918c9, type: 3}
   shotImpactSize: 0.4
+  scriptPlayerHealth: {fileID: 0}
 --- !u!114 &782055328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3679,6 +3681,7 @@ MonoBehaviour:
   onAim:
     m_PersistentCalls:
       m_Calls: []
+  FuturLine: {fileID: 0}
 --- !u!114 &8685713312603719414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4758,6 +4761,68 @@ Transform:
   m_Father: {fileID: 4644725080963784011}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5254739968148834590
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7226625388907849312}
+    m_Modifications:
+    - target: {fileID: 3440214881449320971, guid: 0cfb5fa1777b49f46afbfa4339179fdc, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440214881449320971, guid: 0cfb5fa1777b49f46afbfa4339179fdc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440214881449320971, guid: 0cfb5fa1777b49f46afbfa4339179fdc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440214881449320971, guid: 0cfb5fa1777b49f46afbfa4339179fdc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440214881449320971, guid: 0cfb5fa1777b49f46afbfa4339179fdc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440214881449320971, guid: 0cfb5fa1777b49f46afbfa4339179fdc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440214881449320971, guid: 0cfb5fa1777b49f46afbfa4339179fdc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440214881449320971, guid: 0cfb5fa1777b49f46afbfa4339179fdc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440214881449320971, guid: 0cfb5fa1777b49f46afbfa4339179fdc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440214881449320971, guid: 0cfb5fa1777b49f46afbfa4339179fdc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440214881449320971, guid: 0cfb5fa1777b49f46afbfa4339179fdc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4468698378125063997, guid: 0cfb5fa1777b49f46afbfa4339179fdc, type: 3}
+      propertyPath: m_Name
+      value: ColliderAnim
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0cfb5fa1777b49f46afbfa4339179fdc, type: 3}
+--- !u!4 &7445170485010344725 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3440214881449320971, guid: 0cfb5fa1777b49f46afbfa4339179fdc, type: 3}
+  m_PrefabInstance: {fileID: 5254739968148834590}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6823967670243138947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4767,6 +4832,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 408912643486973216, guid: 3aa5f719721890d46bb5051a30f2a04e, type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 408912643486973216, guid: 3aa5f719721890d46bb5051a30f2a04e, type: 3}
+      propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1689289337006812412, guid: 3aa5f719721890d46bb5051a30f2a04e, type: 3}

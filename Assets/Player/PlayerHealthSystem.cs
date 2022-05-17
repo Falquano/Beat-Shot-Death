@@ -23,8 +23,10 @@ public class PlayerHealthSystem : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] public bool invincible = false;
+    [SerializeField] private bool PlayerIsInvincible = false;
 
     public bool PlayerisDead = false;
+    private Rigidbody RB;
 
 
     private int health;
@@ -35,12 +37,12 @@ public class PlayerHealthSystem : MonoBehaviour
     private void Start()
     {
         health = MaxHealth;
-        
+        RB = GetComponent<Rigidbody>();
 
     }
     public void DealDamage(int amount)
     {
-        if (invincible)
+        if (invincible || PlayerIsInvincible)
             return;
 
         if(PlayerisDead == false)
@@ -70,13 +72,14 @@ public class PlayerHealthSystem : MonoBehaviour
 
         onDie.Invoke();
         PlayerisDead = true;
+        RB.velocity = Vector3.zero;
         //Désactiver les ennemis pour qu'ils arrêtent de victimiser le cadavre du player
 
     }
 
     public void OnDied()
     {
-        print("prpout");
+        
         PlayerisDead = false;
         SceneManager.LoadScene("Hall_2", LoadSceneMode.Single);
 
