@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Tourelle_Emissive : MonoBehaviour
 {
 
-    [SerializeField] private Animator animatorTourelle;
+    //[SerializeField] private Animator animatorTourelle;
     [SerializeField] private GameObject entier;
     [SerializeField] private GameObject anneau;
     [SerializeField] private GameObject destroy;
@@ -20,7 +20,7 @@ public class Tourelle_Emissive : MonoBehaviour
     private void Start()
     {
         anim = Light.GetComponent<Animation>();
-        animatorTourelle = GetComponent<Animator>();
+        //animatorTourelle = GetComponent<Animator>();
         anim.Play("Idle-Light");
 
     }
@@ -33,7 +33,7 @@ public class Tourelle_Emissive : MonoBehaviour
 
     public void OnShoot()
     {
-        animatorTourelle.SetTrigger("OnShoot");
+        //animatorTourelle.SetTrigger("OnShoot");
 
         anim.Play("Idle-Light");
 
@@ -54,7 +54,7 @@ public class Tourelle_Emissive : MonoBehaviour
         entier.SetActive(false);
         destroy.SetActive(true);
         anneau.SetActive(false);
-        animatorTourelle.SetTrigger("OnDeath");
+        //animatorTourelle.SetTrigger("OnDeath");
     }
 
     

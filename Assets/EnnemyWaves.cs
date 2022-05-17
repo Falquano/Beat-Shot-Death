@@ -6,13 +6,14 @@ using UnityEngine.Events;
 public class EnnemyWaves : MonoBehaviour
 {
     [SerializeField]
-    private GameObject ennemyMelee;
+    private GameObject[] ennemyMelee;
 
 
     [SerializeField] private float timer;
     [SerializeField] private float timeToSpawn;
     public Transform[] spawnPoint;
     private int randomSpawn;
+    private int randomEnnemy;
     [SerializeField] private EnnemyBehavior[] ennemiesArray;
     public int livingEnnemies;
     [SerializeField] private int totalEnnemies;
@@ -73,8 +74,9 @@ public class EnnemyWaves : MonoBehaviour
             if (timer >= timeToSpawn && livingEnnemies < varEnnemiMax && totalEnnemies < wave)
             {
                 randomSpawn = Random.Range(0, spawnPoint.Length);
+                randomEnnemy = Random.Range(0, ennemyMelee.Length);
 
-                EnnemyBehavior behavior = Instantiate(ennemyMelee, spawnPoint[randomSpawn].transform.position, Quaternion.identity)
+                EnnemyBehavior behavior = Instantiate(ennemyMelee[randomEnnemy], spawnPoint[randomSpawn].transform.position, Quaternion.identity)
                     .GetComponent<EnnemyBehavior>();
                 
                 behavior.Active = true;
