@@ -13,6 +13,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float impulseDash;
 
     public bool DashIsOk = false;
+    [SerializeField] private PlayerHealthSystem ScriptHealthPlayer;
 
     private void Start()
     {
@@ -26,14 +27,16 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        if (ScriptHealthPlayer.PlayerisDead)
+        {
+            return;
+        }
+
         if (DashIsOk)
         {
-            //RB.AddForce(transform.forward * impulseDash, ForceMode.Impulse);
-            Vector3 Dash =  transform.forward * impulseDash * Time.deltaTime;
-            Dash = new Vector3(Dash.x, 0, Dash.z);
-            transform.position += Dash;
-
             RB.velocity = Vector3.zero;
+            //Mettre le déplacement sur le rigidbody met les collisions en jeu donc c'est cool
+            RB.velocity = transform.forward * impulseDash;
         }
         else
         {

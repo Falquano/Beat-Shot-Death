@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.VFX;
 using UnityEditor.VFX;
 using UnityEditor.VFX.UI;
+using System.Collections;
 
 public class AimMesure : Mesure
 {
@@ -12,9 +13,10 @@ public class AimMesure : Mesure
     [SerializeField][Range(0f, 1f)] private float aimingTime = .5f;
 
     [SerializeField] public UnityEvent onAim;
-    public VisualEffect FuturLine;
+    [SerializeField] public float distanceMaxWithPlayer;
+    public VisualEffect FuturLine; 
 
-    
+
 
     private void OnEnable()
     {
@@ -39,7 +41,7 @@ public class AimMesure : Mesure
         //R�cup�ration du transform du player
         Transform playerTransform = behavior.Player.GetComponent<Transform>();
         //VFX LineShoot nécessaire pour les tourelles
-        FuturLine.Play();
+        FuturLine.Play();        
 
         //Calcul du vector entre l'ennemi et le player
         Vector3 direction = playerTransform.position - transform.position;
@@ -47,6 +49,13 @@ public class AimMesure : Mesure
         //L'ennemi regarde le player
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+        //Check si la distance avec le player n'est pas trop grande
+        float distancePlayerEnnemy = Vector3.Distance(transform.position, playerTransform.position) ;
+        if(distancePlayerEnnemy> distanceMaxWithPlayer)
+        {
+            return;
+        }
     }
 
 

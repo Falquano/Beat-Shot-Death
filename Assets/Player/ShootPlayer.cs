@@ -18,6 +18,7 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private GameObject myBulletSpawnPoint;
 
     [SerializeField] LayerMask TheMask;
+    [SerializeField] private LayerMask MaskColliderAnim;
     [SerializeField] private LayerMask pointerLayerMask;
 
     // j'ai du rajouter �a, c'est la distance max des pistolets
@@ -75,9 +76,7 @@ public class ShootPlayer : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool logShots = false;
 
- 
 
-    
 
     // Update is called once per frame
     void Update()
@@ -178,8 +177,6 @@ public class ShootPlayer : MonoBehaviour
             combo = Mathf.Clamp(combo + comboNoShotMod, 0, maxCombo);
             onComboChange.Invoke(combo, maxCombo);
 
-
-
         }
 
         //On passe la var de check de tir � true pour que le joueur puisse tirer dans cette nouvelle mesure
@@ -262,6 +259,33 @@ public class ShootPlayer : MonoBehaviour
             {
                 //On tir sur un ennemi (peut importe les d�g�ts), alors on ne descendra pas en combo)
                 numberOfNonShoot = 0;
+
+                
+                //Vérif de quel coté est touché l'ennemi pour l'anim
+                if (Physics.Raycast(ray, out RaycastHit RayColliderAnim, range, MaskColliderAnim))
+                {
+                    
+                    Animator AnimEnnemy = RayShoot.collider.gameObject.GetComponent<Animator>();
+                    
+
+                    if(RayColliderAnim.collider.tag == "Right")
+                    {
+                        print("Right");
+                        AnimEnnemy.SetTrigger("Right");
+                    }
+                    else if (RayColliderAnim.collider.tag == "Left")
+                    {
+                        print("Left");
+                        AnimEnnemy.SetTrigger("Left");
+                    }
+                    else if (RayColliderAnim.collider.tag == "Back")
+                    {
+                        print("Back");
+                        AnimEnnemy.SetTrigger("Back");
+                    }
+                       
+              
+                }
 
                 //On r�cup�re le script behavior de l'ennemy touch�
                 HealthSystem targetHealth = RayShoot.transform.GetComponent<HealthSystem>();
