@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealthSystem : MonoBehaviour
 {
@@ -17,11 +18,13 @@ public class PlayerHealthSystem : MonoBehaviour
 
     //Appel du script d'animation du player
  
-
+    [SerializeField] private List<Component> ListComponentPlayer = new List<Component>();
     
 
     [Header("Debug")]
     [SerializeField] public bool invincible = false;
+
+    public bool PlayerisDead = false;
 
 
     private int health;
@@ -40,26 +43,43 @@ public class PlayerHealthSystem : MonoBehaviour
         if (invincible)
             return;
 
-        
-
-        health -= amount;
-        onTakeDamage.Invoke(amount, health);//Deux visu diff en fonction des pts de vie qui reste genre 1 coups un peu rouge / 2 coups bcp rouge / 3 coup mort
-
-        
-
-        if (health <= 0)
+        if(PlayerisDead == false)
         {
-            Die();
+            health -= amount;
+            onTakeDamage.Invoke(amount, health);//Deux visu diff en fonction des pts de vie qui reste genre 1 coups un peu rouge / 2 coups bcp rouge / 3 coup mort
 
+
+
+            if (health <= 0)
+            {
+                Die();
+
+            }
         }
+
+        
     }
 
     private void Die()
     {
-        onDie.Invoke();
+        for (var i = 0; i < ListComponentPlayer.Count; i++)
+        {
 
-        Destroy(gameObject);
-        
+            Destroy(ListComponentPlayer[i]);
+        }
+
+        onDie.Invoke();
+        PlayerisDead = true;
+        //Désactiver les ennemis pour qu'ils arrêtent de victimiser le cadavre du player
+
+    }
+
+    public void OnDied()
+    {
+        print("prpout");
+        PlayerisDead = false;
+        SceneManager.LoadScene("Hall_2", LoadSceneMode.Single);
+
     }
 
 
