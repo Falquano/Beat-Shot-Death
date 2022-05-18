@@ -12,6 +12,7 @@ public class ButtonJustShoot : MonoBehaviour
     [SerializeField] private Door[] doors;
     [SerializeField] private bool close;
     public List<SpriteRenderer> colorMat = new List<SpriteRenderer>();
+    public List<GameObject> target = new List<GameObject>();
     private bool detruit;
     [SerializeField] private StudioEventEmitter destroyEmitter;
 
@@ -51,6 +52,12 @@ public class ButtonJustShoot : MonoBehaviour
             {
                 door.Close();
             }
+            
+            for (var j = 0; j < target.Count; j++)
+            {
+                target[j].SetActive(false);
+            }
+
 
             for (var i = 0; i < colorMat.Count; i++)
             {

@@ -18,9 +18,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: 1980
-    y: 110
-    width: 439
-    height: 1651
+    y: 94
+    width: 441
+    height: 1667
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661614600}
-  m_UIPosition: {x: 1995, y: 110}
+  m_UIPosition: {x: 1997, y: 94}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -1077,7 +1077,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 2
+      m_SerializableObject: 1
     m_Space: 2147483647
   m_Property:
     name: A
@@ -1111,7 +1111,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 2
+      m_SerializableObject: 1
     m_Space: 2147483647
   m_Property:
     name: B
@@ -1656,7 +1656,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":0.0,"value":1.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false},{"time":1.0,"value":1.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":0.004166666883975267,"value":0.0009426474571228027,"inTangent":9.590950965881348,"outTangent":9.590950965881348,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false},{"time":0.10833333432674408,"value":1.0,"inTangent":0.029636891558766366,"outTangent":0.029636891558766366,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.5176849365234375,"value":1.0030975341796876,"inTangent":0.007566928397864103,"outTangent":0.007566928397864103,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -1718,7 +1718,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Position, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":0.0,"y":7.489999771118164,"z":4.0}}'
+      m_SerializableObject: '{"position":{"x":0.0,"y":8.0,"z":4.0}}'
     m_Space: 0
   m_Property:
     name: Position
@@ -1916,7 +1916,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":-0.43773356080055239,"value":0.09580361843109131,"inTangent":0.004332682117819786,"outTangent":0.004332682117819786,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false},{"time":-0.048232048749923709,"value":0.09749120473861695,"inTangent":-0.017729610204696657,"outTangent":-0.017729610204696657,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.23589983582496644,"value":0.04006505012512207,"inTangent":-0.44763368368148806,"outTangent":-0.44763368368148806,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.41770923137664797,"value":-0.06711890548467636,"inTangent":0.013856623321771622,"outTangent":0.013856623321771622,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":-0.43047982454299929,"value":-0.05243559926748276,"inTangent":-0.013856623321771622,"outTangent":-0.013856623321771622,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":-0.2867758274078369,"value":0.9472980499267578,"inTangent":0.44763368368148806,"outTangent":0.44763368368148806,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":-0.0621950626373291,"value":1.0047242641448975,"inTangent":0.017729610204696657,"outTangent":0.017729610204696657,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.24567091464996339,"value":1.003036618232727,"inTangent":-0.00548175536096096,"outTangent":-0.00548175536096096,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     m_Space: 2147483647
   m_Property:
     name: Alpha
