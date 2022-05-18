@@ -3393,9 +3393,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 9
-  impulseDash: 8
+  impulseDash: 12
   DashIsOk: 0
-  ScriptHealthPlayer: {fileID: 0}
+  ScriptHealthPlayer: {fileID: 7812131819001355763}
 --- !u!114 &438154467995756240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3417,7 +3417,7 @@ MonoBehaviour:
     m_Bits: 1
   MaskColliderAnim:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   pointerLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -3684,7 +3684,7 @@ MonoBehaviour:
   - {fileID: 7462270552646460797}
   - {fileID: 1952105521}
   invincible: 1
-  PlayerIsInvincible: 0
+  PlayerIsInvincible: 1
   PlayerisDead: 0
 --- !u!114 &1952105521
 MonoBehaviour:
