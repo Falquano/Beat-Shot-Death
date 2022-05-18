@@ -704,7 +704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934790593474340551}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00087, y: 0.00226, z: -0.0007}
+  m_LocalPosition: {x: -0.00101, y: 0.00262, z: -0.00961}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7817592201357640101}
@@ -1784,7 +1784,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4298432577232951212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00072, y: 0.001752, z: -0.000647}
+  m_LocalPosition: {x: -0.01025, y: -0.00332, z: -0.00548}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3849897462310495213}
@@ -3395,6 +3395,7 @@ MonoBehaviour:
   Speed: 9
   impulseDash: 8
   DashIsOk: 0
+  ScriptHealthPlayer: {fileID: 0}
 --- !u!114 &438154467995756240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3414,6 +3415,9 @@ MonoBehaviour:
   TheMask:
     serializedVersion: 2
     m_Bits: 1
+  MaskColliderAnim:
+    serializedVersion: 2
+    m_Bits: 0
   pointerLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -3680,6 +3684,7 @@ MonoBehaviour:
   - {fileID: 7462270552646460797}
   - {fileID: 1952105521}
   invincible: 1
+  PlayerIsInvincible: 0
   PlayerisDead: 0
 --- !u!114 &1952105521
 MonoBehaviour:
