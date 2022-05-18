@@ -14,13 +14,15 @@ public class AimMesure : Mesure
 
     [SerializeField] public UnityEvent onAim;
     [SerializeField] public float distanceMaxWithPlayer;
-    public VisualEffect FuturLine; 
+    public VisualEffect FuturLine;
 
 
+
+    
 
     private void OnEnable()
     {
-
+        
         onAim.Invoke();
 
     }
@@ -38,10 +40,16 @@ public class AimMesure : Mesure
         if (tempo.Tempo > aimingTime)
             return;
 
+
+        //Si l'ennemy est trop loin du player il ne vise pas, donc ne fait pas de trait vfx rouge
+        if (Vector3.Distance(transform.position, Player.transform.position) > DistanceMaxShoot)
+        {
+            return;
+        }
+
         //R�cup�ration du transform du player
         Transform playerTransform = behavior.Player.GetComponent<Transform>();
-        //VFX LineShoot nécessaire pour les tourelles
-        FuturLine.Play();        
+        
 
         //Calcul du vector entre l'ennemi et le player
         Vector3 direction = playerTransform.position - transform.position;
@@ -50,14 +58,14 @@ public class AimMesure : Mesure
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-        //Check si la distance avec le player n'est pas trop grande
-        float distancePlayerEnnemy = Vector3.Distance(transform.position, playerTransform.position) ;
-        if(distancePlayerEnnemy> distanceMaxWithPlayer)
-        {
-            return;
-        }
+        
+        //VFX LineShoot nécessaire pour les tourelles
+        FuturLine.Play();
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, DistanceMaxShoot);
+    }
 
-    
 }

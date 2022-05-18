@@ -8,10 +8,10 @@ using UnityEngine.Events;
 public class HitMesure : Mesure
 {
 
-    [SerializeField] private GameObject Player;
+    private GameObject Player;
+    private MoveMesure ScriptMoveMesure;
 
     [SerializeField] private float rayOffset = .7f;
-    [SerializeField] private float DistanceMaxForHit = 5f;
     [SerializeField] private int damage = 50;
 
     [SerializeField] public UnityEvent onHit;
@@ -20,14 +20,27 @@ public class HitMesure : Mesure
     [SerializeField] LayerMask EnnemyMask;
 
     [SerializeField] GameObject ZoneHit;
-
+    [SerializeField] private float DistanceHit;
     
+
+    private void Start()
+    {
+        Player = FindObjectOfType<PlayerMove>().gameObject;
+        ScriptMoveMesure = GetComponent<MoveMesure>();
+    }
+
 
 
     private void OnEnable()
     {
         tempo.onTimeToShoot.AddListener(Hit);
         //animator.SetBool("Aiming", true);
+
+        if (Vector3.Distance(transform.position, Player.transform.position) > DistanceHit)
+        {
+
+            ScriptMoveMesure.enabled = true;
+        }
     }
 
     private void OnDisable()
@@ -35,15 +48,33 @@ public class HitMesure : Mesure
         ZoneHit.SetActive(false);
         tempo.onTimeToShoot.RemoveListener(Hit);
         //animator.SetBool("Aiming", false);
+
+        ScriptMoveMesure.enabled = false;
     }
     public void Hit()
     {
+        print(Vector3.Distance(transform.position, Player.transform.position));
+        Debug.DrawLine(transform.position, Player.transform.position, Color.red,0.5f);
+
+        //Si l'ennemy mêlé n'est pas proche du player il ne frappe pas
+        if (Vector3.Distance(transform.position, Player.transform.position) > DistanceHit)
+        {
+           
+            return;
+        }
+        ScriptMoveMesure.enabled = false;
+
         if( PlayerisDead == true)
             return;
         //On invoque l'event pour les anims etc.
         onHit.Invoke();
 
         
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, DistanceHit);
     }
 
     public void AnimOnHit()

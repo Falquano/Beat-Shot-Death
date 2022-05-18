@@ -46,7 +46,12 @@ public class ShootMesure : Mesure
         if (behavior.Player == null || PlayerisDead == true)
             return;
 
-        
+        //Si l'ennemy est trop loin du player il ne vise pas, donc ne fait pas de trait vfx rouge
+        if (Vector3.Distance(transform.position, Player.transform.position) > DistanceMaxShoot)
+        {
+            return;
+        }
+
         //on calcul la direction entre l'ennemi et le player
         Vector3 ShootToPlayer = behavior.Player.transform.position  - transform.position;
 
@@ -89,6 +94,11 @@ public class ShootMesure : Mesure
         // Lorsque c'est bon, remplace Vector3.zero avec le point de contact du tir
 
         onShoot.Invoke(shotInfo);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, DistanceMaxShoot);
     }
 
     public void ShotFX(ShotInfo info)
