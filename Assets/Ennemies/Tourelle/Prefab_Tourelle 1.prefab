@@ -272,6 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95274270c9ca2a64182e92ca912c4a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DistanceMaxShoot: 30
   damageEnnemy: 10
   damagePlayer: 1
   range: 100
@@ -335,6 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c6fa906b42a1543ae9fa3ac11c4652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DistanceMaxShoot: 30
   rotationSpeed: 360
   aimingTime: 0.5
   onAim:
@@ -352,6 +354,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  distanceMaxWithPlayer: 0
   FuturLine: {fileID: 6978222122847531622, guid: 3aa5f719721890d46bb5051a30f2a04e, type: 3}
 --- !u!114 &947269581145155031
 MonoBehaviour:
