@@ -53,7 +53,7 @@ public class HitMesure : Mesure
     }
     public void Hit()
     {
-        print(Vector3.Distance(transform.position, Player.transform.position));
+        
         Debug.DrawLine(transform.position, Player.transform.position, Color.red,0.5f);
 
         //Si l'ennemy mêlé n'est pas proche du player il ne frappe pas
