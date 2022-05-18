@@ -9,7 +9,7 @@ public class GarbageCollector : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         EnnemyBehavior zozo = other.GetComponent<EnnemyBehavior>();
-        Debug.Log(other.name);
+        
 
         if (zozo != null)
             garbage.Add(zozo);

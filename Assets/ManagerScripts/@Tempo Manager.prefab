@@ -52,10 +52,9 @@ MonoBehaviour:
   marginOk: 1
   playerShootBeat: 01000100
   TempoDuration: 0.5
-  song: {fileID: 11400000, guid: bd7c27632e75d8348bda66a7169db356, type: 2}
+  song: {fileID: 11400000, guid: 3813584e4fef25c4989ad2d40c524c03, type: 2}
   songEmitter: {fileID: 4955465238566614666}
   beatPerMesure: 4
-  playerBar: 2
   onMesureStart:
     m_PersistentCalls:
       m_Calls:
@@ -71,12 +70,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onPlayerBarStart:
-    m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CursorTempo, Assembly-CSharp
-        m_MethodName: CursorTempoAnim
+        m_TargetAssemblyTypeName: ShootPlayer, Assembly-CSharp
+        m_MethodName: CheckPreviousShoot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -87,8 +83,20 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ShootPlayer, Assembly-CSharp
-        m_MethodName: CheckPreviousShoot
+        m_TargetAssemblyTypeName: AnimCursorOnCursor, Assembly-CSharp
+        m_MethodName: OnBeatBegin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AnimCursorOnCursor, Assembly-CSharp
+        m_MethodName: OnBeatBegin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

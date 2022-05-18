@@ -28,9 +28,27 @@ public class WeaponCollision : MonoBehaviour
             Health = other.GetComponent<HealthSystem>();
             Health.DealDamage(damageEnnemy);
         }
+        else if (other.tag == "Barriere")
+        {
+            
+            Ray ray = new Ray(transform.position, transform.forward);
+            Debug.DrawRay(transform.position, transform.forward, Color.green, 0.5f);
 
-        
-        
+            //faire un raycast pour shopper la normal
+            if (Physics.Raycast(ray, out RaycastHit hitInfo))
+            {
+                
+                if (hitInfo.collider.tag == "Barriere")
+                {
+                    BarriereAnim barriere = hitInfo.transform.GetComponent<BarriereAnim>();
+                    barriere.ShotCollision(hitInfo.normal);
+                }
+            }
+                
+        }
+
+
+
     }
 
 
