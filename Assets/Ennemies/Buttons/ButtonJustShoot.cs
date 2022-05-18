@@ -17,6 +17,7 @@ public class ButtonJustShoot : MonoBehaviour
     [SerializeField] private StudioEventEmitter destroyEmitter;
     private EnnemyWaves letsCloseSomeDoors;
     [SerializeField] Transform spawnerPoint;
+    [SerializeField] Transform spawnerPoint2;
 
     private void Start()
     {
@@ -55,6 +56,7 @@ public class ButtonJustShoot : MonoBehaviour
             }
 
             letsCloseSomeDoors.DisposeSpawn(spawnerPoint);
+            letsCloseSomeDoors.DisposeSpawn(spawnerPoint2);
 
             for (var j = 0; j < target.Count; j++)
             {
