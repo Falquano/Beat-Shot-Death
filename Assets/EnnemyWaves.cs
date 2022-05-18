@@ -6,12 +6,12 @@ using UnityEngine.Events;
 public class EnnemyWaves : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] ennemyMelee;
+    private GameObject[] ennemy;
 
 
     [SerializeField] private float timer;
     [SerializeField] private float timeToSpawn;
-    public Transform[] spawnPoint;
+    public List<Transform> spawnPoints;
     private int randomSpawn;
     private int randomEnnemy;
     [SerializeField] private EnnemyBehavior[] ennemiesArray;
@@ -23,6 +23,7 @@ public class EnnemyWaves : MonoBehaviour
     private Door[] doors;
     public Collider exitCollider;
     public Collider EnterCollider;
+    private GarbageCollector[] triselectif;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,7 @@ public class EnnemyWaves : MonoBehaviour
         ennemiesArray = GetComponentsInChildren<EnnemyBehavior>();
         livingEnnemies = ennemiesArray.Length;
         totalEnnemies = ennemiesArray.Length;
-
+        triselectif = GetComponentsInChildren<GarbageCollector>();
 
         close = true;
 
@@ -73,23 +74,24 @@ public class EnnemyWaves : MonoBehaviour
         {
             if (timer >= timeToSpawn && livingEnnemies < varEnnemiMax && totalEnnemies < wave)
             {
-                randomSpawn = Random.Range(0, spawnPoint.Length);
-                randomEnnemy = Random.Range(0, ennemyMelee.Length);
+                randomSpawn = Random.Range(0, spawnPoints.Count);
+                randomEnnemy = Random.Range(0, ennemy.Length);
 
-                EnnemyBehavior behavior = Instantiate(ennemyMelee[randomEnnemy], spawnPoint[randomSpawn].transform.position, Quaternion.identity)
+                EnnemyBehavior behavior = Instantiate(ennemy[randomEnnemy], spawnPoints[randomSpawn].transform.position, Quaternion.identity)
                     .GetComponent<EnnemyBehavior>();
-                
+                behavior.GetComponent<HealthSystem>().onDie.AddListener(EnnemyDies);
+
                 behavior.Active = true;
                 
                 timer = 0f;
                 ennemiesArray = GetComponentsInChildren<EnnemyBehavior>();
-                livingEnnemies = ennemiesArray.Length;
+                livingEnnemies++;
                 totalEnnemies++;
 
 
                 if(totalEnnemies >= wave)
                 {
-                    DoorClose();
+                    CloseAllDoors();
                 }
             }
         }
@@ -97,7 +99,16 @@ public class EnnemyWaves : MonoBehaviour
 
     }
 
-    private void DoorClose()
+    public void DisposeSpawn(Transform spawner)
+    {
+        spawnPoints.Remove(spawner);
+        if(spawnPoints.Count == 0)
+        {
+            CloseAllDoors();
+        }
+    }
+
+    private void CloseAllDoors()
     {
         if (close)
             return;
@@ -106,6 +117,11 @@ public class EnnemyWaves : MonoBehaviour
         foreach(Door door in doors)
         {
             door.Close();
+        }
+
+        foreach (GarbageCollector zozo in triselectif)
+        {
+            zozo.TriSelectif();
         }
     }
 }

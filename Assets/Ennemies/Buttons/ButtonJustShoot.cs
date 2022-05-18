@@ -15,7 +15,8 @@ public class ButtonJustShoot : MonoBehaviour
     public List<GameObject> target = new List<GameObject>();
     private bool detruit;
     [SerializeField] private StudioEventEmitter destroyEmitter;
-
+    private EnnemyWaves letsCloseSomeDoors;
+    [SerializeField] Transform spawnerPoint;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class ButtonJustShoot : MonoBehaviour
         //doors = GetComponentsInChildren<Door>();
         close = false;
         detruit = false;
+        letsCloseSomeDoors = GetComponentInParent<EnnemyWaves>();
     }
 
     // Start is called before the first frame update
@@ -33,11 +35,10 @@ public class ButtonJustShoot : MonoBehaviour
         if (detruit)
             return;
 
-        else
-            close = true;
-            detruit = true;
-            destroyEmitter.Play();
-            DoorClose();
+        close = true;
+        detruit = true;
+        destroyEmitter.Play();
+        DoorClose();
 
     }
 
@@ -52,7 +53,9 @@ public class ButtonJustShoot : MonoBehaviour
             {
                 door.Close();
             }
-            
+
+            letsCloseSomeDoors.DisposeSpawn(spawnerPoint);
+
             for (var j = 0; j < target.Count; j++)
             {
                 target[j].SetActive(false);
@@ -63,6 +66,7 @@ public class ButtonJustShoot : MonoBehaviour
             {
                 colorMat[i].color = Color.red;
             }
+
 
         }
 
