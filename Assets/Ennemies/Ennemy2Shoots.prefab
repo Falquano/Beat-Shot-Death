@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 5704297785486346334}
   - component: {fileID: 6593576396338022193}
   - component: {fileID: 206587580254913505}
+  - component: {fileID: 3863044444053436155}
   - component: {fileID: 206587580254913502}
   - component: {fileID: 8814714842039939720}
   - component: {fileID: 7053540775759151106}
@@ -263,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mesures:
   - {fileID: 206587580254913502}
-  - {fileID: 0}
+  - {fileID: 3863044444053436155}
   - {fileID: 206587580254913505}
   - {fileID: 206587580254913505}
   active: 0
@@ -279,6 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95274270c9ca2a64182e92ca912c4a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DistanceMaxShoot: 35
   damageEnnemy: 10
   damagePlayer: 1
   range: 100
@@ -330,6 +332,26 @@ MonoBehaviour:
   impactParticlesPrefab: {fileID: 7081961916757537454, guid: f0bfca444f22a92458ec88145b5918c9, type: 3}
   shotImpactSize: 0.4
   scriptPlayerHealth: {fileID: 0}
+--- !u!114 &3863044444053436155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7392610202990465567}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c6fa906b42a1543ae9fa3ac11c4652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DistanceMaxShoot: 35
+  rotationSpeed: 360
+  aimingTime: 0.5
+  onAim:
+    m_PersistentCalls:
+      m_Calls: []
+  distanceMaxWithPlayer: 0
+  FuturLine: {fileID: 0}
 --- !u!114 &206587580254913502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f26b190710f684e8c6b1f3faaa0962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DistanceMaxShoot: 0
   Distance: 7
   speed: 5
   ValueMargin: 0.5

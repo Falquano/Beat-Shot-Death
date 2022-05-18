@@ -11,6 +11,14 @@ public class Mesure : MonoBehaviour
 
     protected bool PlayerisDead = false;
 
+    [SerializeField] protected float DistanceMaxShoot;
+    protected GameObject Player;
+
+    private void Start()
+    {
+        Player = FindObjectOfType<PlayerMove>().gameObject;
+    }
+
     public void Init()
     {
         behavior = GetComponent<EnnemyBehavior>();
