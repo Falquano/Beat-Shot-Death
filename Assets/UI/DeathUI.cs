@@ -19,4 +19,9 @@ public class DeathUI : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
