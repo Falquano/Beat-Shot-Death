@@ -10,6 +10,7 @@ public class OndeScriptVFX : MonoBehaviour
 {
     [SerializeField] private ShootPlayer ScriptShootPlayer;
     private int ComboPlayer;
+
     
 
     [SerializeField] private List<VisualEffect> VFXOndeList = new List<VisualEffect>();
@@ -17,13 +18,13 @@ public class OndeScriptVFX : MonoBehaviour
 
     private void Update()
     {
-        
+
     }
 
 
     public void OnMesureStart()
     {
-        //Appelé à chaque début de mesure
+        //Appelï¿½ ï¿½ chaque dï¿½but de mesure
         //Calcul le combo et play l'anim de l'onde en fonction
 
         ComboPlayer = ScriptShootPlayer.combo;
