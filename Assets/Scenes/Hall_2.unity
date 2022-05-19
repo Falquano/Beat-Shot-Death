@@ -3770,6 +3770,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1822282745}
     m_Modifications:
+    - target: {fileID: 2505102628177856235, guid: fd23640d5d887164ba4c664f3781e348, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.231
+      objectReference: {fileID: 0}
     - target: {fileID: 7257555590352548570, guid: fd23640d5d887164ba4c664f3781e348, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -24925,7 +24929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: PlayerIsInvincible
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Target
