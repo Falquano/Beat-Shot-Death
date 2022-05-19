@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 1614503015697562055}
   - component: {fileID: 2533635711193856170}
   - component: {fileID: -569739452763243197}
-  - component: {fileID: 948351766}
   m_Layer: 0
   m_Name: Prefab_Tourelle 1
   m_TagString: Ennemy
@@ -578,25 +577,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!95 &948351766
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1289888870111577408}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1289888870546125479
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,11 +978,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a5a225c7857967428b2b91b738ea050, type: 3}
---- !u!1 &2796436573737100081 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -1491978027564997453, guid: 7a5a225c7857967428b2b91b738ea050, type: 3}
-  m_PrefabInstance: {fileID: 5586044484812949378}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5336524360024006761 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7a5a225c7857967428b2b91b738ea050, type: 3}
@@ -1016,6 +991,11 @@ GameObject:
 --- !u!4 &1247645518795520819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6689282653593828529, guid: 7a5a225c7857967428b2b91b738ea050, type: 3}
+  m_PrefabInstance: {fileID: 5586044484812949378}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2796436573737100081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1491978027564997453, guid: 7a5a225c7857967428b2b91b738ea050, type: 3}
   m_PrefabInstance: {fileID: 5586044484812949378}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7627581176408906396
@@ -1091,13 +1071,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30d9d42c95149ae479c3b84b9f87bb57, type: 3}
---- !u!4 &818725358624061548 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7099413311643132656, guid: 30d9d42c95149ae479c3b84b9f87bb57, type: 3}
-  m_PrefabInstance: {fileID: 7627581176408906396}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6582555525800662 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7624029460137474122, guid: 30d9d42c95149ae479c3b84b9f87bb57, type: 3}
+  m_PrefabInstance: {fileID: 7627581176408906396}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &818725358624061548 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7099413311643132656, guid: 30d9d42c95149ae479c3b84b9f87bb57, type: 3}
   m_PrefabInstance: {fileID: 7627581176408906396}
   m_PrefabAsset: {fileID: 0}
