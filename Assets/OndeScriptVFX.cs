@@ -12,6 +12,7 @@ public class OndeScriptVFX : MonoBehaviour
     private int ComboPlayer;
 
     [SerializeField] private List<VisualEffect> VFXOndeList = new List<VisualEffect>();
+    
 
     private void Start()
     {
@@ -41,4 +42,15 @@ public class OndeScriptVFX : MonoBehaviour
             VFXOndeList[3].Play();
         }
     }
+
+    private void Update()
+    {
+       
+        Vector3 OndePosition = new Vector3(ScriptShootPlayer.MouseWorldPosition.x, ScriptShootPlayer.MouseWorldPosition.y, ScriptShootPlayer.MouseWorldPosition.z);
+        transform.position = OndePosition;
+        transform.rotation = new Quaternion(71.74f, 0f, -6.7f, 0f);
+    }
+    
+
+    
 }
