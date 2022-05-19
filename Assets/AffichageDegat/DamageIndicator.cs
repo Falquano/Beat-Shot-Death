@@ -10,6 +10,9 @@ public class DamageIndicator : MonoBehaviour
     public float lifetime = 0.6f;
     public float minDist = 2f;
     public float maxDist = 3f;
+    //Gradient gradient;
+    //GradientColorKey[] colorKey;
+    //GradientAlphaKey[] alphaKey;
 
     private Vector3 iniPos;
     private Vector3 targetPos;
@@ -48,21 +51,25 @@ public class DamageIndicator : MonoBehaviour
         if (amount >= 10 && amount <=20)
         {
             text.color = new Color (0,0,255, 1f);//blue
-            text.fontSize = 10f;
+            text.faceColor = new Color32(255, 255, 255, 255);
+            text.fontSize = 10f;//10
         }
         else if (amount >= 30 && amount <=60)
         {
             text.color = new Color (0,255,0, 1f); //green
-            text.fontSize = 25f;
+            text.faceColor = new Color32(255, 255, 255, 255);
+            text.fontSize = 25f;//25
         }  
         else if (amount >= 61 && amount <=80)
         {
             text.color = new Color (255,200,0, 1f);//yellow
-            text.fontSize = 40f;
+            text.faceColor = new Color32(255, 255, 255, 255);
+            text.fontSize = 40f;//40
         }
         else if (amount == 120)
         {
             text.color = new Color (255,0,0, 1f);//rouge
+            text.faceColor = new Color32(255, 255, 255, 255);
             text.fontSize = 55f;
         } 
     }

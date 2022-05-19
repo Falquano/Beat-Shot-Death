@@ -28,7 +28,7 @@ MonoBehaviour:
     x: 0
     y: -190
     width: 1367
-    height: 1932
+    height: 1952
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1008,6 +1008,7 @@ MonoBehaviour:
   m_InputSlots:
   - {fileID: 8926484042661614676}
   - {fileID: 8926484042661614759}
+  - {fileID: 8926484042661614762}
   - {fileID: 8926484042661614586}
   m_OutputSlots: []
   m_Label: 
@@ -1029,7 +1030,7 @@ MonoBehaviour:
   zTestMode: 0
   colorMapping: 1
   uvMode: 0
-  useSoftParticle: 0
+  useSoftParticle: 1
   sortPriority: 0
   sort: 0
   indirectDraw: 0
@@ -1838,7 +1839,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":-1.3931670188903809,"value":0.2454853057861328,"inTangent":-0.00020794574811588973,"outTangent":-0.00020794574811588973,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false},{"time":-1.1890825033187867,"value":0.24544286727905274,"inTangent":-0.05722055584192276,"outTangent":-0.05722055584192276,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":-0.8459255695343018,"value":0.1538008749485016,"inTangent":-0.7080567479133606,"outTangent":-0.7080567479133606,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":-0.5487723350524902,"value":0.014218628406524659,"inTangent":-0.46973153948783877,"outTangent":-0.46973153948783877,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":-1.3931670188903809,"value":0.2454853057861328,"inTangent":-0.00020794574811588973,"outTangent":-0.00020794574811588973,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false},{"time":-1.1890825033187867,"value":0.24544286727905274,"inTangent":-0.05722055584192276,"outTangent":-0.05722055584192276,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":-0.8459255695343018,"value":0.1538008749485016,"inTangent":-0.7080567479133606,"outTangent":-0.7080567479133606,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":-0.6978964805603027,"value":0.010190308094024659,"inTangent":-0.9701510071754456,"outTangent":-0.9701510071754456,"tangentMode":0,"leftTangentMode":1,"rightTangentMode":1,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     m_Space: 2147483647
   m_Property:
     name: Alpha
@@ -2202,6 +2203,40 @@ MonoBehaviour:
     m_Space: 2147483647
   m_Property:
     name: Alpha
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+  m_Direction: 0
+  m_LinkedSlots: []
+--- !u!114 &8926484042661614762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614762}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614585}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 1
+    m_Space: 2147483647
+  m_Property:
+    name: softParticleFadeDistance
     m_serializedType:
       m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
