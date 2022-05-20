@@ -152,7 +152,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{f2da4cfa-aa7e-45c4-b831-859ca042e205}">
 		<property name="volume">
-			<value>3</value>
+			<value>5</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{14613ac7-ae48-427d-b48e-90e41fe5e471}</destination>
@@ -356,11 +356,11 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{f20eff32-3396-49f1-a4d5-adabbc837c6e}">
-		<property name="isAsync">
-			<value>true</value>
-		</property>
 		<property name="length">
-			<value>194</value>
+			<value>193.49999999999991</value>
+		</property>
+		<property name="timelockedOffset">
+			<value>0.5</value>
 		</property>
 		<property name="looping">
 			<value>true</value>
@@ -753,7 +753,7 @@
 			<value>1.0066280033140016</value>
 		</property>
 		<property name="value">
-			<value>2</value>
+			<value>10</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{abcd0e5d-553f-4e5a-928f-d32feba27f5d}">
@@ -761,7 +761,7 @@
 			<value>2.0091135045567521</value>
 		</property>
 		<property name="value">
-			<value>2</value>
+			<value>10</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{45a0913b-b2fb-4f90-a90a-29f104e1b38e}">
@@ -769,7 +769,7 @@
 			<value>2.5103562551781278</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>8</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{659c9f58-e8dc-4d3b-a1f0-86f15b51980d}">
@@ -777,7 +777,7 @@
 			<value>3.011599005799503</value>
 		</property>
 		<property name="value">
-			<value>-1</value>
+			<value>7</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{4218ad6f-667a-45c5-b784-93b21a150e5b}">
@@ -785,7 +785,7 @@
 			<value>3.504556752278376</value>
 		</property>
 		<property name="value">
-			<value>-2</value>
+			<value>6</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{92c9fa0b-c354-44ff-bb13-972113a47a3c}">
@@ -793,7 +793,7 @@
 			<value>4.0099420049710028</value>
 		</property>
 		<property name="value">
-			<value>-4</value>
+			<value>4</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{473b2eac-6a3b-40a0-bcbf-542526dae3c6}">
@@ -801,7 +801,7 @@
 			<value>4.507042253521127</value>
 		</property>
 		<property name="value">
-			<value>-6</value>
+			<value>2</value>
 		</property>
 	</object>
 </objects>
