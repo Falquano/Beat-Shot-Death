@@ -16644,9 +16644,9 @@ MonoBehaviour:
   ennemiesArray: []
   livingEnnemies: 0
   totalEnnemies: 0
-  wave: 300
+  wave: 100
   close: 0
-  varEnnemiMax: 5
+  varEnnemiMax: 4
   exitCollider: {fileID: 1453263376}
   EnterCollider: {fileID: 0}
 --- !u!1001 &1517623023
@@ -25178,7 +25178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: PlayerIsInvincible
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Target
