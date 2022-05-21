@@ -56,7 +56,7 @@ public class ShootMesure : Mesure
         Vector3 ShootToPlayer = behavior.Player.transform.position  - transform.position;
 
         //On tire un raycast de l'ennemi (+ une distance pour pas qu'il se tire dessus) dans le sens de sa direction
-        Ray ray = new Ray(transform.position + transform.forward * rayOffset, transform.forward);
+        Ray ray = new Ray(transform.position + transform.forward * rayOffset + new Vector3(0, 2,0), transform.forward);
 
         ShotInfo shotInfo = new ShotInfo()
         {
