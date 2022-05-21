@@ -13,6 +13,7 @@ public class DeathUI : MonoBehaviour
         Destroy(cursor);
         Cursor.visible = true;
         deathScreen.SetActive(true);
+        
     }
 
     public void RestartLevel()
