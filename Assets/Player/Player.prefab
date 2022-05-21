@@ -3683,8 +3683,10 @@ MonoBehaviour:
   - {fileID: 438154467995756240}
   - {fileID: 7462270552646460797}
   - {fileID: 1952105521}
-  invincible: 1
-  PlayerIsInvincible: 1
+  invincible: 0
+  PlayerIsInvincible: 0
+  GameOverScreen: {fileID: 0}
+  HurtScreen: {fileID: 0}
   PlayerisDead: 0
 --- !u!114 &1952105521
 MonoBehaviour:
