@@ -272,11 +272,13 @@ public class ShootPlayer : MonoBehaviour
                     {
                         
                         AnimEnnemy.SetTrigger("HitRight");
+
                     }
                     else if (RayColliderAnim.collider.tag == "Left")
                     {
                         
                         AnimEnnemy.SetTrigger("HitLeft");
+
                     }
                     else if (RayColliderAnim.collider.tag == "Back")
                     {
