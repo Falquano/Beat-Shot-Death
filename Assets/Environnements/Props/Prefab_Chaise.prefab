@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7274532632404874639}
   - component: {fileID: 6006552266397833770}
   - component: {fileID: 8412574844040064736}
+  - component: {fileID: 1547774884505122136}
   m_Layer: 0
   m_Name: Prefab_Chaise
   m_TagString: Untagged
@@ -82,3 +83,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1547774884505122136
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8052300136011435829}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.006832359, y: 0.0056431587, z: 0.0039943513}
+  m_Center: {x: 0.00040501886, y: -3.0257916e-10, z: -0.003107035}

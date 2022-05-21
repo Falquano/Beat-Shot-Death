@@ -11,7 +11,7 @@ public class PlayerHealthSystem : MonoBehaviour
 
 
     /// <summary>
-    /// Event envoyant lors de la prise de dégat, les dégats, puis les nouveaux PVs
+    /// Event envoyant lors de la prise de dï¿½gat, les dï¿½gats, puis les nouveaux PVs
     /// </summary>
     [SerializeField] public UnityEvent<int, int> onTakeDamage;
     [SerializeField] public UnityEvent onDie;
@@ -24,6 +24,8 @@ public class PlayerHealthSystem : MonoBehaviour
     [Header("Debug")]
     [SerializeField] public bool invincible = false;
     [SerializeField] private bool PlayerIsInvincible = false;
+    public GameObject GameOverScreen;
+    public GameObject HurtScreen;
 
     public bool PlayerisDead = false;
     private Rigidbody RB;
@@ -73,7 +75,7 @@ public class PlayerHealthSystem : MonoBehaviour
         onDie.Invoke();
         PlayerisDead = true;
         RB.velocity = Vector3.zero;
-        //Désactiver les ennemis pour qu'ils arrêtent de victimiser le cadavre du player
+        //Dï¿½sactiver les ennemis pour qu'ils arrï¿½tent de victimiser le cadavre du player
 
     }
 
@@ -81,7 +83,10 @@ public class PlayerHealthSystem : MonoBehaviour
     {
         
         PlayerisDead = false;
-        SceneManager.LoadScene("Hall_2", LoadSceneMode.Single);
+        //SceneManager.LoadScene("Hall_2", LoadSceneMode.Single);
+        GameOverScreen.SetActive(true);
+        HurtScreen.SetActive(false);
+        
 
     }
 
