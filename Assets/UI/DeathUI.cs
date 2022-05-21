@@ -18,7 +18,8 @@ public class DeathUI : MonoBehaviour
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        print("scene");
+        SceneManager.LoadScene("Hall_2", LoadSceneMode.Single);
     }
 
     public void QuitGame()
