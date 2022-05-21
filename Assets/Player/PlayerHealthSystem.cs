@@ -81,12 +81,12 @@ public class PlayerHealthSystem : MonoBehaviour
 
     public void OnDied()
     {
-        
+        print("mort");
         PlayerisDead = false;
-        //SceneManager.LoadScene("Hall_2", LoadSceneMode.Single);
-        //Mettre le temps en pause !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        GameOverScreen.SetActive(true);
-        HurtScreen.SetActive(false);
+        SceneManager.LoadScene("DeathScene", LoadSceneMode.Single);
+        
+        //GameOverScreen.SetActive(true);
+        //HurtScreen.SetActive(false);
         
 
     }
