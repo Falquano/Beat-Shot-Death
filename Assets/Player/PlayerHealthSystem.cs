@@ -84,6 +84,7 @@ public class PlayerHealthSystem : MonoBehaviour
         
         PlayerisDead = false;
         //SceneManager.LoadScene("Hall_2", LoadSceneMode.Single);
+        //Mettre le temps en pause !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         GameOverScreen.SetActive(true);
         HurtScreen.SetActive(false);
         

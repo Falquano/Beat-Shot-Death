@@ -17,7 +17,9 @@ public class DeathUI : MonoBehaviour
 
     public void RestartLevel()
     {
+        //Remettre le temps en play :!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene("Hall_2", LoadSceneMode.Single);
     }
 
     public void QuitGame()

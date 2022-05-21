@@ -76,6 +76,8 @@ public class ShootPlayer : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool logShots = false;
 
+    //Ondes appelé si le tir est perfect
+    [SerializeField] private PositionOnde ScriptOnde;
 
 
     // Update is called once per frame
@@ -306,6 +308,9 @@ public class ShootPlayer : MonoBehaviour
                     case ShotQuality.Perfect:
                         targetHealth.DealDamage(ComboDamageBonus(perfectShotDamage));
                         combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
+
+                        //Appel des ondes pour le bon tir
+                        ScriptOnde.OnPerfectShootOnde();
                         break;
                 }
 
