@@ -310,7 +310,7 @@ public class ShootPlayer : MonoBehaviour
                         combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
 
                         //Appel des ondes pour le bon tir
-                        ScriptOnde.OnPerfectShootOnde();
+                        //ScriptOnde.OnPerfectShootOnde();
                         break;
                 }
 
