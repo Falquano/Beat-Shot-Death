@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using static UnityEngine.InputSystem.InputAction;
+using UnityEngine.UI;
+using TMPro;
 
 public class ShootPlayer : MonoBehaviour
 
@@ -42,6 +44,7 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] public UnityEvent OnDashEvent = new UnityEvent();
 
     [SerializeField] private TempoManager tempoManager;
+    [SerializeField] private DamageIndicator text;
 
 
     //je ne suis pas sur de cette variable
@@ -298,6 +301,7 @@ public class ShootPlayer : MonoBehaviour
                 switch (quality)
                 {
                     case ShotQuality.Bad:
+                        text.text.color = new Color (250,200,0, 0.75f);
                         targetHealth.DealDamage(ComboDamageBonus(badShotDamage));
                         combo = Mathf.Clamp(combo + comboBadShotMod, 0, maxCombo);
                         break;
@@ -306,6 +310,7 @@ public class ShootPlayer : MonoBehaviour
                         combo = Mathf.Clamp(combo + comboGoodShotMod, 0, maxCombo);
                         break;
                     case ShotQuality.Perfect:
+                        text.text.color = new Color (250,0,0, 1f);
                         targetHealth.DealDamage(ComboDamageBonus(perfectShotDamage));
                         combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
 

@@ -83,18 +83,12 @@ public class PlayerHealthSystem : MonoBehaviour
     {
         print("mort");
         PlayerisDead = false;
-<<<<<<< HEAD
-        //SceneManager.LoadScene("Hall_2", LoadSceneMode.Single);
-        GameOverScreen.SetActive(true);
-        HurtScreen.SetActive(false); //hurt effect disparait 
-=======
+
+
         SceneManager.LoadScene("DeathScene", LoadSceneMode.Single);
         
         //GameOverScreen.SetActive(true);
-        //HurtScreen.SetActive(false);
->>>>>>> f4440c1d2e92623f81b4591c96373c97a7c239e1
-        
-
+        //HurtScreen.SetActive(false);  
     }
 
 
