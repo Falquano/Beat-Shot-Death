@@ -82,7 +82,7 @@ public class PlayerHealthSystem : MonoBehaviour
     public void OnDied()
     {
         print("mort");
-        PlayerisDead = false;
+        
         
         GameOverScreen.SetActive(true);
         HurtScreen.SetActive(false);  

@@ -7,6 +7,7 @@ public class DeathUI : MonoBehaviour
 {
     [SerializeField] private GameObject deathScreen;
     [SerializeField] private GameObject cursor;
+    [SerializeField] private PlayerHealthSystem scripthealth;
 
     public void OnDeath()
     {
@@ -19,6 +20,7 @@ public class DeathUI : MonoBehaviour
     public void RestartLevel()
     {
         print("scene");
+        scripthealth.PlayerisDead = false;
         SceneManager.LoadScene("Hall_2", LoadSceneMode.Single);
     }
 
