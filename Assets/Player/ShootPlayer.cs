@@ -301,7 +301,8 @@ public class ShootPlayer : MonoBehaviour
                 switch (quality)
                 {
                     case ShotQuality.Bad:
-                        text.text.color = new Color (250,200,0, 0.75f);
+                        text.text.fontSize = - 30f;
+                        text.text.color = new Color (250,200,0, 0.75f);  //La couleur du text se trouve ici (seul endroit où elle apparaît corrextement)
                         targetHealth.DealDamage(ComboDamageBonus(badShotDamage));
                         combo = Mathf.Clamp(combo + comboBadShotMod, 0, maxCombo);
                         break;
@@ -310,7 +311,7 @@ public class ShootPlayer : MonoBehaviour
                         combo = Mathf.Clamp(combo + comboGoodShotMod, 0, maxCombo);
                         break;
                     case ShotQuality.Perfect:
-                        text.text.color = new Color (250,0,0, 1f);
+                        text.text.color = new Color (250,0,0, 1f); //La couleur du text se trouve ici (seul endroit où elle apparaît corrextement)
                         targetHealth.DealDamage(ComboDamageBonus(perfectShotDamage));
                         combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
 
