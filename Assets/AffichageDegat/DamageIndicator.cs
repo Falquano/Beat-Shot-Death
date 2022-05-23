@@ -10,13 +10,15 @@ public class DamageIndicator : MonoBehaviour
     public float lifetime = 0.6f;
     public float minDist = 2f;
     public float maxDist = 3f;
-    //Gradient gradient;
-    //GradientColorKey[] colorKey;
-    //GradientAlphaKey[] alphaKey;
+    Gradient gradient;
+    GradientColorKey[] colorKey;
+    GradientAlphaKey[] alphaKey;
 
     private Vector3 iniPos;
     private Vector3 targetPos;
     private float timer;
+    [SerializeField] private ShootPlayer OK;
+    [SerializeField] private TempoManager tempoManager;
 
     // Start is called before the first frame update
     void Start()
@@ -48,29 +50,52 @@ public class DamageIndicator : MonoBehaviour
     {
         text.text = amount.ToString();
 
+       // switch (quality)
+       // {
+         //   case ShotQuality.Bad:
+          //      text.color = new Color (0,0,0, 1f);
+            //    break;
+          //  case ShotQuality.Good:
+            //    break;
+           // case ShotQuality.Perfect:
+            //    text.color = new Color (255,0,0, 1f);
+                //Appel des ondes pour le bon tir
+                //ScriptOnde.OnPerfectShootOnde();
+            //    break;
+        //}
+
         if (amount >= 10 && amount <=20)
         {
-            text.color = new Color (0,0,255, 1f);//blue
-            text.faceColor = new Color32(255, 255, 255, 255);
-            text.fontSize = 10f;//10
+            //text.color = new Color (255,200,0, 1f);
+            //text.faceColor = new Color32(255, 255, 255, 255);
+            text.fontSize = 15f;//10
         }
         else if (amount >= 30 && amount <=60)
         {
-            text.color = new Color (0,255,0, 1f); //green
-            text.faceColor = new Color32(255, 255, 255, 255);
-            text.fontSize = 25f;//25
+            //text.color = new Color (255,0.5f,0, 1f); 
+            //text.faceColor = new Color32(255, 255, 255, 255);
+            text.fontSize = 30f;//25
         }  
         else if (amount >= 61 && amount <=80)
         {
-            text.color = new Color (255,200,0, 1f);//yellow
-            text.faceColor = new Color32(255, 255, 255, 255);
-            text.fontSize = 40f;//40
+            //text.color = new Color (255,0.15f,0, 1f);
+            //text.faceColor = new Color32(255, 255, 255, 255);
+            text.fontSize = 45f;//40
         }
         else if (amount == 120)
         {
-            text.color = new Color (255,0,0, 1f);//rouge
-            text.faceColor = new Color32(255, 255, 255, 255);
-            text.fontSize = 55f;
-        } 
+            //text.color = new Color (255,0,0, 1f);//rouge
+            //text.faceColor = new Color32(255, 255, 255, 255);
+            text.fontSize = 60f;
+        }
+
+
+           // text.color = new Color (0,0,0, 1f);
+
+
+
+            //text.color = new Color (255,0,0, 1f);//rouge
+
+
     }
 }

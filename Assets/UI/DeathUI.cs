@@ -13,11 +13,13 @@ public class DeathUI : MonoBehaviour
         Destroy(cursor);
         Cursor.visible = true;
         deathScreen.SetActive(true);
+        
     }
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        print("scene");
+        SceneManager.LoadScene("Hall_2", LoadSceneMode.Single);
     }
 
     public void QuitGame()
