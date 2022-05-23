@@ -50,8 +50,7 @@ public class PlayerHealthSystem : MonoBehaviour
         if(PlayerisDead == false)
         {
             health -= amount;
-            onTakeDamage.Invoke(amount, health);//Deux visu diff en fonction des pts de vie qui reste genre 1 coups un peu rouge / 2 coups bcp rouge / 3 coup mort
-
+            onTakeDamage.Invoke(amount, health);
 
 
             if (health <= 0)
@@ -60,7 +59,6 @@ public class PlayerHealthSystem : MonoBehaviour
 
             }
         }
-
         
     }
 
@@ -75,20 +73,14 @@ public class PlayerHealthSystem : MonoBehaviour
         onDie.Invoke();
         PlayerisDead = true;
         RB.velocity = Vector3.zero;
-        //D�sactiver les ennemis pour qu'ils arr�tent de victimiser le cadavre du player
+        
 
     }
 
     public void OnDied()
     {
-        print("mort");
-        PlayerisDead = false;
-
-
-        SceneManager.LoadScene("DeathScene", LoadSceneMode.Single);
-        
-        //GameOverScreen.SetActive(true);
-        //HurtScreen.SetActive(false);  
+        GameOverScreen.SetActive(true);
+        HurtScreen.SetActive(false);  
     }
 
 
