@@ -25,12 +25,13 @@ GameObject:
   - component: {fileID: 5036682331769832356}
   - component: {fileID: 8235456924060978177}
   - component: {fileID: 6174099985101977803}
+  - component: {fileID: 349297726}
   m_Layer: 0
   m_Name: "Prefab_AngleMurInvers\xE9_1 (1)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5036682331769832356
 Transform:
@@ -96,6 +97,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &349297726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669525372569442590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b10f944cd9a5ba479dba476ae2718a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matStandard: {fileID: 2100000, guid: fa97a28a3c5235c40b257ba4dfec0602, type: 2}
+  matEmissif: {fileID: 2100000, guid: dbdbd378a3144a842b495f7df0aad6cc, type: 2}
+  pulse: 0
+  timer: 0
+  pulseTime: 1
 --- !u!1001 &1900789765167855778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -166,6 +184,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e2ea0fbd565ce5544a348cd1c3df2013, type: 3}
       propertyPath: m_Name
       value: "ColliderAngleInvers\xE9"
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e2ea0fbd565ce5544a348cd1c3df2013, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2ea0fbd565ce5544a348cd1c3df2013, type: 3}
