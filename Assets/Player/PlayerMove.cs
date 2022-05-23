@@ -29,10 +29,11 @@ public class PlayerMove : MonoBehaviour
     {
         if (ScriptHealthPlayer.PlayerisDead)
         {
+            RB.velocity = Vector3.zero;
             return;
         }
 
-        if (DashIsOk)
+        if (DashIsOk )
         {
             RB.velocity = Vector3.zero;
             //Mettre le déplacement sur le rigidbody met les collisions en jeu donc c'est cool
