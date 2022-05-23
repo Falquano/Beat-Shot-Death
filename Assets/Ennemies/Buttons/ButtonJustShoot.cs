@@ -6,9 +6,6 @@ using UnityEngine.Events;
 
 public class ButtonJustShoot : MonoBehaviour
 {
-
-
-
     [SerializeField] private Door[] doors;
     [SerializeField] private bool close;
     public List<SpriteRenderer> colorMat = new List<SpriteRenderer>();

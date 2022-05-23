@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matStandard: {fileID: 2100000, guid: e74d79bda8a14284d8e529a630a1c413, type: 2}
-  intensityModifier: 0
+  matEmissif: {fileID: 2100000, guid: c0a58fdd6103f1447aeef5dd735fa2fb, type: 2}
+  rend: {fileID: 0}
   pulse: 0
-  pulseTime: 0.3
+  timer: 0
+  pulseTime: 0.1
 --- !u!1 &1297136079565832485
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,9 +223,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matStandard: {fileID: 2100000, guid: e74d79bda8a14284d8e529a630a1c413, type: 2}
-  intensityModifier: 0
+  matEmissif: {fileID: 2100000, guid: c0a58fdd6103f1447aeef5dd735fa2fb, type: 2}
+  rend: {fileID: 0}
   pulse: 0
-  pulseTime: 0.3
+  timer: 0
+  pulseTime: 0.1
 --- !u!64 &7572545996126032998
 MeshCollider:
   m_ObjectHideFlags: 0

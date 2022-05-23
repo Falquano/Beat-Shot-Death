@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3075740756409439105}
   - component: {fileID: 2089919237508750372}
   - component: {fileID: 4243540047659673838}
-  - component: {fileID: 3493371578829808527}
   m_Layer: 0
   m_Name: Prefab_AngleMur_1
   m_TagString: Untagged
@@ -50,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2442333361650895163}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -84,23 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3493371578829808527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2442333361650895163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b10f944cd9a5ba479dba476ae2718a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  matStandard: {fileID: 2100000, guid: 03a74609f81a68045b7d8876cc13590d, type: 2}
-  matEmissif: {fileID: 2100000, guid: dbdbd378a3144a842b495f7df0aad6cc, type: 2}
-  pulse: 0
-  timer: 0
-  pulseTime: 0.3
 --- !u!64 &7034771171195778148
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -115,6 +97,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8663802791670341782, guid: 707674e2986b8d94480ee9c22f4b0643, type: 3}
+--- !u!114 &6178507671487821276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6396616363713202716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b10f944cd9a5ba479dba476ae2718a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matStandard: {fileID: 2100000, guid: 03a74609f81a68045b7d8876cc13590d, type: 2}
+  matEmissif: {fileID: 2100000, guid: 0a98d0b5c334dd64a80d8ae0e05168cd, type: 2}
+  rend: {fileID: 0}
+  pulse: 0
+  timer: 0
+  pulseTime: 0.1
 --- !u!1001 &4219290423174907351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -271,6 +271,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85ffbff3cd7947c4f840e640424657b2, type: 3}
+--- !u!1 &6396616363713202716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 85ffbff3cd7947c4f840e640424657b2, type: 3}
+  m_PrefabInstance: {fileID: 6054018090962696013}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6020899412948275366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 85ffbff3cd7947c4f840e640424657b2, type: 3}

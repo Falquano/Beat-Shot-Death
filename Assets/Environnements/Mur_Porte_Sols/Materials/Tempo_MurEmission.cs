@@ -6,6 +6,7 @@ public class Tempo_MurEmission : MonoBehaviour
 {
     public Material matStandard;
     public Material matEmissif;
+    [SerializeField] private Renderer rend;
     Material m_materiel;
     private Color color;
     private float intensity;
@@ -19,7 +20,8 @@ public class Tempo_MurEmission : MonoBehaviour
     {
         pulse = false;
         m_materiel = GetComponent<Renderer>().material;
-        m_materiel = matStandard;
+        rend = GetComponent<Renderer>();
+        rend.material = matStandard;
     }
 
     // Update is called once per frame
@@ -35,7 +37,7 @@ public class Tempo_MurEmission : MonoBehaviour
             /*intensity = 0;
             matStandard.SetColor("_EmissionColor", color * intensity);
             */
-            m_materiel = matStandard;
+            rend.material = matStandard;
             pulse = false;
             timer = 0;
             Debug.Log("Je suis standard");
@@ -48,7 +50,7 @@ public class Tempo_MurEmission : MonoBehaviour
         /*intensity = intensityModifier;
         matStandard.SetColor("_EmissionColor", color * intensity);
         */
-        m_materiel = matEmissif;
+        rend.material = matEmissif;
         pulse = true;
         Debug.Log("Je Pulse");
     }

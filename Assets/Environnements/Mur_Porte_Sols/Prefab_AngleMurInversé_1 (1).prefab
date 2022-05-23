@@ -111,9 +111,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   matStandard: {fileID: 2100000, guid: fa97a28a3c5235c40b257ba4dfec0602, type: 2}
   matEmissif: {fileID: 2100000, guid: dbdbd378a3144a842b495f7df0aad6cc, type: 2}
+  rend: {fileID: 0}
   pulse: 0
   timer: 0
-  pulseTime: 1
+  pulseTime: 0.1
 --- !u!1001 &1900789765167855778
 PrefabInstance:
   m_ObjectHideFlags: 0
