@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3075740756409439105}
   - component: {fileID: 2089919237508750372}
   - component: {fileID: 4243540047659673838}
+  - component: {fileID: 3493371578829808527}
   m_Layer: 0
   m_Name: Prefab_AngleMur_1
   m_TagString: Untagged
@@ -83,6 +84,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3493371578829808527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2442333361650895163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b10f944cd9a5ba479dba476ae2718a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matStandard: {fileID: 2100000, guid: 03a74609f81a68045b7d8876cc13590d, type: 2}
+  matEmissif: {fileID: 2100000, guid: dbdbd378a3144a842b495f7df0aad6cc, type: 2}
+  pulse: 0
+  timer: 0
+  pulseTime: 0.3
 --- !u!64 &7034771171195778148
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -209,11 +227,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 85ffbff3cd7947c4f840e640424657b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0041
+      value: 0.0035
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 85ffbff3cd7947c4f840e640424657b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.004
+      value: 0.0038
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 85ffbff3cd7947c4f840e640424657b2, type: 3}
       propertyPath: m_LocalPosition.z
