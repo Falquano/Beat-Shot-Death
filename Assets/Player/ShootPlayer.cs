@@ -62,8 +62,8 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private int comboBadShotMod = -8;
     [SerializeField] private int comboDecrease;
 
-    [SerializeField] private int perfectShotDamage = 20;
-    [SerializeField] private int goodShotDamage = 20;
+    [SerializeField] private int perfectShotDamage = 10;
+    [SerializeField] private int goodShotDamage = 10;
     [SerializeField] private int badShotDamage = 10;
 
     [SerializeField] private int comboDash = 10;
@@ -309,7 +309,7 @@ public class ShootPlayer : MonoBehaviour
                 switch (quality)
                 {
                     case ShotQuality.Bad:
-                        damage = ComboDamageBonus(badShotDamage);
+                        damage = badShotDamage;
                         combo = Mathf.Clamp(combo + comboBadShotMod, 0, maxCombo);
                         break;
 
@@ -412,23 +412,23 @@ public class ShootPlayer : MonoBehaviour
     {
         if (combo >= 0 && combo <= 1)
         {
-            return baseDamage;
+            return (int)((float)baseDamage * 1.5f);
         }
         else if (combo > 1 && combo <= 25)
         {
-            return (int)((float)baseDamage * 1.5f);
+            return baseDamage * 2;
         }
         else if (combo > 25 && combo <= 50)
         {
-            return baseDamage * 2;
+            return baseDamage * 3;
         }
         else if (combo > 50 && combo <= 75)
         {
-            return baseDamage * 4;
+            return baseDamage * 5;
         }
         else
         {
-            return baseDamage * 6;
+            return baseDamage * 10;
         }
     }
 
