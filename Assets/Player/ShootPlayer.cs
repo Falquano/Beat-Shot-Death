@@ -67,7 +67,7 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private int comboDash = 10;
 
     public bool inTempo;
-    //check de si le joueur tir quand la croix est rouge
+
 
 
     [SerializeField] private int MesureBeforeComboDecreasing;
@@ -81,6 +81,10 @@ public class ShootPlayer : MonoBehaviour
 
     //Ondes appelé si le tir est perfect
     [SerializeField] private PositionOnde ScriptOnde;
+
+    //Variable de target d'aide à la visée pour tirer
+    public  GameObject TargetRayCast;
+
 
 
     // Update is called once per frame
@@ -301,7 +305,7 @@ public class ShootPlayer : MonoBehaviour
                 switch (quality)
                 {
                     case ShotQuality.Bad:
-                        text.text.color = new Color (250,200,0, 0.75f);
+                        text.text.color = new Color (250,200,0, 0.75f); //A passer dans un autre script
                         targetHealth.DealDamage(ComboDamageBonus(badShotDamage));
                         combo = Mathf.Clamp(combo + comboBadShotMod, 0, maxCombo);
                         break;
@@ -315,7 +319,7 @@ public class ShootPlayer : MonoBehaviour
                         combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
 
                         //Appel des ondes pour le bon tir
-                        //ScriptOnde.OnPerfectShootOnde();
+                        //ScriptOnde.OnPerfectShootOnde(); mettre dans event et comprendre pk elles se lisent en double
                         break;
                 }
 
@@ -437,7 +441,20 @@ public class ShootPlayer : MonoBehaviour
     }
 
 
-
+    /*public void Target(GameObject target)
+    {
+        if(target == null)
+        {
+            print("rien");
+            TargetRayCast = null;
+        }
+        else
+        {
+            TargetRayCast = target;
+            print(target);
+        }
+        
+    }*/
 
 
 }
