@@ -55,18 +55,19 @@ public class DamageIndicator : MonoBehaviour
         switch (infoShoot.Quality)
         {
             case ShotQuality.Bad:
-                text.color = new Color (0,0,0, 1f);
+                text.color = new Color(250, 200, 0, 0.75f);
                 break;
             case ShotQuality.Good:
 
                 break;
             case ShotQuality.Perfect:
-                text.color = new Color (255,0,0, 1f);
-                //Appel des ondes pour le bon tir
-                
+                text.color = new Color(250, 0, 0, 1f);
+
                 break;
         }
 
+        
+        //Refaire les tailles de text en fonction des dégâts possible 
         if (damage >= 10 && damage <=20)
         {
             text.fontSize = 10f;

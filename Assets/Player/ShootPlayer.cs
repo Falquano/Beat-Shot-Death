@@ -309,30 +309,24 @@ public class ShootPlayer : MonoBehaviour
                 switch (quality)
                 {
                     case ShotQuality.Bad:
-                        text.text.color = new Color (250,200,0, 0.75f); //A passer dans un autre script
                         damage = ComboDamageBonus(badShotDamage);
-                        targetHealth.DealDamage(damage);
                         combo = Mathf.Clamp(combo + comboBadShotMod, 0, maxCombo);
-
-
                         break;
+
                     case ShotQuality.Good:
                         damage = ComboDamageBonus(goodShotDamage);
-                        targetHealth.DealDamage(damage);
                         combo = Mathf.Clamp(combo + comboGoodShotMod, 0, maxCombo);
                         break;
-                    case ShotQuality.Perfect:
-                        text.text.color = new Color (250,0,0, 1f);
 
+                    case ShotQuality.Perfect:
                         damage = ComboDamageBonus(perfectShotDamage);
-                        targetHealth.DealDamage(damage);
                         combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
 
                         //Appel des ondes pour le bon tir
                         ScriptOnde.OnPerfectShootOnde(); 
-                        //mettre dans event et comprendre pk elles se lisent en double
                         break;
                 }
+                targetHealth.DealDamage(damage);
 
 
             }
