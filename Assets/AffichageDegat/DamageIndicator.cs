@@ -49,58 +49,40 @@ public class DamageIndicator : MonoBehaviour
     public void SetDamageText(ShotInfo infoShoot, int damage)
     {
         
-        
-        
-        
-        
         text.text = damage.ToString();
 
+        //Change la couleur du text en fonction de la quality du shoot
         switch (infoShoot.Quality)
         {
             case ShotQuality.Bad:
                 text.color = new Color (0,0,0, 1f);
                 break;
             case ShotQuality.Good:
+
                 break;
             case ShotQuality.Perfect:
                 text.color = new Color (255,0,0, 1f);
                 //Appel des ondes pour le bon tir
-                //ScriptOnde.OnPerfectShootOnde(); //XXXXXXXXXXXXXXXXXXX
+                
                 break;
         }
 
         if (damage >= 10 && damage <=20)
         {
-            //text.color = new Color (255,200,0, 1f);
-            //text.faceColor = new Color32(255, 255, 255, 255);
-            text.fontSize = 10f;//10
+            text.fontSize = 10f;
         }
         else if (damage >= 30 && damage <=60)
         {
-            //text.color = new Color (255,0.5f,0, 1f); 
-            //text.faceColor = new Color32(255, 255, 255, 255);
-            text.fontSize = 25f;//25
+            text.fontSize = 25f;
         }  
         else if (damage >= 61 && damage <=80)
         {
-            //text.color = new Color (255,0.15f,0, 1f);
-            //text.faceColor = new Color32(255, 255, 255, 255);
-            text.fontSize = 40f;//40
+            text.fontSize = 40f;
         }
         else if (damage == 120)
         {
-            //text.color = new Color (255,0,0, 1f);//rouge
-            //text.faceColor = new Color32(255, 255, 255, 255);
             text.fontSize = 55f;
         }
-
-
-           // text.color = new Color (0,0,0, 1f);
-
-
-
-            //text.color = new Color (255,0,0, 1f);//rouge
-
 
     }
 

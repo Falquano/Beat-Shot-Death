@@ -12,10 +12,7 @@ public class PositionOnde : MonoBehaviour
     [SerializeField] private ShootPlayer ScriptShootPlayer;
     [SerializeField] private VisualEffect Onde4;
 
-    private void Start()
-    {
-        InvokeRepeating("OnPerfectShootOnde", 0f, 0.5f);
-    }
+    
     private void LateUpdate()
     {
         
@@ -28,9 +25,7 @@ public class PositionOnde : MonoBehaviour
     }
 
     public void OnPerfectShootOnde()
-    {
-        
-        Onde4.Play();
-        
+    { 
+        Onde4.Play();  
     }
 }
