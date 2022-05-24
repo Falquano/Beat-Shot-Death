@@ -32,7 +32,7 @@ public class ShootPlayer : MonoBehaviour
     private int barrelIndex;
 
     // Un event qui s'active quand on tire et envoie les donn�es du tir. Le fonctionnement des events a �t� bien expliqu� par @C�leste dans le channel de prog je crois
-    [SerializeField] public UnityEvent<ShotInfo> OnShotEvent = new UnityEvent<ShotInfo>();
+    [SerializeField] public UnityEvent<ShotInfo, int> OnShotEvent = new UnityEvent<ShotInfo, int>();
 
 
     [SerializeField] public int combo = 0;
@@ -42,6 +42,8 @@ public class ShootPlayer : MonoBehaviour
     /// </summary>
     [SerializeField] public UnityEvent<int, int> onComboChange = new UnityEvent<int, int>();
     [SerializeField] public UnityEvent OnDashEvent = new UnityEvent();
+    [SerializeField] public UnityEvent<int, int> OnDamage = new UnityEvent<int, int>();
+
 
     [SerializeField] private TempoManager tempoManager;
     [SerializeField] private DamageIndicator text;
@@ -85,7 +87,7 @@ public class ShootPlayer : MonoBehaviour
     //Variable de target d'aide à la visée pour tirer
     public  GameObject TargetRayCast;
 
-
+    
 
     // Update is called once per frame
     void Update()
@@ -243,6 +245,8 @@ public class ShootPlayer : MonoBehaviour
 
     public void Shoot()
     {
+        int damage = 0;
+
         ShotQuality quality = tempoManager.ShotQualityNow();
         if (logShots)
         {
@@ -306,20 +310,27 @@ public class ShootPlayer : MonoBehaviour
                 {
                     case ShotQuality.Bad:
                         text.text.color = new Color (250,200,0, 0.75f); //A passer dans un autre script
-                        targetHealth.DealDamage(ComboDamageBonus(badShotDamage));
+                        damage = ComboDamageBonus(badShotDamage);
+                        targetHealth.DealDamage(damage);
                         combo = Mathf.Clamp(combo + comboBadShotMod, 0, maxCombo);
+
+
                         break;
                     case ShotQuality.Good:
-                        targetHealth.DealDamage(ComboDamageBonus(goodShotDamage));
+                        damage = ComboDamageBonus(goodShotDamage);
+                        targetHealth.DealDamage(damage);
                         combo = Mathf.Clamp(combo + comboGoodShotMod, 0, maxCombo);
                         break;
                     case ShotQuality.Perfect:
                         text.text.color = new Color (250,0,0, 1f);
-                        targetHealth.DealDamage(ComboDamageBonus(perfectShotDamage));
+
+                        damage = ComboDamageBonus(perfectShotDamage);
+                        targetHealth.DealDamage(damage);
                         combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
 
                         //Appel des ondes pour le bon tir
-                        //ScriptOnde.OnPerfectShootOnde(); mettre dans event et comprendre pk elles se lisent en double
+                        ScriptOnde.OnPerfectShootOnde(); 
+                        //mettre dans event et comprendre pk elles se lisent en double
                         break;
                 }
 
@@ -381,7 +392,7 @@ public class ShootPlayer : MonoBehaviour
                 EndNormal = RayShoot.normal
             };
             // On annonce au monde qu'un tir a �t� effectu� avec les infos pr�c�dentes
-            OnShotEvent.Invoke(info);
+            OnShotEvent.Invoke(info, damage);
             // On d�sactive le tir pour cette mesure
             CheckShootisOk = false;
         }

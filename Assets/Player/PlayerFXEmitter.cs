@@ -22,7 +22,7 @@ public class PlayerFXEmitter : MonoBehaviour
 
     private int combo;
 
-    public void ShotFX(ShotInfo shotInfo)
+    public void ShotFX(ShotInfo shotInfo, int damage)
     {
         ZapLine(shotInfo);
         Impact(shotInfo.EndPos, shotInfo.EndNormal, shotInfo.Quality);

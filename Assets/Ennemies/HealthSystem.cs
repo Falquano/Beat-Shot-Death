@@ -43,7 +43,7 @@ public class HealthSystem : MonoBehaviour
         
         onTakeDamage.Invoke(amount, health); 
         DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
-        indicator.SetDamageText(amount);
+        //indicator.SetDamageText();
 
         if (health <= 0)
         {

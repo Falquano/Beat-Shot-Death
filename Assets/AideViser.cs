@@ -38,7 +38,7 @@ public class AideViser : MonoBehaviour
                     ScriptShootPlayer.TargetRayCast = hitInfo.collider.gameObject;
                 }
 
-                print(hitInfo.collider.gameObject.transform.position);
+               
             }
         }
         else

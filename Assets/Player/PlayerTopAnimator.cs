@@ -39,7 +39,7 @@ public class PlayerTopAnimator : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position + transform.up * blockedCheckOffset, blockedCheckRadius);
     }
 
-    public void OnShot(ShotInfo shotInfo)
+    public void OnShot(ShotInfo shotInfo, int damage)
     {
         if (fireright)
         {
