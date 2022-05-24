@@ -13,12 +13,20 @@ public class HelpAimScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //Si un objet est pointé alors le viseur suit sa position
-        if(ObjectPointed == true)
+        if(ObjectPointed == true && ObjectTarget != null)
         {
             Target = new Vector3(ObjectTarget.transform.position.x, 6, ObjectTarget.transform.position.z);
             transform.position = Target;
         }
+        else if (ObjectPointed == true && ObjectTarget == null)
+        {
+            this.gameObject.SetActive(false);
+            ObjectPointed = false;
+        }
+
+
     }
 
     public void OnObjectPointed(GameObject minitarget)
