@@ -49,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287718015650511429}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -97,6 +97,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -462981019419857548, guid: ca97645ea4d01ca48a217ae9b979288e, type: 3}
+--- !u!114 &7379875950398624821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4936015799139817828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b10f944cd9a5ba479dba476ae2718a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matStandard: {fileID: 2100000, guid: f2f43b5eec677824294a4a0facf0c222, type: 2}
+  matEmissif: {fileID: 2100000, guid: 3e6bd4ad4f51a0e4a8975a7c68511516, type: 2}
+  rend: {fileID: 0}
+  pulse: 0
+  timer: 0
+  pulseTime: 0.1
 --- !u!1001 &1846050088098770625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -249,6 +267,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6e90d8a5773ed142aa224fbc5fa9906, type: 3}
+--- !u!1 &4936015799139817828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a6e90d8a5773ed142aa224fbc5fa9906, type: 3}
+  m_PrefabInstance: {fileID: 5206488714141557813}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5749848344725914590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a6e90d8a5773ed142aa224fbc5fa9906, type: 3}
