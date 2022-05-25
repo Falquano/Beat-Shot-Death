@@ -18,8 +18,14 @@ public class AideViser : MonoBehaviour
 
     private Collider ObjectTouched;
 
+    [SerializeField] private bool HelpAim;
+
     private void Update()
     {
+        if (HelpAim)
+        {
+            return;
+        }
 
         Ray MouseOnScreen = Camera.main.ScreenPointToRay(ScriptShootPlayer.MouseScreenPosition);
 
