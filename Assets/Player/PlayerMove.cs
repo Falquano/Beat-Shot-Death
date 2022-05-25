@@ -30,6 +30,7 @@ public class PlayerMove : MonoBehaviour
         if (ScriptHealthPlayer.PlayerisDead)
         {
             RB.velocity = Vector3.zero;
+            
             return;
         }
 
