@@ -238,6 +238,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Tourelle_Emissive, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   ScriptAnimation: {fileID: 0}
   invincible: 0
   damageText: {fileID: 259312728796913392, guid: f89c27a80d793bc4ea3c153c55e34633, type: 3}
@@ -353,6 +365,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 947269581145155031}
+        m_TargetAssemblyTypeName: EnnemySoundEffects, Assembly-CSharp
+        m_MethodName: OnFootstep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   distanceMaxWithPlayer: 0
   FuturLine: {fileID: 1190038046496984728}
 --- !u!114 &947269581145155031
@@ -386,11 +410,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 2033636481
-      Data2: 1179387057
-      Data3: 112079243
-      Data4: -1119235899
-    Path: event:/Baddies/Footstep
+      Data1: 1786109612
+      Data2: 1336438895
+      Data3: -1913572213
+      Data4: -41114165
+    Path: event:/Baddies/Tourelle_Chargement
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -400,7 +424,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 50
+  OverrideMaxDistance: 20
 --- !u!114 &8762118917705167481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,11 +440,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1675834452
-      Data2: 1221896098
-      Data3: 436367770
-      Data4: 105539817
-    Path: event:/Baddies/Shot
+      Data1: -1984873518
+      Data2: 1279638598
+      Data3: -1251853153
+      Data4: 1670307839
+    Path: event:/Baddies/Tourelle_Attack
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -438,7 +462,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289888870111577408}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -476,11 +500,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1692860094
-      Data2: 1216365523
-      Data3: 1365420478
-      Data4: -1888661847
-    Path: event:/Baddies/Die
+      Data1: 1294050560
+      Data2: 1331042797
+      Data3: 1274463368
+      Data4: -1896360501
+    Path: event:/Environnements/Barriere/Barriere_Step2
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -489,8 +513,8 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideMinDistance: 5.2000003
+  OverrideMaxDistance: 40
 --- !u!54 &5370040661655765404
 Rigidbody:
   m_ObjectHideFlags: 0
