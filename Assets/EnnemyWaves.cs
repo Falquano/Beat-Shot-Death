@@ -46,7 +46,7 @@ public class EnnemyWaves : MonoBehaviour
         if (other.tag == "Player")
         {
             close = false;
-            Debug.Log("Je sors de la salle");
+           
         }
     }
 
@@ -55,7 +55,7 @@ public class EnnemyWaves : MonoBehaviour
         if(other.tag == "Player")
         {
             close = true;
-            Debug.Log("Je sors de la salle");
+           
         }
     }
 
