@@ -87,7 +87,8 @@ public class ShootPlayer : MonoBehaviour
     //Variable de target d'aide à la visée pour tirer
     public  GameObject TargetRayCast;
 
-    
+    //Raycast pour tiré
+    private Ray ray;
 
     // Update is called once per frame
     void Update()
@@ -253,18 +254,43 @@ public class ShootPlayer : MonoBehaviour
             Debug.Log($"Shot triggered at {tempoManager.Tempo.ToString("F3")} => {quality}");
         }
 
-
-        //on calcul la direction entre le player et la souris 
-        //Vector2 DirectionShoot = Camera.main.ScreenToWorldPoint(MouseScreenPosition) - transform.position;
+        //Calcul de sa position forward
         Vector3 DirectionShoot = transform.forward;
 
-        Ray ray = new Ray(transform.position, DirectionShoot.normalized);
+
+        //Si un objet est dans l'aide à la visé
+        if (TargetRayCast != null)
+        {
+            //On va tirer le raycast sur cet objet
+            //Calcul de la direction du player à cet ennemi         
+            Vector3 EnnemiTarget = new Vector3(TargetRayCast.transform.position.x, 5, TargetRayCast.transform.position.z);
+            Vector3 TargetDirectionShoot = EnnemiTarget - transform.position ;
+            TargetDirectionShoot.y = 1;
+            //new Vector3(transform.position.x - EnnemiTarget.x, 5, transform.position.z - EnnemiTarget.z ).normalized;
+
+            ray = new Ray(transform.position, TargetDirectionShoot);
+            Debug.DrawRay(transform.position, TargetDirectionShoot, Color.red, 5f);
+        }
+        //Si aucun objet n'est pointé par l'aide à la visé
+        else if (TargetRayCast == null)
+        {
+            //On tir un raycast devant le player
+            
+            ray = new Ray(transform.position, DirectionShoot.normalized);
+        }
+        
+
+
+
+
+
+
         //on cr�er un raycast du player dans la direction de la souris de distance max sur un mask sans le player lui-m�me
         if (Physics.Raycast(ray, out RaycastHit RayShoot, range, TheMask))
         {
             //Debug
             Debug.DrawLine(transform.position, RayShoot.point, Color.red, 0.2f);
-
+            print("ennemy touched");
             //On v�rif si le tir est dans le cadran du tir ok
 
             //On v�rifie si il collide avec un �l�ment et si cet �l�ment poss�de le tag ennemy
@@ -272,7 +298,7 @@ public class ShootPlayer : MonoBehaviour
             {
                 //On tir sur un ennemi (peut importe les d�g�ts), alors on ne descendra pas en combo)
                 numberOfNonShoot = 0;
-
+                
                 
                 //Vérif de quel coté est touché l'ennemi pour l'anim
                 if (Physics.Raycast(ray, out RaycastHit RayColliderAnim, range, MaskColliderAnim))
@@ -446,20 +472,18 @@ public class ShootPlayer : MonoBehaviour
     }
 
 
-    /*public void Target(GameObject target)
+    public void Target(GameObject target)
     {
         if(target == null)
         {
-            print("rien");
             TargetRayCast = null;
         }
         else
         {
             TargetRayCast = target;
-            print(target);
         }
         
-    }*/
+    }
 
 
 }

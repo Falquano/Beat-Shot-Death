@@ -35,7 +35,8 @@ public class AideViser : MonoBehaviour
                     ObjectTouched = hitInfo.collider;
 
                     AimScript.OnObjectPointed(hitInfo.collider.gameObject);
-                    ScriptShootPlayer.TargetRayCast = hitInfo.collider.gameObject;
+                    //ScriptShootPlayer.TargetRayCast = hitInfo.collider.gameObject;
+                    ScriptShootPlayer.Target(ObjectTouched.gameObject);
                 }
 
                
@@ -50,7 +51,8 @@ public class AideViser : MonoBehaviour
                 ObjectTouched = null;
                 AimScript.OnNonObjectPointed();
 
-                ScriptShootPlayer.TargetRayCast = null;
+                //ScriptShootPlayer.TargetRayCast = null;
+                ScriptShootPlayer.Target(null);
             }
 
             
