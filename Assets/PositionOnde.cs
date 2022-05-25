@@ -12,9 +12,10 @@ public class PositionOnde : MonoBehaviour
     [SerializeField] private ShootPlayer ScriptShootPlayer;
     [SerializeField] private VisualEffect Onde4;
 
-    private void Update()
+    
+    private void LateUpdate()
     {
-
+        
 
         Ray pointerRay = Camera.main.ScreenPointToRay(ScriptShootPlayer.MouseScreenPosition);
         if (Physics.Raycast(pointerRay, out RaycastHit hitInfo, float.MaxValue, MaskPlanOnde))
@@ -24,7 +25,7 @@ public class PositionOnde : MonoBehaviour
     }
 
     public void OnPerfectShootOnde()
-    {
-        Onde4.Play();
+    { 
+        Onde4.Play();  
     }
 }

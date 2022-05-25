@@ -32,7 +32,7 @@ public class ShootPlayer : MonoBehaviour
     private int barrelIndex;
 
     // Un event qui s'active quand on tire et envoie les donn�es du tir. Le fonctionnement des events a �t� bien expliqu� par @C�leste dans le channel de prog je crois
-    [SerializeField] public UnityEvent<ShotInfo> OnShotEvent = new UnityEvent<ShotInfo>();
+    [SerializeField] public UnityEvent<ShotInfo, int> OnShotEvent = new UnityEvent<ShotInfo, int>();
 
 
     [SerializeField] public int combo = 0;
@@ -42,6 +42,8 @@ public class ShootPlayer : MonoBehaviour
     /// </summary>
     [SerializeField] public UnityEvent<int, int> onComboChange = new UnityEvent<int, int>();
     [SerializeField] public UnityEvent OnDashEvent = new UnityEvent();
+    [SerializeField] public UnityEvent<int, int> OnDamage = new UnityEvent<int, int>();
+
 
     [SerializeField] private TempoManager tempoManager;
     [SerializeField] private DamageIndicator text;
@@ -60,14 +62,14 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private int comboBadShotMod = -8;
     [SerializeField] private int comboDecrease;
 
-    [SerializeField] private int perfectShotDamage = 20;
-    [SerializeField] private int goodShotDamage = 20;
+    [SerializeField] private int perfectShotDamage = 10;
+    [SerializeField] private int goodShotDamage = 10;
     [SerializeField] private int badShotDamage = 10;
 
     [SerializeField] private int comboDash = 10;
 
     public bool inTempo;
-    //check de si le joueur tir quand la croix est rouge
+
 
 
     [SerializeField] private int MesureBeforeComboDecreasing;
@@ -82,6 +84,11 @@ public class ShootPlayer : MonoBehaviour
     //Ondes appelé si le tir est perfect
     [SerializeField] private PositionOnde ScriptOnde;
 
+    //Variable de target d'aide à la visée pour tirer
+    public  GameObject TargetRayCast;
+
+    //Raycast pour tiré
+    private Ray ray;
 
     // Update is called once per frame
     void Update()
@@ -239,18 +246,45 @@ public class ShootPlayer : MonoBehaviour
 
     public void Shoot()
     {
+        int damage = 0;
+
         ShotQuality quality = tempoManager.ShotQualityNow();
         if (logShots)
         {
             Debug.Log($"Shot triggered at {tempoManager.Tempo.ToString("F3")} => {quality}");
         }
 
-
-        //on calcul la direction entre le player et la souris 
-        //Vector2 DirectionShoot = Camera.main.ScreenToWorldPoint(MouseScreenPosition) - transform.position;
+        //Calcul de sa position forward
         Vector3 DirectionShoot = transform.forward;
 
-        Ray ray = new Ray(transform.position, DirectionShoot.normalized);
+
+        //Si un objet est dans l'aide à la visé
+        if (TargetRayCast != null)
+        {
+            //On va tirer le raycast sur cet objet
+            //Calcul de la direction du player à cet ennemi         
+            Vector3 EnnemiTarget = new Vector3(TargetRayCast.transform.position.x, 5, TargetRayCast.transform.position.z);
+            Vector3 TargetDirectionShoot = EnnemiTarget - transform.position ;
+            TargetDirectionShoot.y = 1;
+            //new Vector3(transform.position.x - EnnemiTarget.x, 5, transform.position.z - EnnemiTarget.z ).normalized;
+
+            ray = new Ray(transform.position, TargetDirectionShoot);
+            Debug.DrawRay(transform.position, TargetDirectionShoot, Color.red, 5f);
+        }
+        //Si aucun objet n'est pointé par l'aide à la visé
+        else if (TargetRayCast == null)
+        {
+            //On tir un raycast devant le player
+            
+            ray = new Ray(transform.position, DirectionShoot.normalized);
+        }
+        
+
+
+
+
+
+
         //on cr�er un raycast du player dans la direction de la souris de distance max sur un mask sans le player lui-m�me
         if (Physics.Raycast(ray, out RaycastHit RayShoot, range, TheMask))
         {
@@ -264,7 +298,7 @@ public class ShootPlayer : MonoBehaviour
             {
                 //On tir sur un ennemi (peut importe les d�g�ts), alors on ne descendra pas en combo)
                 numberOfNonShoot = 0;
-
+                
                 
                 //Vérif de quel coté est touché l'ennemi pour l'anim
                 if (Physics.Raycast(ray, out RaycastHit RayColliderAnim, range, MaskColliderAnim))
@@ -301,24 +335,24 @@ public class ShootPlayer : MonoBehaviour
                 switch (quality)
                 {
                     case ShotQuality.Bad:
-                        text.text.fontSize = - 30f;
-                        text.text.color = new Color (250,200,0, 0.75f);  //La couleur du text se trouve ici (seul endroit où elle apparaît corrextement)
-                        targetHealth.DealDamage(ComboDamageBonus(badShotDamage));
+                        damage = badShotDamage;
                         combo = Mathf.Clamp(combo + comboBadShotMod, 0, maxCombo);
                         break;
+
                     case ShotQuality.Good:
-                        targetHealth.DealDamage(ComboDamageBonus(goodShotDamage));
+                        damage = ComboDamageBonus(goodShotDamage);
                         combo = Mathf.Clamp(combo + comboGoodShotMod, 0, maxCombo);
                         break;
+
                     case ShotQuality.Perfect:
-                        text.text.color = new Color (250,0,0, 1f); //La couleur du text se trouve ici (seul endroit où elle apparaît corrextement)
-                        targetHealth.DealDamage(ComboDamageBonus(perfectShotDamage));
+                        damage = ComboDamageBonus(perfectShotDamage);
                         combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
 
                         //Appel des ondes pour le bon tir
-                        //ScriptOnde.OnPerfectShootOnde();
+                        ScriptOnde.OnPerfectShootOnde(); 
                         break;
                 }
+                targetHealth.DealDamage(damage);
 
 
             }
@@ -378,7 +412,7 @@ public class ShootPlayer : MonoBehaviour
                 EndNormal = RayShoot.normal
             };
             // On annonce au monde qu'un tir a �t� effectu� avec les infos pr�c�dentes
-            OnShotEvent.Invoke(info);
+            OnShotEvent.Invoke(info, damage);
             // On d�sactive le tir pour cette mesure
             CheckShootisOk = false;
         }
@@ -404,23 +438,23 @@ public class ShootPlayer : MonoBehaviour
     {
         if (combo >= 0 && combo <= 1)
         {
-            return baseDamage;
+            return (int)((float)baseDamage * 1.5f);
         }
         else if (combo > 1 && combo <= 25)
         {
-            return (int)((float)baseDamage * 1.5f);
+            return baseDamage * 2;
         }
         else if (combo > 25 && combo <= 50)
         {
-            return baseDamage * 2;
+            return baseDamage * 3;
         }
         else if (combo > 50 && combo <= 75)
         {
-            return baseDamage * 4;
+            return baseDamage * 5;
         }
         else
         {
-            return baseDamage * 6;
+            return baseDamage * 10;
         }
     }
 
@@ -438,7 +472,18 @@ public class ShootPlayer : MonoBehaviour
     }
 
 
-
+    public void Target(GameObject target)
+    {
+        if(target == null)
+        {
+            TargetRayCast = null;
+        }
+        else
+        {
+            TargetRayCast = target;
+        }
+        
+    }
 
 
 }

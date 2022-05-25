@@ -18,7 +18,7 @@ public class CamShakeOnShoot : MonoBehaviour
         shaker = GetComponent<CameraShaker>();
     }
 
-    public void OnEvent(ShotInfo info)
+    public void OnEvent(ShotInfo info, int damage)
     {
         shaker.Shake(GetAmplitude(info.Quality), frequency, time);
     }

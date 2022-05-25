@@ -14,16 +14,13 @@ public class Mesure : MonoBehaviour
     [SerializeField] protected float DistanceMaxShoot;
     protected GameObject Player;
 
-    private void Start()
-    {
-        Player = FindObjectOfType<PlayerMove>().gameObject;
-    }
 
     public void Init()
     {
         behavior = GetComponent<EnnemyBehavior>();
         tempo = FindObjectOfType<TempoManager>();
         //animator = GetComponentInChildren<Animator>();
+        Player = FindObjectOfType<PlayerMove>().gameObject;
     }
     public void OnDied()
     {

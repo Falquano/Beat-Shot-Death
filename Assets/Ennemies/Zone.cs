@@ -58,7 +58,7 @@ public class Zone : MonoBehaviour
 
 		if (aliveEnnemies <= 0)
 		{
-			Debug.Log($"{name} cleared.");
+			
 			onRoomCleared.Invoke(this);
 		}
 	}

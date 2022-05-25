@@ -36,7 +36,7 @@ public class TempoGuide : MonoBehaviour
         Destroy(gameObject);
 	}
 
-    public void Shot(ShotInfo info)
+    public void Shot(ShotInfo info, int damage)
 	{
         /*material.SetColor("_GuideColor", Color.yellow);
         enabled = false;*/

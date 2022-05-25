@@ -46,56 +46,46 @@ public class DamageIndicator : MonoBehaviour
         transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, Mathf.Sin(timer / lifetime));
     }
 
-    public void SetDamageText(int amount)
+    public void SetDamageText(ShotInfo infoShoot, int damage)
     {
-        text.text = amount.ToString();
+        
+        text.text = damage.ToString();
 
-       // switch (quality)
-       // {
-         //   case ShotQuality.Bad:
-          //      text.color = new Color (0,0,0, 1f);
-            //    break;
-          //  case ShotQuality.Good:
-            //    break;
-           // case ShotQuality.Perfect:
-            //    text.color = new Color (255,0,0, 1f);
-                //Appel des ondes pour le bon tir
-                //ScriptOnde.OnPerfectShootOnde();
-            //    break;
-        //}
-
-        if (amount >= 10 && amount <=20)
+        //Change la couleur du text en fonction de la quality du shoot
+        switch (infoShoot.Quality)
         {
-            //text.color = new Color (255,200,0, 1f);
-            //text.faceColor = new Color32(255, 255, 255, 255);
-            text.fontSize = 10f;//10
+            case ShotQuality.Bad:
+                text.color = new Color(250, 200, 0, 0.75f);
+                break;
+            case ShotQuality.Good:
+
+                break;
+            case ShotQuality.Perfect:
+                text.color = new Color(250, 0, 0, 1f);
+
+                break;
         }
-        else if (amount >= 30 && amount <=60)
+
+        
+        //Refaire les tailles de text en fonction des dégâts possible 
+        if (damage >= 10 && damage <=20)
         {
-            //text.color = new Color (255,0.5f,0, 1f); 
-            //text.faceColor = new Color32(255, 255, 255, 255);
-            text.fontSize = 25f;//25
+            text.fontSize = 10f;
+        }
+        else if (damage >= 30 && damage <=60)
+        {
+            text.fontSize = 25f;
         }  
-        else if (amount >= 61 && amount <=80)
+        else if (damage >= 61 && damage <=80)
         {
-            //text.color = new Color (255,0.15f,0, 1f);
-            //text.faceColor = new Color32(255, 255, 255, 255);
-            text.fontSize = 40f;//40
+            text.fontSize = 40f;
         }
-        else if (amount == 120)
+        else if (damage == 120)
         {
-            //text.color = new Color (255,0,0, 1f);//rouge
-            //text.faceColor = new Color32(255, 255, 255, 255);
             text.fontSize = 55f;
         }
 
-
-           // text.color = new Color (0,0,0, 1f);
-
-
-
-            //text.color = new Color (255,0,0, 1f);//rouge
-
-
     }
+
+    
 }

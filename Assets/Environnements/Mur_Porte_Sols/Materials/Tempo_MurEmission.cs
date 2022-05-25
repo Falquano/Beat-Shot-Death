@@ -40,7 +40,7 @@ public class Tempo_MurEmission : MonoBehaviour
             rend.material = matStandard;
             pulse = false;
             timer = 0;
-            Debug.Log("Je suis standard");
+            
         }
 
     }
@@ -52,6 +52,6 @@ public class Tempo_MurEmission : MonoBehaviour
         */
         rend.material = matEmissif;
         pulse = true;
-        Debug.Log("Je Pulse");
+        
     }
 }

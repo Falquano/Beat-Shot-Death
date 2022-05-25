@@ -16,13 +16,15 @@ public class MoveMesure : Mesure
 
     public float rotationSpeed;
 
+    private Rigidbody RBennemy;
+
    
 
     private void Start()
     {
         //déclaration des variables utiles
         meshAgent = GetComponent<NavMeshAgent>();
-        playerTransform = behavior.Player.GetComponent<Transform>();
+        playerTransform = Player.GetComponent<Transform>();
     }
 
     private void Movement()
@@ -41,11 +43,21 @@ public class MoveMesure : Mesure
     }
     private void OnEnable()
     {
-        //animator.SetBool("Moving", true);
-        //animator.SetBool("Aiming", false);
+        if(behavior == null)
+        {
+            behavior = GetComponent<EnnemyBehavior>();
+        }
+        if(RBennemy == null)
+        {
+            RBennemy = GetComponent<Rigidbody>();
+        }
+        if(Player == null)
+        {
+            Player = Player = FindObjectOfType<PlayerMove>().gameObject;
+        }
 
         if (playerTransform == null)
-            playerTransform = behavior.Player.transform;
+            playerTransform = Player.transform;
 
         if (meshAgent == null)
             meshAgent = GetComponent<NavMeshAgent>();
@@ -58,8 +70,9 @@ public class MoveMesure : Mesure
 
     private void OnDisable()
     {
-        //animator.SetBool("Moving", false);
-        behavior.Rigidbody.velocity = Vector3.zero;
+
+
+        RBennemy.velocity = Vector3.zero;
         meshAgent.ResetPath();
         meshAgent.velocity = Vector3.zero;
         meshAgent.enabled = false;
@@ -67,7 +80,7 @@ public class MoveMesure : Mesure
 
     private void Update()
     {
-        if (behavior.Player == null || PlayerisDead == true)
+        if (Player == null || PlayerisDead == true)
             return;
 
         Vector3 direction = playerTransform.position - transform.position;

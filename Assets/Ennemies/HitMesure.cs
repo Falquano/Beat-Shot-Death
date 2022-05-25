@@ -8,8 +8,8 @@ using UnityEngine.Events;
 public class HitMesure : Mesure
 {
 
-    private GameObject Player;
-    private MoveMesure ScriptMoveMesure;
+
+    [SerializeField] private MoveMesure ScriptMoveMesure;
 
     [SerializeField] private float rayOffset = .7f;
     [SerializeField] private int damage = 50;
@@ -23,11 +23,6 @@ public class HitMesure : Mesure
     [SerializeField] private float DistanceHit;
     
 
-    private void Start()
-    {
-        Player = FindObjectOfType<PlayerMove>().gameObject;
-        ScriptMoveMesure = GetComponent<MoveMesure>();
-    }
 
 
 
@@ -36,11 +31,27 @@ public class HitMesure : Mesure
         tempo.onTimeToShoot.AddListener(Hit);
         //animator.SetBool("Aiming", true);
 
-        if (Vector3.Distance(transform.position, Player.transform.position) > DistanceHit)
+        if(Player == null)
         {
-
-            ScriptMoveMesure.enabled = true;
+            Player = FindObjectOfType<PlayerMove>().gameObject;
+            
         }
+        if(ScriptMoveMesure == null)
+        {
+            ScriptMoveMesure = GetComponent<MoveMesure>();
+        }
+        
+
+        if (Player != null && ScriptMoveMesure != null)
+        {
+            if (Vector3.Distance(transform.position, Player.transform.position) > DistanceHit)
+            {
+
+                ScriptMoveMesure.enabled = true;
+            }
+        }
+
+        
     }
 
     private void OnDisable()
