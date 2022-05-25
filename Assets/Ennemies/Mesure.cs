@@ -16,7 +16,7 @@ public class Mesure : MonoBehaviour
 
     private void Start()
     {
-        Player = FindObjectOfType<PlayerMove>().gameObject;
+        
     }
 
     public void Init()
@@ -24,6 +24,7 @@ public class Mesure : MonoBehaviour
         behavior = GetComponent<EnnemyBehavior>();
         tempo = FindObjectOfType<TempoManager>();
         //animator = GetComponentInChildren<Animator>();
+        Player = FindObjectOfType<PlayerMove>().gameObject;
     }
     public void OnDied()
     {
