@@ -3465,6 +3465,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 259312728796913394, guid: f89c27a80d793bc4ea3c153c55e34633, type: 3}
+        m_TargetAssemblyTypeName: DamageIndicator, Assembly-CSharp
+        m_MethodName: SetDamageText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   combo: 0
   maxCombo: 100
   onComboChange:
@@ -3532,8 +3544,8 @@ MonoBehaviour:
   comboGoodShotMod: 2
   comboBadShotMod: -5
   comboDecrease: -10
-  perfectShotDamage: 20
-  goodShotDamage: 20
+  perfectShotDamage: 10
+  goodShotDamage: 10
   badShotDamage: 10
   comboDash: 10
   inTempo: 0
@@ -3691,7 +3703,7 @@ MonoBehaviour:
   - {fileID: 7462270552646460797}
   - {fileID: 1952105521}
   invincible: 0
-  PlayerIsInvincible: 0
+  PlayerIsInvincible: 1
   GameOverScreen: {fileID: 0}
   HurtScreen: {fileID: 0}
   PlayerisDead: 0

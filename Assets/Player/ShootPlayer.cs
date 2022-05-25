@@ -290,7 +290,7 @@ public class ShootPlayer : MonoBehaviour
         {
             //Debug
             Debug.DrawLine(transform.position, RayShoot.point, Color.red, 0.2f);
-            print("ennemy touched");
+
             //On v�rif si le tir est dans le cadran du tir ok
 
             //On v�rifie si il collide avec un �l�ment et si cet �l�ment poss�de le tag ennemy
