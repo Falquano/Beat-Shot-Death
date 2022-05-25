@@ -14,10 +14,6 @@ public class Mesure : MonoBehaviour
     [SerializeField] protected float DistanceMaxShoot;
     protected GameObject Player;
 
-    private void Start()
-    {
-        
-    }
 
     public void Init()
     {
