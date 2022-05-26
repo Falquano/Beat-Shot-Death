@@ -11,7 +11,6 @@ public class EnnemyAnimationEvents : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
     Rigidbody EnnemyRB;
-    public VisualEffect FuturLine;
 
     [SerializeField] public UnityEvent onFootstep;
     [SerializeField] private bool melee;
@@ -51,7 +50,7 @@ public class EnnemyAnimationEvents : MonoBehaviour
     public void OnShoot()
     {
         animator.SetTrigger("OnShoot");
-        FuturLine.Play(); //obligatoire pour les EnnemyShoot
+        //FuturLine.Play(); //obligatoire pour les EnnemyShoot
     }
 
     public void OnCharge()//Oui je ne sais pas comment on dis charger en anglais car je pense que load n'est pas appropri�

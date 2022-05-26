@@ -273,12 +273,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceMaxShoot: 30
-  damageEnnemy: 10
+  damageEnnemy: 30
   damagePlayer: 1
   range: 100
   EnnemyMask:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 97
   onShoot:
     m_PersistentCalls:
       m_Calls:
@@ -355,7 +355,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   distanceMaxWithPlayer: 0
-  FuturLine: {fileID: 1190038046496984728}
+  viseuwrLasewr: {fileID: 0}
+  range: 100
+  EnnemyMask:
+    serializedVersion: 2
+    m_Bits: 0
+  rayOffset: 0.7
 --- !u!114 &947269581145155031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,7 +539,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b11951a83b0f1f4ebb6e7f9ba17f241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FuturLine: {fileID: 1190038046496984728}
   onFootstep:
     m_PersistentCalls:
       m_Calls: []
