@@ -264,6 +264,7 @@ MonoBehaviour:
   destroyEmitter: {fileID: 5829177240060985648}
   spawnerPoint: {fileID: 0}
   spawnerPoint2: {fileID: 0}
+  smoke: {fileID: 5580220211340881174}
 --- !u!1 &2412412092595684167
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +575,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4463589831221291992}
   m_LocalRotation: {x: -0.22027606, y: -0, z: -0, w: 0.9754376}
-  m_LocalPosition: {x: 0.004836917, y: 0.24381948, z: 0.56707}
+  m_LocalPosition: {x: 0.004836917, y: 0.24381948, z: 0.337}
   m_LocalScale: {x: 0.46257, y: 0.46257, z: 0.46257}
   m_Children:
   - {fileID: 5192111103221237861}
@@ -830,13 +831,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8752887369993863120}
     m_Modifications:
+    - target: {fileID: 896311644618320957, guid: 82b4773415b37574d8a911020887609c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4086355730115704050, guid: 82b4773415b37574d8a911020887609c, type: 3}
       propertyPath: m_Name
       value: Smoke_Effect
       objectReference: {fileID: 0}
+    - target: {fileID: 4086355730115704050, guid: 82b4773415b37574d8a911020887609c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4086355730115704052, guid: 82b4773415b37574d8a911020887609c, type: 3}
       propertyPath: m_InitialEventNameOverriden
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086355730115704053, guid: 82b4773415b37574d8a911020887609c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4086355730115704053, guid: 82b4773415b37574d8a911020887609c, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -900,6 +913,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82b4773415b37574d8a911020887609c, type: 3}
+--- !u!1 &5580220211340881174 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4086355730115704050, guid: 82b4773415b37574d8a911020887609c, type: 3}
+  m_PrefabInstance: {fileID: 8486270803359308260}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5580220211340881171 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4086355730115704055, guid: 82b4773415b37574d8a911020887609c, type: 3}

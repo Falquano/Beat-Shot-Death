@@ -15,6 +15,7 @@ public class ButtonJustShoot : MonoBehaviour
     private EnnemyWaves letsCloseSomeDoors;
     [SerializeField] Transform spawnerPoint;
     [SerializeField] Transform spawnerPoint2;
+    public GameObject smoke;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class ButtonJustShoot : MonoBehaviour
         close = false;
         detruit = false;
         letsCloseSomeDoors = GetComponentInParent<EnnemyWaves>();
+        smoke.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -66,6 +68,7 @@ public class ButtonJustShoot : MonoBehaviour
                 colorMat[i].color = Color.red;
             }
 
+            smoke.SetActive(true);
 
         }
 
