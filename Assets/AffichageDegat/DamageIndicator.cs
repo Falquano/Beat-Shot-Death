@@ -46,46 +46,41 @@ public class DamageIndicator : MonoBehaviour
         transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, Mathf.Sin(timer / lifetime));
     }
 
-    public void SetDamageText(ShotInfo infoShoot, int damage)
+    public void SetDamageText(int damage)
     {
         
         text.text = damage.ToString();
-
-        //Change la couleur du text en fonction de la quality du shoot
-        switch (infoShoot.Quality)
-        {
-            case ShotQuality.Bad:
-                text.color = new Color(250, 200, 0, 0.75f);
-                break;
-            case ShotQuality.Good:
-
-                break;
-            case ShotQuality.Perfect:
-                text.color = new Color(250, 0, 0, 1f);
-
-                break;
-        }
-
-        
+ 
         //Refaire les tailles de text en fonction des dégâts possible 
-        if (damage >= 10 && damage <=20)
+        if(damage <= 10)
         {
             text.fontSize = 10f;
+            text.color = new Color(250, 200, 0, 0.75f);
+        }
+        else if (damage >= 10 && damage <=20)
+        {
+            text.fontSize = 10f;
+            text.color = new Color(250, 0, 0, 1f);
         }
         else if (damage >= 30 && damage <=60)
         {
             text.fontSize = 25f;
+            text.color = new Color(250, 0, 0, 1f);
         }  
         else if (damage >= 61 && damage <=80)
         {
             text.fontSize = 40f;
+            text.color = new Color(250, 0, 0, 1f);
         }
         else if (damage == 120)
         {
             text.fontSize = 55f;
+            text.color = new Color(250, 0, 0, 1f);
         }
 
     }
 
-    
+   
+
+
 }

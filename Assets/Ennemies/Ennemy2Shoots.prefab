@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b11951a83b0f1f4ebb6e7f9ba17f241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FuturLine: {fileID: 0}
   onFootstep:
     m_PersistentCalls:
       m_Calls:
@@ -160,7 +159,7 @@ Transform:
   m_GameObject: {fileID: 4894508178834430133}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.8127344, y: 1.8125721, z: 3.8127344}
+  m_LocalScale: {x: 4.956549, y: 1.8125721, z: 4.956549}
   m_Children: []
   m_Father: {fileID: 7392610202990465566}
   m_RootOrder: 3
@@ -378,12 +377,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceMaxShoot: 30
-  damageEnnemy: 10
+  damageEnnemy: 30
   damagePlayer: 1
   range: 100
   EnnemyMask:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 119
   onShoot:
     m_PersistentCalls:
       m_Calls:
@@ -448,7 +447,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   distanceMaxWithPlayer: 0
-  FuturLine: {fileID: 0}
+  viseuwrLasewr: {fileID: 0}
+  range: 100
+  EnnemyMask:
+    serializedVersion: 2
+    m_Bits: 0
+  rayOffset: 0.7
 --- !u!114 &206587580254913502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,7 +670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b11951a83b0f1f4ebb6e7f9ba17f241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FuturLine: {fileID: 0}
   onFootstep:
     m_PersistentCalls:
       m_Calls: []
