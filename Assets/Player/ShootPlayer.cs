@@ -90,6 +90,9 @@ public class ShootPlayer : MonoBehaviour
     //Raycast pour tiré
     private Ray ray;
 
+    //HealthSystem de l'ennemy touché
+    private HealthSystem targetHealth;
+
     // Update is called once per frame
     void Update()
     {
@@ -282,9 +285,6 @@ public class ShootPlayer : MonoBehaviour
 
 
 
-
-
-
         //on cr�er un raycast du player dans la direction de la souris de distance max sur un mask sans le player lui-m�me
         if (Physics.Raycast(ray, out RaycastHit RayShoot, range, TheMask))
         {
@@ -329,7 +329,7 @@ public class ShootPlayer : MonoBehaviour
                 }
 
                 //On r�cup�re le script behavior de l'ennemy touch�
-                HealthSystem targetHealth = RayShoot.transform.GetComponent<HealthSystem>();
+                targetHealth = RayShoot.transform.GetComponent<HealthSystem>();
 
                 // Selon la qualit� on envoie les d�gats appropri�s et on augmente ou diminue le combo
                 switch (quality)
@@ -352,8 +352,8 @@ public class ShootPlayer : MonoBehaviour
                         ScriptOnde.OnPerfectShootOnde(); 
                         break;
                 }
-                targetHealth.DealDamage(damage);
 
+                targetHealth.DealDamage(damage);
 
             }
             //On v�rifie si il collide avec un �l�ment et si cet �l�ment poss�de le tag Button
@@ -415,9 +415,13 @@ public class ShootPlayer : MonoBehaviour
             OnShotEvent.Invoke(info, damage);
             // On d�sactive le tir pour cette mesure
             CheckShootisOk = false;
+
+            //Appel des dégâts des ennemi
+            
         }
 
         //On annonce au monde que le combo a chang�
+        
         onComboChange.Invoke(combo, maxCombo);
 
         // On change de pistolet

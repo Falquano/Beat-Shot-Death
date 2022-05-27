@@ -32,13 +32,13 @@ public class ShootMesure : Mesure
     {
         
         tempo.onTimeToShoot.AddListener(Shoot);
-        //animator.SetBool("Aiming", true);
+
     }
 
     private void OnDisable()
     {
         tempo.onTimeToShoot.RemoveListener(Shoot);
-        //animator.SetBool("Aiming", false);
+
     }
 
     private void Shoot()
@@ -71,12 +71,13 @@ public class ShootMesure : Mesure
         
         if (Physics.Raycast(ray, out RaycastHit hitInfo, range, EnnemyMask))
 		{
-            
 
+            
             if(hitInfo.collider.tag == "Player")
             {
                 PlayerHealthSystem PlayerHealth = hitInfo.collider.GetComponent<PlayerHealthSystem>();
                 PlayerHealth.DealDamage(damagePlayer);
+                print("playertouched");
             }
             
             else if(hitInfo.collider.tag == "Ennemy")
@@ -90,6 +91,7 @@ public class ShootMesure : Mesure
                 barriere.ShotCollision(hitInfo.normal);
             }
 
+            print(hitInfo.collider);
 
             shotInfo.EndPos = hitInfo.point; 
             shotInfo.EndNormal = hitInfo.normal;

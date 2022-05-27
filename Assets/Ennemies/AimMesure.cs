@@ -14,28 +14,40 @@ public class AimMesure : Mesure
 
     [SerializeField] public UnityEvent onAim;
     [SerializeField] public float distanceMaxWithPlayer;
-    public VisualEffect FuturLine;
+    //public VisualEffect FuturLine;
+    [SerializeField] private LineRenderer viseuwrLasewr;
 
-
-
-    
+    [SerializeField] private float range = 100f;
+    [SerializeField] LayerMask EnnemyMask;
+    [SerializeField] private float rayOffset = .7f;
 
     private void OnEnable()
     {
         
         onAim.Invoke();
 
+        viseuwrLasewr.enabled = true;
     }
 
     private void OnDisable()
     {
-        
+        viseuwrLasewr.enabled = false;
     }
 
     private void Update()
     {
         if (behavior.Player == null || PlayerisDead == true)
             return;
+
+
+        // Mise à jour du viseur laser
+        Ray ray = new Ray(transform.position + transform.forward * rayOffset + new Vector3(0, 2, 0), transform.forward);
+
+        viseuwrLasewr.SetPosition(0, viseuwrLasewr.transform.position);
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, range, EnnemyMask))
+        {
+            viseuwrLasewr.SetPosition(1, hitInfo.point);
+        }
 
         if (tempo.Tempo > aimingTime)
             return;
@@ -49,7 +61,7 @@ public class AimMesure : Mesure
 
         //R�cup�ration du transform du player
         Transform playerTransform = behavior.Player.GetComponent<Transform>();
-        
+
 
         //Calcul du vector entre l'ennemi et le player
         Vector3 direction = playerTransform.position - transform.position;
@@ -58,9 +70,9 @@ public class AimMesure : Mesure
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-        
+
         //VFX LineShoot nécessaire pour les tourelles
-        FuturLine.Play();
+        //Futur Line.Play();
     }
 
     private void OnDrawGizmosSelected()
