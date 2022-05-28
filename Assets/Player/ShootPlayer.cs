@@ -339,29 +339,14 @@ public class ShootPlayer : MonoBehaviour
                 //On r�cup�re le script behavior de l'ennemy touch�
                 targetHealth = RayShoot.transform.GetComponent<HealthSystem>();
 
-                // Selon la qualit� on envoie les d�gats appropri�s et on augmente ou diminue le combo
-                switch (quality)
+                //Si l'ennemy est dead, on ne fait rien
+                /*if(targetHealth.isDead == false)
                 {
-                    case ShotQuality.Bad:
-                        damage = badShotDamage;
-                        combo = Mathf.Clamp(combo + comboBadShotMod, 0, maxCombo);
-                        break;
 
-                    case ShotQuality.Good:
-                        damage = ComboDamageBonus(goodShotDamage);
-                        combo = Mathf.Clamp(combo + comboGoodShotMod, 0, maxCombo);
-                        break;
+                    return;
+                }*/
 
-                    case ShotQuality.Perfect:
-                        damage = ComboDamageBonus(perfectShotDamage);
-                        combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
-
-                        //Appel des ondes pour le bon tir
-                        ScriptOnde.OnPerfectShootOnde(); 
-                        break;
-                }
-
-                targetHealth.DealDamage(damage);
+                
 
             }
             //On v�rifie si il collide avec un �l�ment et si cet �l�ment poss�de le tag Button

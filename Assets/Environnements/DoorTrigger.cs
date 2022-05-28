@@ -11,7 +11,7 @@ public class DoorTrigger : MonoBehaviour
         door = GetComponentInParent<Door>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -23,5 +23,5 @@ public class DoorTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
             door.PlayerExitTrigger();
-    }
+    }*/
 }

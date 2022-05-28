@@ -20,7 +20,7 @@ public class Door : MonoBehaviour
         GetComponent<Collider>().enabled = false;
     }
     
-    public void PlayerEnterTrigger()
+    /*public void PlayerEnterTrigger()
     {
         if (locked)
             playerWaiting = true;
@@ -32,7 +32,7 @@ public class Door : MonoBehaviour
     {
         playerWaiting = false;
         Close();
-    }
+    }*/
     
 
     public void Unlock()

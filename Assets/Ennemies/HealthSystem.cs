@@ -22,8 +22,8 @@ public class HealthSystem : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool invincible = false;
     public GameObject damageText;
-    
 
+    public bool isDead;
 
     private int health;
     public int Health => health;
@@ -50,6 +50,7 @@ public class HealthSystem : MonoBehaviour
         if (health <= 0)
         {
             Die();
+            isDead = true;
         }
     }
 
