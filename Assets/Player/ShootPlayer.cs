@@ -339,14 +339,48 @@ public class ShootPlayer : MonoBehaviour
                 //On r�cup�re le script behavior de l'ennemy touch�
                 targetHealth = RayShoot.transform.GetComponent<HealthSystem>();
 
-                //Si l'ennemy est dead, on ne fait rien
-                /*if(targetHealth.isDead == false)
+                if(targetHealth.isDead == true)
                 {
+                    //Si le joueur tir sur une tourelle morte, cela compte comme un tir dans le vide donc un non tir
+                    numberOfNonShoot += 1;
 
+                    // On cr�e un "rapport de tir" qui contient toutes les infos n�cessaires au lancement d'FX, sons et tout �a
+                    ShotInfo infononshoot = new ShotInfo()
+                    {
+                        StartPos = Barrels[barrelIndex].position,
+                        EndPos = RaycastHitPoint(RayShoot, DirectionShoot.normalized),
+                        Quality = quality,
+                        ShotObject = RayShoot.transform == null ? null : RayShoot.transform.gameObject,
+                        EndNormal = RayShoot.normal
+                    };
+                    // On annonce au monde qu'un tir a �t� effectu� avec les infos pr�c�dentes
+                    OnShotEvent.Invoke(infononshoot, damage);
+                    // On d�sactive le tir pour cette mesure
+                    CheckShootisOk = false;
+
+                    //Appel des dégâts des ennemi
                     return;
-                }*/
+                }
 
-                
+                switch (quality)
+                {
+                    case ShotQuality.Bad:
+                        damage = badShotDamage;
+                        combo = Mathf.Clamp(combo + comboBadShotMod, 0, maxCombo);
+                        break;
+
+                    case ShotQuality.Good:
+                        break;
+
+                    case ShotQuality.Perfect:
+                        damage = ComboDamageBonus(goodShotDamage);
+                        combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
+
+                        //Appel des ondes pour le bon tir
+                        ScriptOnde.OnPerfectShootOnde();
+                        break;
+                }
+                targetHealth.DealDamage(damage);
 
             }
             //On v�rifie si il collide avec un �l�ment et si cet �l�ment poss�de le tag Button
