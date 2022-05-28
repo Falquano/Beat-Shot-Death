@@ -67,6 +67,7 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private int badShotDamage = 10;
 
     [SerializeField] private int comboDash = 10;
+    [SerializeField] private int ComboPunition = -5;
 
     public bool inTempo;
 
@@ -154,6 +155,11 @@ public class ShootPlayer : MonoBehaviour
             if (CheckShootisOk == true)
             {
                 Shoot();
+            }
+            else if (CheckShootisOk == false)
+            {
+                combo = Mathf.Clamp(combo + ComboPunition, 0, maxCombo);
+                onComboChange.Invoke(combo, maxCombo);
             }
         }
     }
