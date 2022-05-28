@@ -305,9 +305,11 @@ public class ShootPlayer : MonoBehaviour
                 {
                     
                     Animator AnimEnnemy = RayShoot.collider.gameObject.GetComponent<Animator>();
-                    
 
-                    if(RayColliderAnim.collider.tag == "Right")
+
+
+
+                    if (RayColliderAnim.collider.tag == "Right")
                     {
                         
                         AnimEnnemy.SetTrigger("HitRight");
