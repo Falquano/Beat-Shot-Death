@@ -54,6 +54,9 @@ ModelImporter:
   - first:
       74: -6525130080375751743
     second: Armature|StrafeUpperRight
+  - first:
+      74: 4720934453354818069
+    second: Armature|IdleRest (1)
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -84,8 +87,8 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Inbetween bone
       rotation in copied configuration does not match rotation in animation file:\n\t'Shin.L'
-      : rotation error = 45.654270 deg\n\t'Shin.R' : rotation error = 42.167606 deg\n\t'coreIK'
-      : rotation error = 24.338387 deg\n\t'4arm.L' : rotation error = 0.196395 deg\n\t'4arm.R'
+      : rotation error = 45.654274 deg\n\t'Shin.R' : rotation error = 42.167614 deg\n\t'coreIK'
+      : rotation error = 24.338390 deg\n\t'4arm.L' : rotation error = 0.196395 deg\n\t'4arm.R'
       : rotation error = 35.146931 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Armature|DashHorizontal' has import animation
@@ -286,11 +289,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|DashHorizontal
-      takeName: Armature|DashHorizontal
+      name: Armature|IdleRest (1)
+      takeName: Armature|IdleRest
       internalID: 0
       firstFrame: 0
-      lastFrame: 20
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
