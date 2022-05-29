@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8512254229359129275}
   - component: {fileID: 4607538611424455717}
+  - component: {fileID: 6507541051568218427}
   m_Layer: 0
   m_Name: CurveLined
   m_TagString: Untagged
@@ -82,3 +83,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6507541051568218427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3586145700239757710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b10f944cd9a5ba479dba476ae2718a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matStandard: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  matEmissif: {fileID: 2100000, guid: 5962873c8406765479ad8db07dc76ec3, type: 2}
+  rend: {fileID: 4607538611424455717}
+  pulse: 0
+  timer: 0
+  pulseTime: 0.1

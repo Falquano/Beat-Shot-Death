@@ -5,7 +5,7 @@ using UnityEngine;
 public class wallPulse : MonoBehaviour
 {
     [SerializeField] private Tempo_MurEmission[] wall;
-    //[SerializeField] private Tempo_MurEmission[] lignes;
+    [SerializeField] private Tempo_MurEmission[] lignes;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class wallPulse : MonoBehaviour
         foreach (Tempo_MurEmission walls in wall)
             walls.OnPulse();
 
-        /*foreach (Tempo_MurEmission ligne in lignes)
-            ligne.OnPulse();*/
+        foreach (Tempo_MurEmission ligne in lignes)
+            ligne.OnPulse();
     }
 }
