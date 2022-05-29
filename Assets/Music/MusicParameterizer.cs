@@ -15,15 +15,15 @@ public class MusicParameterizer : MonoBehaviour
         {
             songEmitter.SetParameter("Palier", 0);
         }
-        else if (combo > 1 && combo <= 25)
+        else if (combo > 1 && combo <= 10)
         {
             songEmitter.SetParameter("Palier", 1);
         }
-        else if (combo > 25 && combo <= 50)
+        else if (combo > 10 && combo <= 30)
         {
             songEmitter.SetParameter("Palier", 2);
         }
-        else if (combo > 50 && combo <= 75)
+        else if (combo > 30 && combo <= 60)
         {
             songEmitter.SetParameter("Palier", 3);
         }
