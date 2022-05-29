@@ -3524,8 +3524,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
-      key1: {r: 1, g: 0.34439385, b: 0, a: 1}
+      key0: {r: 1, g: 0, b: 0, a: 0.39215687}
+      key1: {r: 1, g: 0.34439385, b: 0, a: 0.39215687}
       key2: {r: 0, g: 0, b: 0, a: 1}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -3773,6 +3773,7 @@ MonoBehaviour:
   ScriptAnimation: {fileID: 0}
   invincible: 0
   damageText: {fileID: 259312728796913392, guid: f89c27a80d793bc4ea3c153c55e34633, type: 3}
+  isDead: 0
 --- !u!114 &6439272819357905743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3890,7 +3891,7 @@ MonoBehaviour:
   onAim:
     m_PersistentCalls:
       m_Calls: []
-  distanceMaxWithPlayer: 0
+  distanceMaxWithPlayer: 2
   viseuwrLasewr: {fileID: 1566950069553071245}
   range: 30
   EnnemyMask:

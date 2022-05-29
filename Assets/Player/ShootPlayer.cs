@@ -67,6 +67,7 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private int badShotDamage = 10;
 
     [SerializeField] private int comboDash = 10;
+    [SerializeField] private int ComboPunition = -5;
 
     public bool inTempo;
 
@@ -154,6 +155,11 @@ public class ShootPlayer : MonoBehaviour
             if (CheckShootisOk == true)
             {
                 Shoot();
+            }
+            else if (CheckShootisOk == false)
+            {
+                combo = Mathf.Clamp(combo + ComboPunition, 0, maxCombo);
+                onComboChange.Invoke(combo, maxCombo);
             }
         }
     }
@@ -305,9 +311,11 @@ public class ShootPlayer : MonoBehaviour
                 {
                     
                     Animator AnimEnnemy = RayShoot.collider.gameObject.GetComponent<Animator>();
-                    
 
-                    if(RayColliderAnim.collider.tag == "Right")
+
+
+
+                    if (RayColliderAnim.collider.tag == "Right")
                     {
                         
                         AnimEnnemy.SetTrigger("HitRight");
@@ -331,7 +339,29 @@ public class ShootPlayer : MonoBehaviour
                 //On r�cup�re le script behavior de l'ennemy touch�
                 targetHealth = RayShoot.transform.GetComponent<HealthSystem>();
 
-                // Selon la qualit� on envoie les d�gats appropri�s et on augmente ou diminue le combo
+                if(targetHealth.isDead == true)
+                {
+                    //Si le joueur tir sur une tourelle morte, cela compte comme un tir dans le vide donc un non tir
+                    numberOfNonShoot += 1;
+
+                    // On cr�e un "rapport de tir" qui contient toutes les infos n�cessaires au lancement d'FX, sons et tout �a
+                    ShotInfo infononshoot = new ShotInfo()
+                    {
+                        StartPos = Barrels[barrelIndex].position,
+                        EndPos = RaycastHitPoint(RayShoot, DirectionShoot.normalized),
+                        Quality = quality,
+                        ShotObject = RayShoot.transform == null ? null : RayShoot.transform.gameObject,
+                        EndNormal = RayShoot.normal
+                    };
+                    // On annonce au monde qu'un tir a �t� effectu� avec les infos pr�c�dentes
+                    OnShotEvent.Invoke(infononshoot, damage);
+                    // On d�sactive le tir pour cette mesure
+                    CheckShootisOk = false;
+
+                    //Appel des dégâts des ennemi
+                    return;
+                }
+
                 switch (quality)
                 {
                     case ShotQuality.Bad:
@@ -340,19 +370,16 @@ public class ShootPlayer : MonoBehaviour
                         break;
 
                     case ShotQuality.Good:
-                        damage = ComboDamageBonus(goodShotDamage);
-                        combo = Mathf.Clamp(combo + comboGoodShotMod, 0, maxCombo);
                         break;
 
                     case ShotQuality.Perfect:
-                        damage = ComboDamageBonus(perfectShotDamage);
+                        damage = ComboDamageBonus(goodShotDamage);
                         combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
 
                         //Appel des ondes pour le bon tir
-                        ScriptOnde.OnPerfectShootOnde(); 
+                        ScriptOnde.OnPerfectShootOnde();
                         break;
                 }
-
                 targetHealth.DealDamage(damage);
 
             }

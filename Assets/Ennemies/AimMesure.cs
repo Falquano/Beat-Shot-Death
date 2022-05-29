@@ -65,6 +65,8 @@ public class AimMesure : Mesure
 
         //Calcul du vector entre l'ennemi et le player
         Vector3 direction = playerTransform.position - transform.position;
+        //Le freeze du rigidbody ne fonctionne pas
+        direction = new Vector3(direction.x, 0, direction.z);
 
         //L'ennemi regarde le player
         Quaternion targetRotation = Quaternion.LookRotation(direction);

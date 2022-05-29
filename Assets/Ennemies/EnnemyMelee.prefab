@@ -120,6 +120,7 @@ MonoBehaviour:
   ScriptAnimation: {fileID: 0}
   invincible: 0
   damageText: {fileID: 259312728796913392, guid: f89c27a80d793bc4ea3c153c55e34633, type: 3}
+  isDead: 0
 --- !u!114 &2071984326181454209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,7 +583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70bc1496ff1bc5440bcfe226ea91fc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageEnnemy: 20
+  damageEnnemy: 50
   damagePlayer: 2
 --- !u!65 &3308962055020917125
 BoxCollider:
