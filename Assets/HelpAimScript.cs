@@ -38,7 +38,7 @@ public class HelpAimScript : MonoBehaviour
             Anim = GetComponent<Animator>();
         }
 
-        Anim.SetTrigger("NewTarget");
+        
     }
 
     public void OnObjectPointed(GameObject minitarget)
@@ -47,6 +47,8 @@ public class HelpAimScript : MonoBehaviour
         ObjectTarget = minitarget;
         this.gameObject.SetActive(true);
         ObjectPointed = true;
+
+        Anim.SetTrigger("NewTarget");
     }
 
     public void OnNonObjectPointed()

@@ -297,6 +297,10 @@ public class ShootPlayer : MonoBehaviour
             //Debug
             Debug.DrawLine(transform.position, RayShoot.point, Color.red, 0.2f);
 
+            if(RayShoot.collider == null)
+            {
+                print("Aucun élément détecté");
+            }
             //On v�rif si le tir est dans le cadran du tir ok
 
             //On v�rifie si il collide avec un �l�ment et si cet �l�ment poss�de le tag ennemy
@@ -446,6 +450,7 @@ public class ShootPlayer : MonoBehaviour
             //Appel des dégâts des ennemi
             
         }
+  
 
         //On annonce au monde que le combo a chang�
         

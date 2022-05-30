@@ -3548,6 +3548,7 @@ MonoBehaviour:
   goodShotDamage: 10
   badShotDamage: 10
   comboDash: 10
+  ComboPunition: -5
   inTempo: 0
   MesureBeforeComboDecreasing: 2
   ScriptAnimation: {fileID: 0}
@@ -3731,9 +3732,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.6092593
-  m_Height: 3.5529723
+  m_Height: 5.41
   m_Direction: 1
-  m_Center: {x: -0.013665252, y: 0.706486, z: 0.31463054}
+  m_Center: {x: -0.013665252, y: 1.48, z: 0.31463054}
 --- !u!54 &245831671
 Rigidbody:
   m_ObjectHideFlags: 0
