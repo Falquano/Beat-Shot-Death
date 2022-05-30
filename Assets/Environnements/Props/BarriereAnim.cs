@@ -34,9 +34,9 @@ public class BarriereAnim : MonoBehaviour
 
     public void ShotCollision(Vector3 normal)//Tu appel ça depuis le script du player ou d'un ennemi si il tir et que c'est cette objet +++ Sans oublié de lui donné le raycast du tir
     {
+        numberShot++;
 
-
-        if(numberShot == barriereHealth/2)
+        if (numberShot == barriereHealth/2)
         {
             //récupération de la normal du raycast
             if(normal.x == 1)
@@ -106,7 +106,7 @@ public class BarriereAnim : MonoBehaviour
 
         }
 
-        numberShot ++;
+        
         //Debug.Log("NumberShot" + numberShot);
     }
 

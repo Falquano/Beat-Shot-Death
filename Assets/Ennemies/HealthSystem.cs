@@ -23,10 +23,11 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private bool invincible = false;
     public GameObject damageText;
 
-    public bool isDead;
+    public bool isDead = false;
 
     private int health;
     public int Health => health;
+
 
     private void Start()
     {

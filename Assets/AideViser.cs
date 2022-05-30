@@ -16,13 +16,14 @@ public class AideViser : MonoBehaviour
     [SerializeField] private LayerMask MaskAideViser;
     [SerializeField] private HelpAimScript AimScript;
 
+
     private Collider ObjectTouched;
 
     [SerializeField] private bool HelpAim;
 
     private void Update()
     {
-        if (HelpAim)
+        if (HelpAim  )
         {
             return;
         }
@@ -32,17 +33,27 @@ public class AideViser : MonoBehaviour
         //Raycast de la cam à la souris sur le mask des collider aide à la visée
         if (Physics.Raycast(MouseOnScreen, out RaycastHit hitInfo, float.MaxValue, MaskAideViser))
         {
+            
             //Si il touche un objet
             if (hitInfo.collider != null)
             {
+                HealthSystem HealthEnnemy = hitInfo.collider.gameObject.GetComponentInParent<HealthSystem>();
+                print(hitInfo.collider.gameObject.name);
+                if (HealthEnnemy.isDead == true)
+                {
+                    
+                    AimScript.OnNonObjectPointed();
+                    return;
+                }
                 //Si l'objet qui vient d'être touché est différent d'avant alors on change le collider et on appel la fonction qui va garder prendre l'objet pour tirer dessus
-                if(ObjectTouched != hitInfo.collider)
+                if (ObjectTouched != hitInfo.collider)
                 {
                     ObjectTouched = hitInfo.collider;
-
+                    
                     AimScript.OnObjectPointed(hitInfo.collider.gameObject);
                     //ScriptShootPlayer.TargetRayCast = hitInfo.collider.gameObject;
                     ScriptShootPlayer.Target(ObjectTouched.gameObject);
+                    
                 }
 
                
