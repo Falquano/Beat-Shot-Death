@@ -244,7 +244,7 @@ public class ShootPlayer : MonoBehaviour
 
                 //Augmentation du combo
                 combo = Mathf.Clamp(combo + comboDash, 0, maxCombo);
-
+                ScriptOnde.OnPerfectShootOnde();
                 //On annonce au monde que le combo a chang�
                 onComboChange.Invoke(combo, maxCombo);
                 break;
