@@ -9,6 +9,7 @@ public class HelpAimScript : MonoBehaviour
     Vector3 Target;
     GameObject ObjectTarget;
 
+    private Animator Anim;
 
     // Update is called once per frame
     void Update()
@@ -27,6 +28,17 @@ public class HelpAimScript : MonoBehaviour
         }
 
 
+    }
+
+    private void OnEnable()
+    {
+
+        if(Anim == null)
+        {
+            Anim = GetComponent<Animator>();
+        }
+
+        Anim.SetTrigger("NewTarget");
     }
 
     public void OnObjectPointed(GameObject minitarget)
