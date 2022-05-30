@@ -41,7 +41,7 @@ public class AideViser : MonoBehaviour
                 print(hitInfo.collider.gameObject.name);
                 if (HealthEnnemy.isDead == true)
                 {
-                    
+                    ScriptShootPlayer.Target(null);
                     AimScript.OnNonObjectPointed();
                     return;
                 }

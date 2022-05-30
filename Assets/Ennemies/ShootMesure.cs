@@ -82,8 +82,14 @@ public class ShootMesure : Mesure
             
             else if(hitInfo.collider.tag == "Ennemy")
             {
+
                 HealthSystem targetHealth = hitInfo.collider.GetComponent<HealthSystem>();
-                targetHealth.DealDamage(damageEnnemy);
+
+                if(targetHealth.isDead == false)
+                {
+                    targetHealth.DealDamage(damageEnnemy);
+                }
+                
             }
             else if (hitInfo.collider.tag == "Barriere")
             {
@@ -91,7 +97,7 @@ public class ShootMesure : Mesure
                 barriere.ShotCollision(hitInfo.normal);
             }
 
-            print(hitInfo.collider);
+
 
             shotInfo.EndPos = hitInfo.point; 
             shotInfo.EndNormal = hitInfo.normal;
