@@ -112,4 +112,9 @@ public class PlayerFXEmitter : MonoBehaviour
     {
         combo = newCombo;
     }
+
+    public void OnDeathSound()
+    {
+
+    }
 }

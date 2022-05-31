@@ -7802,6 +7802,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 839125905045627231, guid: 3dd85c1f8bd71984f83897e568830bb2, type: 3}
   m_PrefabInstance: {fileID: 611143272}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &616737555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9047568458364018868, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+  m_PrefabInstance: {fileID: 9047568459272337482}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &616737558 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 785891961, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+  m_PrefabInstance: {fileID: 9047568459272337482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616737555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &616737567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616737555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -509367087
+      Data2: 1281784691
+      Data3: -1786343285
+      Data4: 1846607591
+    Path: event:/Player/Death
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &622516052
 GameObject:
   m_ObjectHideFlags: 0
@@ -22748,7 +22794,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
   m_PrefabInstance: {fileID: 9047568459272337482}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 616737555}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ea84743bdd795f44ac55aef29bd5e06, type: 3}
@@ -24146,7 +24192,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 438154467995756240, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
   m_PrefabInstance: {fileID: 9047568459272337482}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 616737555}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9623e9471790ae44cbff63d08c21bca4, type: 3}
@@ -26740,6 +26786,14 @@ PrefabInstance:
       objectReference: {fileID: 452773257}
     - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: PlayerIsInvincible
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
@@ -26751,13 +26805,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1356565530}
     - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 616737558}
+    - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: DeleteComposantEnnmies
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: onTakeDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2003440287}
+    - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: FMODUnity.StudioEventEmitter, FMODUnity
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812131819001355763, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9047568458364018868, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
       propertyPath: m_Name
       value: Player

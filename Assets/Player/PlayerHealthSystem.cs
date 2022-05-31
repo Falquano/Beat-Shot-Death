@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
+
 public class PlayerHealthSystem : MonoBehaviour
 {
     [SerializeField] private int MaxHealth = 3;
@@ -55,6 +56,8 @@ public class PlayerHealthSystem : MonoBehaviour
 
             if (health <= 0)
             {
+                //Play le son de mort
+                //FMODUnity.RuntimeManager.PlayOneShot("event:/nom de l’event Fmod");
                 Die();
 
             }
