@@ -3191,6 +3191,7 @@ GameObject:
   - component: {fileID: 4041086488961735541}
   - component: {fileID: 462927568}
   - component: {fileID: 1313760411}
+  - component: {fileID: 616737567}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -3394,7 +3395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 9
-  impulseDash: 12
+  impulseDash: 20
   DashIsOk: 0
   ScriptHealthPlayer: {fileID: 7812131819001355763}
 --- !u!114 &438154467995756240
@@ -3465,18 +3466,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 259312728796913394, guid: f89c27a80d793bc4ea3c153c55e34633, type: 3}
-        m_TargetAssemblyTypeName: DamageIndicator, Assembly-CSharp
-        m_MethodName: SetDamageText
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   combo: 0
   maxCombo: 100
   onComboChange:
@@ -3518,6 +3507,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PositionOnde, Assembly-CSharp
+        m_MethodName: OnComboChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDashEvent:
     m_PersistentCalls:
       m_Calls:
@@ -3539,15 +3540,15 @@ MonoBehaviour:
   tempoManager: {fileID: 0}
   text: {fileID: 259312728796913394, guid: f89c27a80d793bc4ea3c153c55e34633, type: 3}
   CheckShootisOk: 1
-  comboNoShotMod: -8
+  comboNoShotMod: -5
   comboPerfectShotMod: 5
-  comboGoodShotMod: 2
-  comboBadShotMod: -5
+  comboGoodShotMod: 0
+  comboBadShotMod: 0
   comboDecrease: -10
   perfectShotDamage: 10
   goodShotDamage: 10
   badShotDamage: 10
-  comboDash: 10
+  comboDash: 2
   ComboPunition: -5
   inTempo: 0
   MesureBeforeComboDecreasing: 2
@@ -3567,7 +3568,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad9b80e3658f0f4ba695078ece3dbb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PerfectShotLinePrefab: {fileID: 1940587716762264604, guid: 34e0abd44bca9ab45a10ce7fff853ff3, type: 3}
+  PerfectShotLinePrefab0: {fileID: 1940587716762264604, guid: ba718e1ec912d3a4f83d6de9e3ad84bc, type: 3}
+  PerfectShotLinePrefab1: {fileID: 1940587716762264604, guid: 34e0abd44bca9ab45a10ce7fff853ff3, type: 3}
+  PerfectShotLinePrefab2: {fileID: 1940587716762264604, guid: 7e4d2538bd305fe4dacd79ba695a910f, type: 3}
+  PerfectShotLinePrefab3: {fileID: 1940587716762264604, guid: b7f1a98ade2cb954f9c594ee1e90dcfe, type: 3}
+  PerfectShotLinePrefab4: {fileID: 1940587716762264604, guid: 832681c0675f7d344bd81e148a56b368, type: 3}
   GoodShotLinePrefab: {fileID: 1940587716762264604, guid: 49579de9caa6db04394ad81a9c7044fd, type: 3}
   BadShotLinePrefab: {fileID: 634932085520703553, guid: e03c4bac504c3454ebf989a3d4f077d6, type: 3}
   GunshotSound:
@@ -3697,14 +3702,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 785891961}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   ListComponentPlayer:
   - {fileID: 9047568458364019016}
   - {fileID: 9047568458364019019}
   - {fileID: 438154467995756240}
   - {fileID: 7462270552646460797}
   - {fileID: 1952105521}
-  invincible: 0
-  PlayerIsInvincible: 1
+  invincible: 1
+  PlayerIsInvincible: 0
   GameOverScreen: {fileID: 0}
   HurtScreen: {fileID: 0}
   PlayerisDead: 0
@@ -3819,6 +3836,36 @@ MonoBehaviour:
     m_Bits: 2048
   AimScript: {fileID: 0}
   HelpAim: 0
+--- !u!114 &616737567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047568458364018868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -509367087
+      Data2: 1281784691
+      Data3: -1786343285
+      Data4: 1846607591
+    Path: event:/Player/Death
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &9064211643043433909
 GameObject:
   m_ObjectHideFlags: 0
