@@ -26481,6 +26481,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5253968042247179161, guid: f416e790ef148ff4bb5c770321fd3f22, type: 3}
+      propertyPath: m_ResetSeedOnPlay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253968042247179161, guid: f416e790ef148ff4bb5c770321fd3f22, type: 3}
+      propertyPath: m_InitialEventName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253968042247179161, guid: f416e790ef148ff4bb5c770321fd3f22, type: 3}
+      propertyPath: m_InitialEventNameOverriden
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5253968042247179174, guid: f416e790ef148ff4bb5c770321fd3f22, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
