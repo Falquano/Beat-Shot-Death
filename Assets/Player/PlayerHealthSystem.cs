@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using FMOD.Studio;
+using FMODUnity;
 
 
 public class PlayerHealthSystem : MonoBehaviour
 {
     [SerializeField] private int MaxHealth = 3;
+    [SerializeField] private StudioEventEmitter dieEmitter;
 
 
 
@@ -30,6 +33,7 @@ public class PlayerHealthSystem : MonoBehaviour
 
     public bool PlayerisDead = false;
     private Rigidbody RB;
+
 
 
     private int health;
@@ -57,7 +61,7 @@ public class PlayerHealthSystem : MonoBehaviour
             if (health <= 0)
             {
                 //Play le son de mort
-                //FMODUnity.RuntimeManager.PlayOneShot("event:/nom de l’event Fmod");
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Death");
                 Die();
 
             }
@@ -65,7 +69,7 @@ public class PlayerHealthSystem : MonoBehaviour
         
     }
 
-    private void Die()
+    public void Die()
     {
         for (var i = 0; i < ListComponentPlayer.Count; i++)
         {
@@ -76,6 +80,7 @@ public class PlayerHealthSystem : MonoBehaviour
         onDie.Invoke();
         PlayerisDead = true;
         RB.velocity = Vector3.zero;
+
         
 
     }
