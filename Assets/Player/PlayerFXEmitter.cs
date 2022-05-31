@@ -10,6 +10,9 @@ using UnityEngine;
 public class PlayerFXEmitter : MonoBehaviour
 {
     [SerializeField] private GameObject PerfectShotLinePrefab;
+    [SerializeField] private GameObject PerfectShotLinePrefab2;
+    [SerializeField] private GameObject PerfectShotLinePrefab3;
+    [SerializeField] private GameObject PerfectShotLinePrefab4;
     [SerializeField] private GameObject GoodShotLinePrefab;
     [SerializeField] private GameObject BadShotLinePrefab;
     //[SerializeField] private StudioEventEmitter GunshotSoundEmitter;
@@ -34,8 +37,18 @@ public class PlayerFXEmitter : MonoBehaviour
     private void ZapLine(ShotInfo shotInfo)
     {
         LineRenderer line;
-        if (shotInfo.Quality == ShotQuality.Perfect)
+        if (shotInfo.Quality == ShotQuality.Perfect && combo > 1 && combo <= 10)
             line = Instantiate(PerfectShotLinePrefab, Vector3.zero, Quaternion.identity).GetComponent<LineRenderer>();
+
+        else if (shotInfo.Quality == ShotQuality.Perfect && combo > 10 && combo <= 30)
+            line = Instantiate(PerfectShotLinePrefab2, Vector3.zero, Quaternion.identity).GetComponent<LineRenderer>();
+
+        else if (shotInfo.Quality == ShotQuality.Perfect && combo > 30 && combo <= 60)
+            line = Instantiate(PerfectShotLinePrefab3, Vector3.zero, Quaternion.identity).GetComponent<LineRenderer>();
+
+        else if (shotInfo.Quality == ShotQuality.Perfect && combo > 60 && combo <= 100)
+            line = Instantiate(PerfectShotLinePrefab4, Vector3.zero, Quaternion.identity).GetComponent<LineRenderer>();
+
         else if (shotInfo.Quality == ShotQuality.Good)
             line = Instantiate(GoodShotLinePrefab, Vector3.zero, Quaternion.identity).GetComponent<LineRenderer>();
         else
