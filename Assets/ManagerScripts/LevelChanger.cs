@@ -10,12 +10,15 @@ public class LevelChanger : MonoBehaviour
 
     public void GotoLevel(CallbackContext context)
     {
-        if (context.performed)
-            SceneManager.LoadScene(levelToLoad);
+            SceneManager.LoadScene("Hall_2");
     }
 
     public void GotoLevel()
     {
-        SceneManager.LoadScene(levelToLoad);
+        SceneManager.LoadScene("Hall_2");
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
