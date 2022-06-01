@@ -325,7 +325,9 @@ public class ShootPlayer : MonoBehaviour
             //Debug
             Debug.DrawLine(transform.position, RayShoot.point, Color.red, 0.2f);
 
-            if(RayShoot.collider == null)
+            print(RayShoot.collider.gameObject);
+
+            if (RayShoot.collider == null)
             {
                 print("Aucun élément détecté");
             }
@@ -482,14 +484,17 @@ public class ShootPlayer : MonoBehaviour
             // On d�sactive le tir pour cette mesure
             CheckShootisOk = false;
 
-            //Appel des dégâts des ennemi
             
+
+            //Appel des dégâts des ennemi
+
         }
-  
+
 
         //On annonce au monde que le combo a chang�
-        
+
         onComboChange.Invoke(combo, maxCombo);
+        
 
         // On change de pistolet
         barrelIndex = (barrelIndex + 1) % Barrels.Length;
