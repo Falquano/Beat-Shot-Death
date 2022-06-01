@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.VFX;
-using UnityEditor.VFX;
+
 
 public class EnnemyAnimationEvents : MonoBehaviour
 {
@@ -50,18 +50,18 @@ public class EnnemyAnimationEvents : MonoBehaviour
     public void OnShoot()
     {
         animator.SetTrigger("OnShoot");
-        //FuturLine.Play(); //obligatoire pour les EnnemyShoot
+        
     }
 
     public void OnCharge()//Oui je ne sais pas comment on dis charger en anglais car je pense que load n'est pas appropri�
     {
-        //FuturLine.Play();
+        
         animator.SetTrigger("OnShoot");
     }
 
     public void OnAim() //Uniquement sur les tourelle
     {
-        //FuturLine.Play();   
+           
     }
     
 

@@ -27991,5 +27991,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_ActionId
+      value: 61789059-fbc3-422f-8088-137fab853769
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_ActionName
+      value: Player/Invicible[/Keyboard/numpadEnter]
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1842995535}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invicible
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerHealthSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047568458364019016, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 790689bfad3176a4287e6ed61d7fcf9d, type: 3}

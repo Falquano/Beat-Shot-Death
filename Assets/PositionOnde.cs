@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.VFX;
-using UnityEditor.VFX;
-using UnityEditor.VFX.UI;
+
 
 public class PositionOnde : MonoBehaviour
 {

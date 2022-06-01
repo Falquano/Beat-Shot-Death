@@ -52,6 +52,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Invicible",
+                    "type": "Button",
+                    "id": "61789059-fbc3-422f-8088-137fab853769",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -259,7 +267,7 @@
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "",
                     "action": "Combo",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -283,6 +291,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5fcc1c17-c44a-4da4-83ad-04322970ca9b",
+                    "path": "<Keyboard>/numpadEnter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Invicible",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

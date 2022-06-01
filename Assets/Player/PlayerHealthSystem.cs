@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using static UnityEngine.InputSystem.InputAction;
 using FMOD.Studio;
 using FMODUnity;
 
@@ -84,6 +85,16 @@ public class PlayerHealthSystem : MonoBehaviour
 
         
 
+    }
+
+    public void Invicible(CallbackContext callBack)
+    {
+
+        if (callBack.performed)
+        {
+            PlayerIsInvincible = !PlayerIsInvincible;
+        }
+            
     }
 
     public void OnDied()

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.VFX;
-using UnityEditor.VFX;
-using UnityEditor.VFX.UI;
-using System.Collections;
+
+
+
 
 public class AimMesure : Mesure
 {
@@ -14,7 +14,7 @@ public class AimMesure : Mesure
 
     [SerializeField] public UnityEvent onAim;
     [SerializeField] public float distanceMaxWithPlayer;
-    //public VisualEffect FuturLine;
+
     [SerializeField] private LineRenderer viseuwrLasewr;
 
     [SerializeField] private float range = 100f;
@@ -73,8 +73,7 @@ public class AimMesure : Mesure
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
 
-        //VFX LineShoot nécessaire pour les tourelles
-        //Futur Line.Play();
+
     }
 
     private void OnDrawGizmosSelected()

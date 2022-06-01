@@ -232,13 +232,18 @@ public class ShootPlayer : MonoBehaviour
     }
 
 
-    public void OnComboIncrease()
+    public void OnComboIncrease(CallbackContext callBack)
     {
-        //Je ne sais pas pk mais �a augmente de plein 
-        combo = Mathf.Clamp(combo + 15, 0, maxCombo);
-        print(combo);
-        //On annonce au monde que le combo a chang�
-        onComboChange.Invoke(combo, maxCombo);
+        if (callBack.performed)
+        {
+            //Je ne sais pas pk mais �a augmente de plein 
+            combo = Mathf.Clamp(combo + 15, 0, maxCombo);
+            print(combo);
+            //On annonce au monde que le combo a chang�
+            onComboChange.Invoke(combo, maxCombo);
+        }
+
+            
     }
 
     public void Dash()
