@@ -690,7 +690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6066573306926851924}
   m_Layer: 6
-  m_Name: Gun Right
+  m_Name: SpawnPointRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1770,7 +1770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4556530571230113019}
   m_Layer: 6
-  m_Name: Gun Left
+  m_Name: spawnPointLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3636,6 +3636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  dieEmitter: {fileID: 616737567}
   onTakeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -3702,7 +3703,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 785891961}
+      - m_Target: {fileID: 616737567}
         m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
         m_MethodName: Play
         m_Mode: 1
@@ -3721,7 +3722,7 @@ MonoBehaviour:
   - {fileID: 7462270552646460797}
   - {fileID: 1952105521}
   invincible: 1
-  PlayerIsInvincible: 0
+  PlayerIsInvincible: 1
   GameOverScreen: {fileID: 0}
   HurtScreen: {fileID: 0}
   PlayerisDead: 0

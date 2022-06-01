@@ -154,7 +154,7 @@ public class ShootPlayer : MonoBehaviour
         if (callBack.performed)
         {
             ShotQuality qualityCheckShoot = tempoManager.ShotQualityNow();
-            print(qualityCheckShoot);
+
 
             //Si j'ai pas encore tirer dans le temps
             if (CheckShootisOk == true)
