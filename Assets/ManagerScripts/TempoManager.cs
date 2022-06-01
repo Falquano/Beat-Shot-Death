@@ -119,26 +119,7 @@ public class TempoManager : MonoBehaviour
 
     private float CalculMarginPerfect()
     {
-        if(Combo >= 0 && Combo < 1)
-        {
-            return (0.50f);
-        }
-        else if(Combo > 1 && Combo <= 10)
-        {
-            return (0.50f);
-        }
-        else if(Combo > 10 && Combo <= 30)
-        {
-            return (0.50f);
-        }
-        else if(Combo > 30 && Combo <= 60)
-        {
-            return (0.50f);
-        }
-        else
-        {
-            return (0.50f);
-        }
+        return (0.40f);
     }
 
     private void TimeToShoot()
@@ -155,16 +136,18 @@ public class TempoManager : MonoBehaviour
     {
         
 
-        if (/*Tempo >= objectiveShoot - marginPerfect || */Tempo < marginPerfect )
+        if (Tempo <= marginPerfect )
         {
-            //print(
+
             return ShotQuality.Perfect;
 
         }
-        //else if (Tempo >= objectiveShoot - marginOk)
-        //{
-        //    return ShotQuality.Good;
-        //}
+        else if (Tempo >= marginOk)
+        {
+            return ShotQuality.Good;
+        }
         return ShotQuality.Bad;
+
+        
     }
 }

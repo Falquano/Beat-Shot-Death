@@ -70,6 +70,7 @@ public class ShootPlayer : MonoBehaviour
     [SerializeField] private int ComboPunition = -5;
 
     public bool inTempo;
+    private bool ShotGood = false;
 
 
 
@@ -152,12 +153,25 @@ public class ShootPlayer : MonoBehaviour
         //si lorsque la fonction est appel�e, le bouton est appuy� donc Fire = 1
         if (callBack.performed)
         {
+            ShotQuality qualityCheckShoot = tempoManager.ShotQualityNow();
+            print(qualityCheckShoot);
+
+            //Si j'ai pas encore tirer dans le temps
             if (CheckShootisOk == true)
             {
                 Shoot();
+                
             }
-            else if (CheckShootisOk == false)
+            //Si j'ai pas encore tiré dans le temps mais que c'est un shoot en fin de beat
+            else if(CheckShootisOk == false && qualityCheckShoot == ShotQuality.Good)
             {
+                Shoot();
+                ShotGood = true;
+            }
+            //Si j'ai déjà tiré et que c'est pas un tir en fin de beat
+            else if (CheckShootisOk == false && qualityCheckShoot != ShotQuality.Good)
+            {
+                
                 combo = Mathf.Clamp(combo + ComboPunition, 0, maxCombo);
                 onComboChange.Invoke(combo, maxCombo);
             }
@@ -180,11 +194,11 @@ public class ShootPlayer : MonoBehaviour
 
     public void CheckPreviousShoot()
     {
-        //Cette fonction est appel� tout les 2 beats
+        //Cette fonction est appel� tout les beat
 
 
         //si checkshootisok est true au d�but de la mesure c'est qu'on a pas tir�
-        if (CheckShootisOk == true)
+        if (CheckShootisOk == true || ShotGood == true)
         {
             //Cette variable compte le nombre de mesure o� le joueur n'a pas tir�
             numberOfNonShoot += 1;
@@ -200,8 +214,21 @@ public class ShootPlayer : MonoBehaviour
 
         }
 
-        //On passe la var de check de tir � true pour que le joueur puisse tirer dans cette nouvelle mesure
-        CheckShootisOk = true;
+        //Si le joueur à tirer en fin de beat
+        if(ShotGood == true)
+        {
+            //On n'autorise pas le tir pour le prochain beat puisque celui-ci compte pour le suivant
+            ShotGood = false;
+            CheckShootisOk = false;
+        }
+        else
+        {
+            //On passe la var de check de tir � true pour que le joueur puisse tirer dans cette nouvelle mesure
+            CheckShootisOk = true;
+        }
+        
+
+
     }
 
 
@@ -256,8 +283,9 @@ public class ShootPlayer : MonoBehaviour
     public void Shoot()
     {
         int damage = 0;
-
+        
         ShotQuality quality = tempoManager.ShotQualityNow();
+
         if (logShots)
         {
             Debug.Log($"Shot triggered at {tempoManager.Tempo.ToString("F3")} => {quality}");
@@ -374,6 +402,13 @@ public class ShootPlayer : MonoBehaviour
                         break;
 
                     case ShotQuality.Good:
+                        damage = ComboDamageBonus(goodShotDamage);
+                        combo = Mathf.Clamp(combo + comboPerfectShotMod, 0, maxCombo);
+
+                        //Appel des ondes pour le bon tir
+                        ScriptOnde.OnPerfectShootOnde();
+
+                        quality = ShotQuality.Perfect;
                         break;
 
                     case ShotQuality.Perfect:

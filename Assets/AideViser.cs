@@ -38,7 +38,7 @@ public class AideViser : MonoBehaviour
             if (hitInfo.collider != null)
             {
                 HealthSystem HealthEnnemy = hitInfo.collider.gameObject.GetComponentInParent<HealthSystem>();
-                print(hitInfo.collider.gameObject.name);
+                //print(hitInfo.collider.gameObject.name);
                 if (HealthEnnemy.isDead == true)
                 {
                     ScriptShootPlayer.Target(null);
