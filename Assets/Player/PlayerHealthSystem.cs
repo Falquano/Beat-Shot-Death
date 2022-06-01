@@ -49,7 +49,8 @@ public class PlayerHealthSystem : MonoBehaviour
     }
     public void DealDamage(int amount)
     {
-        if (invincible || PlayerIsInvincible)
+
+        if (invincible || PlayerIsInvincible || health <= 0)
             return;
 
         if(PlayerisDead == false)
